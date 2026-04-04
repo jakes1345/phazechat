@@ -1,0 +1,1 @@
+{"groups":{"xatgroups":"xat gruplari","searchb":"Arama","featured":"\u00d6zellikli","popular":"Pop\u00fcler","supported":"Destekli","games":"Oyunlar","prev":"\u00d6nceki","next":"Sonraki"}}

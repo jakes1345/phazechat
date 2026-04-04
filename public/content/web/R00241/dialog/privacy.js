@@ -1,0 +1,48 @@
+(function () {
+  "use strict";
+
+  var templateSource = '<div class="modal fade" id="privacyContentModal" tabindex="-1" role="dialog" aria-labelledby="privacyContentModalTitle" aria-hidden="true">'
+    + '<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">'
+    + '<div class="modal-content">'
+    + '<div class="modal-header">'
+    + '<h5 class="modal-title" id="privacyContentModalTitle">'
+    + '<img class="mr-2" src="../src/img/navbar/terms.svg" alt="privacy">'
+    + '<span data-localize="web.privacypolicy">privacy policy</span>'
+    + '</h5>'
+    + '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+    + '</div>'
+    + '<div class="modal-body">'
+    + '<h6>1. Data We Collect</h6>'
+    + '<p>We collect information you provide directly, such as your username, email address, and any messages or content you post. We also collect technical data such as IP addresses, browser type, and device information.</p>'
+    + '<h6>2. Cookies</h6>'
+    + '<p>We use cookies to maintain your session, store your preferences, and improve service performance.</p>'
+    + '<ul>'
+    + '<li><strong>Necessary cookies</strong> &mdash; required for the service to function.</li>'
+    + '<li><strong>Performance cookies</strong> &mdash; used to measure and improve service performance.</li>'
+    + '<li><strong>Third-party content cookies</strong> &mdash; set when you open group tabs that load external content.</li>'
+    + '</ul>'
+    + '<h6>3. How We Use Your Data</h6>'
+    + '<p>Your data is used to provide and operate the chat service, authenticate your identity, prevent abuse, improve performance, and communicate service updates.</p>'
+    + '<h6>4. Third Parties</h6>'
+    + '<p>We do not sell your personal data to third parties. We may share data with service providers who assist us in operating the service, subject to confidentiality agreements.</p>'
+    + '<h6>5. Data Retention</h6>'
+    + '<p>We retain your account data for as long as your account is active, or as required by law.</p>'
+    + '<h6>6. Your Rights</h6>'
+    + '<p>Depending on your jurisdiction, you may have the right to access, correct, delete, or port your data, or to object to certain processing. Contact us to exercise these rights.</p>'
+    + '<h6>7. Security</h6>'
+    + '<p>We implement reasonable technical and organizational measures to protect your data. However, no internet transmission is completely secure.</p>'
+    + '<h6>8. Children\'s Privacy</h6>'
+    + '<p>The service is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>'
+    + '<h6>9. Changes to This Policy</h6>'
+    + '<p>We may update this privacy policy periodically. Continued use of the service after changes constitutes acceptance of the updated policy.</p>'
+    + '<h6>10. Contact</h6>'
+    + '<p>If you have questions about this privacy policy, please use the contact form on the site.</p>'
+    + '</div>'
+    + '<div class="modal-footer">'
+    + '<button type="button" class="btn btn-primary" data-dismiss="modal"><span data-localize="web.close">close</span></button>'
+    + '</div>'
+    + '</div></div></div>';
+
+  Handlebars.templates = Handlebars.templates || {};
+  Handlebars.templates["privacy.html"] = Handlebars.compile(templateSource);
+}());

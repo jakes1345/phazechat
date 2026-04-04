@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Box shadow -->
+  <ellipse cx="142" cy="286" rx="90" ry="10" fill="#5a3010" opacity="0.2"/>
+  <!-- Box lid -->
+  <rect x="52" y="100" width="180" height="30" rx="6" fill="#c0506a"/>
+  <rect x="44" y="108" width="196" height="24" rx="6" fill="#e06080"/>
+  <!-- Box body -->
+  <rect x="56" y="128" width="172" height="152" rx="6" fill="#a03858"/>
+  <!-- Box inner -->
+  <rect x="64" y="136" width="156" height="136" rx="4" fill="#fff0f4"/>
+  <!-- Ribbon vertical -->
+  <rect x="130" y="100" width="24" height="180" rx="0" fill="#ff8090" opacity="0.7"/>
+  <!-- Ribbon horizontal -->
+  <rect x="56" y="152" width="172" height="20" rx="0" fill="#ff8090" opacity="0.7"/>
+  <!-- Bow top loops -->
+  <ellipse cx="128" cy="108" rx="24" ry="16" fill="#ff4060" transform="rotate(-20 128 108)"/>
+  <ellipse cx="156" cy="108" rx="24" ry="16" fill="#e03050" transform="rotate(20 156 108)"/>
+  <!-- Bow center -->
+  <circle cx="142" cy="112" r="10" fill="#ff4060"/>
+  <!-- Chocolate pieces in box -->
+  <rect x="76" y="148" width="32" height="24" rx="4" fill="#6b3010"/>
+  <rect x="116" y="148" width="32" height="24" rx="4" fill="#7a3818"/>
+  <rect x="156" y="148" width="32" height="24" rx="4" fill="#6b3010"/>
+  <rect x="76" y="180" width="32" height="24" rx="4" fill="#7a3818"/>
+  <rect x="116" y="180" width="32" height="24" rx="4" fill="#6b3010"/>
+  <rect x="156" y="180" width="32" height="24" rx="4" fill="#7a3818"/>
+  <rect x="76" y="212" width="32" height="24" rx="4" fill="#6b3010"/>
+  <rect x="116" y="212" width="32" height="24" rx="4" fill="#7a3818"/>
+  <rect x="156" y="212" width="32" height="24" rx="4" fill="#6b3010"/>
+  <!-- Chocolate highlights -->
+  <rect x="78" y="150" width="14" height="4" rx="2" fill="#a06040" opacity="0.5"/>
+  <rect x="118" y="150" width="14" height="4" rx="2" fill="#a06040" opacity="0.5"/>
+  <rect x="158" y="150" width="14" height="4" rx="2" fill="#a06040" opacity="0.5"/>
+</svg>

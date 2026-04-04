@@ -1,0 +1,146 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.search">search</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.search">Search Groups</h1>
+
+  <form id="searchForm" class="mb-4" onsubmit="doSearch(); return false;">
+    <div class="input-group input-group-lg">
+      <input id="searchInput" type="text" class="form-control" placeholder="Search for a group..." autofocus>
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">
+          <img class="mr-2" src="/content/web/R00241/img/navbar/search.svg" width="19" alt="">search
+        </button>
+      </div>
+    </div>
+    <small class="form-text text-muted">Search by group name. You can also go directly to a group by typing its name in the URL (e.g., /Lobby).</small>
+  </form>
+
+  <div id="searchResults"></div>
+
+  <div id="quickLinks" class="mt-4">
+    <h3>Popular Groups</h3>
+    <div class="row" id="popularGroups">
+      <div class="col-12 text-center p-3">
+        <div class="spinner-border text-primary" role="status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function doSearch() {
+  var q = document.getElementById('searchInput').value.trim();
+  if (!q) return;
+
+  document.getElementById('searchResults').innerHTML = '<div class="text-center p-3"><div class="spinner-border text-primary" role="status"></div></div>';
+
+  fetch('/json/lists/1_en_featured.php')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var groups = data.filter(function(g) {
+      return g.g && g.g.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+    });
+
+    if (groups.length === 0) {
+      // Try direct navigation - if the name is valid, offer to go there
+      if (/^[a-zA-Z0-9_]{1,20}$/.test(q)) {
+        document.getElementById('searchResults').innerHTML =
+          '<div class="alert alert-info">No groups found matching "' + escapeHtml(q) + '". ' +
+          '<a href="/' + escapeHtml(q) + '" class="alert-link">Go to /' + escapeHtml(q) + '</a> (will be created automatically).</div>';
+      } else {
+        document.getElementById('searchResults').innerHTML =
+          '<div class="alert alert-info">No groups found matching "' + escapeHtml(q) + '".</div>';
+      }
+      return;
+    }
+
+    var html = '<h3>Search Results</h3><div class="row">';
+    groups.forEach(function(g) {
+      html += '<div class="col-md-4 col-lg-3 mb-3">' +
+        '<div class="card h-100">' +
+        '<div class="card-body text-center">' +
+        '<h5><a href="/' + escapeHtml(g.g) + '">' + escapeHtml(g.g) + '</a></h5>' +
+        (g.d ? '<p class="text-muted small">' + escapeHtml(g.d) + '</p>' : '') +
+        '<a href="/' + escapeHtml(g.g) + '" class="btn btn-sm btn-primary">Join</a>' +
+        '</div></div></div>';
+    });
+    html += '</div>';
+    document.getElementById('searchResults').innerHTML = html;
+  })
+  .catch(function() {
+    if (/^[a-zA-Z0-9_]{1,20}$/.test(q)) {
+      document.getElementById('searchResults').innerHTML =
+        '<div class="alert alert-info"><a href="/' + escapeHtml(q) + '" class="alert-link">Go to /' + escapeHtml(q) + '</a></div>';
+    }
+  });
+}
+
+// Load popular groups
+fetch('/json/promo.php')
+.then(function(r) { return r.json(); })
+.then(function(data) {
+  var html = '';
+  data.forEach(function(g) {
+    html += '<div class="col-md-4 col-lg-3 mb-3">' +
+      '<div class="card h-100">' +
+      '<div class="card-body text-center">' +
+      '<h5><a href="/' + escapeHtml(g.g) + '">' + escapeHtml(g.g) + '</a></h5>' +
+      (g.d ? '<p class="text-muted small">' + escapeHtml(g.d) + '</p>' : '') +
+      '<a href="/' + escapeHtml(g.g) + '" class="btn btn-sm btn-primary">Join</a>' +
+      '</div></div></div>';
+  });
+  document.getElementById('popularGroups').innerHTML = html || '<div class="col-12"><p>No groups available.</p></div>';
+})
+.catch(function() {
+  document.getElementById('popularGroups').innerHTML = '<div class="col-12"><p>Could not load groups.</p></div>';
+});
+
+// Pre-fill from URL param
+var params = new URLSearchParams(window.location.search);
+if (params.get('search')) {
+  document.getElementById('searchInput').value = params.get('search');
+  doSearch();
+}
+</script>

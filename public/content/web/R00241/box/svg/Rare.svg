@@ -1,0 +1,56 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<g id="_App_Icons_rarepower_0_Layer0_0_FILL">
+<path fill="#70BCC1" stroke="none" d="
+M 14.6 0
+L 8.55 7.25 20.7 7.25 14.6 0 Z"/>
+
+<path fill="#D1DCE1" stroke="none" d="
+M 3.6 0
+L 8.55 7.25 14.6 0 3.6 0 Z"/>
+
+<path fill="#8CB8C0" stroke="none" d="
+M 8.1 7.75
+L 8.55 7.25 0 7.25 13.1 31.15 8.1 7.75 Z"/>
+
+<path fill="#79A6AF" stroke="none" d="
+M 3.6 0
+L 0 7.25 8.55 7.25 3.6 0 Z"/>
+
+<path fill="#4E8F98" stroke="none" d="
+M 21.1 7.75
+L 20.7 7.25 8.55 7.25 8.1 7.75 13.1 31.15 14.5 33.75 16 31.05 21.1 7.75 Z"/>
+
+<path fill="#5068A3" stroke="none" d="
+M 29.2 7.25
+L 20.7 7.25 21.1 7.75 16 31.05 29.2 7.25
+M 25.6 0
+L 20.7 7.25 29.2 7.25 25.6 0 Z"/>
+
+<path fill="#4C7DA0" stroke="none" d="
+M 20.7 7.25
+L 25.6 0 14.6 0 20.7 7.25 Z"/>
+</g>
+
+<path id="_App_Icons_rarepower_0_Layer0_0_1_STROKES" stroke="#000000" stroke-opacity="0.45098039215686275" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 25.6 0
+L 20.7 7.25 29.2 7.25 25.6 0 14.6 0 20.7 7.25 21.1 7.75 16 31.05 29.2 7.25
+M 0 7.25
+L 3.6 0 14.6 0 8.55 7.25 20.7 7.25
+M 8.55 7.25
+L 8.1 7.75 13.1 31.15 14.5 33.75 16 31.05
+M 0 7.25
+L 8.55 7.25 3.6 0
+M 13.1 31.15
+L 0 7.25"/>
+</defs>
+
+<g transform="matrix( 0.8801422119140625, 0, 0, 0.8801422119140625, 7.5,6.2) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_App_Icons_rarepower_0_Layer0_0_FILL"/>
+
+<use xlink:href="#_App_Icons_rarepower_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</svg>

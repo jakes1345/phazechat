@@ -1,0 +1,58 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<radialGradient id="Gradient_1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="10.6875" fx="0" fy="0" gradientTransform="matrix( 1, 0, 0, 1.0023391812865496, 7.7,7.25) " spreadMethod="pad">
+<stop  offset="0%" stop-color="#FFFFFF"/>
+
+<stop  offset="100%" stop-color="#FE007D"/>
+</radialGradient>
+
+<g id="_Extra_News_0_Layer1_0_FILL">
+<path fill="url(#Gradient_1)" stroke="none" d="
+M 19.95 10.7
+L 17.5 8.6 18.85 5.75 15.85 5.15 15.45 1.75 12.55 2.8 10.65 0.05 10.55 0 8.5 2.4 5.65 1.1 5 4.1 1.65 4.45 2.7 7.4 0 9.25 2.45 11.35 1.1 14.2 4.1 14.8 4.5 18.2 7.4 17.15 9.3 19.9 9.4 20 11.45 17.55 14.3 18.85 14.95 15.85 18.3 15.5 17.25 12.55 19.95 10.7 Z"/>
+</g>
+
+<font horiz-adv-x="2048">
+<!--  Font Name: _sans
+Vendor ID: pyrs
+© 1990-2006 Apple Computer Inc. © 1981 Linotype AG © 1990-91 Type Solutions Inc.
+URL for more Information: http://www.adobe.com/go/font_vendor_id?ID=pyrs&Name=_sans&PSName=_sans&applanguage=en_US-->
+<font-face font-family="_sans_Regular" units-per-em="2048" ascent="1577" descent="471"/>
+
+<glyph unicode="N" horiz-adv-x="1479" d="
+M 156 0
+L 346 0 346 1185 1089 0 1313 0 1313 1469 1123 1469 1123 282 390 1469 156 1469 156 0 Z"/>
+
+<glyph unicode="E" horiz-adv-x="1366" d="
+M 175 0
+L 1256 0 1256 175 369 175 369 673 1175 673 1175 843 369 843 369 1289 1241 1289 1241 1469 175 1469 175 0 Z"/>
+
+<glyph unicode="W" horiz-adv-x="1933" d="
+M 38 1469
+L 422 0 631 0 972 1218 1311 0 1520 0 1906 1469 1687 1469 1410 273 1078 1469 863 1469 530 276 254 1469 38 1469 Z"/>
+
+<glyph unicode="!" horiz-adv-x="569" d="
+M 237 0
+L 436 0 436 208 237 208 237 0 Z
+M 237 986
+L 289 350 391 350 440 986 440 1469 237 1469 237 986 Z"/>
+</font>
+</defs>
+
+<g transform="matrix( 1.699462890625, 0, 0, 1.699462890625, 19.25,20.1) ">
+<g transform="matrix( 1, 0, 0, 1, -9.5,-10.35) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_Extra_News_0_Layer1_0_FILL"/>
+</g>
+
+<g transform="matrix( 0.2060394287109375, 0, 0, 0.2064208984375, 2.8,7.15) ">
+<clipPath id="Mask_Mask_1">
+<rect x="-2" y="-2" width="88.3" height="34.45" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_1)" writing-mode="lr"><tspan x="0" y="24.25" baseline-shift="0%" kerning="0" font-family="_sans_Regular" font-size="27" fill="#000000" xml:space="preserve">NEW!</tspan></text>
+</g>
+</g>
+</g>
+</svg>

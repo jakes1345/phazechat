@@ -1,0 +1,205 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.groups">groups</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.groups">My Groups</h1>
+
+  <div id="notLoggedInChats" class="alert alert-warning">
+    <a href="/login">Log in</a> to manage your groups.
+  </div>
+
+  <div id="chatsPanel" class="d-none">
+    <!-- Create Group -->
+    <div id="creategroup" class="card mb-4">
+      <div class="card-header">
+        <h4><img class="mr-2" src="/content/web/R00241/img/navbar/community.svg" width="24" alt="">Create a Group</h4>
+      </div>
+      <div class="card-body">
+        <div id="createerr" class="alert alert-danger d-none" role="alert"></div>
+        <div id="createsuccess" class="alert alert-success d-none" role="alert"></div>
+        <form id="createForm" onsubmit="createGroup(); return false;">
+          <div class="form-group">
+            <label for="groupNameInput">Group Name:</label>
+            <input type="text" class="form-control" id="groupNameInput" placeholder="MyGroup" required pattern="[a-zA-Z0-9_]+" minlength="1" maxlength="20">
+            <small class="form-text text-muted">Letters, numbers, and underscores. 1-20 characters.</small>
+          </div>
+          <div class="form-group">
+            <label for="groupTitle">Description (optional):</label>
+            <input type="text" class="form-control" id="groupTitle" placeholder="A cool chat group" maxlength="100">
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <img class="mr-2 pb-1" src="/content/web/R00241/img/navbar/community.svg" width="19" alt="">
+            Create Group
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- My Groups List -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h4>My Groups</h4>
+      </div>
+      <div class="card-body">
+        <div id="myGroupsList">
+          <p class="text-muted">Loading...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Groups -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h4>All Groups</h4>
+    </div>
+    <div class="card-body">
+      <div id="allGroupsList" class="row">
+        <div class="col-12 text-center p-3">
+          <div class="spinner-border text-primary" role="status"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function createGroup() {
+  var name = document.getElementById('groupNameInput').value.trim();
+  var title = document.getElementById('groupTitle').value.trim();
+  if (!name) return;
+
+  document.getElementById('createerr').classList.add('d-none');
+  document.getElementById('createsuccess').classList.add('d-none');
+
+  // Creating a group is as simple as navigating to it (auto-creation)
+  fetch('/web_gear/chat/roomid.php?d=' + encodeURIComponent(name))
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data && data.id) {
+      var el = document.getElementById('createsuccess');
+      el.innerHTML = 'Group <strong>' + escapeHtml(name) + '</strong> created! <a href="/' + escapeHtml(name) + '">Go to group</a>';
+      el.classList.remove('d-none');
+      loadAllGroups();
+    } else {
+      document.getElementById('createerr').textContent = 'Failed to create group.';
+      document.getElementById('createerr').classList.remove('d-none');
+    }
+  })
+  .catch(function(err) {
+    document.getElementById('createerr').textContent = 'Error: ' + err.message;
+    document.getElementById('createerr').classList.remove('d-none');
+  });
+}
+
+function loadAllGroups() {
+  fetch('/json/lists/1_en_featured.php')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var groups = data.filter(function(g) { return g.g; });
+    if (!groups.length) {
+      document.getElementById('allGroupsList').innerHTML = '<div class="col-12"><p class="text-muted">No groups yet. Create one!</p></div>';
+      return;
+    }
+    var html = '';
+    groups.forEach(function(g) {
+      html += '<div class="col-md-4 col-lg-3 mb-3">' +
+        '<div class="card h-100">' +
+        '<div class="card-body text-center">' +
+        '<h5><a href="/' + escapeHtml(g.g) + '">' + escapeHtml(g.g) + '</a></h5>' +
+        (g.d ? '<p class="text-muted small">' + escapeHtml(g.d) + '</p>' : '') +
+        '<a href="/' + escapeHtml(g.g) + '" class="btn btn-sm btn-primary">Join</a>' +
+        '</div></div></div>';
+    });
+    document.getElementById('allGroupsList').innerHTML = html;
+  })
+  .catch(function() {
+    document.getElementById('allGroupsList').innerHTML = '<div class="col-12"><p>Could not load groups.</p></div>';
+  });
+}
+
+// Check login
+var token = localStorage.getItem('xat_token');
+if (token) {
+  fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.user) {
+      document.getElementById('notLoggedInChats').classList.add('d-none');
+      document.getElementById('chatsPanel').classList.remove('d-none');
+      // Load user's owned/managed groups
+      fetch('/api/groups/mine', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(gdata) {
+        var owned = (gdata.owned || []).concat(gdata.managed || []);
+        if (owned.length === 0) {
+          document.getElementById('myGroupsList').innerHTML = '<p class="text-muted">You don\'t own any groups yet. <a href="#!creategroup">Create one!</a></p>';
+        } else {
+          var html = '<div class="row">';
+          owned.forEach(function(g) {
+            html += '<div class="col-md-4 col-sm-6 mb-3"><div class="card bg-dark border-secondary"><div class="card-body">';
+            html += '<h5 class="card-title"><a href="/' + (g.name || g.room_id || g.id) + '" class="text-white">' + (g.name || g.room_id || g.id) + '</a></h5>';
+            html += '<p class="card-text text-muted small">' + (g.title || g.description || '') + '</p>';
+            html += '<a href="/gcontrol?id=' + (g.id || g.room_id) + '" class="btn btn-sm btn-outline-info">Manage</a>';
+            html += '</div></div></div>';
+          });
+          html += '</div>';
+          document.getElementById('myGroupsList').innerHTML = html;
+        }
+      })
+      .catch(function() {
+        document.getElementById('myGroupsList').innerHTML = '<p class="text-muted">Could not load your groups.</p>';
+      });
+    }
+  });
+}
+
+loadAllGroups();
+
+// Handle hash for creategroup
+if (window.location.hash === '#!creategroup') {
+  var el = document.getElementById('creategroup');
+  if (el) setTimeout(function() { el.scrollIntoView(); }, 300);
+}
+</script>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Shadow -->
+  <ellipse cx="142" cy="285" rx="60" ry="8" fill="#888" opacity="0.2"/>
+  <!-- Ring band -->
+  <path d="M82,188 A60,24 0 0,0 202,188 L198,240 A60,24 0 0,1 86,240 Z" fill="#e8c840"/>
+  <path d="M82,188 A60,24 0 1,0 202,188 A60,24 0 1,1 82,188 Z" fill="#f0d850"/>
+  <!-- Ring band inner shadow -->
+  <path d="M96,188 A46,18 0 1,0 188,188 A46,18 0 1,1 96,188 Z" fill="#c8a820"/>
+  <!-- Ring shine -->
+  <path d="M82,188 A60,24 0 0,0 142,212 A60,24 0 0,0 202,188" fill="#f8e870" opacity="0.5"/>
+  <!-- Diamond setting prongs -->
+  <rect x="128" y="108" width="28" height="14" rx="3" fill="#e8c840"/>
+  <!-- Diamond -->
+  <polygon points="142,72 168,110 142,138 116,110" fill="#a0d0ff"/>
+  <polygon points="142,72 168,110 142,110" fill="#c0e8ff"/>
+  <polygon points="142,72 116,110 142,110" fill="#80b8f0"/>
+  <polygon points="116,110 142,110 142,138" fill="#5090d0"/>
+  <polygon points="168,110 142,110 142,138" fill="#70a8e8"/>
+  <!-- Diamond shine -->
+  <polygon points="128,82 120,104 136,104" fill="white" opacity="0.45"/>
+  <circle cx="155" cy="90" r="5" fill="white" opacity="0.35"/>
+  <!-- Band highlight line -->
+  <path d="M88,200 Q142,216 196,200" stroke="#f8e870" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+</svg>

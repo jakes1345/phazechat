@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apps | xat</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 15px;
+      padding: 10px 0 6px;
+      color: #a0c4ff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 12px;
+    }
+    .app-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #16213e;
+      border: 1px solid #2a2a5e;
+      border-radius: 8px;
+      padding: 12px 6px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      text-align: center;
+      color: #e0e0e0;
+      text-decoration: none;
+      user-select: none;
+    }
+    .app-btn:hover {
+      background: #0f3460;
+      border-color: #4a6fa5;
+    }
+    .app-btn:active {
+      background: #0a2040;
+    }
+    .app-icon {
+      font-size: 26px;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .app-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: #c0d8ff;
+    }
+    .section-label {
+      font-size: 10px;
+      color: #7080a0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 8px 12px 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Apps</h1>
+
+  <div class="section-label">Tools</div>
+  <div class="grid">
+    <div class="app-btn" onclick="launch('trade')">
+      <div class="app-icon">&#x1F4B1;</div>
+      <div class="app-label">Trade</div>
+    </div>
+    <div class="app-btn" onclick="launch('media')">
+      <div class="app-icon">&#x25B6;&#xFE0F;</div>
+      <div class="app-label">Media</div>
+    </div>
+    <div class="app-btn" onclick="launch('xavi')">
+      <div class="app-icon">&#x1F916;</div>
+      <div class="app-label">Xavi</div>
+    </div>
+  </div>
+
+  <div class="section-label">Games</div>
+  <div class="grid">
+    <div class="app-btn" onclick="launch('doodle2')">
+      <div class="app-icon">&#x1F58C;&#xFE0F;</div>
+      <div class="app-label">Doodle</div>
+    </div>
+    <div class="app-btn" onclick="launch('snakerace')">
+      <div class="app-icon">&#x1F40D;</div>
+      <div class="app-label">Snake Race</div>
+    </div>
+    <div class="app-btn" onclick="launch('pawns')">
+      <div class="app-icon">&#x265F;&#xFE0F;</div>
+      <div class="app-label">Pawns</div>
+    </div>
+    <div class="app-btn" onclick="launch('grid')">
+      <div class="app-icon">&#x1F7E6;</div>
+      <div class="app-label">Grid</div>
+    </div>
+  </div>
+
+  <script>
+    function launch(appName) {
+      try {
+        if (parent && parent.startSide) {
+          parent.startSide(appName);
+        } else {
+          parent.postMessage(JSON.stringify({ action: 'startSide', app: appName }), '*');
+        }
+      } catch (e) {
+        parent.postMessage(JSON.stringify({ action: 'startSide', app: appName }), '*');
+      }
+    }
+  </script>
+</body>
+</html>

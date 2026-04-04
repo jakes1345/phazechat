@@ -1,0 +1,20 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<path id="_Command_Icons_delfriend_0_Layer0_0_1_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 13.575 19.5
+Q 13.6533203125 20.185546875 13.7 20.9 13.75 22.4 6.9 22.25 0.05 22.15 0 20.75 -0.1 16.15 2.25 12.75 4.35 9.7 6.55 9.45 4.65 9.45 3.35 8.05 2 6.65 2 4.75 2 2.8 3.35 1.4 4.65 0 6.55 0 8.45 0 9.75 1.4 11.1 2.8 11.1 4.75 11.1 6.65 9.75 8.05 8.55 9.35 6.95 9.45 9.2345703125 9.45 11.125 12.45
+M 4.3 4.8
+Q 4.55 3 6.05 2.2
+M 7.65 14.5
+L 17.75 14.5 17.75 17.35 7.65 17.35 7.65 14.5 Z
+M 2.95 20
+Q 3.35 14.15 6.55 12"/>
+</defs>
+
+<g transform="matrix( 1, 0, 0, 1, 12,9) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_Command_Icons_delfriend_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</svg>

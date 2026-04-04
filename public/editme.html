@@ -1,0 +1,1157 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.editme">edit profile</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<style>
+  .em-wrap { padding-top: 65px; }
+
+  /* ---- Auth bar ---- */
+  .em-authbar {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .em-authbar.logged-in { background: #d4edda; border-color: #c3e6cb; }
+  .em-authbar.logged-out { background: #fff3cd; border-color: #ffc107; }
+  .em-authbar .auth-info { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; flex: 1; }
+  .em-authbar .auth-chip { background: rgba(0,0,0,.06); border-radius: 20px; padding: 3px 10px; font-size: 13px; }
+  .em-authbar .auth-chip strong { color: #0062cc; }
+
+  /* ---- Tabs ---- */
+  .em-tabs { display: flex; flex-wrap: wrap; border-bottom: 2px solid #dee2e6; margin-bottom: 22px; gap: 2px; }
+  .em-tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 14px; cursor: pointer;
+    border: 1px solid transparent; border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    font-size: 13px; color: #555; background: #f8f9fa;
+    transition: all .15s; white-space: nowrap; user-select: none;
+  }
+  .em-tab:hover { background: #e9ecef; color: #333; }
+  .em-tab.active {
+    background: #fff; color: #007bff;
+    border-color: #dee2e6; margin-bottom: -2px;
+    border-bottom: 2px solid #fff; font-weight: 600;
+  }
+  .em-tab .tab-icon { font-size: 15px; }
+  .em-panel { display: none; }
+  .em-panel.active { display: block; }
+
+  /* ---- Section headers ---- */
+  .em-section-title {
+    font-size: 16px; font-weight: 600; color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 6px; margin-bottom: 18px;
+    display: inline-block;
+  }
+
+  /* ---- Power badge ---- */
+  .power-req {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    padding: 1px 6px; border-radius: 3px;
+    background: #6f42c1; color: #fff;
+    vertical-align: middle; margin-left: 5px;
+  }
+
+  /* ---- Color picker row ---- */
+  .color-row { display: flex; align-items: center; gap: 8px; }
+  .color-row input[type=color] {
+    width: 36px; height: 36px; padding: 2px; border: 1px solid #ccc;
+    border-radius: 4px; cursor: pointer; background: #fff;
+  }
+  .color-row input[type=text] { max-width: 110px; }
+  .color-swatch {
+    width: 24px; height: 24px; border-radius: 4px;
+    border: 1px solid #ccc; flex-shrink: 0;
+  }
+
+  /* ---- Name preview ---- */
+  .name-preview-box {
+    background: #1a1a2e; border-radius: 8px;
+    padding: 18px 22px; margin-top: 10px;
+  }
+  .name-preview-label { font-size: 11px; color: #888; margin-bottom: 8px; }
+  #namePreviewText {
+    font-size: 18px; font-weight: 700; font-family: sans-serif;
+    display: inline-block; padding: 2px 0;
+    transition: all .2s;
+  }
+
+  /* ---- Pawn selector ---- */
+  .pawn-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .pawn-opt {
+    width: 52px; height: 52px; border-radius: 50%;
+    cursor: pointer; border: 3px solid transparent;
+    transition: border-color .15s, transform .1s;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #fff; font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
+    flex-shrink: 0;
+  }
+  .pawn-opt:hover { transform: scale(1.08); }
+  .pawn-opt.selected { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0,123,255,.4); }
+  .pawn-preview-wrap {
+    display: flex; align-items: center; gap: 14px;
+    background: #f8f9fa; border-radius: 8px; padding: 14px;
+    margin-top: 10px;
+  }
+  #pawnPreviewCircle {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #007bff; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: #fff; font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    transition: background .2s;
+  }
+  .pawn-preview-name { font-size: 14px; font-weight: 600; color: #333; }
+  .pawn-preview-sub { font-size: 12px; color: #888; }
+
+  /* ---- Avatar section ---- */
+  .avatar-preview-wrap {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: #f8f9fa; border-radius: 8px; padding: 14px;
+    margin-top: 8px;
+  }
+  #avatarPreviewImg {
+    width: 80px; height: 80px; border-radius: 10px;
+    border: 2px solid #dee2e6; object-fit: cover;
+    background: #eee; flex-shrink: 0;
+  }
+  .avatar-preview-info { font-size: 13px; color: #555; }
+
+  /* ---- PCBack section ---- */
+  .pcback-preview {
+    width: 100%; height: 140px; border-radius: 8px;
+    border: 1px solid #dee2e6; margin-top: 8px;
+    background: #eee center/cover no-repeat;
+    display: flex; align-items: center; justify-content: center;
+    color: #999; font-size: 13px; transition: background .2s;
+    overflow: hidden; position: relative;
+  }
+  .pcback-preview-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,.35); color: #fff; font-size: 12px;
+    border-radius: 8px;
+  }
+
+  /* ---- Live chat preview ---- */
+  .live-preview-wrap {
+    background: #1c1c2e; border-radius: 10px;
+    padding: 16px; margin-top: 6px;
+    min-height: 160px;
+  }
+  .lp-msg {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;
+  }
+  #lpAvatar {
+    width: 42px; height: 42px; border-radius: 8px;
+    border: 2px solid #444; object-fit: cover;
+    background: #333; flex-shrink: 0; font-size: 20px;
+    display: flex; align-items: center; justify-content: center; color: #888;
+    transition: background .2s;
+  }
+  .lp-bubble { flex: 1; }
+  #lpName {
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 3px; display: block;
+  }
+  #lpStatus { font-size: 11px; color: #9a9ab3; margin-bottom: 4px; display: block; }
+  .lp-text {
+    background: #2a2a42; color: #ddd; font-size: 13px;
+    padding: 7px 12px; border-radius: 0 8px 8px 8px; display: inline-block;
+  }
+  #lpPawnDot {
+    width: 14px; height: 14px; border-radius: 50%;
+    display: inline-block; margin-right: 5px; vertical-align: middle;
+    background: #007bff; transition: background .2s;
+  }
+
+  /* ---- StatusFx badges ---- */
+  .sfx-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .sfx-opt {
+    padding: 6px 14px; border-radius: 20px; border: 2px solid #dee2e6;
+    cursor: pointer; font-size: 12px; font-weight: 600; background: #fff;
+    transition: all .15s; color: #555;
+  }
+  .sfx-opt:hover { border-color: #aaa; }
+  .sfx-opt.selected { border-color: #007bff; background: #007bff; color: #fff; }
+  .sfx-none { background: #f8f9fa; }
+
+  /* ---- Hat grid ---- */
+  .hat-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .hat-opt {
+    padding: 5px 12px; border-radius: 6px; border: 2px solid #dee2e6;
+    cursor: pointer; font-size: 12px; background: #fff; transition: all .15s; color: #555;
+  }
+  .hat-opt:hover { border-color: #aaa; }
+  .hat-opt.selected { border-color: #28a745; background: #28a745; color: #fff; }
+
+  /* ---- Alert ---- */
+  #emAlert { position: fixed; top: 68px; left: 50%; transform: translateX(-50%); z-index: 9999; min-width: 320px; max-width: 500px; }
+
+  /* ---- Save button area ---- */
+  .save-bar {
+    background: #fff; border-top: 1px solid #dee2e6;
+    padding: 16px 0; margin-top: 10px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  #saveBtn { min-width: 130px; }
+
+  /* ---- Gradient preview bar ---- */
+  #gradPreviewBar {
+    height: 14px; border-radius: 4px; margin-top: 8px;
+    background: linear-gradient(to right, #000, #fff);
+    transition: background .2s;
+  }
+
+  @media (max-width: 576px) {
+    .em-tab { font-size: 12px; padding: 7px 10px; }
+    .name-preview-box { padding: 12px; }
+  }
+</style>
+
+<div class="container em-wrap">
+
+  <!-- Alert toast -->
+  <div id="emAlert" class="alert d-none" role="alert"></div>
+
+  <!-- Auth bar -->
+  <div id="authBar" class="em-authbar logged-out">
+    <div class="auth-info" id="authInfo">
+      <span style="color:#856404; font-size:13px;">
+        You are not logged in. <a href="/login">Log in</a> to edit your profile.
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- LEFT: Form columns -->
+    <div class="col-lg-8">
+
+      <!-- Tabs -->
+      <div class="em-tabs" id="emTabs">
+        <div class="em-tab active" data-tab="basic" onclick="switchTab('basic')">
+          <span class="tab-icon">&#128100;</span> basic info
+        </div>
+        <div class="em-tab" data-tab="nameeffects" onclick="switchTab('nameeffects')">
+          <span class="tab-icon">&#127775;</span> name effects
+        </div>
+        <div class="em-tab" data-tab="pawn" onclick="switchTab('pawn')">
+          <span class="tab-icon">&#9679;</span> pawn
+        </div>
+        <div class="em-tab" data-tab="pcback" onclick="switchTab('pcback')">
+          <span class="tab-icon">&#128444;</span> pc background
+        </div>
+        <div class="em-tab" data-tab="statusfx" onclick="switchTab('statusfx')">
+          <span class="tab-icon">&#10024;</span> status effects
+        </div>
+      </div>
+
+      <!-- ===== TAB: BASIC INFO ===== -->
+      <div id="tab-basic" class="em-panel active">
+        <span class="em-section-title">Basic Info</span>
+
+        <!-- Avatar -->
+        <div class="form-group">
+          <label>Avatar <small class="text-muted">(smiley code or image URL)</small></label>
+          <input type="text" id="inAvatar" class="form-control"
+            placeholder='(smile#) or https://example.com/avatar.png'
+            oninput="onAvatarChange(this.value)">
+          <small class="text-muted">Use a xat smiley code like <code>(hug#)</code> or a direct image URL.</small>
+          <div class="avatar-preview-wrap mt-2" id="avatarPreviewWrap">
+            <img id="avatarPreviewImg" src="/content/web/R00241/img/xatplanet.svg" alt="avatar preview">
+            <div class="avatar-preview-info">
+              <div><strong>Avatar preview</strong></div>
+              <div id="avatarPreviewDesc" class="mt-1" style="font-size:12px; color:#888;">Enter a URL or smiley code above</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Homepage -->
+        <div class="form-group">
+          <label>Homepage URL</label>
+          <input type="url" id="inHomepage" class="form-control"
+            placeholder="https://yourwebsite.com">
+          <small class="text-muted">Optional. A link shown on your public profile.</small>
+        </div>
+
+        <!-- Status message -->
+        <div class="form-group">
+          <label>Status Message</label>
+          <div class="input-group">
+            <input type="text" id="inStatus" class="form-control"
+              maxlength="100" placeholder="What's on your mind?"
+              oninput="onStatusChange(this.value)">
+            <div class="input-group-append">
+              <span class="input-group-text" id="statusCountBadge">0 / 100</span>
+            </div>
+          </div>
+          <small class="text-muted">Up to 100 characters. Shown on your profile.</small>
+        </div>
+      </div>
+
+      <!-- ===== TAB: NAME EFFECTS ===== -->
+      <div id="tab-nameeffects" class="em-panel">
+        <span class="em-section-title">Name Effects</span>
+
+        <!-- Name Color -->
+        <div class="form-group">
+          <label>
+            Name Color
+            <span class="power-req">Namecolor</span>
+          </label>
+          <div class="color-row">
+            <input type="color" id="cpNamecolor" value="#ffffff" oninput="syncColor('namecolor', this.value)">
+            <input type="text" id="txNamecolor" class="form-control form-control-sm" value="#ffffff"
+              maxlength="7" placeholder="#RRGGBB" oninput="syncColorText('namecolor', this.value)">
+            <div class="color-swatch" id="swNamecolor" style="background:#ffffff;"></div>
+            <button class="btn btn-outline-secondary btn-sm" onclick="clearColor('namecolor')">clear</button>
+          </div>
+          <small class="text-muted">Sets the color of your display name.</small>
+        </div>
+
+        <!-- Name Glow -->
+        <div class="form-group">
+          <label>
+            Name Glow
+            <span class="power-req">Nameglow</span>
+          </label>
+          <div class="color-row">
+            <input type="color" id="cpNameglow" value="#ffff00" oninput="syncColor('nameglow', this.value)">
+            <input type="text" id="txNameglow" class="form-control form-control-sm" value=""
+              maxlength="7" placeholder="#RRGGBB" oninput="syncColorText('nameglow', this.value)">
+            <div class="color-swatch" id="swNameglow" style="background:transparent; border-style:dashed;"></div>
+            <button class="btn btn-outline-secondary btn-sm" onclick="clearColor('nameglow')">clear</button>
+          </div>
+          <small class="text-muted">Adds a glow/shadow behind your name.</small>
+        </div>
+
+        <!-- Name Gradient -->
+        <div class="form-group">
+          <label>
+            Name Gradient
+            <span class="power-req">Namegrad</span>
+          </label>
+          <div class="row">
+            <div class="col-6">
+              <small class="text-muted d-block mb-1">Start color</small>
+              <div class="color-row">
+                <input type="color" id="cpGradStart" value="#ff0000" oninput="syncColor('gradstart', this.value)">
+                <input type="text" id="txGradStart" class="form-control form-control-sm" value=""
+                  maxlength="7" placeholder="#RRGGBB" oninput="syncColorText('gradstart', this.value)">
+              </div>
+            </div>
+            <div class="col-6">
+              <small class="text-muted d-block mb-1">End color</small>
+              <div class="color-row">
+                <input type="color" id="cpGradEnd" value="#0000ff" oninput="syncColor('gradend', this.value)">
+                <input type="text" id="txGradEnd" class="form-control form-control-sm" value=""
+                  maxlength="7" placeholder="#RRGGBB" oninput="syncColorText('gradend', this.value)">
+              </div>
+            </div>
+          </div>
+          <div id="gradPreviewBar" style="height:14px; border-radius:4px; margin-top:10px; background: linear-gradient(to right, #ff0000, #0000ff);"></div>
+          <small class="text-muted">Gradient applied left-to-right across your name.</small>
+        </div>
+
+        <!-- Bold -->
+        <div class="form-group">
+          <label>
+            Text Style
+            <span class="power-req">Nameflag</span>
+          </label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="togBold" onchange="updateNamePreview()">
+            <label class="custom-control-label" for="togBold">Bold name</label>
+          </div>
+        </div>
+
+        <!-- Name Preview -->
+        <div class="name-preview-box">
+          <div class="name-preview-label">live name preview</div>
+          <span id="namePreviewText">YourName</span>
+        </div>
+        <small class="text-muted d-block mt-1">Preview may vary; actual rendering depends on which powers are active.</small>
+      </div>
+
+      <!-- ===== TAB: PAWN ===== -->
+      <div id="tab-pawn" class="em-panel">
+        <span class="em-section-title">Pawn</span>
+
+        <div class="form-group">
+          <label>Choose Pawn Style</label>
+          <div class="pawn-grid" id="pawnGrid">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Custom Pawn Code <small class="text-muted">(overrides selection above)</small></label>
+          <input type="text" id="inPawn" class="form-control"
+            maxlength="100" placeholder="e.g. hat#HAT_ID or pawns code"
+            oninput="onPawnCodeChange(this.value)">
+          <small class="text-muted">Enter a raw pawn code for advanced customization.</small>
+        </div>
+
+        <div class="pawn-preview-wrap">
+          <div id="pawnPreviewCircle"></div>
+          <div>
+            <div class="pawn-preview-name" id="pawnPreviewName">Default</div>
+            <div class="pawn-preview-sub" id="pawnPreviewSub">No custom code</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TAB: PC BACKGROUND ===== -->
+      <div id="tab-pcback" class="em-panel">
+        <span class="em-section-title">Private Chat Background (PCBack)</span>
+
+        <div class="form-group">
+          <label>Background Image URL</label>
+          <input type="url" id="inPcbackUrl" class="form-control"
+            placeholder="https://example.com/background.jpg"
+            oninput="onPcbackChange()">
+          <small class="text-muted">Image shown as background in private chats with you.</small>
+        </div>
+
+        <div class="form-group">
+          <label>Background Color</label>
+          <div class="color-row">
+            <input type="color" id="cpPcback" value="#1a1a2e" oninput="syncColor('pcback', this.value)">
+            <input type="text" id="txPcback" class="form-control form-control-sm" value="#1a1a2e"
+              maxlength="7" placeholder="#RRGGBB" oninput="syncColorText('pcback', this.value)">
+            <div class="color-swatch" id="swPcback" style="background:#1a1a2e;"></div>
+            <button class="btn btn-outline-secondary btn-sm" onclick="clearColor('pcback')">clear</button>
+          </div>
+          <small class="text-muted">Used when no image is set, or as background tint.</small>
+        </div>
+
+        <div class="pcback-preview" id="pcbackPreview">
+          <div class="pcback-preview-overlay" id="pcbackOverlay">no background set</div>
+        </div>
+        <small class="text-muted d-block mt-1">Preview of how your private chat background will look.</small>
+      </div>
+
+      <!-- ===== TAB: STATUS EFFECTS ===== -->
+      <div id="tab-statusfx" class="em-panel">
+        <span class="em-section-title">Status Effects</span>
+
+        <!-- StatusFx -->
+        <div class="form-group">
+          <label>Name Animation (StatusFx)</label>
+          <div class="sfx-grid" id="sfxGrid">
+            <!-- populated by JS -->
+          </div>
+          <small class="text-muted">Applied as an animation effect on your name in chat.</small>
+        </div>
+
+        <!-- Hat -->
+        <div class="form-group">
+          <label>Hat</label>
+          <div class="hat-grid" id="hatGrid">
+            <!-- populated by JS -->
+          </div>
+          <small class="text-muted">Decorative hat displayed above your avatar.</small>
+        </div>
+
+        <!-- Badge -->
+        <div class="form-group">
+          <label>Badge Code</label>
+          <input type="text" id="inBadge" class="form-control"
+            maxlength="60" placeholder="e.g. badge code from xat">
+          <small class="text-muted">Enter your custom badge identifier.</small>
+        </div>
+      </div>
+
+    </div><!-- /col-lg-8 -->
+
+    <!-- RIGHT: Live preview sidebar -->
+    <div class="col-lg-4">
+      <div style="position: sticky; top: 72px;">
+
+        <div class="card mb-3">
+          <div class="card-header d-flex align-items-center" style="background:#1c1c2e; color:#fff; border-radius: 6px 6px 0 0;">
+            <span style="font-size:12px; font-weight:600; letter-spacing:.5px; opacity:.7;">LIVE PREVIEW</span>
+          </div>
+          <div class="card-body p-0">
+            <div class="live-preview-wrap">
+              <div class="lp-msg">
+                <img id="lpAvatar" src="/content/web/R00241/img/xatplanet.svg" alt="avatar"
+                  onerror="this.src='/content/web/R00241/img/xatplanet.svg'">
+                <div class="lp-bubble">
+                  <span id="lpName" style="color:#fff;">YourName</span>
+                  <span id="lpStatus"></span>
+                  <div class="lp-text">hello! this is how I look in chat.</div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:4px; padding-left:4px;">
+                <span id="lpPawnDot"></span>
+                <span style="font-size:11px; color:#9a9ab3;" id="lpPawnLabel">default pawn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body" style="font-size:12px; color:#555;">
+            <strong>Profile summary</strong>
+            <table class="table table-sm mt-2 mb-0" style="font-size:12px;">
+              <tbody>
+                <tr><td class="text-muted" style="width:40%">Username</td><td id="sumUser">—</td></tr>
+                <tr><td class="text-muted">ID</td><td id="sumId">—</td></tr>
+                <tr><td class="text-muted">xats</td><td id="sumXats">—</td></tr>
+                <tr><td class="text-muted">days</td><td id="sumDays" style="color:#28a745;">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card border-info mb-3">
+          <div class="card-body" style="font-size:12px;">
+            <strong class="text-info">Power requirements</strong>
+            <ul class="mt-2 mb-0 pl-3" style="color:#555;">
+              <li>Name Color: <strong>Namecolor</strong> power</li>
+              <li>Name Glow: <strong>Nameglow</strong> power</li>
+              <li>Name Gradient: <strong>Namegrad</strong> power</li>
+              <li>Bold Name: <strong>Nameflag</strong> power</li>
+              <li>StatusFx: respective power</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /row -->
+
+  <!-- Save bar -->
+  <div class="save-bar">
+    <button id="saveBtn" class="btn btn-primary" onclick="saveProfile()">
+      Save Changes
+    </button>
+    <button class="btn btn-outline-secondary" onclick="loadUserData()">Reset</button>
+    <span id="saveStatus" class="text-muted" style="font-size:13px;"></span>
+  </div>
+
+</div><!-- /em-wrap -->
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   STATE
+   ========================================================= */
+var state = {
+  token: localStorage.getItem('xat_token') || '',
+  user: null,
+  // form values
+  avatar: '',
+  homepage: '',
+  status: '',
+  namecolor: '',
+  nameglow: '',
+  namegrad: '',   // "colorA,colorB"
+  nameBold: false,
+  pawn: '',
+  pcback: '',     // "color" or "url|color"
+  statusfx: '',
+  hat: '',
+  badge: ''
+};
+
+/* Color accumulators for gradient */
+var gradStart = '', gradEnd = '';
+
+/* =========================================================
+   TABS
+   ========================================================= */
+function switchTab(name) {
+  document.querySelectorAll('.em-tab').forEach(function(t) {
+    t.classList.toggle('active', t.dataset.tab === name);
+  });
+  document.querySelectorAll('.em-panel').forEach(function(p) {
+    p.classList.toggle('active', p.id === 'tab-' + name);
+  });
+}
+
+/* =========================================================
+   AUTH / LOAD
+   ========================================================= */
+function showAlert(msg, type) {
+  var el = document.getElementById('emAlert');
+  el.className = 'alert alert-' + (type || 'info');
+  el.textContent = msg;
+  el.classList.remove('d-none');
+  clearTimeout(el._t);
+  el._t = setTimeout(function() { el.classList.add('d-none'); }, 4000);
+}
+
+function setAuthBar(user) {
+  var bar = document.getElementById('authBar');
+  var info = document.getElementById('authInfo');
+  if (!user) {
+    bar.className = 'em-authbar logged-out';
+    info.innerHTML = '<span style="color:#856404;font-size:13px;">You are not logged in. <a href="/login">Log in</a> to edit your profile.</span>';
+    document.getElementById('saveBtn').disabled = true;
+    return;
+  }
+  bar.className = 'em-authbar logged-in';
+  info.innerHTML =
+    '<span class="auth-chip">logged in as: <strong>' + escHtml(user.username) + '</strong></span>' +
+    '<span class="auth-chip">ID: <strong>' + user.id + '</strong></span>' +
+    '<span class="auth-chip">xats: <strong style="color:#0062cc">' + (user.xats || 0) + '</strong></span>' +
+    '<span class="auth-chip">days: <strong style="color:#28a745">' + (user.days || 0) + '</strong></span>';
+  // summary sidebar
+  document.getElementById('sumUser').textContent = user.username;
+  document.getElementById('sumId').textContent = user.id;
+  document.getElementById('sumXats').textContent = (user.xats || 0).toLocaleString();
+  document.getElementById('sumDays').textContent = (user.days || 0);
+  document.getElementById('saveBtn').disabled = false;
+}
+
+function loadUserData() {
+  if (!state.token) {
+    setAuthBar(null);
+    return;
+  }
+  fetch('/auth/me', {
+    headers: { 'Authorization': 'Bearer ' + state.token }
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (!data.user) { setAuthBar(null); return; }
+    state.user = data.user;
+    setAuthBar(data.user);
+    populateForm(data.user);
+  })
+  .catch(function() { setAuthBar(null); });
+}
+
+function populateForm(user) {
+  // Basic
+  document.getElementById('inAvatar').value = user.avatar || '';
+  document.getElementById('inHomepage').value = user.homepage || '';
+  document.getElementById('inStatus').value = user.status || '';
+  document.getElementById('statusCountBadge').textContent = (user.status || '').length + ' / 100';
+
+  // Name effects — parse from namecolor/nameglow/namegrad fields if present
+  if (user.namecolor) {
+    document.getElementById('cpNamecolor').value = user.namecolor;
+    document.getElementById('txNamecolor').value = user.namecolor;
+    document.getElementById('swNamecolor').style.background = user.namecolor;
+  }
+  if (user.nameglow) {
+    document.getElementById('cpNameglow').value = user.nameglow;
+    document.getElementById('txNameglow').value = user.nameglow;
+    document.getElementById('swNameglow').style.background = user.nameglow;
+  }
+  if (user.namegrad) {
+    var parts = user.namegrad.split(',');
+    if (parts[0]) { gradStart = parts[0]; document.getElementById('cpGradStart').value = parts[0]; document.getElementById('txGradStart').value = parts[0]; }
+    if (parts[1]) { gradEnd = parts[1]; document.getElementById('cpGradEnd').value = parts[1]; document.getElementById('txGradEnd').value = parts[1]; }
+    updateGradPreview();
+  }
+  if (user.pawn) {
+    document.getElementById('inPawn').value = user.pawn;
+  }
+  if (user.pcback) {
+    var pcParts = user.pcback.split('|');
+    if (pcParts[0] && pcParts[0].startsWith('#')) {
+      document.getElementById('cpPcback').value = pcParts[0];
+      document.getElementById('txPcback').value = pcParts[0];
+      document.getElementById('swPcback').style.background = pcParts[0];
+    } else if (pcParts[0]) {
+      document.getElementById('inPcbackUrl').value = pcParts[0];
+    }
+    if (pcParts[1]) {
+      document.getElementById('cpPcback').value = pcParts[1];
+      document.getElementById('txPcback').value = pcParts[1];
+      document.getElementById('swPcback').style.background = pcParts[1];
+    }
+    onPcbackChange();
+  }
+  if (user.statusfx) { selectSfx(user.statusfx, true); }
+  if (user.hat) { selectHat(user.hat, true); }
+  if (user.badge) { document.getElementById('inBadge').value = user.badge; }
+
+  // Trigger previews
+  onAvatarChange(user.avatar || '');
+  updateNamePreview();
+}
+
+/* =========================================================
+   COLOR SYNC HELPERS
+   ========================================================= */
+function syncColor(field, val) {
+  document.getElementById('tx' + cap(field)).value = val;
+  document.getElementById('sw' + cap(field)) && (document.getElementById('sw' + cap(field)).style.background = val);
+  if (field === 'gradstart') { gradStart = val; updateGradPreview(); }
+  else if (field === 'gradend') { gradEnd = val; updateGradPreview(); }
+  else updateNamePreview();
+}
+
+function syncColorText(field, val) {
+  val = val.trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(val)) {
+    document.getElementById('cp' + cap(field)).value = val;
+    var sw = document.getElementById('sw' + cap(field));
+    if (sw) sw.style.background = val;
+    if (field === 'gradstart') { gradStart = val; updateGradPreview(); }
+    else if (field === 'gradend') { gradEnd = val; updateGradPreview(); }
+    else updateNamePreview();
+  }
+}
+
+function clearColor(field) {
+  document.getElementById('tx' + cap(field)).value = '';
+  document.getElementById('sw' + cap(field)) && (document.getElementById('sw' + cap(field)).style.background = 'transparent');
+  if (field === 'gradstart') { gradStart = ''; updateGradPreview(); }
+  else if (field === 'gradend') { gradEnd = ''; updateGradPreview(); }
+  else updateNamePreview();
+}
+
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+/* =========================================================
+   NAME PREVIEW
+   ========================================================= */
+function updateNamePreview() {
+  var el = document.getElementById('namePreviewText');
+  var userName = (state.user && state.user.username) ? state.user.username : 'YourName';
+  el.textContent = userName;
+
+  var nc = document.getElementById('txNamecolor').value.trim();
+  var ng = document.getElementById('txNameglow').value.trim();
+  var bold = document.getElementById('togBold').checked;
+
+  el.style.color = (nc && /^#[0-9a-fA-F]{6}$/.test(nc)) ? nc : '#ffffff';
+  el.style.fontWeight = bold ? '900' : '700';
+
+  // Gradient overrides flat color
+  if (gradStart && gradEnd && /^#[0-9a-fA-F]{6}$/.test(gradStart) && /^#[0-9a-fA-F]{6}$/.test(gradEnd)) {
+    el.style.background = 'linear-gradient(to right, ' + gradStart + ', ' + gradEnd + ')';
+    el.style.webkitBackgroundClip = 'text';
+    el.style.webkitTextFillColor = 'transparent';
+    el.style.backgroundClip = 'text';
+  } else {
+    el.style.background = '';
+    el.style.webkitBackgroundClip = '';
+    el.style.webkitTextFillColor = '';
+    el.style.backgroundClip = '';
+  }
+
+  // Glow
+  if (ng && /^#[0-9a-fA-F]{6}$/.test(ng)) {
+    el.style.textShadow = '0 0 8px ' + ng + ', 0 0 16px ' + ng;
+  } else {
+    el.style.textShadow = '';
+  }
+
+  // Also update live preview name
+  updateLivePreview();
+}
+
+function updateGradPreview() {
+  var bar = document.getElementById('gradPreviewBar');
+  if (gradStart && gradEnd) {
+    bar.style.background = 'linear-gradient(to right, ' + gradStart + ', ' + gradEnd + ')';
+  } else if (gradStart) {
+    bar.style.background = gradStart;
+  } else if (gradEnd) {
+    bar.style.background = gradEnd;
+  } else {
+    bar.style.background = '#eee';
+  }
+  updateNamePreview();
+}
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+function onAvatarChange(val) {
+  val = (val || '').trim();
+  var img = document.getElementById('avatarPreviewImg');
+  var desc = document.getElementById('avatarPreviewDesc');
+  var lpAv = document.getElementById('lpAvatar');
+
+  if (!val) {
+    img.src = '/content/web/R00241/img/xatplanet.svg';
+    desc.textContent = 'No avatar set — default will be used.';
+    lpAv.src = '/content/web/R00241/img/xatplanet.svg';
+    return;
+  }
+
+  // Smiley code detection: (code#) or (code)
+  if (/^\([a-z0-9_]+#?\)$/i.test(val)) {
+    desc.textContent = 'Smiley code: ' + val + ' (rendered in chat)';
+    img.src = '/content/web/R00241/img/xatplanet.svg';
+    lpAv.src = '/content/web/R00241/img/xatplanet.svg';
+    return;
+  }
+
+  // URL
+  img.onerror = function() {
+    img.src = '/content/web/R00241/img/xatplanet.svg';
+    desc.textContent = 'Could not load image from that URL.';
+  };
+  img.src = val;
+  desc.textContent = val.length > 60 ? val.slice(0, 60) + '...' : val;
+  lpAv.onerror = function() { lpAv.src = '/content/web/R00241/img/xatplanet.svg'; };
+  lpAv.src = val;
+}
+
+/* =========================================================
+   STATUS CHARACTER COUNT
+   ========================================================= */
+function onStatusChange(val) {
+  document.getElementById('statusCountBadge').textContent = val.length + ' / 100';
+  document.getElementById('lpStatus').textContent = val || '';
+}
+
+/* =========================================================
+   PAWN
+   ========================================================= */
+var PAWNS = [
+  { id: 'default',   label: 'default',  color: '#007bff' },
+  { id: 'red',       label: 'red',      color: '#dc3545' },
+  { id: 'green',     label: 'green',    color: '#28a745' },
+  { id: 'yellow',    label: 'yellow',   color: '#ffc107' },
+  { id: 'purple',    label: 'purple',   color: '#6f42c1' },
+  { id: 'pink',      label: 'pink',     color: '#e83e8c' },
+  { id: 'orange',    label: 'orange',   color: '#fd7e14' },
+  { id: 'teal',      label: 'teal',     color: '#20c997' },
+  { id: 'white',     label: 'white',    color: '#f8f9fa' },
+  { id: 'black',     label: 'black',    color: '#343a40' },
+  { id: 'cyan',      label: 'cyan',     color: '#17a2b8' },
+  { id: 'gold',      label: 'gold',     color: '#d4a017' },
+];
+
+var selectedPawn = 'default';
+
+function buildPawnGrid() {
+  var grid = document.getElementById('pawnGrid');
+  grid.innerHTML = '';
+  PAWNS.forEach(function(p) {
+    var div = document.createElement('div');
+    div.className = 'pawn-opt' + (p.id === selectedPawn ? ' selected' : '');
+    div.style.background = p.color;
+    div.dataset.pawnId = p.id;
+    div.title = p.label;
+    div.textContent = p.label.slice(0, 3);
+    div.onclick = function() { selectPawn(p.id); };
+    grid.appendChild(div);
+  });
+  updatePawnPreview();
+}
+
+function selectPawn(id) {
+  selectedPawn = id;
+  document.querySelectorAll('.pawn-opt').forEach(function(el) {
+    el.classList.toggle('selected', el.dataset.pawnId === id);
+  });
+  updatePawnPreview();
+  updateLivePreview();
+}
+
+function onPawnCodeChange(val) {
+  updatePawnPreview();
+  updateLivePreview();
+}
+
+function updatePawnPreview() {
+  var code = document.getElementById('inPawn').value.trim();
+  var pawn = PAWNS.find(function(p) { return p.id === selectedPawn; }) || PAWNS[0];
+  var circle = document.getElementById('pawnPreviewCircle');
+  circle.style.background = pawn.color;
+  circle.textContent = pawn.label.slice(0, 1).toUpperCase();
+  document.getElementById('pawnPreviewName').textContent = pawn.label + ' pawn';
+  document.getElementById('pawnPreviewSub').textContent = code ? 'custom code: ' + code.slice(0, 30) : 'no custom code';
+
+  // Update live preview dot
+  document.getElementById('lpPawnDot').style.background = pawn.color;
+  document.getElementById('lpPawnLabel').textContent = pawn.label + ' pawn';
+}
+
+/* =========================================================
+   PCBACK
+   ========================================================= */
+function onPcbackChange() {
+  var url = document.getElementById('inPcbackUrl').value.trim();
+  var color = document.getElementById('txPcback').value.trim();
+  var preview = document.getElementById('pcbackPreview');
+  var overlay = document.getElementById('pcbackOverlay');
+
+  var bg = '';
+  if (url) { bg += 'url(' + url + ') center/cover no-repeat, '; }
+  if (color && /^#[0-9a-fA-F]{6}$/.test(color)) { bg += color; }
+  else { bg += '#1a1a2e'; }
+
+  preview.style.background = bg;
+  overlay.textContent = url ? '' : (color ? 'color only — no image' : 'no background set');
+  overlay.style.display = url ? 'none' : 'flex';
+}
+
+/* =========================================================
+   STATUS FX
+   ========================================================= */
+var SFX_OPTS = [
+  { id: '',        label: 'none' },
+  { id: 'glow',    label: 'glow' },
+  { id: 'pulse',   label: 'pulse' },
+  { id: 'rainbow', label: 'rainbow' },
+  { id: 'flash',   label: 'flash' },
+  { id: 'shake',   label: 'shake' },
+  { id: 'wave',    label: 'wave' },
+  { id: 'fade',    label: 'fade' },
+  { id: 'bounce',  label: 'bounce' },
+  { id: 'spin',    label: 'spin' },
+];
+
+var selectedSfx = '';
+
+function buildSfxGrid() {
+  var grid = document.getElementById('sfxGrid');
+  grid.innerHTML = '';
+  SFX_OPTS.forEach(function(s) {
+    var div = document.createElement('div');
+    div.className = 'sfx-opt' + (s.id === selectedSfx ? ' selected' : '') + (s.id === '' ? ' sfx-none' : '');
+    div.dataset.sfxId = s.id;
+    div.textContent = s.label;
+    div.onclick = function() { selectSfx(s.id); };
+    grid.appendChild(div);
+  });
+}
+
+function selectSfx(id, silent) {
+  selectedSfx = id;
+  document.querySelectorAll('.sfx-opt').forEach(function(el) {
+    el.classList.toggle('selected', el.dataset.sfxId === id);
+  });
+}
+
+/* =========================================================
+   HAT
+   ========================================================= */
+var HAT_OPTS = [
+  { id: '',         label: 'none' },
+  { id: 'tophat',   label: 'top hat' },
+  { id: 'cowboy',   label: 'cowboy' },
+  { id: 'wizard',   label: 'wizard' },
+  { id: 'chef',     label: 'chef' },
+  { id: 'crown',    label: 'crown' },
+  { id: 'party',    label: 'party' },
+  { id: 'santa',    label: 'santa' },
+  { id: 'pirate',   label: 'pirate' },
+  { id: 'bunny',    label: 'bunny' },
+  { id: 'devil',    label: 'devil' },
+  { id: 'angel',    label: 'angel halo' },
+  { id: 'ninja',    label: 'ninja' },
+  { id: 'viking',   label: 'viking' },
+];
+
+var selectedHat = '';
+
+function buildHatGrid() {
+  var grid = document.getElementById('hatGrid');
+  grid.innerHTML = '';
+  HAT_OPTS.forEach(function(h) {
+    var div = document.createElement('div');
+    div.className = 'hat-opt' + (h.id === selectedHat ? ' selected' : '');
+    div.dataset.hatId = h.id;
+    div.textContent = h.label;
+    div.onclick = function() { selectHat(h.id); };
+    grid.appendChild(div);
+  });
+}
+
+function selectHat(id, silent) {
+  selectedHat = id;
+  document.querySelectorAll('.hat-opt').forEach(function(el) {
+    el.classList.toggle('selected', el.dataset.hatId === id);
+  });
+}
+
+/* =========================================================
+   LIVE PREVIEW (sidebar)
+   ========================================================= */
+function updateLivePreview() {
+  var userName = (state.user && state.user.username) ? state.user.username : 'YourName';
+  var lpName = document.getElementById('lpName');
+  var nc = document.getElementById('txNamecolor').value.trim();
+  var ng = document.getElementById('txNameglow').value.trim();
+  var bold = document.getElementById('togBold').checked;
+
+  lpName.textContent = userName;
+  lpName.style.color = (nc && /^#[0-9a-fA-F]{6}$/.test(nc)) ? nc : '#ffffff';
+  lpName.style.fontWeight = bold ? '900' : '700';
+
+  if (gradStart && gradEnd && /^#[0-9a-fA-F]{6}$/.test(gradStart) && /^#[0-9a-fA-F]{6}$/.test(gradEnd)) {
+    lpName.style.background = 'linear-gradient(to right, ' + gradStart + ', ' + gradEnd + ')';
+    lpName.style.webkitBackgroundClip = 'text';
+    lpName.style.webkitTextFillColor = 'transparent';
+    lpName.style.backgroundClip = 'text';
+  } else {
+    lpName.style.background = '';
+    lpName.style.webkitBackgroundClip = '';
+    lpName.style.webkitTextFillColor = '';
+    lpName.style.backgroundClip = '';
+  }
+
+  if (ng && /^#[0-9a-fA-F]{6}$/.test(ng)) {
+    lpName.style.textShadow = '0 0 6px ' + ng + ', 0 0 12px ' + ng;
+  } else {
+    lpName.style.textShadow = '';
+  }
+
+  // Status
+  var statusVal = document.getElementById('inStatus').value;
+  document.getElementById('lpStatus').textContent = statusVal || '';
+
+  // Pawn
+  updatePawnPreview();
+}
+
+/* =========================================================
+   SAVE
+   ========================================================= */
+function saveProfile() {
+  if (!state.token) {
+    showAlert('You must be logged in to save changes.', 'warning');
+    return;
+  }
+
+  var btn = document.getElementById('saveBtn');
+  var saveStatus = document.getElementById('saveStatus');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+  saveStatus.textContent = '';
+
+  // Build namegrad
+  var namegrad = '';
+  if (gradStart && gradEnd) { namegrad = gradStart + ',' + gradEnd; }
+  else if (gradStart) { namegrad = gradStart + ','; }
+  else if (gradEnd) { namegrad = ',' + gradEnd; }
+
+  // Build pcback
+  var pcbackUrl = document.getElementById('inPcbackUrl').value.trim();
+  var pcbackColor = document.getElementById('txPcback').value.trim();
+  var pcback = '';
+  if (pcbackUrl && pcbackColor) { pcback = pcbackUrl + '|' + pcbackColor; }
+  else if (pcbackUrl) { pcback = pcbackUrl; }
+  else if (pcbackColor) { pcback = pcbackColor; }
+
+  var pawnCode = document.getElementById('inPawn').value.trim() || selectedPawn;
+
+  var payload = {
+    avatar:     document.getElementById('inAvatar').value.trim(),
+    homepage:   document.getElementById('inHomepage').value.trim(),
+    status:     document.getElementById('inStatus').value.trim(),
+    namecolor:  document.getElementById('txNamecolor').value.trim(),
+    nameglow:   document.getElementById('txNameglow').value.trim(),
+    namegrad:   namegrad,
+    nameflag:   document.getElementById('togBold').checked ? '1' : '',
+    pawn:       pawnCode,
+    pcback:     pcback,
+    statusfx:   selectedSfx,
+    hat:        selectedHat,
+    badge:      document.getElementById('inBadge').value.trim()
+  };
+
+  fetch('/auth/profile', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + state.token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    btn.disabled = false;
+    btn.textContent = 'Save Changes';
+    if (data.error) {
+      showAlert('Error: ' + data.error, 'danger');
+    } else {
+      showAlert('Profile saved successfully!', 'success');
+      saveStatus.textContent = 'Saved just now';
+      if (data.user) {
+        state.user = data.user;
+        setAuthBar(data.user);
+      }
+    }
+  })
+  .catch(function(err) {
+    btn.disabled = false;
+    btn.textContent = 'Save Changes';
+    showAlert('Network error. Please try again.', 'danger');
+  });
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+function init() {
+  buildPawnGrid();
+  buildSfxGrid();
+  buildHatGrid();
+  document.getElementById('saveBtn').disabled = true;
+
+  // Color picker sync for pcback
+  document.getElementById('cpPcback').addEventListener('input', function() {
+    onPcbackChange();
+  });
+
+  loadUserData();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>

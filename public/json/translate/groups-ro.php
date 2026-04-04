@@ -1,0 +1,1 @@
+{"groups":{"xatgroups":"grupuri xat","searchb":"C\u0103utare","featured":"Recomandate","popular":"Populare","supported":"Sprijinite","games":"Jocuri","prev":"Anterior","next":"Urm\u0103tor"}}

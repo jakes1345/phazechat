@@ -1,0 +1,119 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.shortname">short name</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.shortname">Short Names</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/navbar/shortname.svg" width="96" alt="shortname" class="mb-3">
+    <h2>Get a Short Name for Your Group</h2>
+    <p class="lead">Short names are easy-to-remember URLs for your xat chat group.</p>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>What is a Short Name?</h3>
+      <p>A short name gives your group a custom, easy-to-remember URL. Instead of sharing a long URL with a group ID, you can share a clean link like:</p>
+      <div class="alert alert-light text-center">
+        <h4 class="mb-0"><code>xat.com/<strong>YourGroupName</strong></code></h4>
+      </div>
+
+      <h3>How Short Names Work</h3>
+      <p>On this server, short names are automatically assigned when you create a group. Simply navigate to any valid group name URL and the group will be created automatically.</p>
+
+      <h3>Check Availability</h3>
+      <form onsubmit="checkName(); return false;" class="mb-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">/</span>
+          </div>
+          <input id="nameInput" type="text" class="form-control" placeholder="GroupName" pattern="[a-zA-Z0-9_]+" maxlength="20">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Check</button>
+          </div>
+        </div>
+      </form>
+      <div id="nameResult"></div>
+
+      <h3>Short Name Rules</h3>
+      <ul>
+        <li>1-20 characters long</li>
+        <li>Letters, numbers, and underscores only</li>
+        <li>Not case-sensitive (Chat = chat = CHAT)</li>
+        <li>Cannot be a reserved word (login, store, powers, etc.)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function checkName() {
+  var name = document.getElementById('nameInput').value.trim();
+  if (!name) return;
+
+  var reserved = ['auth', 'admin', 'ws', 'content', 'web_gear', 'json', 'smilies', 'public', 'images', 'src', 'favicon.ico', 'privacy', 'terms', 'login', 'register', 'store', 'powers', 'chats', 'css', 'search', 'buy', 'aces', 'shortname', 'wiki', 'safety', 'sounds', 'fonts'];
+
+  if (!/^[a-zA-Z0-9_]{1,20}$/.test(name)) {
+    document.getElementById('nameResult').innerHTML = '<div class="alert alert-danger">Invalid name. Use only letters, numbers, and underscores (1-20 chars).</div>';
+    return;
+  }
+
+  if (reserved.includes(name.toLowerCase())) {
+    document.getElementById('nameResult').innerHTML = '<div class="alert alert-danger">"' + escapeHtml(name) + '" is a reserved name.</div>';
+    return;
+  }
+
+  fetch('/web_gear/chat/roomid.php?d=' + encodeURIComponent(name))
+  .then(function(r) { return r.text(); })
+  .then(function(id) {
+    if (id && parseInt(id) > 0) {
+      document.getElementById('nameResult').innerHTML =
+        '<div class="alert alert-success">"' + escapeHtml(name) + '" is available! <a href="/' + escapeHtml(name) + '" class="alert-link">Go to /' + escapeHtml(name) + '</a></div>';
+    }
+  })
+  .catch(function() {
+    document.getElementById('nameResult').innerHTML = '<div class="alert alert-warning">Could not check name availability.</div>';
+  });
+}
+</script>

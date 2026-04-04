@@ -1,0 +1,83 @@
+{
+	"background_color": "#15156b",
+	"theme_color": "#15156b",
+	"categories": ["entertainment", "games", "social", "tech"],
+	"description": "http://localhost:6969 is a fun social networking site with the coolest online chat box. Make friends, join a group, run your own chat - 10,000s online now.",
+	"display": "standalone",
+	"orientation": "natural",
+	"icons": [
+		{
+			"src": "/images/app/logo-128x128.jpg",
+			"sizes": "128x128",
+			"type": "image/ ",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/images/app/logo-192x192.jpg",
+			"sizes": "192x192",
+			"type": "image/jpg",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/images/app/logo-512x512.jpg",
+			"sizes": "512x512",
+			"type": "image/jpg",
+			"purpose": "maskable"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/images/app/screenshot1.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "Homescreen"
+		},
+		{
+			"src": "/images/app/screenshot2.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "About us"
+		},
+		{
+			"src": "/images/app/screenshot3.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "User settings"
+		},
+		{
+			"src": "/images/app/screenshot4.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "Visitors list"
+		},
+		{
+			"src": "/images/app/screenshot5.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "Chat messages"
+		},
+		{
+			"src": "/images/app/screenshot6.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "Chat groups"
+		},
+		{
+			"src": "/images/app/screenshot7.jpg",
+			"sizes": "828x1655",
+			"type": "image/jpg",
+			"platform": "narrow",
+			"label": "xat store"
+		}
+	],
+	"name": "xat",
+	"short_name": "xat",
+	"start_url": "/chat?PWA=1",
+	"scope": "http://localhost:6969/"
+}

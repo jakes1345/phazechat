@@ -1,0 +1,30 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<g id="_App_Icons_cancel_0_Layer0_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 12.2 3.85
+Q 11.6 3.85 11.2 4.25
+L 8.9 6.6 6.55 4.25
+Q 6.35 4.05 6.15 4 5.9 3.85 5.6 3.85 5 3.85 4.55 4.3 4.1 4.75 4.1 5.3 4.1 5.9 4.55 6.3
+L 6.85 8.6 4.5 11
+Q 4.05 11.4 4.05 12 4.05 12.55 4.5 13 4.95 13.45 5.5 13.45 6.1 13.45 6.5 13
+L 8.9 10.65 10.3 12.05 10.35 12.05 10.35 12.1 11.25 13
+Q 11.7 13.45 12.25 13.45 12.85 13.45 13.3 13 13.7 12.55 13.7 12 13.7 11.4 13.3 11
+L 10.9 8.6 13.25 6.3
+Q 13.65 5.9 13.65 5.3 13.65 4.75 13.2 4.3 12.75 3.85 12.2 3.85 Z"/>
+</g>
+
+<path id="_App_Icons_cancel_0_Layer0_0_1_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 17.6 8.8
+Q 17.6 12.45 15 15 12.45 17.6 8.8 17.6 5.15 17.6 2.55 15 0 12.45 0 8.8 0 5.15 2.55 2.55 5.15 0 8.8 0 12.45 0 15 2.55 17.6 5.15 17.6 8.8 Z"/>
+</defs>
+
+<g transform="matrix( 1.76702880859375, 0, 0, 1.76702880859375, 4.5,4.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_App_Icons_cancel_0_Layer0_0_FILL"/>
+
+<use xlink:href="#_App_Icons_cancel_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</svg>

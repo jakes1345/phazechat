@@ -1,0 +1,22 @@
+{
+  "BlackFriday": {
+    "Promotion": false,
+    "ShortName": false,
+    "XatsBackBuy": {
+      "enabled": false,
+      "ends": 0
+    },
+    "XatsBackSpend": {
+      "enabled": false,
+      "ends": 0
+    }
+  },
+  "Announce": [],
+  "alpha": {
+    "1": 25,
+    "2": 35,
+    "5": 50,
+    "9": 65,
+    "12": 90
+  }
+}

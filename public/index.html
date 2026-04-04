@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xat - Chat with Friends</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1a1a2e;
+      --navy-light: #16213e;
+      --blue: #0f3460;
+      --accent: #1e88e5;
+      --accent-hover: #1565c0;
+      --accent-light: #42a5f5;
+      --card-bg: #1e2a45;
+      --card-border: #253555;
+      --text: #e8edf5;
+      --text-muted: #8fa3c0;
+      --online: #43d17a;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1b2e;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--navy);
+      border-bottom: 1px solid #253555;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent-light);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .nav-btn {
+      background: var(--accent) !important;
+      color: var(--white) !important;
+      border-radius: 6px;
+      padding: 7px 16px !important;
+      margin-left: 6px;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-hover) !important;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 60%, #0a2240 100%);
+      padding: 64px 20px 56px;
+      text-align: center;
+      border-bottom: 1px solid #253555;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span {
+      color: var(--accent-light);
+    }
+
+    .hero p {
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 11px 28px;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 11px 28px;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-1px);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(67, 209, 122, 0.12);
+      border: 1px solid rgba(67, 209, 122, 0.3);
+      color: var(--online);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--online);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ===== GROUPS GRID ===== */
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .group-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .group-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(30, 136, 229, 0.2);
+    }
+
+    .card-banner {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      position: relative;
+    }
+
+    .card-body {
+      padding: 12px 14px 14px;
+    }
+
+    .card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .card-users {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--online);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .card-users svg {
+      flex-shrink: 0;
+    }
+
+    .card-join {
+      background: rgba(30, 136, 229, 0.15);
+      color: var(--accent-light);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(30, 136, 229, 0.25);
+    }
+
+    /* ===== LOADING / EMPTY ===== */
+    .loading-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .skeleton {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      animation: shimmer 1.5s infinite;
+    }
+
+    .skeleton-banner {
+      height: 80px;
+      background: linear-gradient(90deg, #1e2a45 25%, #253555 50%, #1e2a45 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    .skeleton-body {
+      padding: 12px 14px 14px;
+    }
+
+    .skeleton-line {
+      height: 12px;
+      background: linear-gradient(90deg, #253555 25%, #2d3d5e 50%, #253555 75%);
+      background-size: 200% 100%;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      animation: shimmer 1.5s infinite;
+    }
+
+    .skeleton-line.short { width: 60%; }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state svg {
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+
+    .empty-state p { font-size: 15px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid #253555;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #4a6080;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .hero { padding: 44px 16px 40px; }
+      nav a { font-size: 13px; padding: 5px 8px; }
+      .nav-btn { padding: 6px 12px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/">xat<span>.</span>clone</a>
+      <nav>
+        <a href="/chat">Chat</a>
+        <a href="/trade.html">Trade</a>
+        <a href="/store.html">Store</a>
+        <a href="/login.html" class="nav-btn">Login</a>
+        <a href="/register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Chat with <span>Friends</span></h1>
+    <p>Join thousands of live chat rooms. Meet new people, trade powers, and have fun.</p>
+    <div class="hero-actions">
+      <a href="/chat" class="btn-primary">Start Chatting</a>
+      <a href="/register.html" class="btn-secondary">Create Account</a>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="section-header">
+      <h2 class="section-title">Live Groups</h2>
+      <span class="live-badge" id="liveBadge">
+        <span class="live-dot"></span>
+        <span id="liveCount">Loading...</span>
+      </span>
+    </div>
+
+    <div id="groupsContainer" class="loading-grid">
+      <!-- skeleton placeholders -->
+      <div class="skeleton"><div class="skeleton-banner"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>
+      <div class="skeleton"><div class="skeleton-banner"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>
+      <div class="skeleton"><div class="skeleton-banner"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>
+      <div class="skeleton"><div class="skeleton-banner"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>
+      <div class="skeleton"><div class="skeleton-banner"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>
+      <div class="skeleton"><div class="skeleton-banner"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="/chat">Chat</a>
+      <a href="/store.html">Store</a>
+      <a href="/trade.html">Trade</a>
+      <a href="/wiki.html">Help</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/safety.html">Safety</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 xat.clone &mdash; All rights reserved</p>
+  </footer>
+
+  <script>
+    // NOTE: This page fetches from /api/groups/active which needs to be added to server.js.
+    // The endpoint should return:
+    //   { groups: [{ id, name, title, userCount, color1, color2, background }] }
+    // The server already tracks live rooms in the `rooms` Map (src/server.js ~line 945).
+    // Add a GET /api/groups/active route that iterates rooms.entries() and joins with
+    // the groups table to return group metadata + live user count.
+
+    const PALETTE = [
+      ['#1a3a5c', '#2196f3'],
+      ['#1a3520', '#43a047'],
+      ['#3a1a3a', '#ab47bc'],
+      ['#3a2a1a', '#ff7043'],
+      ['#1a3040', '#26c6da'],
+      ['#2a1a3a', '#7e57c2'],
+      ['#1a3a30', '#26a69a'],
+      ['#3a1a20', '#ef5350'],
+    ];
+
+    // Default groups seeded from the database — shown when server is freshly started
+    // and no rooms have been visited yet. These get created on first visit via /:GroupName.
+    const DEFAULT_GROUPS = [
+      { id: '1', name: 'Lobby', title: 'Main Chat Lobby', userCount: 0 },
+      { id: '2', name: 'Help', title: 'Get help from the community', userCount: 0 },
+      { id: '3', name: 'Trade', title: 'Trade powers and xats', userCount: 0 },
+    ];
+
+    function paletteFor(id) {
+      return PALETTE[parseInt(id, 10) % PALETTE.length];
+    }
+
+    function buildCard(group) {
+      const [bg, accent] = paletteFor(group.id);
+      const href = `/chat?id=${encodeURIComponent(group.id)}`;
+
+      const card = document.createElement('a');
+      card.className = 'group-card';
+      card.href = href;
+      card.setAttribute('aria-label', `Join ${group.name} - ${group.userCount} users online`);
+
+      const bannerBg = group.background
+        ? `url(${CSS.escape ? '' : ''}${group.background}) center/cover no-repeat`
+        : `linear-gradient(135deg, ${bg} 0%, ${accent}44 100%)`;
+
+      card.innerHTML = `
+        <div class="card-banner" style="background: ${bannerBg};">
+          ${group.background ? '' : `<span style="font-size:28px;opacity:0.7">${group.name.charAt(0).toUpperCase()}</span>`}
+        </div>
+        <div class="card-body">
+          <div class="card-name" title="${escapeHtml(group.title || group.name)}">${escapeHtml(group.name)}</div>
+          <div class="card-meta">
+            <span class="card-users">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              ${group.userCount}
+            </span>
+            <span class="card-join">Join</span>
+          </div>
+        </div>
+      `;
+
+      return card;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderGroups(groups) {
+      const container = document.getElementById('groupsContainer');
+      container.className = 'groups-grid';
+      container.innerHTML = '';
+
+      if (!groups || groups.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <p>No active groups right now. <a href="/chat" style="color: var(--accent-light)">Start one!</a></p>
+          </div>`;
+        document.getElementById('liveCount').textContent = '0 online';
+        return;
+      }
+
+      const totalUsers = groups.reduce((sum, g) => sum + (g.userCount || 0), 0);
+      document.getElementById('liveCount').textContent =
+        `${groups.length} group${groups.length !== 1 ? 's' : ''} \u00b7 ${totalUsers} online`;
+
+      groups.forEach(group => container.appendChild(buildCard(group)));
+    }
+
+    async function fetchGroups() {
+      try {
+        const res = await fetch('/api/groups/active', { credentials: 'include' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        renderGroups(data.groups || []);
+      } catch (err) {
+        // Server unreachable — show default groups as starting point
+        console.warn('[xat-clone] /api/groups/active failed:', err.message);
+        renderGroups(DEFAULT_GROUPS);
+      }
+    }
+
+    // Initial load
+    fetchGroups();
+
+    // Auto-refresh every 30 seconds
+    setInterval(fetchGroups, 30_000);
+  </script>
+</body>
+</html>

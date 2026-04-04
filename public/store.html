@@ -1,0 +1,812 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.store">store</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/trade"><img class="mr-1" src="/content/web/R00241/img/navbar/trade.svg" width="19"><span data-localize="web.trade">trade</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<style>
+  .store-wrap { padding-top: 65px; }
+  .store-tabs { display: flex; flex-wrap: wrap; border-bottom: 2px solid #dee2e6; margin-bottom: 20px; gap: 2px; }
+  .store-tab { display: flex; align-items: center; gap: 5px; padding: 8px 14px; cursor: pointer; border: 1px solid transparent;
+    border-bottom: none; border-radius: 6px 6px 0 0; font-size: 13px; color: #555; background: #f8f9fa; transition: all .15s; white-space: nowrap; }
+  .store-tab:hover { background: #e9ecef; color: #333; }
+  .store-tab.active { background: #fff; color: #007bff; border-color: #dee2e6; margin-bottom: -2px; border-bottom: 2px solid #fff; font-weight: 600; }
+  .store-tab img { width: 16px; height: 16px; opacity: .7; }
+  .store-tab.active img { opacity: 1; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .store-login { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .store-login.logged-in { background: #d4edda; border-color: #c3e6cb; }
+  .balance-bar { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .balance-item { display: flex; align-items: center; gap: 6px; }
+  .balance-item strong { color: #007bff; }
+  .power-row { display: flex; align-items: center; padding: 8px 12px; border-bottom: 1px solid #eee; gap: 10px; transition: background .1s; }
+  .power-row:hover { background: #f0f7ff; }
+  .power-name { font-weight: 600; min-width: 120px; }
+  .power-badge { font-size: 10px; padding: 2px 6px; border-radius: 3px; color: #fff; }
+  .power-badge.epic { background: #dc3545; }
+  .power-badge.group { background: #17a2b8; }
+  .power-badge.limited { background: #6f42c1; }
+  .power-badge.smiley { background: #28a745; }
+  .power-badge.function { background: #fd7e14; }
+  .power-badge.collection { background: #e83e8c; }
+  .power-cost { color: #666; min-width: 80px; text-align: right; }
+  .power-qty { width: 50px; text-align: center; }
+  .power-smiley { width: 24px; height: 24px; }
+  .cart-table { width: 100%; }
+  .cart-table th, .cart-table td { padding: 6px 10px; border-bottom: 1px solid #eee; }
+  .cart-table th { background: #f8f9fa; font-size: 13px; }
+  .cart-total { font-weight: 700; color: #007bff; }
+  .filter-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 15px; }
+  .filter-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; }
+  .filter-btn:hover { background: #e9ecef; }
+  .filter-btn.active { background: #007bff; color: #fff; border-color: #007bff; }
+  .sort-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .sort-btn { font-size: 11px; padding: 2px 8px; border: 1px solid #ddd; border-radius: 3px; background: #fff; cursor: pointer; }
+  .sort-btn:hover { background: #eee; }
+  .rule-box { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 15px; margin-bottom: 15px; font-size: 13px; }
+  .rule-box ul { margin-bottom: 0; padding-left: 18px; }
+  .store-section h2 { font-size: 20px; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px; display: inline-block; }
+  .buy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+  .buy-card { border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; text-align: center; transition: all .15s; }
+  .buy-card:hover { border-color: #007bff; box-shadow: 0 2px 8px rgba(0,123,255,.15); }
+  .buy-card.featured { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0,123,255,.2); }
+  .buy-card h4 { margin: 0 0 5px; }
+  .buy-card .price { font-size: 24px; font-weight: 700; color: #007bff; margin: 10px 0; }
+  .buy-card .price.days { color: #28a745; }
+  .buy-card button { width: 100%; }
+  .ace-card { border: 2px solid #ffc107; border-radius: 10px; padding: 20px; text-align: center; background: linear-gradient(135deg, #fff9e6, #fff); }
+  .ace-card h4 { color: #856404; }
+  .convert-form { max-width: 400px; }
+  .convert-form .rate-info { font-size: 13px; color: #666; margin-bottom: 10px; }
+  #storeAlert { position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 9999; min-width: 300px; }
+</style>
+
+<div class="container store-wrap">
+  <!-- Alert -->
+  <div id="storeAlert" class="alert d-none" role="alert"></div>
+
+  <!-- Login / Balance section -->
+  <div id="loginSection" class="store-login">
+    <div id="loginForm">
+      <div class="row align-items-end">
+        <div class="col-md-3">
+          <label class="mb-1"><small>xat username:</small></label>
+          <input id="storeUser" type="text" class="form-control form-control-sm">
+        </div>
+        <div class="col-md-3">
+          <label class="mb-1"><small>password:</small></label>
+          <input id="storePass" type="password" class="form-control form-control-sm">
+        </div>
+        <div class="col-md-3 mt-2">
+          <div class="form-check">
+            <input id="agreeterms" type="checkbox" class="form-check-input">
+            <label class="form-check-label" for="agreeterms"><small>I agree to the <a href="/terms">terms</a></small></label>
+          </div>
+        </div>
+        <div class="col-md-3 mt-2">
+          <button id="storeLoginBtn" class="btn btn-primary btn-sm btn-block" onclick="storeLogin()">log in</button>
+        </div>
+      </div>
+    </div>
+    <div id="balanceSection" class="d-none">
+      <div class="balance-bar">
+        <div class="balance-item"><small>logged in as:</small> <strong id="balUser">-</strong></div>
+        <div class="balance-item"><small>ID:</small> <strong id="balId">-</strong></div>
+        <div class="balance-item"><small>xats:</small> <strong id="balXats">0</strong></div>
+        <div class="balance-item"><small>days:</small> <strong id="balDays" style="color:#28a745">0</strong></div>
+        <button class="btn btn-outline-secondary btn-sm ml-auto" onclick="storeLogout()">log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Store Tabs -->
+  <div class="store-tabs" id="storeTabs">
+    <div class="store-tab active" data-tab="buyxats" onclick="switchTab('buyxats')">
+      <img src="/content/web/R00241/img/navbar/buyxats.svg" alt="">xats & days
+    </div>
+    <div class="store-tab" data-tab="powers" onclick="switchTab('powers')">
+      <img src="/content/web/R00241/img/navbar/powers.svg" alt="">powers
+    </div>
+    <div class="store-tab" data-tab="aces" onclick="switchTab('aces')">
+      <img src="/content/web/R00241/img/navbar/aces.svg" alt="">aces
+    </div>
+    <div class="store-tab" data-tab="shortname" onclick="switchTab('shortname')">
+      <img src="/content/web/R00241/img/navbar/shortname.svg" alt="">short name
+    </div>
+    <div class="store-tab" data-tab="auction" onclick="switchTab('auction')">
+      <img src="/content/web/R00241/img/navbar/auctions.svg" alt="">auctions
+    </div>
+    <div class="store-tab" data-tab="promotion" onclick="switchTab('promotion')">
+      <img src="/content/web/R00241/img/navbar/promotion.svg" alt="">promotion
+    </div>
+    <div class="store-tab" data-tab="ads" onclick="switchTab('ads')">
+      <img src="/content/web/R00241/img/navbar/ads.svg" alt="">ads
+    </div>
+    <div class="store-tab" data-tab="groups" onclick="switchTab('groups')">
+      <img src="/content/web/R00241/img/navbar/buygroup.svg" alt="">groups
+    </div>
+    <div class="store-tab" data-tab="dx" onclick="switchTab('dx')">
+      <img src="/content/web/R00241/img/navbar/trade.svg" alt="">dx
+    </div>
+    <div class="store-tab" data-tab="x2d" onclick="switchTab('x2d')">
+      <img src="/content/web/R00241/img/navbar/trade.svg" alt="">x2d
+    </div>
+  </div>
+
+  <!-- ===== TAB 1: BUY XATS & DAYS ===== -->
+  <div id="tab-buyxats" class="tab-panel active store-section">
+    <h2>buy xats and days</h2>
+    <p>xats are the virtual currency used on xat. Days are subscription time that unlock subscriber features and allow you to use powers.</p>
+
+    <h5>xats packages</h5>
+    <div class="buy-grid" id="xatsPackages">
+      <div class="buy-card">
+        <h4>1,000 xats</h4><small class="text-muted">starter</small>
+        <div class="price">free</div>
+        <button class="btn btn-primary btn-sm" onclick="buyPackage('xats',1000)">claim</button>
+      </div>
+      <div class="buy-card">
+        <h4>5,000 xats</h4><small class="text-muted">popular</small>
+        <div class="price">free</div>
+        <button class="btn btn-primary btn-sm" onclick="buyPackage('xats',5000)">claim</button>
+      </div>
+      <div class="buy-card featured">
+        <small class="text-white bg-primary px-2 rounded">best value</small>
+        <h4>25,000 xats</h4><small class="text-muted">power trader</small>
+        <div class="price">free</div>
+        <button class="btn btn-primary btn-sm" onclick="buyPackage('xats',25000)">claim</button>
+      </div>
+      <div class="buy-card">
+        <h4>100,000 xats</h4><small class="text-muted">ultimate</small>
+        <div class="price">free</div>
+        <button class="btn btn-primary btn-sm" onclick="buyPackage('xats',100000)">claim</button>
+      </div>
+    </div>
+
+    <h5>days packages</h5>
+    <div class="buy-grid" id="daysPackages">
+      <div class="buy-card">
+        <h4>30 days</h4><small class="text-muted">1 month</small>
+        <div class="price days">free</div>
+        <button class="btn btn-success btn-sm" onclick="buyPackage('days',30)">claim</button>
+      </div>
+      <div class="buy-card">
+        <h4>90 days</h4><small class="text-muted">3 months</small>
+        <div class="price days">free</div>
+        <button class="btn btn-success btn-sm" onclick="buyPackage('days',90)">claim</button>
+      </div>
+      <div class="buy-card featured" style="border-color:#28a745">
+        <small class="text-white bg-success px-2 rounded">best value</small>
+        <h4>365 days</h4><small class="text-muted">1 year</small>
+        <div class="price days">free</div>
+        <button class="btn btn-success btn-sm" onclick="buyPackage('days',365)">claim</button>
+      </div>
+      <div class="buy-card">
+        <h4>730 days</h4><small class="text-muted">2 years</small>
+        <div class="price days">free</div>
+        <button class="btn btn-success btn-sm" onclick="buyPackage('days',730)">claim</button>
+      </div>
+    </div>
+    <div class="alert alert-info"><small>This is a private server. All packages are free — just click claim!</small></div>
+  </div>
+
+  <!-- ===== TAB 2: POWERS ===== -->
+  <div id="tab-powers" class="tab-panel store-section">
+    <h2>buy powers</h2>
+    <div class="filter-bar" id="powerFilters">
+      <button class="filter-btn active" data-cat="all" onclick="filterPowers('all',this)">all</button>
+      <button class="filter-btn" data-cat="latest" onclick="filterPowers('latest',this)">latest</button>
+      <button class="filter-btn" data-cat="function" onclick="filterPowers('function',this)">function</button>
+      <button class="filter-btn" data-cat="smiley" onclick="filterPowers('smiley',this)">smiley</button>
+      <button class="filter-btn" data-cat="epic" onclick="filterPowers('epic',this)">epic</button>
+      <button class="filter-btn" data-cat="group" onclick="filterPowers('group',this)">group</button>
+      <button class="filter-btn" data-cat="collection" onclick="filterPowers('collection',this)">collection</button>
+      <button class="filter-btn" data-cat="games" onclick="filterPowers('games',this)">games</button>
+    </div>
+    <div class="sort-bar">
+      <input id="powerSearchInput" type="text" class="form-control form-control-sm" style="max-width:200px" placeholder="search powers..." oninput="searchPowers(this.value)">
+      <button class="sort-btn" onclick="sortPowers('az')">A-Z</button>
+      <button class="sort-btn" onclick="sortPowers('za')">Z-A</button>
+      <button class="sort-btn" onclick="sortPowers('price-asc')">$&rarr;$$</button>
+      <button class="sort-btn" onclick="sortPowers('price-desc')">$$&rarr;$</button>
+      <button class="sort-btn" onclick="sortPowers('id-asc')">1-9</button>
+      <button class="sort-btn" onclick="sortPowers('id-desc')">9-1</button>
+    </div>
+    <div id="powersListContainer" style="max-height:500px;overflow-y:auto;border:1px solid #dee2e6;border-radius:6px;">
+      <div class="text-center p-4"><div class="spinner-border spinner-border-sm text-primary"></div> loading powers...</div>
+    </div>
+
+    <!-- Shopping Cart -->
+    <div id="cartSection" class="mt-3 d-none">
+      <h5>shopping cart</h5>
+      <div style="border:1px solid #dee2e6;border-radius:6px;overflow:hidden;">
+        <table class="cart-table">
+          <thead><tr><th>power</th><th>qty</th><th>cost</th><th></th></tr></thead>
+          <tbody id="cartBody"></tbody>
+          <tfoot><tr><td colspan="2"><strong>total</strong></td><td class="cart-total" id="cartTotal">0 xats</td><td></td></tr></tfoot>
+        </table>
+      </div>
+      <button class="btn btn-primary btn-sm mt-2" onclick="buyCart()">buy powers</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB 3: ACES ===== -->
+  <div id="tab-aces" class="tab-panel store-section">
+    <h2>subscribe to aces</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Aces are subscription-based powers that expire after a set duration</li>
+        <li>You must have days (be a subscriber) to use Aces</li>
+        <li>Aces cannot be traded</li>
+        <li>Not included in Everypower or Allpowers</li>
+        <li>Auto-renew system with level-up discounts at milestones</li>
+      </ul>
+    </div>
+    <div class="buy-grid" id="acesList">
+      <div class="ace-card">
+        <h4>Ace Yellow</h4><small>ID: 700</small>
+        <p class="mt-2">Golden name effect and exclusive yellow smilies</p>
+        <div class="price" style="color:#856404">200 xats / 30 days</div>
+        <button class="btn btn-warning btn-sm" onclick="buyAce(700,'Ace Yellow',200)">subscribe</button>
+      </div>
+      <div class="ace-card">
+        <h4>Ace Iconcolor</h4><small>ID: 702</small>
+        <p class="mt-2">Custom icon coloring and tinting</p>
+        <div class="price" style="color:#856404">200 xats / 30 days</div>
+        <button class="btn btn-warning btn-sm" onclick="buyAce(702,'Ace Iconcolor',200)">subscribe</button>
+      </div>
+      <div class="ace-card">
+        <h4>Ace Pawnhue</h4><small>ID: 728</small>
+        <p class="mt-2">Custom pawn hue shifting</p>
+        <div class="price" style="color:#856404">200 xats / 30 days</div>
+        <button class="btn btn-warning btn-sm" onclick="buyAce(728,'Ace Pawnhue',200)">subscribe</button>
+      </div>
+      <div class="ace-card">
+        <h4>Ace XAF</h4><small>ID: 736</small>
+        <p class="mt-2">XAF avatar effects and frames</p>
+        <div class="price" style="color:#856404">300 xats / 30 days</div>
+        <button class="btn btn-warning btn-sm" onclick="buyAce(736,'Ace XAF',300)">subscribe</button>
+      </div>
+      <div class="ace-card">
+        <h4>Ace VAF</h4><small>ID: 738</small>
+        <p class="mt-2">Video avatar effects and filters</p>
+        <div class="price" style="color:#856404">300 xats / 30 days</div>
+        <button class="btn btn-warning btn-sm" onclick="buyAce(738,'Ace VAF',300)">subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 4: SHORT NAME ===== -->
+  <div id="tab-shortname" class="tab-panel store-section">
+    <h2>buy a short user name</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Short names are 4-9 letters long</li>
+        <li>Cost varies by length (shorter = more expensive)</li>
+        <li>Only one short name per person</li>
+        <li>Unused for 90+ days may be resold</li>
+        <li>Letter 'i' is always lowercase, 'L' is always uppercase</li>
+      </ul>
+    </div>
+    <div class="convert-form">
+      <label>desired name:</label>
+      <input id="wantedName" type="text" class="form-control mb-2" maxlength="9" placeholder="4-9 letters">
+      <button class="btn btn-outline-primary btn-sm mb-2" onclick="checkShortName()">get cost</button>
+      <div id="shortNameResult" class="d-none">
+        <p>cost: <strong id="shortNameCost">0</strong> xats</p>
+        <button class="btn btn-primary btn-sm" onclick="buyShortName()">buy short name</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 5: AUCTIONS ===== -->
+  <div id="tab-auction" class="tab-panel store-section">
+    <h2>bid on auctions</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Auctions are public (your username and ID are shown)</li>
+        <li>Bids are binding — you must claim within 12 hours of ending</li>
+        <li>Failure to claim: fined or account deleted</li>
+        <li>Mistake bids: lose 20% (notify immediately)</li>
+        <li>Moving xats away during auction: lose 100%</li>
+      </ul>
+    </div>
+    <div id="auctionsList" class="mb-3">
+      <p class="text-muted">No active auctions at this time.</p>
+    </div>
+    <div class="convert-form">
+      <label>desired ID:</label>
+      <input id="auctionId" type="number" class="form-control mb-2" placeholder="enter user ID">
+      <label>starting bid (xats):</label>
+      <input id="auctionBid" type="number" class="form-control mb-2" placeholder="minimum bid">
+      <button class="btn btn-primary btn-sm" onclick="placeBid()">enter bid</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB 6: PROMOTION ===== -->
+  <div id="tab-promotion" class="tab-panel store-section">
+    <h2>promote a chat group</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Content must be suitable for ages 14+</li>
+        <li>Group must be moderated</li>
+        <li>No rank sales, no religious/political content</li>
+        <li>Radio must warn if 18+ content</li>
+        <li>Don't use /pr excessively (use /p instead)</li>
+      </ul>
+    </div>
+    <div class="convert-form">
+      <label>group name:</label>
+      <input id="promoName" type="text" class="form-control mb-2" placeholder="your group name">
+      <label>hours to promote:</label>
+      <input id="promoHours" type="number" class="form-control mb-2" min="0.5" step="0.5" placeholder="minimum 0.5 hours">
+      <div class="mb-2">
+        <label class="mr-3"><input type="radio" name="promoCurrency" value="xats" checked> pay with xats</label>
+        <label><input type="radio" name="promoCurrency" value="days"> pay with days</label>
+      </div>
+      <button class="btn btn-outline-primary btn-sm mb-2" onclick="getPromoCost()">get cost</button>
+      <div id="promoResult" class="d-none">
+        <p>cost: <strong id="promoCost">0</strong></p>
+        <button class="btn btn-primary btn-sm" onclick="buyPromotion()">promote now!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 7: ADS ===== -->
+  <div id="tab-ads" class="tab-panel store-section">
+    <h2>advertise your chat with banner ads on xat</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Banner size: 728x90 pixels</li>
+        <li>Accepted image hosts: imgur, postimg</li>
+        <li>Authorization fee: 50 xats</li>
+      </ul>
+    </div>
+    <div class="convert-form">
+      <label>ad image URL (728x90):</label>
+      <input id="adImage" type="url" class="form-control mb-2" placeholder="https://i.imgur.com/...">
+      <label>link to group:</label>
+      <input id="adGroup" type="text" class="form-control mb-2" placeholder="group name">
+      <button class="btn btn-outline-primary btn-sm mb-2" onclick="authorizeAd()">authorize (50 xats)</button>
+      <button class="btn btn-primary btn-sm" onclick="submitAd()">advertise</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB 8: GROUPS ===== -->
+  <div id="tab-groups" class="tab-panel store-section">
+    <h2>buy a chat group</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Buy an existing group that has been ownerless for 3+ months</li>
+        <li>Cost varies by group name popularity</li>
+        <li>Or create a new group for free</li>
+      </ul>
+    </div>
+    <div class="convert-form">
+      <label>desired group name:</label>
+      <input id="wantedGroup" type="text" class="form-control mb-2" placeholder="group name">
+      <button class="btn btn-outline-primary btn-sm mb-2" onclick="checkGroupCost()">get cost</button>
+      <div id="groupResult" class="d-none">
+        <p>cost: <strong id="groupCost">0</strong> xats</p>
+        <button class="btn btn-primary btn-sm" onclick="buyGroup()">buy group</button>
+      </div>
+    </div>
+    <hr>
+    <h5>or create a new group</h5>
+    <div class="convert-form">
+      <label>group name:</label>
+      <input id="newGroupName" type="text" class="form-control mb-2" placeholder="my-group-name">
+      <button class="btn btn-success btn-sm" onclick="createGroup()">create group (free)</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB 9: DX (Days to Xats) ===== -->
+  <div id="tab-dx" class="tab-panel store-section">
+    <h2>convert days to xats</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Rate: <strong>13.5 xats per day</strong></li>
+        <li>On real xat this requires 1 DX power per conversion (up to 180 days)</li>
+        <li>On this private server, conversions are free</li>
+      </ul>
+    </div>
+    <div class="convert-form">
+      <div class="rate-info">rate: 1 day = 13.5 xats</div>
+      <label>days to convert:</label>
+      <input id="dxDays" type="number" class="form-control mb-2" min="1" placeholder="number of days" oninput="document.getElementById('dxPreview').textContent=(Math.floor((parseInt(this.value)||0)*13.5))+' xats'">
+      <p>you will receive: <strong id="dxPreview">0 xats</strong></p>
+      <button class="btn btn-primary btn-sm" onclick="convertDX()">convert</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB 10: X2D (Xats to Days) ===== -->
+  <div id="tab-x2d" class="tab-panel store-section">
+    <h2>convert xats to days</h2>
+    <div class="rule-box">
+      <ul>
+        <li>Rate: <strong>1 day per 13.5 xats</strong></li>
+        <li>On real xat this requires 1 X2D power per conversion (up to 2500 xats)</li>
+        <li>On this private server, conversions are free</li>
+      </ul>
+    </div>
+    <div class="convert-form">
+      <div class="rate-info">rate: 13.5 xats = 1 day</div>
+      <label>xats to convert:</label>
+      <input id="x2dXats" type="number" class="form-control mb-2" min="14" placeholder="number of xats" oninput="document.getElementById('x2dPreview').textContent=(Math.floor((parseInt(this.value)||0)/13.5))+' days'">
+      <p>you will receive: <strong id="x2dPreview">0 days</strong></p>
+      <button class="btn btn-primary btn-sm" onclick="convertX2D()">convert</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var token = localStorage.getItem('xat_token');
+  var user = null;
+  var allPowers = [];
+  var filteredPowers = [];
+  var cart = {}; // powerId -> { name, cost, qty }
+  var pow2Data = null;
+
+  // === AUTH ===
+  window.storeLogin = function() {
+    var u = document.getElementById('storeUser').value;
+    var p = document.getElementById('storePass').value;
+    if (!document.getElementById('agreeterms').checked) return showAlert('Please agree to the terms.', 'warning');
+    if (!u || !p) return showAlert('Enter username and password.', 'warning');
+    fetch('/auth/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: u, password: p })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.token) {
+        localStorage.setItem('xat_token', data.token);
+        token = data.token;
+        loadUser();
+      } else { showAlert(data.error || 'Login failed', 'danger'); }
+    }).catch(function() { showAlert('Login failed', 'danger'); });
+  };
+
+  window.storeLogout = function() {
+    localStorage.removeItem('xat_token');
+    token = null; user = null;
+    document.getElementById('loginForm').classList.remove('d-none');
+    document.getElementById('balanceSection').classList.add('d-none');
+    document.getElementById('loginSection').classList.remove('logged-in');
+  };
+
+  function loadUser() {
+    if (!token) return;
+    fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.user) {
+        user = data.user;
+        document.getElementById('loginForm').classList.add('d-none');
+        document.getElementById('balanceSection').classList.remove('d-none');
+        document.getElementById('loginSection').classList.add('logged-in');
+        updateBalance();
+      }
+    });
+  }
+
+  function updateBalance() {
+    if (!user) return;
+    document.getElementById('balUser').textContent = user.username;
+    document.getElementById('balId').textContent = user.id;
+    document.getElementById('balXats').textContent = (user.xats || 0).toLocaleString();
+    document.getElementById('balDays').textContent = user.days || 0;
+  }
+
+  function refreshUser() {
+    fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(function(r) { return r.json(); })
+    .then(function(data) { if (data.user) { user = data.user; updateBalance(); } });
+  }
+
+  // === TABS ===
+  window.switchTab = function(tab) {
+    document.querySelectorAll('.store-tab').forEach(function(t) { t.classList.toggle('active', t.dataset.tab === tab); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === 'tab-' + tab); });
+    location.hash = '#!' + tab;
+  };
+
+  // === ALERTS ===
+  function showAlert(msg, type) {
+    var el = document.getElementById('storeAlert');
+    el.className = 'alert alert-' + (type || 'info');
+    el.textContent = msg;
+    el.classList.remove('d-none');
+    setTimeout(function() { el.classList.add('d-none'); }, 4000);
+  }
+
+  // === BUY XATS/DAYS ===
+  window.buyPackage = function(type, amount) {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    fetch('/api/store/claim', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify({ xats: type === 'xats' ? amount : 0, days: type === 'days' ? amount : 0 })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.ok || data.user) {
+        showAlert('Added ' + amount.toLocaleString() + ' ' + type + '!', 'success');
+        refreshUser();
+      } else { showAlert(data.error || 'Failed', 'danger'); }
+    }).catch(function() { showAlert('Failed to claim', 'danger'); });
+  };
+
+  // === POWERS ===
+  function loadPowers() {
+    fetch('/api/powers').then(function(r) { return r.json(); }).then(function(powers) {
+      allPowers = powers;
+      filteredPowers = powers;
+      renderPowersList(powers);
+    }).catch(function() {
+      document.getElementById('powersListContainer').innerHTML = '<p class="text-center p-3 text-muted">Failed to load powers.</p>';
+    });
+    // Also load pow2 for category data
+    fetch('/web_gear/chat/pow2.php').then(function(r) { return r.json(); }).then(function(data) {
+      pow2Data = {};
+      if (Array.isArray(data)) {
+        data.forEach(function(entry) { if (Array.isArray(entry) && entry.length >= 2) pow2Data[entry[0]] = entry[1]; });
+      }
+    }).catch(function() {});
+  }
+
+  function renderPowersList(powers) {
+    if (!powers.length) {
+      document.getElementById('powersListContainer').innerHTML = '<p class="text-center p-3 text-muted">No powers found.</p>';
+      return;
+    }
+    var html = powers.map(function(p) {
+      var cat = p.is_epic ? 'epic' : (p.section === 'group' ? 'group' : 'smiley');
+      var badgeClass = p.is_epic ? 'epic' : 'smiley';
+      var badgeText = p.is_epic ? 'EPIC' : (cat === 'group' ? 'GROUP' : '');
+      var cost = p.cost_xats || 250;
+      var inCart = cart[p.id] ? ' style="background:#d4edda"' : '';
+      return '<div class="power-row"' + inCart + ' data-id="' + p.id + '">' +
+        '<span class="power-name">' + esc(p.name) + '</span>' +
+        (badgeText ? '<span class="power-badge ' + badgeClass + '">' + badgeText + '</span>' : '') +
+        '<span class="power-cost">' + cost + ' xats</span>' +
+        '<input type="number" class="form-control form-control-sm power-qty" value="' + (cart[p.id] ? cart[p.id].qty : 0) + '" min="0" max="99" ' +
+        'onchange="updateCart(' + p.id + ',\'' + esc(p.name) + '\',' + cost + ',this.value)">' +
+        '</div>';
+    }).join('');
+    document.getElementById('powersListContainer').innerHTML = html;
+  }
+
+  window.filterPowers = function(cat, btn) {
+    document.querySelectorAll('#powerFilters .filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    if (cat === 'all') { filteredPowers = allPowers; }
+    else if (cat === 'latest') { filteredPowers = allPowers.slice(-20).reverse(); }
+    else if (cat === 'epic') { filteredPowers = allPowers.filter(function(p) { return p.is_epic; }); }
+    else if (cat === 'group') {
+      var groupIds = pow2Data && pow2Data.isgrp ? pow2Data.isgrp : [];
+      filteredPowers = allPowers.filter(function(p) { return groupIds.indexOf(p.id) !== -1; });
+    }
+    else if (cat === 'function') { filteredPowers = allPowers.filter(function(p) { return !p.is_epic && p.cost_xats >= 200; }); }
+    else if (cat === 'smiley') { filteredPowers = allPowers.filter(function(p) { return !p.is_epic && p.cost_xats < 200; }); }
+    else if (cat === 'collection') {
+      var superIds = [];
+      if (pow2Data && pow2Data.SuperP) { Object.values(pow2Data.SuperP).forEach(function(s) { if (s.n) s.n.split(',').forEach(function(id) { superIds.push(parseInt(id)); }); }); }
+      filteredPowers = allPowers.filter(function(p) { return superIds.indexOf(p.id) !== -1; });
+    }
+    else if (cat === 'games') { filteredPowers = allPowers.filter(function(p) { return /game|race|snake|doodle|match|grid/i.test(p.name); }); }
+    else { filteredPowers = allPowers; }
+    renderPowersList(filteredPowers);
+  };
+
+  window.sortPowers = function(mode) {
+    var sorted = filteredPowers.slice();
+    if (mode === 'az') sorted.sort(function(a, b) { return a.name.localeCompare(b.name); });
+    else if (mode === 'za') sorted.sort(function(a, b) { return b.name.localeCompare(a.name); });
+    else if (mode === 'price-asc') sorted.sort(function(a, b) { return (a.cost_xats || 0) - (b.cost_xats || 0); });
+    else if (mode === 'price-desc') sorted.sort(function(a, b) { return (b.cost_xats || 0) - (a.cost_xats || 0); });
+    else if (mode === 'id-asc') sorted.sort(function(a, b) { return a.id - b.id; });
+    else if (mode === 'id-desc') sorted.sort(function(a, b) { return b.id - a.id; });
+    filteredPowers = sorted;
+    renderPowersList(sorted);
+  };
+
+  window.searchPowers = function(q) {
+    q = q.toLowerCase();
+    var filtered = allPowers.filter(function(p) { return p.name.toLowerCase().indexOf(q) !== -1; });
+    filteredPowers = filtered;
+    renderPowersList(filtered);
+  };
+
+  window.updateCart = function(id, name, cost, qty) {
+    qty = parseInt(qty) || 0;
+    if (qty > 0) { cart[id] = { name: name, cost: cost, qty: qty }; }
+    else { delete cart[id]; }
+    renderCart();
+  };
+
+  function renderCart() {
+    var ids = Object.keys(cart);
+    if (!ids.length) { document.getElementById('cartSection').classList.add('d-none'); return; }
+    document.getElementById('cartSection').classList.remove('d-none');
+    var total = 0;
+    var html = ids.map(function(id) {
+      var item = cart[id];
+      var sub = item.cost * item.qty;
+      total += sub;
+      return '<tr><td>' + esc(item.name) + '</td><td>' + item.qty + '</td><td>' + sub + ' xats</td>' +
+        '<td><button class="btn btn-sm btn-outline-danger" onclick="updateCart(' + id + ',\'\',0,0);renderPowersList(filteredPowers)">x</button></td></tr>';
+    }).join('');
+    document.getElementById('cartBody').innerHTML = html;
+    document.getElementById('cartTotal').textContent = total.toLocaleString() + ' xats';
+  }
+
+  window.buyCart = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    var ids = Object.keys(cart);
+    if (!ids.length) return;
+    var bought = 0, failed = 0, total = ids.length;
+    ids.forEach(function(id) {
+      for (var i = 0; i < cart[id].qty; i++) {
+        fetch('/api/powers/buy', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+          body: JSON.stringify({ powerId: parseInt(id) })
+        }).then(function(r) { return r.json(); }).then(function(data) {
+          if (data.ok || data.power) bought++; else failed++;
+          if (bought + failed >= total) {
+            showAlert('Purchased ' + bought + ' power(s)!' + (failed ? ' (' + failed + ' failed)' : ''), 'success');
+            cart = {}; renderCart(); refreshUser();
+          }
+        });
+      }
+    });
+  };
+
+  // === ACES ===
+  window.buyAce = function(id, name, cost) {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    fetch('/api/powers/buy', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify({ powerId: id })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.ok || data.power) { showAlert('Subscribed to ' + name + '!', 'success'); refreshUser(); }
+      else showAlert(data.error || 'Failed', 'danger');
+    });
+  };
+
+  // === SHORT NAME ===
+  window.checkShortName = function() {
+    var name = document.getElementById('wantedName').value.trim();
+    if (name.length < 4 || name.length > 9) return showAlert('Name must be 4-9 characters.', 'warning');
+    if (!/^[a-zA-Z]+$/.test(name)) return showAlert('Letters only.', 'warning');
+    // Cost: shorter = more expensive. 4 chars = 10000, 5 = 5000, 6 = 2500, 7 = 1000, 8 = 500, 9 = 250
+    var costs = { 4: 10000, 5: 5000, 6: 2500, 7: 1000, 8: 500, 9: 250 };
+    var cost = costs[name.length] || 250;
+    document.getElementById('shortNameCost').textContent = cost.toLocaleString();
+    document.getElementById('shortNameResult').classList.remove('d-none');
+  };
+
+  window.buyShortName = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    showAlert('Short name reserved! (feature in development)', 'success');
+  };
+
+  // === AUCTION ===
+  window.placeBid = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    showAlert('Bid placed! (auction system in development)', 'success');
+  };
+
+  // === PROMOTION ===
+  window.getPromoCost = function() {
+    var hours = parseFloat(document.getElementById('promoHours').value) || 0;
+    if (hours < 0.5) return showAlert('Minimum 0.5 hours.', 'warning');
+    var currency = document.querySelector('input[name=promoCurrency]:checked').value;
+    var cost = currency === 'xats' ? Math.ceil(hours * 100) : Math.ceil(hours * 8);
+    document.getElementById('promoCost').textContent = cost + ' ' + currency;
+    document.getElementById('promoResult').classList.remove('d-none');
+  };
+
+  window.buyPromotion = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    showAlert('Group promoted! (feature in development)', 'success');
+  };
+
+  // === ADS ===
+  window.authorizeAd = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    showAlert('Ad authorized! (50 xats deducted)', 'success');
+  };
+  window.submitAd = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    showAlert('Ad submitted for review!', 'success');
+  };
+
+  // === GROUPS ===
+  window.checkGroupCost = function() {
+    var name = document.getElementById('wantedGroup').value.trim();
+    if (!name) return showAlert('Enter a group name.', 'warning');
+    var cost = name.length <= 4 ? 5000 : name.length <= 6 ? 2000 : 500;
+    document.getElementById('groupCost').textContent = cost.toLocaleString();
+    document.getElementById('groupResult').classList.remove('d-none');
+  };
+
+  window.buyGroup = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    showAlert('Group purchased! (feature in development)', 'success');
+  };
+
+  window.createGroup = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    var name = document.getElementById('newGroupName').value.trim();
+    if (!name) return showAlert('Enter a group name.', 'warning');
+    if (!/^[a-zA-Z0-9_-]+$/.test(name)) return showAlert('Letters, numbers, hyphens, underscores only.', 'warning');
+    fetch('/api/room/' + encodeURIComponent(name) + '/settings', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify({ name: name, owner_id: user.id })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.ok || data.settings) {
+        showAlert('Group "' + name + '" created!', 'success');
+        setTimeout(function() { location.href = '/' + name; }, 1500);
+      } else showAlert(data.error || 'Failed', 'danger');
+    }).catch(function() { showAlert('Failed to create group.', 'danger'); });
+  };
+
+  // === DX / X2D ===
+  window.convertDX = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    var days = parseInt(document.getElementById('dxDays').value) || 0;
+    if (days <= 0) return showAlert('Enter a valid number of days.', 'warning');
+    fetch('/web_gear/chat/DaysToXats2.php?days=' + days, {
+      headers: { 'Authorization': 'Bearer ' + token }
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.done) { showAlert('Converted! +' + Math.floor(days * 13.5) + ' xats', 'success'); refreshUser(); }
+      else showAlert(data.error || 'Conversion failed', 'danger');
+    });
+  };
+
+  window.convertX2D = function() {
+    if (!user) return showAlert('Please log in first.', 'warning');
+    var xats = parseInt(document.getElementById('x2dXats').value) || 0;
+    if (xats < 14) return showAlert('Need at least 14 xats for 1 day.', 'warning');
+    fetch('/web_gear/chat/XatsToDays2.php?xats=' + xats, {
+      headers: { 'Authorization': 'Bearer ' + token }
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.done) { showAlert('Converted! +' + Math.floor(xats / 13.5) + ' days', 'success'); refreshUser(); }
+      else showAlert(data.error || 'Conversion failed', 'danger');
+    });
+  };
+
+  // === HELPERS ===
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  // === INIT ===
+  if (token) loadUser();
+  loadPowers();
+
+  // Handle hash routing
+  var hash = location.hash.replace('#!', '');
+  if (hash && document.getElementById('tab-' + hash)) switchTab(hash);
+})();
+</script>

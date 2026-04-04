@@ -1,0 +1,465 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName"></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+
+        <!-- groups dropdown -->
+        <li class="nav-item dropdown">
+          <a id="navGroups" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19" alt="">
+            <span data-localize="web.groups">groups</span>
+          </a>
+          <div id="navGroupsItems" class="dropdown-menu">
+            <div id="GroupsList">
+              <h6 class="dropdown-header text-center" data-localize="web.promgroups">Promoted Groups</h6>
+              <a class="dropdown-item" href="/Chat">
+                <img class="mr-2" src="/content/web/R00241/img/navbar/promoted.svg" width="19" alt="">Chat
+              </a>
+              <div class="dropdown-divider"></div>
+            </div>
+            <a id="navCreate" class="dropdown-item" href="/chats#!creategroup">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/community.svg" width="19" alt="">
+              <span data-localize="web.create">create</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a id="navGroupsFeatured" class="dropdown-item" href="/#featured">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/featured.svg" width="19" alt="">
+              <span data-localize="web.featured">featured</span>
+            </a>
+            <a id="navGroupsPopular" class="dropdown-item" href="/#popular">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/popular.svg" width="19" alt="">
+              <span data-localize="web.popular">popular</span>
+            </a>
+            <a id="navGroupsSupported" class="dropdown-item" href="/#supported">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/supported.svg" width="19" alt="">
+              <span data-localize="web.supported">supported</span>
+            </a>
+            <a id="navGroupsGames" class="dropdown-item" href="/#games">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/games.svg" width="19" alt="">
+              <span data-localize="web.games">games</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a id="navGroupsSearch" class="dropdown-item" href="/search">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/search.svg" width="19" alt="">
+              <span data-localize="web.search">search</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a id="navGroupsHelp" class="dropdown-item" href="/Help">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/help.svg" width="19" alt="">
+              <span data-localize="web.help">help</span>
+            </a>
+            <a id="navGroupsTrade" class="dropdown-item" href="/Trade">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/trade.svg" width="19" alt="">
+              <span data-localize="web.trade">trade</span>
+            </a>
+          </div>
+        </li>
+
+        <!-- store dropdown -->
+        <li class="nav-item dropdown">
+          <a id="navStore" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19" alt="">
+            <span data-localize="web.store">store</span>
+          </a>
+          <div class="dropdown-menu showxsbef">
+            <a class="dropdown-item" href="/buy">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/xats.svg" width="19" alt="">
+              <span data-localize="web.buyxd">buy xats &amp; days</span>
+            </a>
+            <a class="dropdown-item" href="/powers">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/powers.svg" width="19" alt="">
+              <span data-localize="web.powers">powers</span>
+            </a>
+            <a class="dropdown-item" href="/aces">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/star.svg" width="19" alt="">
+              <span data-localize="web.aces">aces</span>
+            </a>
+            <a class="dropdown-item" href="/shortname">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/shortname.svg" width="19" alt="">
+              <span data-localize="web.shortname">short name</span>
+            </a>
+          </div>
+        </li>
+
+        <!-- xat dropdown -->
+        <li class="nav-item dropdown">
+          <a id="navxat" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19" alt="">
+            <span data-localize="web.xat">xat</span>
+          </a>
+          <div class="dropdown-menu showxslast">
+            <a class="dropdown-item" href="/wiki">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/help.svg" width="19" alt="">wiki
+            </a>
+            <a class="dropdown-item" href="/terms">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/terms.svg" width="19" alt="">
+              <span data-localize="web.terms">terms</span>
+            </a>
+            <a class="dropdown-item" href="/privacy">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/terms.svg" width="19" alt="">
+              <span data-localize="web.privacy">privacy</span>
+            </a>
+          </div>
+        </li>
+
+        <!-- rank/admin/account dropdowns (hidden by default, populated by direct.js) -->
+        <li id="rankdrop" class="nav-item dropdown d-none"></li>
+        <li id="admindrop" class="nav-item dropdown d-none"></li>
+        <li id="accountdrop" class="nav-item dropdown d-none">
+          <a id="navAccount" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="/content/web/R00241/img/navbar/account.svg" width="19" alt="">
+            <span data-localize="web.account">account</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="/login">
+              <span data-localize="web.myaccount">my account</span>
+            </a>
+          </div>
+        </li>
+
+        <!-- login/register buttons -->
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" data-localize="login.login">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" data-localize="login.register">register</button>
+        </li>
+
+        <!-- language dropdown -->
+        <li class="nav-item dropdown showxs">
+          <a id="navLang" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="mr-0 globe" src="/content/web/R00241/img/navbar/globe.svg" width="18" alt="language">
+          </a>
+          <div id="langdropdownitems" class="dropdown-menu dropdown-menu-right"></div>
+        </li>
+
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<!-- Hero section with carousel -->
+<div id="hero" class="pt-4 pb-4 pbsm">
+  <div class="container">
+    <div class="row animated fadeInDown">
+      <div class="w-100">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+          <div class="carousel-inner">
+
+            <!-- Slide 1: Chat embed + new to xat -->
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <div id="xatbox">
+                      <div class="xatbox">
+                        <iframe name="box" title="chat" width="650" height="400" id="embedframe" class="hmemb" src="/content/web/R00241/box/embed.html?n=Chat"></iframe>
+                      </div>
+                      <div id="promo"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div id="newto" class="container-fluid">
+                      <h1 data-localize="index.new" id="newtoxat">new to xat?</h1>
+                      <p id="newtodesc" data-localize="index.newt">Register an account. Find a xat group that shares your interests. Make your own xat group. Design your own animated avatar character. Send stickers with custom text.</p>
+                      <a href="#myCarousel" data-slide="next" class="btn btn-primary btn-large">
+                        <img class="mr-2 pb-1" src="/content/web/R00241/img/navbar/help.svg" width="19" alt="">
+                        <span data-localize="index.newb">learn more</span>
+                      </a>
+                      <p class="pt-4">
+                        <span data-localize="index.follow">Follow xat on</span>:
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="ml-2 mr-2 mb-1" src="/content/web/R00241/img/navbar/x_b.svg" width="18" alt="x"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="mr-2 mb-1" src="/content/web/R00241/img/navbar/facebook.svg" width="22" alt="facebook"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="mr-2 insta" src="/content/web/R00241/img/navbar/instagram.svg" width="22" alt="instagram"></a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Create group -->
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm span6 animated fadeInUpBig">
+                    <img class="himgs1 img-fluid" src="/content/web/R00241/img/home/tourgroup.png" alt="create">
+                  </div>
+                  <div class="col-sm span4 animated fadeInDownBig">
+                    <h2 data-localize="index.create">create your group</h2>
+                    <p data-localize="index.created">Create a chat group and invite your friends. Choose a background, set your group name and customize it with powers.</p>
+                    <a href="/chats#!creategroup" class="btn btn-primary btn-large">
+                      <span data-localize="index.createb">create a group</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Powers -->
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm span6 animated fadeInUpBig">
+                    <img class="himgs2 img-fluid" src="/content/web/R00241/img/home/tourpowers.png" alt="powers">
+                  </div>
+                  <div class="col-sm span4 animated fadeInDownBig">
+                    <h2 data-localize="index.powers">get powers</h2>
+                    <p data-localize="index.powersd">Use xat powers to make custom smilies, effects and other fun things.</p>
+                    <a href="/powers" class="btn btn-primary btn-large">
+                      <span data-localize="index.powersb">browse powers</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Games -->
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm span6 animated fadeInUpBig">
+                    <img class="himgs3 img-fluid" src="/content/web/R00241/img/home/tourgames.png" alt="games">
+                  </div>
+                  <div class="col-sm span4 animated fadeInDownBig">
+                    <h2 data-localize="index.games">play games</h2>
+                    <p data-localize="index.gamesd">Play multiplayer games. Challenge friends and compete on the leaderboard.</p>
+                    <a href="/#games" class="btn btn-primary btn-large">
+                      <span data-localize="index.gamesb">find games</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel controls -->
+          <a class="xcarousel-control xleft" href="#myCarousel" data-slide="prev" aria-label="Previous">
+            <img class="ximg p-2" src="/content/web/R00241/img/leftarrow.svg" alt="prev">
+          </a>
+          <a class="xcarousel-control xright" href="#myCarousel" data-slide="next" aria-label="Next">
+            <img class="ximg p-2" src="/content/web/R00241/img/rightarrow.svg" alt="next">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Groups section with tabs and grid -->
+<div id="groups" class="groups_page mt-4">
+  <div class="container">
+
+    <!-- Header row -->
+    <div class="row">
+      <div class="col-lg-4">
+        <h2 class="section_header left"><span data-localize="groups.xatgroups">xat groups</span></h2>
+      </div>
+      <div class="col-lg-8">
+        <div class="float-right smgrps smgrpsmar">
+          <form action="/search" class="form-search form-span inline-center">
+            <div id="searchdiv" class="input-group mb-3">
+              <input id="searchBox" name="search" class="form-control" placeholder="search" aria-label="search">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">
+                  <img class="mr-2 search" src="/content/web/R00241/img/navbar/search.svg" width="19" alt="">
+                  <span data-localize="web.search">search</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs + top pagination -->
+    <div class="row mt-4 mb-2">
+      <div class="col-lg-8">
+        <ul class="nav nav-pills homenav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="xfeatured" href="#" role="tab">
+              <img class="mr-2 pb-1" src="/content/web/R00241/img/navbar/featured.svg" width="19" alt="">
+              <span data-localize="groups.featured">featured</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="xpopular" href="#" role="tab">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/popular.svg" width="19" alt="">
+              <span data-localize="groups.popular">popular</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="xsupported" href="#" role="tab">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/supported.svg" width="19" alt="">
+              <span data-localize="groups.supported">supported</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="xgames" href="#" role="tab">
+              <img class="mr-2" src="/content/web/R00241/img/navbar/games.svg" width="19" alt="">
+              <span data-localize="groups.games">games</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <nav class="float-right smgrps smgrpsmar" aria-label="Group list page navigation top">
+          <ul class="pagination pagination-right">
+            <li class="page-item"><a class="page-link" id="prev" href="#">&laquo;</a></li>
+            <li class="page-item active"><a class="page-link" id="p1" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" id="p2" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" id="p3" href="#">3</a></li>
+            <li class="page-item"><a class="page-link d-none" id="p4" href="#">4</a></li>
+            <li class="page-item"><a class="page-link d-none" id="p5" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" id="next" href="#">&raquo;</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Group cards grid (populated by direct.js via clist/xlist/prender) -->
+    <div class="row">
+      <div id="thumbs" class="span12 w-100">
+        <div class="container-fluid p-0">
+          <div class="row ml-0 mr-0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom pagination -->
+    <div class="row">
+      <div class="col-lg">
+        <nav class="float-right smgrps" aria-label="Group list page navigation bottom">
+          <ul class="pagination pagination-right">
+            <li class="page-item"><a class="page-link" id="xprev" href="#">&laquo;</a></li>
+            <li class="page-item active"><a class="page-link" id="pp1" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" id="pp2" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" id="pp3" href="#">3</a></li>
+            <li class="page-item"><a class="page-link d-none" id="pp4" href="#">4</a></li>
+            <li class="page-item"><a class="page-link d-none" id="pp5" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" id="xnext" href="#">&raquo;</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Cookie notice -->
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span data-localize="web.privacyterms">xat uses <a href="/privacy" target="_blank" rel="noopener noreferrer">cookies</a> and your use is subject to <a href="/terms" target="_blank" rel="noopener noreferrer">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="pt-2 py-2">
+  <div class="container text-center">
+    <span class="d-flex justify-content-center">
+      <a class="nav-link ftright footer-icons footLang" href="#" target="_blank" rel="noopener noreferrer">
+        <img src="/content/web/R00241/img/navbar/x.svg" width="15" alt="x">
+      </a>
+      <a class="nav-link ftright footer-icons footLang" href="#" target="_blank" rel="noopener noreferrer">
+        <img src="/content/web/R00241/img/navbar/facebook_white.svg" width="18" alt="facebook">
+      </a>
+      <a class="nav-link ftlast footer-icons footLang fInsta" href="#" target="_blank" rel="noopener noreferrer">
+        <img src="/content/web/R00241/img/navbar/instagram_white.svg" width="18" alt="instagram">
+      </a>
+    </span>
+    <span>
+      <a href="#" data-toggle="modal" data-target="#privacyModal">
+        <span data-localize="web.privacy">privacy/cookies</span>
+      </a>
+      <span>&bull;</span>
+      <a href="/terms"><span data-localize="web.terms">terms of service</span></a>
+      <span>&bull;</span>
+      <a href="/safety"><span data-localize="web.safety">safety</span></a>
+      <span>&bull;</span>
+      <span>&copy; 2026 xat</span>
+    </span>
+  </div>
+</footer>
+
+<!-- Dialog placeholders (required by direct.js) -->
+<div id="embedDialog"></div>
+<div id="sendMessageDialog"></div>
+<div id="inappDialog"></div>
+<div id="termsDialog"></div>
+
+<div id="privacyDialog">
+  <!-- Privacy preferences modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog mw-100 w-75" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="privacyModalLabel">
+            <span data-localize="web.preferences">privacy preferences</span>
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container card mb-4 pt-2 pb-2">
+            <div class="row">
+              <div class="col">
+                <span data-localize="web.necessary">necessary cookies</span><br>
+                <small>These are necessary for this service to operate.</small>
+              </div>
+              <div class="col-ms-auto mr-2">
+                <label class="switch">
+                  <input id="privacyNecessary" type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div class="w-100 mb-3"></div>
+              <div class="col">
+                <span data-localize="web.performance">performance cookies</span><br>
+                <small>Used to improve service performance.</small>
+              </div>
+              <div class="col-ms-auto mr-2">
+                <label class="switch">
+                  <input id="privacyPerformance" type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div class="w-100 mb-3"></div>
+              <div class="col">
+                <span data-localize="web.grouptabs">group tabs (third party)</span><br>
+                <small>Allow third party content on groups.</small>
+              </div>
+              <div class="col-ms-auto mr-2">
+                <label class="switch">
+                  <input id="privacyGroups" type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="privacyClose" type="button" class="btn btn-primary">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="languageDialog"></div>

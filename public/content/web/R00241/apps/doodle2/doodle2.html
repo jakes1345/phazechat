@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doodle | xat</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .toolbar {
+      background: #16213e;
+      border-bottom: 1px solid #2a2a5e;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tool-group label {
+      font-size: 10px;
+      color: #7080a0;
+      text-transform: uppercase;
+    }
+    .color-swatch {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.1s;
+    }
+    .color-swatch.active { border-color: #fff; }
+    .color-swatch:hover  { border-color: #a0c4ff; }
+    input[type=color] {
+      width: 28px; height: 28px;
+      border: 1px solid #2a2a5e;
+      border-radius: 4px;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    input[type=range] {
+      width: 70px;
+      accent-color: #4a6fa5;
+    }
+    .size-label {
+      font-size: 11px;
+      color: #a0c4ff;
+      min-width: 20px;
+      text-align: right;
+    }
+    .btn-tool {
+      background: #0d1117;
+      border: 1px solid #2a2a5e;
+      color: #c0d8ff;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .btn-tool:hover    { background: #16213e; }
+    .btn-tool.active   { background: #1e3a5f; border-color: #4a6fa5; }
+    .canvas-wrap {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      background: #fff;
+    }
+    canvas {
+      display: block;
+      cursor: crosshair;
+      touch-action: none;
+    }
+    .status-bar {
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      padding: 3px 8px;
+      font-size: 10px;
+      color: #484f58;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="tool-group">
+      <label>Tool</label>
+      <button class="btn-tool active" id="tool-draw" onclick="setTool('draw')">Draw</button>
+      <button class="btn-tool" id="tool-erase" onclick="setTool('erase')">Erase</button>
+    </div>
+    <div class="tool-group">
+      <label>Color</label>
+      <div id="swatches">
+        <span class="color-swatch active" style="background:#000000" data-color="#000000" onclick="setColor(this)"></span>
+        <span class="color-swatch" style="background:#e63946" data-color="#e63946" onclick="setColor(this)"></span>
+        <span class="color-swatch" style="background:#f4a261" data-color="#f4a261" onclick="setColor(this)"></span>
+        <span class="color-swatch" style="background:#2a9d8f" data-color="#2a9d8f" onclick="setColor(this)"></span>
+        <span class="color-swatch" style="background:#457b9d" data-color="#457b9d" onclick="setColor(this)"></span>
+        <span class="color-swatch" style="background:#ffffff" data-color="#ffffff" onclick="setColor(this)" style="border:1px solid #444"></span>
+      </div>
+      <input type="color" id="custom-color" value="#000000" onchange="setCustomColor(this.value)" title="Custom color">
+    </div>
+    <div class="tool-group">
+      <label>Size</label>
+      <input type="range" id="brush-size" min="1" max="40" value="5" oninput="updateSize(this.value)">
+      <span class="size-label" id="size-label">5</span>
+    </div>
+    <button class="btn-tool" onclick="clearCanvas()">Clear</button>
+    <button class="btn-tool" onclick="downloadCanvas()">Save</button>
+  </div>
+
+  <div class="canvas-wrap" id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="status-bar" id="status-bar">Doodle — draw freely on the canvas</div>
+
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var drawing = false;
+    var lastX = 0, lastY = 0;
+    var color = '#000000';
+    var brushSize = 5;
+    var tool = 'draw';
+
+    function resizeCanvas() {
+      var wrap = document.getElementById('canvas-wrap');
+      var w = wrap.clientWidth;
+      var h = wrap.clientHeight;
+      var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      canvas.width = w;
+      canvas.height = h;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+      ctx.putImageData(imgData, 0, 0);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener('load', function() {
+      resizeCanvas();
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    });
+
+    function getPos(e) {
+      var rect = canvas.getBoundingClientRect();
+      if (e.touches) {
+        return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
+      }
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    }
+
+    function startDraw(e) {
+      e.preventDefault();
+      drawing = true;
+      var pos = getPos(e);
+      lastX = pos.x; lastY = pos.y;
+      ctx.beginPath();
+      ctx.arc(lastX, lastY, (tool === 'erase' ? brushSize * 3 : brushSize) / 2, 0, Math.PI * 2);
+      ctx.fillStyle = tool === 'erase' ? '#ffffff' : color;
+      ctx.fill();
+    }
+
+    function doDraw(e) {
+      e.preventDefault();
+      if (!drawing) return;
+      var pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.strokeStyle = tool === 'erase' ? '#ffffff' : color;
+      ctx.lineWidth = tool === 'erase' ? brushSize * 3 : brushSize;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+      lastX = pos.x; lastY = pos.y;
+    }
+
+    function stopDraw(e) { drawing = false; }
+
+    canvas.addEventListener('mousedown',  startDraw);
+    canvas.addEventListener('mousemove',  doDraw);
+    canvas.addEventListener('mouseup',    stopDraw);
+    canvas.addEventListener('mouseleave', stopDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: false });
+    canvas.addEventListener('touchmove',  doDraw,    { passive: false });
+    canvas.addEventListener('touchend',   stopDraw);
+
+    function setColor(el) {
+      color = el.dataset.color;
+      document.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
+      el.classList.add('active');
+      if (tool === 'erase') setTool('draw');
+    }
+
+    function setCustomColor(val) {
+      color = val;
+      document.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
+      if (tool === 'erase') setTool('draw');
+    }
+
+    function updateSize(val) {
+      brushSize = parseInt(val);
+      document.getElementById('size-label').textContent = val;
+    }
+
+    function setTool(t) {
+      tool = t;
+      document.getElementById('tool-draw').classList.toggle('active', t === 'draw');
+      document.getElementById('tool-erase').classList.toggle('active', t === 'erase');
+    }
+
+    function clearCanvas() {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function downloadCanvas() {
+      var link = document.createElement('a');
+      link.download = 'doodle.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+</html>

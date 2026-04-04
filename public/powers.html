@@ -1,0 +1,158 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.powers">powers</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.powers">Powers</h1>
+
+  <div class="mb-3">
+    <div class="input-group">
+      <input id="powerSearch" type="text" class="form-control" placeholder="Search powers...">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" onclick="filterPowers()">
+          <img class="mr-1" src="/content/web/R00241/img/navbar/search.svg" width="19" alt="">search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <span class="mr-2">Filter:</span>
+    <button class="btn btn-sm btn-outline-primary active filterBtn" data-filter="all">All</button>
+    <button class="btn btn-sm btn-outline-success filterBtn" data-filter="smiley">Smiley</button>
+    <button class="btn btn-sm btn-outline-info filterBtn" data-filter="group">Group</button>
+    <button class="btn btn-sm btn-outline-warning filterBtn" data-filter="epic">Epic</button>
+    <button class="btn btn-sm btn-outline-danger filterBtn" data-filter="limited">Limited</button>
+  </div>
+
+  <div id="powersLoading" class="text-center p-4">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p>Loading powers...</p>
+  </div>
+
+  <div id="powersList" class="row"></div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+var allPowers = [];
+
+function filterPowers() {
+  var q = document.getElementById('powerSearch').value.toLowerCase();
+  renderPowers(allPowers.filter(function(p) {
+    return p.name.toLowerCase().indexOf(q) !== -1 || (p.description && p.description.toLowerCase().indexOf(q) !== -1);
+  }));
+}
+
+function renderPowers(powers) {
+  var container = document.getElementById('powersList');
+  if (!powers.length) {
+    container.innerHTML = '<div class="col-12 text-center p-4"><p>No powers found.</p></div>';
+    return;
+  }
+  container.innerHTML = powers.map(function(p) {
+    var badge = '';
+    if (p.limited) badge = '<span class="badge badge-danger ml-2">Limited</span>';
+    else if (p.epic) badge = '<span class="badge badge-warning ml-2">Epic</span>';
+    else if (p.group) badge = '<span class="badge badge-info ml-2">Group</span>';
+    else badge = '<span class="badge badge-success ml-2">Smiley</span>';
+
+    return '<div class="col-md-4 col-lg-3 mb-3 power-card" data-type="' + (p.limited ? 'limited' : p.epic ? 'epic' : p.group ? 'group' : 'smiley') + '">' +
+      '<div class="card h-100">' +
+      '<div class="card-body">' +
+      '<h5 class="card-title">' + escapeHtml(p.name) + badge + '</h5>' +
+      '<p class="card-text text-muted small">' + escapeHtml(p.description || 'xat power') + '</p>' +
+      '<p class="mb-0"><strong>ID:</strong> ' + p.id + '</p>' +
+      (p.cost ? '<p class="mb-0"><strong>Cost:</strong> ' + p.cost + ' xats</p>' : '') +
+      '</div></div></div>';
+  }).join('');
+}
+
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// Load powers from local API (database-backed)
+fetch('/api/powers')
+.then(function(r) { return r.json(); })
+.then(function(data) {
+  document.getElementById('powersLoading').classList.add('d-none');
+  var powers = data.powers || data;
+  if (!Array.isArray(powers) || !powers.length) {
+    document.getElementById('powersList').innerHTML = '<div class="col-12"><div class="alert alert-warning">No powers in database.</div></div>';
+    return;
+  }
+  allPowers = powers.map(function(p) {
+    return {
+      id: p.id,
+      name: p.name || ('Power #' + p.id),
+      description: p.section || '',
+      cost: p.cost_xats || 0,
+      group: (p.section || '').toLowerCase() === 'group',
+      epic: p.is_epic === 1,
+      limited: p.is_limited === 1
+    };
+  });
+  renderPowers(allPowers);
+})
+.catch(function() {
+  document.getElementById('powersLoading').classList.add('d-none');
+  document.getElementById('powersList').innerHTML = '<div class="col-12"><div class="alert alert-warning">Could not load powers data.</div></div>';
+});
+
+// Filter buttons
+document.querySelectorAll('.filterBtn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filterBtn').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    var filter = this.dataset.filter;
+    var cards = document.querySelectorAll('.power-card');
+    cards.forEach(function(card) {
+      if (filter === 'all' || card.dataset.type === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+document.getElementById('powerSearch').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') filterPowers();
+});
+</script>

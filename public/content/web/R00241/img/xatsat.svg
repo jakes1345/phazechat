@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Saturn ring (back) -->
+  <ellipse cx="32" cy="36" rx="28" ry="7" fill="none" stroke="#1565C0" stroke-width="4" opacity="0.5"/>
+  <!-- Planet body -->
+  <circle cx="32" cy="28" r="16" fill="#2196F3"/>
+  <!-- Planet highlight -->
+  <circle cx="27" cy="22" r="5" fill="#64B5F6" opacity="0.5"/>
+  <!-- Saturn ring (front, clipped to appear in front of planet) -->
+  <path d="M4 36 Q18 29 32 29 Q46 29 60 36" fill="none" stroke="#1565C0" stroke-width="4" opacity="0.9"/>
+</svg>

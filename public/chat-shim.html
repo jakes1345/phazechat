@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Shim</title>
+    <script src="Smilies.js"></script>
+    <script src="xat.js"></script>
+    <style>
+        body, html { margin: 0; padding: 0; overflow: hidden; background: transparent; }
+    </style>
+</head>
+<body>
+    <div id="smileyBar"></div>
+    <div id="gamesContainer" style="display:none;"></div>
+    
+    <script>
+        // Bridge parent _Activity into local logic
+        if (parent && parent._Activity) {
+            window._Activity = parent._Activity;
+            console.log("[Shim] Inherited _Activity from parent.");
+        } else {
+            console.warn("[Shim] Failed to inherit _Activity.");
+        }
+    </script>
+</body>
+</html>

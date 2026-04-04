@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Stem -->
+  <line x1="142" y1="230" x2="142" y2="300" stroke="#2d7a2d" stroke-width="8" stroke-linecap="round"/>
+  <!-- Leaves -->
+  <ellipse cx="118" cy="270" rx="26" ry="12" fill="#3a9a3a" transform="rotate(-30 118 270)"/>
+  <ellipse cx="166" cy="258" rx="26" ry="12" fill="#3a9a3a" transform="rotate(30 166 258)"/>
+  <!-- Rose petals outer -->
+  <ellipse cx="142" cy="160" rx="38" ry="34" fill="#e83a3a"/>
+  <ellipse cx="110" cy="175" rx="30" ry="26" fill="#e83a3a"/>
+  <ellipse cx="174" cy="175" rx="30" ry="26" fill="#e83a3a"/>
+  <ellipse cx="120" cy="145" rx="28" ry="24" fill="#d62b2b"/>
+  <ellipse cx="164" cy="145" rx="28" ry="24" fill="#d62b2b"/>
+  <ellipse cx="142" cy="135" rx="28" ry="22" fill="#d62b2b"/>
+  <!-- Rose petals inner -->
+  <ellipse cx="142" cy="158" rx="24" ry="20" fill="#c92020"/>
+  <ellipse cx="128" cy="162" rx="18" ry="16" fill="#b81818"/>
+  <ellipse cx="156" cy="162" rx="18" ry="16" fill="#b81818"/>
+  <!-- Rose center -->
+  <ellipse cx="142" cy="155" rx="12" ry="10" fill="#a01010"/>
+  <ellipse cx="142" cy="153" rx="6" ry="5" fill="#8a0c0c"/>
+</svg>

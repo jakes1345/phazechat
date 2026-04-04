@@ -1,0 +1,1 @@
+{"chats":{"email":"email","save":"save","copy":"copy","preview":"preview","width":"width","height":"height","embedgrp":"embed your group"}}

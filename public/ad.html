@@ -1,0 +1,164 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.ad">advertise</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.ad">Advertise on xat</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/xatplanet.svg" width="96" alt="advertise" class="mb-3">
+    <h2>Reach Thousands of Active Chatters</h2>
+    <p class="lead">xat serves millions of page views to an engaged global community. Put your group, product, or service in front of the right audience.</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-success">
+        <div class="card-header bg-success text-white text-center">
+          <h5 class="mb-0">Banner Ad</h5>
+        </div>
+        <div class="card-body text-center">
+          <p class="text-muted small">728 &times; 90 px leaderboard displayed at the top of group pages and the xat homepage.</p>
+          <hr>
+          <p><strong>CPM Rate:</strong> $1.50 / 1,000 impressions</p>
+          <p><strong>Daily Flat Rate:</strong> $25 / day</p>
+          <p><strong>Min. Campaign:</strong> 3 days</p>
+          <button class="btn btn-success btn-sm" onclick="selectTier('banner')">Select Banner</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-primary">
+        <div class="card-header bg-primary text-white text-center">
+          <h5 class="mb-0">Sidebar Ad</h5>
+        </div>
+        <div class="card-body text-center">
+          <p class="text-muted small">300 &times; 250 px medium rectangle shown in the sidebar of group chat pages throughout the session.</p>
+          <hr>
+          <p><strong>CPM Rate:</strong> $2.00 / 1,000 impressions</p>
+          <p><strong>Daily Flat Rate:</strong> $40 / day</p>
+          <p><strong>Min. Campaign:</strong> 1 day</p>
+          <button class="btn btn-primary btn-sm" onclick="selectTier('sidebar')">Select Sidebar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-warning">
+        <div class="card-header bg-warning text-white text-center">
+          <h5 class="mb-0">Full-Page Takeover</h5>
+        </div>
+        <div class="card-body text-center">
+          <p class="text-muted small">Full-page interstitial shown to users when navigating to a group page. Maximum impact, limited slots.</p>
+          <hr>
+          <p><strong>CPM Rate:</strong> $5.00 / 1,000 impressions</p>
+          <p><strong>Daily Flat Rate:</strong> $150 / day</p>
+          <p><strong>Min. Campaign:</strong> 1 day</p>
+          <button class="btn btn-warning btn-sm" onclick="selectTier('fullpage')">Select Takeover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4" id="adForm">
+    <div class="card-body">
+      <h3>Submit Your Ad Campaign</h3>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="adTier">Ad Placement</label>
+          <select class="form-control" id="adTier">
+            <option value="banner">Banner Ad — $25/day</option>
+            <option value="sidebar">Sidebar Ad — $40/day</option>
+            <option value="fullpage">Full-Page Takeover — $150/day</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="adDays">Campaign Duration (days)</label>
+          <input type="number" class="form-control" id="adDays" min="1" max="90" value="7" style="max-width: 120px;">
+        </div>
+        <div class="form-group">
+          <label for="adUrl">Destination URL</label>
+          <input type="url" class="form-control" id="adUrl" placeholder="https://yoursite.com">
+          <small class="form-text text-muted">The URL users are sent to when they click your ad.</small>
+        </div>
+        <div class="form-group">
+          <label for="adImage">Ad Image URL</label>
+          <input type="url" class="form-control" id="adImage" placeholder="https://yoursite.com/banner.png">
+          <small class="form-text text-muted">Provide a direct link to your ad image in the correct dimensions for your chosen placement.</small>
+        </div>
+        <div class="form-group">
+          <label for="adContact">Contact Email</label>
+          <input type="email" class="form-control" id="adContact" placeholder="you@example.com">
+        </div>
+        <div class="alert alert-info" id="adCostBox">
+          Estimated total: <strong id="adCost">$175.00</strong> for <span id="adDaysLabel">7</span> day(s).
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Campaign</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Advertising Policies</h3>
+      <ul>
+        <li>All ads are reviewed before going live. Approval typically takes 24 hours.</li>
+        <li>Ads must comply with xat's <a href="/terms">Terms of Service</a> and may not promote illegal content, adult material, or competitor chat platforms.</li>
+        <li>xat reserves the right to reject any ad campaign without explanation.</li>
+        <li>Payments are processed in USD. No refunds after a campaign begins.</li>
+        <li>For high-volume or custom campaigns, contact <a href="mailto:ads@xat.com">ads@xat.com</a>.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+var tierRates = { banner: 25, sidebar: 40, fullpage: 150 };
+function updateAdCost() {
+  var tier = document.getElementById('adTier').value;
+  var days = parseInt(document.getElementById('adDays').value) || 1;
+  var cost = (tierRates[tier] || 25) * days;
+  document.getElementById('adCost').textContent = '$' + cost.toFixed(2);
+  document.getElementById('adDaysLabel').textContent = days;
+}
+function selectTier(tier) {
+  document.getElementById('adTier').value = tier;
+  updateAdCost();
+  document.getElementById('adForm').scrollIntoView({ behavior: 'smooth' });
+}
+document.getElementById('adTier').addEventListener('change', updateAdCost);
+document.getElementById('adDays').addEventListener('input', updateAdCost);
+</script>

@@ -1,0 +1,1 @@
+{"login":{"login":"login","register":"register","loginid":"log in with a xat id","registerid":"register for a xat id","username":"username","password":"password","email":"email","forgot":"forgot password?","lostpassword":"lost password","resetpassword":"reset password","confirmpassword":"confirm password","submit":"submit","back":"back","rememberme":"remember me"}}

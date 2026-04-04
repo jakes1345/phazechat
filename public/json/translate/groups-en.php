@@ -1,0 +1,1 @@
+{"groups":{"xatgroups":"xat groups","featured":"featured","popular":"popular","supported":"supported","games":"games"}}

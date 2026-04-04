@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Banned</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:'Courier New',monospace;display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden}
+.container{text-align:center;padding:30px}
+h1{color:#e94560;font-size:28px;margin-bottom:20px}
+.timer-display{font-size:64px;color:#e94560;margin:30px 0;font-weight:bold;text-shadow:0 0 20px rgba(233,69,96,0.5)}
+.sub{color:#888;font-size:14px;margin-top:20px}
+.bar{width:300px;height:6px;background:#16213e;border-radius:3px;margin:20px auto;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#e94560,#0f3460);border-radius:3px;transition:width 1s linear}
+</style></head><body>
+<div class="container">
+<h1>YOU HAVE BEEN BANNED</h1>
+<div class="timer-display" id="timer">--:--</div>
+<div class="bar"><div class="fill" id="fill" style="width:100%"></div></div>
+<div class="sub">Wait for the timer to expire</div>
+</div>
+<script>
+const params = location.hash.slice(1).split(',');
+const timeMs = parseInt(params[0]) || 30000;
+const deadline = Date.now() + timeMs;
+const timerEl = document.getElementById('timer');
+const fillEl = document.getElementById('fill');
+
+function update(){
+  const left = Math.max(0, deadline - Date.now());
+  const mins = Math.floor(left/60000);
+  const secs = Math.floor((left%60000)/1000);
+  timerEl.textContent = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+  fillEl.style.width = (left/timeMs*100)+'%';
+  if(left<=0){
+    timerEl.textContent='00:00';
+    timerEl.style.color='#00ff88';
+    try{parent.postMessage(JSON.stringify({type:'gameComplete',won:true}),'*');}catch(e){}
+    return;
+  }
+  requestAnimationFrame(update);
+}
+update();
+</script></body></html>

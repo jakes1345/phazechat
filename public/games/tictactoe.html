@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Tic-Tac-Toe</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#1a1a2e;color:#fff;font-family:'Segoe UI',Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh}
+  h1{margin-bottom:20px;color:#4ecdc4}
+  .board{display:grid;grid-template-columns:repeat(3,100px);grid-template-rows:repeat(3,100px);gap:4px}
+  .cell{background:#16213e;border:2px solid #333;display:flex;align-items:center;justify-content:center;font-size:48px;cursor:pointer;transition:background .2s}
+  .cell:hover{background:#1a2a4e}
+  .cell.x{color:#4ecdc4}
+  .cell.o{color:#ff6b6b}
+  #status{margin-top:20px;font-size:18px;color:#aaa}
+  .btn{margin-top:15px;padding:10px 24px;background:#0077b6;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px}
+</style>
+</head><body>
+<h1>Tic-Tac-Toe</h1>
+<div class="board" id="board"></div>
+<div id="status">Waiting for opponent...</div>
+<button class="btn" id="resetBtn" style="display:none" onclick="resetGame()">Play Again</button>
+<script>
+const params = new URLSearchParams(location.search);
+const gameId = params.get('id');
+const playerId = params.get('player');
+const board = Array(9).fill('');
+let mySymbol = 'X';
+let currentTurn = 'X';
+let gameOver = false;
+
+const boardEl = document.getElementById('board');
+const statusEl = document.getElementById('status');
+
+for (let i = 0; i < 9; i++) {
+  const cell = document.createElement('div');
+  cell.className = 'cell';
+  cell.dataset.index = i;
+  cell.addEventListener('click', () => makeMove(i));
+  boardEl.appendChild(cell);
+}
+
+function makeMove(index) {
+  if (board[index] || gameOver || currentTurn !== mySymbol) return;
+  board[index] = mySymbol;
+  renderBoard();
+  currentTurn = mySymbol === 'X' ? 'O' : 'X';
+
+  // Send move to server via parent
+  if (window.parent && window.parent.sendGameMove) {
+    window.parent.sendGameMove(gameId, JSON.stringify({ index, symbol: mySymbol }));
+  }
+
+  checkWin();
+}
+
+window.receiveMove = function(data) {
+  try {
+    const move = typeof data === 'string' ? JSON.parse(data) : data;
+    board[move.index] = move.symbol;
+    currentTurn = move.symbol === 'X' ? 'O' : 'X';
+    renderBoard();
+    checkWin();
+  } catch(e) {}
+};
+
+function renderBoard() {
+  const cells = boardEl.querySelectorAll('.cell');
+  board.forEach((val, i) => {
+    cells[i].textContent = val;
+    cells[i].className = 'cell' + (val ? ' ' + val.toLowerCase() : '');
+  });
+  statusEl.textContent = gameOver ? statusEl.textContent : (currentTurn === mySymbol ? 'Your turn' : "Opponent's turn");
+}
+
+function checkWin() {
+  const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for (const [a,b,c] of wins) {
+    if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+      gameOver = true;
+      statusEl.textContent = board[a] === mySymbol ? 'You win!' : 'You lose!';
+      document.getElementById('resetBtn').style.display = 'block';
+      return;
+    }
+  }
+  if (!board.includes('')) {
+    gameOver = true;
+    statusEl.textContent = "It's a draw!";
+    document.getElementById('resetBtn').style.display = 'block';
+  }
+}
+
+function resetGame() {
+  board.fill('');
+  gameOver = false;
+  currentTurn = 'X';
+  document.getElementById('resetBtn').style.display = 'none';
+  renderBoard();
+}
+
+renderBoard();
+</script>
+</body></html>

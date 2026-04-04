@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Diamond shadow -->
+  <ellipse cx="142" cy="270" rx="60" ry="10" fill="#c8d8f0" opacity="0.5"/>
+  <!-- Diamond main shape -->
+  <polygon points="142,60 220,130 142,260 64,130" fill="#5b9ef0"/>
+  <!-- Diamond top facets -->
+  <polygon points="142,60 220,130 142,130" fill="#7ab8ff"/>
+  <polygon points="142,60 64,130 142,130" fill="#4a8de0"/>
+  <!-- Diamond upper left -->
+  <polygon points="142,60 96,110 64,130 142,130" fill="#6aaaf5"/>
+  <!-- Diamond upper right -->
+  <polygon points="142,60 188,110 220,130 142,130" fill="#9acfff"/>
+  <!-- Diamond bottom facets -->
+  <polygon points="64,130 142,130 142,260" fill="#3570c0"/>
+  <polygon points="220,130 142,130 142,260" fill="#4a8de0"/>
+  <!-- Shine -->
+  <polygon points="120,80 108,115 130,115" fill="white" opacity="0.5"/>
+  <ellipse cx="170" cy="100" rx="8" ry="5" fill="white" opacity="0.4" transform="rotate(-20 170 100)"/>
+</svg>

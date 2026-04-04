@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Space Ban</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden}
+canvas{border:1px solid #222}
+.hud{position:fixed;top:8px;width:100%;display:flex;justify-content:space-between;padding:0 20px;color:#888;font-family:'Courier New',monospace;font-size:14px;z-index:5}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;justify-content:center;align-items:center;color:#e0e0e0;font-family:'Courier New',monospace;z-index:10}
+.result{font-size:32px;font-weight:bold}
+.win{color:#00ff88}.lose{color:#e94560}
+</style></head><body>
+<div class="hud"><span id="score">Kills: 0 / 15</span><span id="time">Time: --s</span></div>
+<canvas id="c"></canvas>
+<div class="overlay" id="overlay"><div class="result" id="result"></div></div>
+<script>
+const params = location.hash.slice(1).split(',');
+const timeMs = parseInt(params[0]) || 60000;
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+c.width = Math.min(parseInt(params[5])||500, 600);
+c.height = Math.min(parseInt(params[6])||400, 500);
+
+const player = {x:c.width/2, y:c.height-40, w:30, h:20, speed:5};
+const bullets = [], enemies = [], stars = [];
+let score=0, done=false, deadline, keys={}, spawnTimer=0;
+const target = 15;
+
+for(let i=0;i<50;i++) stars.push({x:Math.random()*c.width, y:Math.random()*c.height, s:Math.random()*2+0.5});
+
+function spawnEnemy(){enemies.push({x:Math.random()*(c.width-30)+15, y:-20, w:24, h:16, speed:1+Math.random()*2});}
+
+function finish(won){
+  if(done)return; done=true;
+  document.getElementById('overlay').style.display='flex';
+  document.getElementById('result').textContent=won?'ESCAPED!':'FAILED!';
+  document.getElementById('result').className='result '+(won?'win':'lose');
+  try{parent.postMessage(JSON.stringify({type:'gameComplete',won}),'*');}catch(e){}
+}
+
+function tick(){
+  if(done)return;
+  const left=Math.max(0,Math.ceil((deadline-Date.now())/1000));
+  document.getElementById('time').textContent='Time: '+left+'s';
+  if(left<=0){finish(false);return;}
+
+  if(keys.ArrowLeft||keys.a) player.x=Math.max(player.w/2, player.x-player.speed);
+  if(keys.ArrowRight||keys.d) player.x=Math.min(c.width-player.w/2, player.x+player.speed);
+  if(keys[' ']&&bullets.length<5) {bullets.push({x:player.x,y:player.y-12,speed:7}); keys[' ']=false;}
+
+  spawnTimer++; if(spawnTimer>30){spawnEnemy();spawnTimer=0;}
+
+  bullets.forEach(b=>b.y-=b.speed);
+  enemies.forEach(e=>e.y+=e.speed);
+
+  for(let i=enemies.length-1;i>=0;i--){
+    const e=enemies[i];
+    if(e.y>c.height){enemies.splice(i,1);continue;}
+    if(Math.abs(e.x-player.x)<(e.w+player.w)/2&&Math.abs(e.y-player.y)<(e.h+player.h)/2){finish(false);return;}
+    for(let j=bullets.length-1;j>=0;j--){
+      const b=bullets[j];
+      if(Math.abs(b.x-e.x)<e.w/2&&Math.abs(b.y-e.y)<e.h/2){
+        enemies.splice(i,1);bullets.splice(j,1);score++;
+        document.getElementById('score').textContent='Kills: '+score+' / '+target;
+        if(score>=target){finish(true);return;}
+        break;
+      }
+    }
+  }
+  for(let i=bullets.length-1;i>=0;i--) if(bullets[i].y<-10) bullets.splice(i,1);
+
+  // Draw
+  ctx.fillStyle='#000'; ctx.fillRect(0,0,c.width,c.height);
+  stars.forEach(s=>{s.y+=s.s;if(s.y>c.height)s.y=0;ctx.fillStyle='rgba(255,255,255,'+(s.s/3)+')';ctx.fillRect(s.x,s.y,1,1);});
+  ctx.fillStyle='#00ff88';ctx.fillRect(player.x-player.w/2,player.y-player.h/2,player.w,player.h);
+  ctx.fillStyle='#ffcc00';bullets.forEach(b=>ctx.fillRect(b.x-2,b.y-4,4,8));
+  ctx.fillStyle='#e94560';enemies.forEach(e=>ctx.fillRect(e.x-e.w/2,e.y-e.h/2,e.w,e.h));
+}
+
+document.addEventListener('keydown',e=>{keys[e.key]=true;e.preventDefault();});
+document.addEventListener('keyup',e=>{keys[e.key]=false;});
+deadline=Date.now()+timeMs;
+setInterval(tick,1000/60);
+</script></body></html>

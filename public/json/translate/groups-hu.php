@@ -1,0 +1,1 @@
+{"groups":{"xatgroups":"xat chatek","searchb":"Keres\u00e9s","featured":"Kiemelt","popular":"N\u00e9pszer\u0171","supported":"T\u00e1mogatott","games":"J\u00e1t\u00e9kok","prev":"El\u0151z\u0151","next":"K\u00f6vetkez\u0151"}}

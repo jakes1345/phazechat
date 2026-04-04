@@ -1,0 +1,38 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19">
+<defs>
+<g id="icons_Home_0_Layer0_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 7.8 3.5
+L 3.85 6.95 3.85 12.8 11.95 12.8 11.95 6.7 7.8 3.5
+M 10.45 8.25
+L 10.45 12.25 8.8 12.25 8.8 8.25 10.45 8.25
+M 5.55 7.6
+L 7.1 7.6 7.1 9.15 5.55 9.15 5.55 7.6 Z"/>
+
+<path fill="#000000" stroke="none" d="
+M 7.1 7.6
+L 5.55 7.6 5.55 9.15 7.1 9.15 7.1 7.6
+M 10.45 12.25
+L 10.45 8.25 8.8 8.25 8.8 12.25 10.45 12.25 Z"/>
+</g>
+
+<path id="icons_Home_0_Layer0_0_1_STROKES" stroke="#CC0033" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 2.75 7.25
+L 7.7 3 13.05 7"/>
+
+<path id="icons_Home_0_Layer0_0_2_STROKES" stroke="#666666" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 7.8 3.5
+L 11.95 6.7 11.95 12.8 3.85 12.8 3.85 6.95 7.8 3.5 Z"/>
+</defs>
+
+<g transform="matrix( 1.4563140869140625, 0, 0, 1.4540863037109375, -2.05,-1.9) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#icons_Home_0_Layer0_0_FILL"/>
+
+<use xlink:href="#icons_Home_0_Layer0_0_1_STROKES"/>
+
+<use xlink:href="#icons_Home_0_Layer0_0_2_STROKES"/>
+</g>
+</g>
+</svg>

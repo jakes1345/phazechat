@@ -1,0 +1,148 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19">
+<defs>
+<radialGradient id="Gradient_1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="6.1499999999999995" fx="0" fy="0" gradientTransform="matrix( 1, 0, 0, 1, 7.3,7.4) " spreadMethod="pad">
+<stop  offset="0%" stop-color="#4DE6E6" stop-opacity="0.5490196078431373"/>
+
+<stop  offset="100%" stop-color="#FFFFFF"/>
+</radialGradient>
+
+<radialGradient id="Gradient_2" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="9.667964172978714" fx="0" fy="0" gradientTransform="matrix( 0.4835557844811113, -0.8753135457051132, 0.5145861022018243, 0.28185871929647666, 7.65,13.3) " spreadMethod="pad">
+<stop  offset="0%" stop-color="#000000" stop-opacity="0.4117647058823529"/>
+
+<stop  offset="100%" stop-color="#013198" stop-opacity="0"/>
+</radialGradient>
+
+<radialGradient id="Gradient_3" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="5.021096120370531" fx="0" fy="0" gradientTransform="matrix( 0.7767228323269383, -0.6298425531369083, 0.4008088974507598, 0.4929202589767108, 6.4,4.65) " spreadMethod="pad">
+<stop  offset="0%" stop-color="#000000" stop-opacity="0.4235294117647059"/>
+
+<stop  offset="100%" stop-color="#013198" stop-opacity="0"/>
+</radialGradient>
+
+<g id="magnifyglass_0_Layer1_0_FILL">
+<path fill="#000000" stroke="none" d="
+M 7.3 14.6
+Q 6.4 14.6 5.6 14.4
+L 5.6 24
+Q 7.35 25.2 9.1 24
+L 9.1 14.4
+Q 8.25 14.6 7.3 14.6 Z"/>
+
+<path fill="#CCCCCC" stroke="none" d="
+M 14.6 7.3
+Q 14.6 4.3 12.45 2.15 10.3 0 7.3 0 4.3 0 2.15 2.15 0 4.3 0 7.3 0 10.3 2.15 12.45 3.65 13.95 5.6 14.4 6.4 14.6 7.3 14.6 8.25 14.6 9.1 14.4 11 13.95 12.45 12.45 14.6 10.3 14.6 7.3
+M 12.9 7.4
+Q 12.9 9.7 11.25 11.3 9.6 12.95 7.3 12.95 5 12.95 3.35 11.3 1.7 9.7 1.7 7.4 1.7 6.429296875 2 5.55 2.36875 4.486328125 3.2 3.55
+L 3.35 3.45
+Q 5 1.8 7.3 1.8 9.6 1.8 11.25 3.45
+L 12.4 5.05 12.55 5.5
+Q 12.8259765625 6.1974609375 12.85 6.95 12.9 7.1666015625 12.9 7.4 Z"/>
+
+<path fill="#C4FFFF" fill-opacity="0.8117647058823529" stroke="none" d="
+M 12.85 6.95
+Q 12.8259765625 6.1974609375 12.55 5.5
+L 12.4 5.05 11.25 3.45
+Q 9.6 1.8 7.3 1.8 5 1.8 3.35 3.45
+L 3.2 3.55
+Q 3.076171875 3.739453125 2.95 3.9 2.771484375 4.114453125 2.6 4.35
+L 2 5.55
+Q 1.7859375 6.2318359375 1.75 6.95 6.8427734375 3.355078125 12.85 6.95 Z"/>
+
+<path fill="url(#Gradient_1)" stroke="none" d="
+M 11.25 11.3
+Q 12.9 9.7 12.9 7.4 12.9 7.1666015625 12.85 6.95 6.8427734375 3.355078125 1.75 6.95 1.7859375 6.2318359375 2 5.55 1.7 6.429296875 1.7 7.4 1.7 9.7 3.35 11.3 5 12.95 7.3 12.95 9.6 12.95 11.25 11.3 Z"/>
+</g>
+
+<g id="handobj_0_Layer0_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 2.8 -2.5
+L 1.5 -2 0.75 -4 -1.15 -2.55
+Q -2.8 -1.3 -3.6 0.2 -3.95 2.05 -3.2 3.35 -2.7 4.25 -1.1 5.55 0.9 5.35 2.3 4.55
+L 4 3.4 3.3 1.35 3.75 1.1 2.9 -0.6 3.6 -1 2.8 -2.5 Z"/>
+</g>
+
+<g id="ChatterB_0_Layer0_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 8.3 3.4
+Q 8.2974609375 1.993359375 7.3 1 6.3072265625 0.00390625 4.9 0 3.492578125 0.00390625 2.5 1 1.50234375 1.993359375 1.5 3.4 1.50234375 4.806640625 2.5 5.8 3.492578125 6.78359375 4.9 6.75 3.2388671875 6.9326171875 1.7 9.1 -0.062109375 11.6072265625 0 14.85 0.025 15.912890625 5.15 16 10.26640625 16.0830078125 10.2 15.05 10.011328125 11.7240234375 8.45 9.2 6.997265625 6.7763671875 5.15 6.75 6.40390625 6.6900390625 7.3 5.8 8.2974609375 4.806640625 8.3 3.4 Z"/>
+</g>
+
+<g id="Pawn_0_Layer0_0_FILL">
+<path fill="url(#Gradient_2)" stroke="none" d="
+M 4.95 6.8
+L 4.9 6.8
+Q 3.25 6.95 1.7 9.15 -0.05 11.6 0 14.9 0.05 15.9 5.15 16 10.25 16.1 10.2 15.05 10 11.7 8.5 9.25 7 6.8 5.2 6.8 5.05 6.8 4.95 6.8
+M 2.2 14.4
+Q 2.5 10.15 4.9 8.6 2.5 10.15 2.2 14.4 Z"/>
+
+<path fill="url(#Gradient_3)" stroke="none" d="
+M 8.3 3.4
+Q 8.3 2 7.3 1 6.3 0 4.9 0 3.5 0 2.5 1 1.5 2 1.5 3.4 1.5 4.8 2.5 5.8 3.5 6.8 4.9 6.8
+L 4.95 6.8
+Q 5.05 6.8 5.2 6.8 6.4 6.7 7.3 5.8 8.3 4.8 8.3 3.4
+M 3.2 3.45
+Q 3.4 2.15 4.5 1.6 3.4 2.15 3.2 3.45 Z"/>
+</g>
+
+<path id="thumbsup_0_Layer0_0_1_STROKES" stroke="#666666" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 1.5 -2
+L 2.8 -2.5 3.6 -1 2.9 -0.6 3.75 1.1 3.3 1.35 4 3.4 2.3 4.55
+Q 0.9 5.35 -1.1 5.55 -2.7 4.25 -3.2 3.35 -3.95 2.05 -3.6 0.2 -2.8 -1.3 -1.15 -2.55
+L 0.75 -4 1.5 -2
+Q 1.2 -1.85 -0.65 -0.5
+M 3.3 1.35
+L 1.1 2.6
+M 2.9 -0.6
+Q 1.35 0.25 0.25 1"/>
+
+<path id="Pawn_0_Layer0_0_1_STROKES" stroke="#000000" stroke-opacity="0.6509803921568628" stroke-width="0.05" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 4.9 6.8
+Q 3.5 6.8 2.5 5.8 1.5 4.8 1.5 3.4 1.5 2 2.5 1 3.5 0 4.9 0 6.3 0 7.3 1 8.3 2 8.3 3.4 8.3 4.8 7.3 5.8 6.4 6.7 5.2 6.8 7 6.8 8.5 9.25 10 11.7 10.2 15.05 10.25 16.1 5.15 16 0.05 15.9 0 14.9 -0.05 11.6 1.7 9.15 3.25 6.95 4.9 6.8 Z"/>
+
+<path id="Pawn_0_Layer0_0_2_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 3.2 3.45
+Q 3.4 2.15 4.5 1.6
+M 2.2 14.4
+Q 2.5 10.15 4.9 8.6"/>
+
+<path id="Pawn_0_Layer0_0_3_STROKES" stroke="#000000" stroke-width="0.05" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 4.95 6.8
+L 4.9 6.8"/>
+</defs>
+
+<g transform="matrix( 0.63226318359375, 0.3446502685546875, -0.3446502685546875, 0.63226318359375, 6.55,-0.7) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#magnifyglass_0_Layer1_0_FILL"/>
+</g>
+
+<g transform="matrix( 0.9659271240234375, 0.258819580078125, -0.2588043212890625, 0.9659271240234375, 6.05,17.75) ">
+<g transform="matrix( 1, 0, 0, 1, -3.7,-4) ">
+<g transform="matrix( 1, 0, 0, 1, 3.7,4) ">
+<use xlink:href="#handobj_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#thumbsup_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</g>
+
+<g transform="matrix( 0.6973419189453125, 0, 0, 0.6639556884765625, 11.55,7.55) ">
+<g id="col0" transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#ChatterB_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Pawn_0_Layer0_0_FILL"/>
+
+<use xlink:href="#Pawn_0_Layer0_0_1_STROKES"/>
+
+<use xlink:href="#Pawn_0_Layer0_0_2_STROKES"/>
+
+<use xlink:href="#Pawn_0_Layer0_0_3_STROKES"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,61 @@
+<div class="modal fade" id="embedModal" tabindex="-1" role="dialog" aria-labelledby="embedModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg embedresp" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="embedModalTitle">
+          <img class="mr-2 mb-1" width="25" src="../src/img/navbar/embed2.svg" alt="embed">
+          <span data-localize="chats.embedgrp">embed your group</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label for="embed_width"><span data-localize="chats.width">width</span>:</label>
+          </div>
+          <div class="col-sm-3">
+            <input name="embed_width" class="form-control form-control-sm" id="embed_width" maxlength="64" value="600" required>
+          </div>
+          <div class="col-sm-2 heembed">
+            <label for="embed_height"><span data-localize="chats.height">height</span>:</label>
+          </div>
+          <div class="col-sm-3">
+            <input name="embed_height" class="form-control form-control-sm" id="embed_height" maxlength="64" value="450" required>
+          </div>
+        </div>
+        <div class="row form-group d-none" id="notrecomW">
+          <div class="col text-danger">
+            <span data-localize="chats.notrec">Size not recommended.</span>
+            <span data-localize="chats.usewidth">Use width 600-2000.</span>
+          </div>
+        </div>
+        <div class="row form-group d-none" id="notrecomH">
+          <div class="col text-danger">
+            <span data-localize="chats.notrec">Size not recommended.</span>
+            <span data-localize="chats.useheight">Use height 465-2000.</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <textarea class="form-control txembed" rows="4" id="embed_code" readonly></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="embFooter">
+        <button type="button" class="btn btn-primary" id="embedPreviewBtn">
+          <span data-localize="chats.preview">preview</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="embedCopyBtn"
+          data-toggle-sec="tooltip" data-placement="top" data-html="true"
+          title="<span data-localize='chats.copied'>Copied</span>!">
+          <span data-localize="chats.copy">copy</span>
+        </button>
+      </div>
+      <div class="modal-body embedflow d-flex justify-content-center">
+        <div id="embedpreview"></div>
+      </div>
+    </div>
+  </div>
+</div>

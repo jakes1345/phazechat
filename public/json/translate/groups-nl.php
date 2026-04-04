@@ -1,0 +1,1 @@
+{"groups":{"xatgroups":"xat groepen","searchb":"Zoeken","featured":"Uitgelicht","popular":"Populair","supported":"Ondersteunde","games":"Spelletjes","prev":"Vorige","next":"Volgende"}}

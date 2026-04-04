@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Cake plate -->
+  <ellipse cx="142" cy="278" rx="88" ry="12" fill="#e0c8a0"/>
+  <!-- Bottom tier -->
+  <rect x="62" y="210" width="160" height="68" rx="8" fill="#f4a0c0"/>
+  <ellipse cx="142" cy="210" rx="80" ry="12" fill="#f9b8d0"/>
+  <!-- Middle tier -->
+  <rect x="82" y="155" width="120" height="58" rx="6" fill="#a0c4f4"/>
+  <ellipse cx="142" cy="155" rx="60" ry="10" fill="#b8d4ff"/>
+  <!-- Top tier -->
+  <rect x="102" y="108" width="80" height="50" rx="6" fill="#f4e0a0"/>
+  <ellipse cx="142" cy="108" rx="40" ry="8" fill="#fff0b8"/>
+  <!-- Frosting drips bottom -->
+  <ellipse cx="90" cy="210" rx="10" ry="6" fill="white" opacity="0.8"/>
+  <ellipse cx="120" cy="212" rx="10" ry="6" fill="white" opacity="0.8"/>
+  <ellipse cx="150" cy="210" rx="10" ry="6" fill="white" opacity="0.8"/>
+  <ellipse cx="180" cy="212" rx="10" ry="6" fill="white" opacity="0.8"/>
+  <ellipse cx="210" cy="210" rx="10" ry="6" fill="white" opacity="0.8"/>
+  <!-- Frosting drips middle -->
+  <ellipse cx="100" cy="155" rx="8" ry="5" fill="white" opacity="0.8"/>
+  <ellipse cx="125" cy="157" rx="8" ry="5" fill="white" opacity="0.8"/>
+  <ellipse cx="152" cy="155" rx="8" ry="5" fill="white" opacity="0.8"/>
+  <ellipse cx="178" cy="157" rx="8" ry="5" fill="white" opacity="0.8"/>
+  <!-- Candles -->
+  <rect x="122" y="78" width="10" height="32" rx="3" fill="#f55"/>
+  <rect x="148" y="78" width="10" height="32" rx="3" fill="#5af"/>
+  <!-- Flames -->
+  <ellipse cx="127" cy="75" rx="5" ry="8" fill="#ffa020"/>
+  <ellipse cx="127" cy="73" rx="3" ry="5" fill="#ffe060"/>
+  <ellipse cx="153" cy="75" rx="5" ry="8" fill="#ffa020"/>
+  <ellipse cx="153" cy="73" rx="3" ry="5" fill="#ffe060"/>
+  <!-- Decorations -->
+  <circle cx="90" cy="240" r="5" fill="#ff6090"/>
+  <circle cx="110" cy="248" r="5" fill="#6090ff"/>
+  <circle cx="175" cy="240" r="5" fill="#60d060"/>
+  <circle cx="195" cy="248" r="5" fill="#ff6090"/>
+</svg>

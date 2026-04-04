@@ -1,0 +1,179 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.promotion">promotion</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.promotion">Group Promotion</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/navbar/groups.svg" width="96" alt="promotion" class="mb-3">
+    <h2>Promote Your Chat Group</h2>
+    <p class="lead">Boost your group's visibility and attract more members by promoting it on xat.</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h4 class="text-primary">Featured Listing</h4>
+          <p>Your group appears at the top of the group directory with a highlighted border, making it stand out to visitors browsing for chats.</p>
+          <p class="font-weight-bold">200 xats / day</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h4 class="text-primary">Higher Ranking</h4>
+          <p>Move your group up the search results and directory listings so users searching for chats find you first.</p>
+          <p class="font-weight-bold">100 xats / day</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h4 class="text-primary">Homepage Spotlight</h4>
+          <p>Get featured in the xat homepage spotlight carousel, shown to every visitor who lands on xat.com.</p>
+          <p class="font-weight-bold">500 xats / day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Promote Your Group</h3>
+      <p>Choose your group and select a promotion package below. Xats will be deducted from your balance for each day of promotion.</p>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="promoGroup">Select Group</label>
+          <select class="form-control" id="promoGroup">
+            <option value="">-- Select a group you own --</option>
+            <option value="mygroupname">mygroupname</option>
+          </select>
+          <small class="form-text text-muted">Only groups where you are the main owner are shown.</small>
+        </div>
+        <div class="form-group">
+          <label for="promoType">Promotion Package</label>
+          <select class="form-control" id="promoType">
+            <option value="rank">Higher Ranking — 100 xats/day</option>
+            <option value="featured">Featured Listing — 200 xats/day</option>
+            <option value="spotlight">Homepage Spotlight — 500 xats/day</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="promoDays">Number of Days</label>
+          <input type="number" class="form-control" id="promoDays" min="1" max="30" value="7" style="max-width: 120px;">
+        </div>
+        <div class="alert alert-info" id="promoCostBox">
+          Estimated cost: <strong id="promoCost">700 xats</strong> for <span id="promoDaysLabel">7</span> day(s).
+        </div>
+        <button type="submit" class="btn btn-primary">Promote Group</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Promotion Guidelines</h3>
+      <ul>
+        <li>Groups must comply with xat's <a href="/terms">Terms of Service</a> to be eligible for promotion.</li>
+        <li>Promoted groups are reviewed before appearing in featured slots.</li>
+        <li>Promotion xats are non-refundable once a promotion period has started.</li>
+        <li>Groups found in violation of the rules will have their promotion removed without refund.</li>
+        <li>You must be the main owner of the group to purchase promotion.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+var token = localStorage.getItem('xat_token') || '';
+var rates = { rank: 100, featured: 200, spotlight: 500 };
+
+function updateCost() {
+  var type = document.getElementById('promoType').value;
+  var days = parseInt(document.getElementById('promoDays').value) || 1;
+  var cost = (rates[type] || 100) * days;
+  document.getElementById('promoCost').textContent = cost.toLocaleString() + ' xats';
+  document.getElementById('promoDaysLabel').textContent = days;
+}
+
+// Load user's groups
+function loadGroups() {
+  if (!token) return;
+  fetch('/api/groups/mine', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(r => r.json()).then(groups => {
+      if (!Array.isArray(groups)) return;
+      var sel = document.getElementById('promoGroup');
+      sel.innerHTML = '<option value="">-- Select a group you own --</option>';
+      groups.forEach(function(g) {
+        var opt = document.createElement('option');
+        opt.value = g.name || g.id;
+        opt.textContent = g.name || g.title;
+        sel.appendChild(opt);
+      });
+    }).catch(function(){});
+}
+
+// Submit promotion
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!token) { alert('Please log in to promote a group.'); return; }
+  var groupName = document.getElementById('promoGroup').value;
+  var type = document.getElementById('promoType').value;
+  var days = parseInt(document.getElementById('promoDays').value) || 1;
+  if (!groupName) { alert('Please select a group.'); return; }
+
+  var cost = (rates[type] || 100) * days;
+  if (!confirm('Promote "' + groupName + '" with ' + type + ' for ' + days + ' day(s) at ' + cost.toLocaleString() + ' xats?')) return;
+
+  fetch('/api/promotions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+    body: JSON.stringify({ groupName: groupName, type: type, days: days }),
+  }).then(r => r.json()).then(data => {
+    if (data.ok) { alert('Group promoted successfully!'); }
+    else { alert('Error: ' + (data.error || 'Failed to promote group')); }
+  }).catch(function() { alert('Failed to promote group.'); });
+});
+
+document.getElementById('promoType').addEventListener('change', updateCost);
+document.getElementById('promoDays').addEventListener('input', updateCost);
+loadGroups();
+</script>

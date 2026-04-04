@@ -1,0 +1,96 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.privacy">privacy policy</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.privacy">Privacy Policy</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>1. Information We Collect</h3>
+      <p>When you use xat, we collect the following information:</p>
+      <ul>
+        <li><strong>Account Information:</strong> Username, password (hashed), registration date, and user ID.</li>
+        <li><strong>Chat Data:</strong> Messages sent in chat rooms are transmitted in real-time and not permanently stored on our servers.</li>
+        <li><strong>Usage Data:</strong> We collect information about which chat rooms you visit and your online status.</li>
+        <li><strong>Cookies:</strong> We use cookies to maintain your session and preferences.</li>
+      </ul>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>We use collected information to:</p>
+      <ul>
+        <li>Provide and maintain the xat chat service</li>
+        <li>Authenticate your identity and manage your account</li>
+        <li>Enforce our Terms of Service and community guidelines</li>
+        <li>Improve and optimize our service</li>
+      </ul>
+
+      <h3>3. Cookies</h3>
+      <p>xat uses the following types of cookies:</p>
+      <ul>
+        <li><strong>Necessary Cookies:</strong> Required for the service to function (session management, authentication).</li>
+        <li><strong>Performance Cookies:</strong> Help us understand how users interact with the service.</li>
+        <li><strong>Third-Party Cookies:</strong> Used by group tabs and embedded content.</li>
+      </ul>
+      <p>You can manage your cookie preferences using the cookie settings available at the bottom of any page.</p>
+
+      <h3>4. Data Sharing</h3>
+      <p>We do not sell your personal information. We may share data with:</p>
+      <ul>
+        <li>Law enforcement when required by law</li>
+        <li>Service providers who help us operate xat</li>
+      </ul>
+
+      <h3>5. Data Retention</h3>
+      <p>Account data is retained as long as your account is active. Chat messages are transmitted in real-time and are not permanently stored. You may request deletion of your account by contacting an administrator.</p>
+
+      <h3>6. Your Rights</h3>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access your personal data</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your account</li>
+        <li>Object to processing of your data</li>
+      </ul>
+
+      <h3>7. Contact</h3>
+      <p>For privacy-related inquiries, visit the <a href="/Help">Help</a> chat group or contact an administrator.</p>
+
+      <p class="text-muted mt-4"><small>Last updated: 2026</small></p>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>

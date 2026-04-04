@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shim | xat</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    #content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #inner-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+    #idle-msg {
+      color: #404060;
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <iframe id="inner-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    <div id="idle-msg">Loading app...</div>
+  </div>
+
+  <script>
+    window.addEventListener('message', function(e) {
+      var data;
+      try { data = JSON.parse(e.data); } catch(_) { return; }
+
+      if (!data) return;
+
+      // Load a URL into the inner frame
+      if (data.src) {
+        var frame = document.getElementById('inner-frame');
+        document.getElementById('idle-msg').style.display = 'none';
+        frame.style.display = 'block';
+        frame.src = data.src;
+        return;
+      }
+
+      // stopOnMessage: clear the frame
+      if (data.channel === 'stopOnMessage') {
+        var frame = document.getElementById('inner-frame');
+        frame.src = '';
+        frame.style.display = 'none';
+        document.getElementById('idle-msg').style.display = '';
+        return;
+      }
+
+      // Forward other messages to inner frame if loaded
+      var frame = document.getElementById('inner-frame');
+      if (frame.src) {
+        try { frame.contentWindow.postMessage(e.data, '*'); } catch(_) {}
+      }
+    });
+
+    // Signal ready to parent
+    try {
+      parent.postMessage(JSON.stringify({ channel: 'shimReady' }), '*');
+    } catch(_) {}
+  </script>
+</body>
+</html>

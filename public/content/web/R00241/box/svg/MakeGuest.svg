@@ -1,0 +1,26 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<path id="_Command_Icons_makeguest_0_Layer2_0_1_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -20.5 11.2
+L -7.65 11.2 -7.65 1.45 5.2 1.45 5.2 -8.25 18.55 -8.25"/>
+
+<path id="_Command_Icons_makeguest_0_Layer0_0_1_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -17.65 -4.15
+Q -17.65 -5.85 -16.5 -7.05 -15.35 -8.25 -13.75 -8.25 -12.15 -8.25 -11 -7.05 -9.85 -5.85 -9.85 -4.15 -9.85 -2.55 -11 -1.35 -12.05 -0.25 -13.4 -0.15 -11.3 -0.15 -9.6 2.8 -7.9 5.7 -7.65 9.6 -7.6 10.9 -13.45 10.75 -19.3 10.7 -19.35 9.5 -19.4 5.55 -17.4 2.65 -15.65 0.05 -13.75 -0.15 -15.35 -0.15 -16.5 -1.35 -17.65 -2.55 -17.65 -4.15 Z
+M -15.65 -4.15
+Q -15.45 -5.65 -14.15 -6.35
+M -16.8 8.85
+Q -16.5 3.85 -13.75 2"/>
+</defs>
+
+<g transform="matrix( 0.73822021484375, 0, 0, 0.73822021484375, 20.4,20.25) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_Command_Icons_makeguest_0_Layer2_0_1_STROKES"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_Command_Icons_makeguest_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</svg>

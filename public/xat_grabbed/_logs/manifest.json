@@ -1,0 +1,5064 @@
+[
+  {
+    "url": "https://xat.com/css/animate.css",
+    "contentType": "text/css",
+    "size": 61133,
+    "savedAs": "xat.com/css/animate.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.341Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/direct.css",
+    "contentType": "text/css",
+    "size": 40147,
+    "savedAs": "xat.com/content/web/R00241/direct.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.352Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/xatplanet.svg",
+    "contentType": "image/svg+xml",
+    "size": 1971,
+    "savedAs": "xat.com/content/web/R00241/img/xatplanet.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.356Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/powers.svg",
+    "contentType": "image/svg+xml",
+    "size": 738,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/powers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.381Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/x_b.svg",
+    "contentType": "image/svg+xml",
+    "size": 1134,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/x_b.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.381Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 4519,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.383Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/community.svg",
+    "contentType": "image/svg+xml",
+    "size": 1911,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/community.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.383Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/facebook.svg",
+    "contentType": "image/svg+xml",
+    "size": 1662,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/facebook.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.383Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/instagram.svg",
+    "contentType": "image/svg+xml",
+    "size": 2727,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/instagram.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.437Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/leftarrow.svg",
+    "contentType": "image/svg+xml",
+    "size": 498,
+    "savedAs": "xat.com/content/web/R00241/img/leftarrow.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.437Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/popular.svg",
+    "contentType": "image/svg+xml",
+    "size": 924,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/popular.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.437Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/rightarrow.svg",
+    "contentType": "image/svg+xml",
+    "size": 502,
+    "savedAs": "xat.com/content/web/R00241/img/rightarrow.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.438Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/search.svg",
+    "contentType": "image/svg+xml",
+    "size": 2020,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/search.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.438Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/facebook_white.svg",
+    "contentType": "image/svg+xml",
+    "size": 7601,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/facebook_white.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.457Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/games.svg",
+    "contentType": "image/svg+xml",
+    "size": 4327,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/games.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.458Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/featured.svg",
+    "contentType": "image/svg+xml",
+    "size": 1640,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/featured.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.458Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/terms.svg",
+    "contentType": "image/svg+xml",
+    "size": 2253,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/terms.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.458Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/supported.svg",
+    "contentType": "image/svg+xml",
+    "size": 1964,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/supported.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.458Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/trade.svg",
+    "contentType": "image/svg+xml",
+    "size": 4067,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/trade.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.459Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/xavi.svg",
+    "contentType": "image/svg+xml",
+    "size": 5958,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/xavi.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.459Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/x.svg",
+    "contentType": "image/svg+xml",
+    "size": 430,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/x.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.460Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/stickersf.svg",
+    "contentType": "image/svg+xml",
+    "size": 1859,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/stickersf.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.460Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/instagram_white.svg",
+    "contentType": "image/svg+xml",
+    "size": 1804,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/instagram_white.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.461Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css",
+    "contentType": "text/css; charset=utf-8",
+    "size": 160392,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.463Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+    "contentType": "application/javascript; charset=utf-8",
+    "size": 89476,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.465Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/manifest.json",
+    "contentType": "application/json",
+    "size": 462,
+    "savedAs": "xat.com/content/web/R00241/manifest.json",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.467Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js",
+    "contentType": "application/javascript; charset=utf-8",
+    "size": 84152,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.494Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js",
+    "contentType": "application/javascript; charset=utf-8",
+    "size": 52190,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.521Z"
+  },
+  {
+    "url": "https://xat.com/content/js/jquery.localize.js",
+    "contentType": "application/javascript",
+    "size": 2172,
+    "savedAs": "xat.com/content/js/jquery.localize.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.554Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/common.js",
+    "contentType": "application/javascript",
+    "size": 104870,
+    "savedAs": "xat.com/content/web/R00241/common.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.605Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/pointing.svg",
+    "contentType": "image/svg+xml",
+    "size": 323908,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/pointing.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.802Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/trade.svg",
+    "contentType": "image/svg+xml",
+    "size": 4067,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/trade.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.803Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/xatplanet.svg",
+    "contentType": "image/svg+xml",
+    "size": 1971,
+    "savedAs": "xat.com/content/web/R00241//img/xatplanet.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.803Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/xatme.svg",
+    "contentType": "image/svg+xml",
+    "size": 5193,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/xatme.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.803Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/aces.svg",
+    "contentType": "image/svg+xml",
+    "size": 1961,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/aces.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.804Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/store.svg",
+    "contentType": "image/svg+xml",
+    "size": 2507,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/store.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.804Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/auctions.svg",
+    "contentType": "image/svg+xml",
+    "size": 3446,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/auctions.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.804Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/buygroup.svg",
+    "contentType": "image/svg+xml",
+    "size": 1860,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/buygroup.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.805Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/buyxats.svg",
+    "contentType": "image/svg+xml",
+    "size": 7383,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/buyxats.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.805Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/shortname.svg",
+    "contentType": "image/svg+xml",
+    "size": 5840,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/shortname.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.805Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/facebook.svg",
+    "contentType": "image/svg+xml",
+    "size": 1662,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/facebook.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.805Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/apps.svg",
+    "contentType": "image/svg+xml",
+    "size": 8151,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/apps.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.806Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/embed2.svg",
+    "contentType": "image/svg+xml",
+    "size": 993,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/embed2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/group.svg",
+    "contentType": "image/svg+xml",
+    "size": 11007,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/group.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/x_b.svg",
+    "contentType": "image/svg+xml",
+    "size": 1134,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/x_b.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/safety.svg",
+    "contentType": "image/svg+xml",
+    "size": 904,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/safety.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.811Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/pencil.svg",
+    "contentType": "image/svg+xml",
+    "size": 582,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/pencil.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.811Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/inappropriate.svg",
+    "contentType": "image/svg+xml",
+    "size": 1338,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/inappropriate.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.811Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 9840,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.812Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/games.svg",
+    "contentType": "image/svg+xml",
+    "size": 4327,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/games.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.812Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/community.svg",
+    "contentType": "image/svg+xml",
+    "size": 1911,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/community.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.812Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/search.svg",
+    "contentType": "image/svg+xml",
+    "size": 2020,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/search.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.813Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 4519,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.813Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/popular.svg",
+    "contentType": "image/svg+xml",
+    "size": 924,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/popular.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.814Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/supported.svg",
+    "contentType": "image/svg+xml",
+    "size": 1964,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/supported.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.815Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/powers.svg",
+    "contentType": "image/svg+xml",
+    "size": 738,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/powers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.815Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/featured.svg",
+    "contentType": "image/svg+xml",
+    "size": 1640,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/featured.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.815Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/promotion.svg",
+    "contentType": "image/svg+xml",
+    "size": 1399,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/promotion.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.816Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/ads.svg",
+    "contentType": "image/svg+xml",
+    "size": 2458,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/ads.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.817Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/wiki.svg",
+    "contentType": "image/svg+xml",
+    "size": 787,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/wiki.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.817Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/instagram.svg",
+    "contentType": "image/svg+xml",
+    "size": 2727,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/instagram.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.817Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/logout.svg",
+    "contentType": "image/svg+xml",
+    "size": 1562,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/logout.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.817Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/ticket.svg",
+    "contentType": "image/svg+xml",
+    "size": 951,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/ticket.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.818Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/terms.svg",
+    "contentType": "image/svg+xml",
+    "size": 2253,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/terms.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.818Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/Google-en.png",
+    "contentType": "image/png",
+    "size": 2729,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/Google-en.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.818Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/html5.svg",
+    "contentType": "image/svg+xml",
+    "size": 217788,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/html5.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.820Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/mobile.svg",
+    "contentType": "image/svg+xml",
+    "size": 1278,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/mobile.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.820Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/pencil2.svg",
+    "contentType": "image/svg+xml",
+    "size": 582,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/pencil2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.820Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/account.svg",
+    "contentType": "image/svg+xml",
+    "size": 3857,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/account.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.820Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/message.svg",
+    "contentType": "image/svg+xml",
+    "size": 1304,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/message.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.821Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/settings.svg",
+    "contentType": "image/svg+xml",
+    "size": 5193,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/settings.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.821Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/privacy.svg",
+    "contentType": "image/svg+xml",
+    "size": 4492,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/privacy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.821Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/events.svg",
+    "contentType": "image/svg+xml",
+    "size": 6217,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/events.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.821Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/Apple-en.svg",
+    "contentType": "image/svg+xml",
+    "size": 12224,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/Apple-en.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.822Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/globe.svg",
+    "contentType": "image/svg+xml",
+    "size": 234735,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/globe.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.825Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/embed.svg",
+    "contentType": "image/svg+xml",
+    "size": 2087,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/embed.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.825Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/customize.svg",
+    "contentType": "image/svg+xml",
+    "size": 8996,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/customize.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.826Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/xatframe.svg",
+    "contentType": "image/svg+xml",
+    "size": 219914,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/xatframe.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.828Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/support.svg",
+    "contentType": "image/svg+xml",
+    "size": 219634,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/support.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.834Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/direct.js?z=qKBsnn#",
+    "contentType": "application/javascript",
+    "size": 51185,
+    "savedAs": "xat.com/content/web/R00241/direct.js__q_P3o9cUtCc25u",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.835Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/languages.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 3097,
+    "savedAs": "xat.com/json/lang/languages.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.839Z"
+  },
+  {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-P4SDK5JMQ9",
+    "contentType": "application/javascript; charset=UTF-8",
+    "size": 434880,
+    "savedAs": "www.googletagmanager.com/gtag/js__q_P2lkPUctUDRTREs1",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.936Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/Announce.php?c=1773611965783",
+    "contentType": "application/json",
+    "size": 197,
+    "savedAs": "xat.com/web_gear/chat/Announce.php__q_P2M9MTc3MzYxMTk2",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:25.982Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/favicon.ico",
+    "contentType": "image/x-icon",
+    "size": 16958,
+    "savedAs": "xat.com/content/web/R00241/img/favicon.ico",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.011Z"
+  },
+  {
+    "url": "https://xat.com/json/promo.php?c=29560199",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 9168,
+    "savedAs": "xat.com/json/promo.php__q_P2M9Mjk1NjAxOTk",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.012Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/favicon-32x32.png",
+    "contentType": "image/png",
+    "size": 1344,
+    "savedAs": "xat.com/content/web/R00241/img/favicon-32x32.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.057Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/promoted.svg",
+    "contentType": "image/svg+xml",
+    "size": 1726,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/promoted.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.057Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/star.svg",
+    "contentType": "image/svg+xml",
+    "size": 1323,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/star.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.058Z"
+  },
+  {
+    "url": "https://xat.com/json/lists/0_en_featured.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 4828,
+    "savedAs": "xat.com/json/lists/0_en_featured.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.063Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 9840,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.187Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/roomid.php?d=Chat",
+    "contentType": "application/json",
+    "size": 506,
+    "savedAs": "xat.com/web_gear/chat/roomid.php__q_P2Q9Q2hhdA",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.189Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/png",
+    "size": 71820,
+    "savedAs": "xat.com/content/web/R00241/img/bluebox.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.204Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fi.ibb.co%2FcKqtQGST%2FMiku.jpg&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 7288,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.256Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FOMdgabqkUeWv.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5070,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.257Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FjcYxoq1wEAM6.jpg&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5682,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.257Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2Foy9FX1xKLbnA.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5053,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.261Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FU9qMbE4J0DoY.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 4182,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.262Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FnvqRlLGlcagl.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 4769,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.262Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.264Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/embed.html?n=Chat",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 14631,
+    "savedAs": "xat.com/content/web/R00241/box/embed.html__q_P249Q2hhdA",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.265Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.265Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/quickbar.css",
+    "contentType": "text/css",
+    "size": 8873,
+    "savedAs": "xat.com/content/web/R00241/box/www/quickbar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.265Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/returnw.svg",
+    "contentType": "image/svg+xml",
+    "size": 617,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/returnw.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.266Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FjPjjBHbX5nl5.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 7132,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.266Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/star.svg",
+    "contentType": "image/svg+xml",
+    "size": 1323,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/star.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.266Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/ablogo.svg",
+    "contentType": "image/svg+xml",
+    "size": 1970,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/ablogo.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.279Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "contentType": "image/png",
+    "size": 1418,
+    "savedAs": "xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.280Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abme.svg",
+    "contentType": "image/svg+xml",
+    "size": 6976,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abme.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.357Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abmore.svg",
+    "contentType": "image/svg+xml",
+    "size": 840,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abmore.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.359Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/cookie.svg",
+    "contentType": "image/svg+xml",
+    "size": 11292,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/cookie.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.360Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abgroups.svg",
+    "contentType": "image/svg+xml",
+    "size": 15578,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abgroups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.365Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abfriends.svg",
+    "contentType": "image/svg+xml",
+    "size": 7567,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abfriends.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.368Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "contentType": "image/svg+xml",
+    "size": 1482,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.373Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FGPiDNMEcjBcW.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 4320,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.373Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fu.cubeupload.com%2Fnightpkz%2F9bvDmP6.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5479,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.374Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FCKcd5AIhaR7y.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 3661,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.374Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2F8pyUFoavvRwJ.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 2901,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.375Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FQIRpBAbC44Ex.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 4416,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.377Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2Fbl2XV0RGTXjM.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 7777,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.378Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2F460R4BsJAJN1.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 6639,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.378Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fi.ibb.co%2FBHgkhsQz%2Fbackground-radio.jpg&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 4508,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.379Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2F5DgTMxTiroTF.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5550,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.379Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actBuyXats.svg",
+    "contentType": "image/svg+xml",
+    "size": 7222,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actBuyXats.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.379Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 5337,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.380Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 16491,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.381Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FfKEICflz2SqS.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 7903,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.381Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actStore.svg",
+    "contentType": "image/svg+xml",
+    "size": 2507,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actStore.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.382Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/x.svg",
+    "contentType": "image/svg+xml",
+    "size": 1999,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/x.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.382Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "contentType": "image/svg+xml",
+    "size": 3045,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.382Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abchats.svg",
+    "contentType": "image/svg+xml",
+    "size": 2446,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abchats.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.383Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "contentType": "image/svg+xml",
+    "size": 583,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.384Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/logoutx.svg",
+    "contentType": "image/svg+xml",
+    "size": 465,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/logoutx.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.384Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2F7KcxH69w3Egw.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5685,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.384Z"
+  },
+  {
+    "url": "https://images.weserv.nl/?output=jpg&w=200&h=134&q=80&t=absolute&url=https%3A%2F%2Fxatimg.com%2Fimage%2FhZKSc99ggRHl.png&default=https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/jpeg",
+    "size": 5010,
+    "savedAs": "images.weserv.nl/__q_P291dHB1dD1qcGcm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.384Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Count.js",
+    "contentType": "application/javascript",
+    "size": 116964,
+    "savedAs": "xat.com/content/web/R00241/box/www/Count.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.432Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Avatars.js",
+    "contentType": "application/javascript",
+    "size": 129106,
+    "savedAs": "xat.com/content/web/R00241/box/www/Avatars.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.436Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.456Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Smilies.js",
+    "contentType": "application/javascript",
+    "size": 387680,
+    "savedAs": "xat.com/content/web/R00241/box/www/Smilies.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.466Z"
+  },
+  {
+    "url": "https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+    "contentType": "text/javascript;charset=UTF-8",
+    "size": 31169,
+    "savedAs": "static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.467Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Quickbar.js",
+    "contentType": "application/javascript",
+    "size": 641371,
+    "savedAs": "xat.com/content/web/R00241/box/www/Quickbar.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.509Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/bluebox.png",
+    "contentType": "image/png",
+    "size": 71820,
+    "savedAs": "xat.com/content/web/R00241/img/bluebox.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.550Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/activity.js",
+    "contentType": "application/javascript",
+    "size": 470380,
+    "savedAs": "xat.com/content/web/R00241/box/activity.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.567Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26798,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.679Z"
+  },
+  {
+    "url": "https://xat.com/content/js/howler.min.js",
+    "contentType": "application/javascript",
+    "size": 36173,
+    "savedAs": "xat.com/content/js/howler.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.680Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/firebase.js",
+    "contentType": "application/javascript",
+    "size": 74689,
+    "savedAs": "xat.com/content/web/R00241/box/www/firebase.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.683Z"
+  },
+  {
+    "url": "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js",
+    "contentType": "text/javascript; charset=UTF-8",
+    "size": 22121,
+    "savedAs": "www.gstatic.com/firebasejs/8.10.0/firebase-app.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.744Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "contentType": "application/wasm",
+    "size": 639989,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "isWasm": true,
+    "timestamp": "2026-03-15T21:59:26.794Z"
+  },
+  {
+    "url": "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js",
+    "contentType": "text/javascript; charset=UTF-8",
+    "size": 40951,
+    "savedAs": "www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.806Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=mob2&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 12788,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9bW9iMiZsPWVu",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.873Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=box&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13950,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9Ym94Jmw9ZW4t",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.876Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=mob1&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1879,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9bW9iMSZsPWVu",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.877Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=login&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 9261,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9bG9naW4mbD1l",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.878Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.879Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.880Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/quickbar.css",
+    "contentType": "text/css",
+    "size": 8873,
+    "savedAs": "xat.com/content/web/R00241/box/www/quickbar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.880Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/star.svg",
+    "contentType": "image/svg+xml",
+    "size": 1323,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/star.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.881Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "contentType": "image/svg+xml",
+    "size": 1482,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.881Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "contentType": "image/png",
+    "size": 1418,
+    "savedAs": "xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.883Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "contentType": "image/svg+xml",
+    "size": 3045,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.885Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "contentType": "image/svg+xml",
+    "size": 583,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.885Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 16491,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.899Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.900Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/pstyle.css",
+    "contentType": "text/css",
+    "size": 3377,
+    "savedAs": "xat.com/content/web/R00241/box/www/pstyle.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.936Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/classic.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26213,
+    "savedAs": "xat.com/content/web/R00241/box/www/classic.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.937Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/return.svg",
+    "contentType": "image/svg+xml",
+    "size": 617,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/return.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.966Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/bold.svg",
+    "contentType": "image/svg+xml",
+    "size": 878,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/bold.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.970Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "contentType": "image/svg+xml",
+    "size": 628,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.970Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/react.svg",
+    "contentType": "image/svg+xml",
+    "size": 1532,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/react.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.978Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/link.svg",
+    "contentType": "image/svg+xml",
+    "size": 2437,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/link.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.978Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/edit.svg",
+    "contentType": "image/svg+xml",
+    "size": 582,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/edit.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.978Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/strikethrough.svg",
+    "contentType": "image/svg+xml",
+    "size": 1044,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/strikethrough.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.978Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "contentType": "image/svg+xml",
+    "size": 1338,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.979Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/copylink.svg",
+    "contentType": "image/svg+xml",
+    "size": 1071,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/copylink.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.979Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "contentType": "image/svg+xml",
+    "size": 1581,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.979Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "contentType": "image/svg+xml",
+    "size": 608,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.979Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/call.svg",
+    "contentType": "image/svg+xml",
+    "size": 1589,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/call.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.980Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/copy.svg",
+    "contentType": "image/svg+xml",
+    "size": 1075,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/copy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.980Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "contentType": "image/svg+xml",
+    "size": 1477,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.980Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/removeb.svg",
+    "contentType": "image/svg+xml",
+    "size": 611,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/removeb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.980Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/xatsat.svg",
+    "contentType": "image/svg+xml",
+    "size": 9862,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/xatsat.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.983Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/italic.svg",
+    "contentType": "image/svg+xml",
+    "size": 497,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/italic.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.983Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/delete.svg",
+    "contentType": "image/svg+xml",
+    "size": 315,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/delete.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.984Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/copysmiley.svg",
+    "contentType": "image/svg+xml",
+    "size": 1238,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/copysmiley.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.984Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/blockquote.svg",
+    "contentType": "image/svg+xml",
+    "size": 988,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/blockquote.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.984Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/reportb.svg",
+    "contentType": "image/svg+xml",
+    "size": 1360,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/reportb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.984Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/translate.svg",
+    "contentType": "image/svg+xml",
+    "size": 1454,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/translate.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.985Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/search2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2020,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/search2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.985Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/helpicon.svg",
+    "contentType": "image/svg+xml",
+    "size": 4826,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/helpicon.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.985Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/arrowcol.svg",
+    "contentType": "image/svg+xml",
+    "size": 417,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/arrowcol.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.986Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.986Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/chatsnd.svg",
+    "contentType": "image/svg+xml",
+    "size": 1418,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/chatsnd.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.986Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/radio.svg",
+    "contentType": "image/svg+xml",
+    "size": 4379,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/radio.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.986Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/kisseson.svg",
+    "contentType": "image/svg+xml",
+    "size": 1184,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/kisseson.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.986Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/playon.svg",
+    "contentType": "image/svg+xml",
+    "size": 1732,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/playon.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:26.987Z"
+  },
+  {
+    "url": "https://xat.com/content/js/hammer.min.js",
+    "contentType": "application/javascript",
+    "size": 20765,
+    "savedAs": "xat.com/content/js/hammer.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.039Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.041Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.041Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.043Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.044Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/pstyle.css",
+    "contentType": "text/css",
+    "size": 3377,
+    "savedAs": "xat.com/content/web/R00241/box/www/pstyle.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.049Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "contentType": "image/svg+xml",
+    "size": 1338,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.051Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "contentType": "image/svg+xml",
+    "size": 608,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.052Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "contentType": "image/svg+xml",
+    "size": 1581,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.052Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "contentType": "image/svg+xml",
+    "size": 1477,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.053Z"
+  },
+  {
+    "url": "https://xat.com/content/js/hammer.min.js",
+    "contentType": "application/javascript",
+    "size": 20765,
+    "savedAs": "xat.com/content/js/hammer.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.104Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.105Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.106Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 1293,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1NZXJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.106Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.107Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.107Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/pstyle.css",
+    "contentType": "text/css",
+    "size": 3377,
+    "savedAs": "xat.com/content/web/R00241/box/www/pstyle.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "contentType": "image/svg+xml",
+    "size": 628,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/search2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2020,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/search2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 5337,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.109Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 16491,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.109Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.125Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/nano.min.css",
+    "contentType": "text/css",
+    "size": 8865,
+    "savedAs": "xat.com/content/js/pickr/nano.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.125Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color.svg",
+    "contentType": "image/svg+xml",
+    "size": 2613,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.125Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/nano.min.css",
+    "contentType": "text/css",
+    "size": 8865,
+    "savedAs": "xat.com/content/js/pickr/nano.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.126Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color.svg",
+    "contentType": "image/svg+xml",
+    "size": 2613,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.126Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/settings.css",
+    "contentType": "text/css",
+    "size": 11649,
+    "savedAs": "xat.com/content/web/R00241/box/www/settings.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.139Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/actions.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 11224,
+    "savedAs": "xat.com/content/web/R00241/box/www/actions.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.140Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.140Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.140Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.140Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.142Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.142Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/nano.min.css",
+    "contentType": "text/css",
+    "size": 8865,
+    "savedAs": "xat.com/content/js/pickr/nano.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.143Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color.svg",
+    "contentType": "image/svg+xml",
+    "size": 2613,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.143Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/return.svg",
+    "contentType": "image/svg+xml",
+    "size": 617,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/return.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.144Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.160Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/privacy.svg",
+    "contentType": "image/svg+xml",
+    "size": 4492,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/privacy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.161Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/wiki.svg",
+    "contentType": "image/svg+xml",
+    "size": 787,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/wiki.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.162Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/terms.svg",
+    "contentType": "image/svg+xml",
+    "size": 2253,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/terms.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.162Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/rocket.svg",
+    "contentType": "image/svg+xml",
+    "size": 11007,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/rocket.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.164Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/setHelp.svg",
+    "contentType": "image/svg+xml",
+    "size": 219634,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/setHelp.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.165Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 1182,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1LYWxh",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.167Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/selector.css",
+    "contentType": "text/css",
+    "size": 12015,
+    "savedAs": "xat.com/content/web/R00241/box/www/selector.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.168Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actGifts.svg",
+    "contentType": "image/svg+xml",
+    "size": 4665,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actGifts.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.168Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "contentType": "image/svg+xml",
+    "size": 2037,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.179Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/capyes.svg",
+    "contentType": "image/svg+xml",
+    "size": 500,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/capyes.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.180Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/capno.svg",
+    "contentType": "image/svg+xml",
+    "size": 608,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/capno.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.180Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2972,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.180Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actLogin.svg",
+    "contentType": "image/svg+xml",
+    "size": 3857,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actLogin.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.180Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/promo.svg",
+    "contentType": "image/svg+xml",
+    "size": 1726,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/promo.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.180Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bkisses.svg",
+    "contentType": "image/svg+xml",
+    "size": 1276,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bkisses.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.181Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actRegister.svg",
+    "contentType": "image/svg+xml",
+    "size": 5840,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actRegister.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.181Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bstickers.svg",
+    "contentType": "image/svg+xml",
+    "size": 217174,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bstickers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.184Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/settings.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 41502,
+    "savedAs": "xat.com/content/web/R00241/box/www/settings.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.188Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/selector.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13941,
+    "savedAs": "xat.com/content/web/R00241/box/www/selector.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.190Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.219Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/roomid.php?v2&d=chat&i=&cb=1773611966",
+    "contentType": "application/json",
+    "size": 506,
+    "savedAs": "xat.com/web_gear/chat/roomid.php__q_P3YyJmQ9Y2hhdCZp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.220Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/actions.js",
+    "contentType": "application/javascript",
+    "size": 87867,
+    "savedAs": "xat.com/content/web/R00241/box/www/actions.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.250Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat2.js",
+    "contentType": "application/javascript",
+    "size": 70700,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat2.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.277Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/ip3.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 83278,
+    "savedAs": "xat.com/web_gear/chat/ip3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.282Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/qb/VoteComponent.js",
+    "contentType": "application/javascript",
+    "size": 155626,
+    "savedAs": "xat.com/content/web/R00241/box/www/qb/VoteComponent.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.286Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/pickr.min.js",
+    "contentType": "application/javascript",
+    "size": 47954,
+    "savedAs": "xat.com/content/js/pickr/pickr.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.394Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Quickbar.js",
+    "contentType": "application/javascript",
+    "size": 641371,
+    "savedAs": "xat.com/content/web/R00241/box/www/Quickbar.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.471Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/settings.js",
+    "contentType": "application/javascript",
+    "size": 835965,
+    "savedAs": "xat.com/content/web/R00241/box/www/settings.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.512Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1755.png",
+    "contentType": "image/png",
+    "size": 486,
+    "savedAs": "xat.com/web_gear/chat/av/1755.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.514Z"
+  },
+  {
+    "url": "https://xat.com/content/js/svg.min.js?z1",
+    "contentType": "application/javascript",
+    "size": 131982,
+    "savedAs": "xat.com/content/js/svg.min.js__q_P3ox",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.520Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.542Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat2.js",
+    "contentType": "application/javascript",
+    "size": 70700,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat2.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.543Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/pickr.min.js",
+    "contentType": "application/javascript",
+    "size": 47954,
+    "savedAs": "xat.com/content/js/pickr/pickr.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.544Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/pickr.min.js",
+    "contentType": "application/javascript",
+    "size": 47954,
+    "savedAs": "xat.com/content/js/pickr/pickr.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.544Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/selector.js",
+    "contentType": "application/javascript",
+    "size": 895885,
+    "savedAs": "xat.com/content/web/R00241/box/www/selector.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.754Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/messages.js?",
+    "contentType": "application/javascript",
+    "size": 935813,
+    "savedAs": "xat.com/content/web/R00241/box/www/messages.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.849Z"
+  },
+  {
+    "url": "https://challenges.cloudflare.com/turnstile/v0/g/ea2d291c0fdc/api.js",
+    "contentType": "application/javascript; charset=UTF-8",
+    "size": 51125,
+    "savedAs": "challenges.cloudflare.com/turnstile/v0/g/ea2d291c0fdc/api.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.876Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/auser3.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 56,
+    "savedAs": "xat.com/web_gear/chat/auser3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.879Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/visitors.js",
+    "contentType": "application/javascript",
+    "size": 142491,
+    "savedAs": "xat.com/content/web/R00241/box/www/visitors.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:27.913Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/friends.js",
+    "contentType": "application/javascript",
+    "size": 271303,
+    "savedAs": "xat.com/content/web/R00241/box/www/friends.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.001Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/classic.js",
+    "contentType": "application/javascript",
+    "size": 456477,
+    "savedAs": "xat.com/content/web/R00241/box/www/classic.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.109Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "contentType": "image/svg+xml",
+    "size": 2037,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.550Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/x.svg",
+    "contentType": "image/svg+xml",
+    "size": 1999,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/x.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.551Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8ball.svg",
+    "contentType": "image/svg+xml",
+    "size": 3159,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8ball.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.555Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/getx.svg",
+    "contentType": "image/svg+xml",
+    "size": 3982,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/getx.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.556Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/bubble2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2907,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/bubble2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.556Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/radiooff.svg",
+    "contentType": "image/svg+xml",
+    "size": 5210,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/radiooff.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.556Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8ballb.svg",
+    "contentType": "image/svg+xml",
+    "size": 3832,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8ballb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.558Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/vote.svg",
+    "contentType": "image/svg+xml",
+    "size": 604,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/vote.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.564Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/visitors.svg",
+    "contentType": "image/svg+xml",
+    "size": 6087,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/visitors.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.564Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/ignored.svg",
+    "contentType": "image/svg+xml",
+    "size": 3422,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/ignored.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.564Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/dark1.svg",
+    "contentType": "image/svg+xml",
+    "size": 4928,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/dark1.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.564Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/translator.svg",
+    "contentType": "image/svg+xml",
+    "size": 1454,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/translator.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.564Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/arrowqb.svg",
+    "contentType": "image/svg+xml",
+    "size": 417,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/arrowqb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.565Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1535.png",
+    "contentType": "image/png",
+    "size": 516,
+    "savedAs": "xat.com/web_gear/chat/av/1535.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.577Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/events.svg",
+    "contentType": "image/svg+xml",
+    "size": 6217,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/events.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.580Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/giphy.svg",
+    "contentType": "image/svg+xml",
+    "size": 992,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/giphy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.585Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/Powers.svg",
+    "contentType": "image/svg+xml",
+    "size": 3428,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/Powers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.585Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/stealth.svg",
+    "contentType": "image/svg+xml",
+    "size": 3223,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/stealth.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.588Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/moreqb.svg",
+    "contentType": "image/svg+xml",
+    "size": 840,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/moreqb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.588Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1284.png",
+    "contentType": "image/png",
+    "size": 418,
+    "savedAs": "xat.com/web_gear/chat/av/1284.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.588Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/checkb.svg",
+    "contentType": "image/svg+xml",
+    "size": 500,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/checkb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.588Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1557.png",
+    "contentType": "image/png",
+    "size": 545,
+    "savedAs": "xat.com/web_gear/chat/av/1557.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.588Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1730.png",
+    "contentType": "image/png",
+    "size": 492,
+    "savedAs": "xat.com/web_gear/chat/av/1730.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.588Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1535.png",
+    "contentType": "image/png",
+    "size": 516,
+    "savedAs": "xat.com/web_gear/chat/av/1535.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.611Z"
+  },
+  {
+    "url": "https://i0.xat.com/web_gear/chat/GetImage7.php?s&W=80&H=80&U=https://xatimg.com/image/AIcqWCv30C1O.gif&we",
+    "contentType": "image/gif",
+    "size": 7178,
+    "savedAs": "i0.xat.com/web_gear/chat/GetImage7.php__q_P3MmVz04MCZIPTgw",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.612Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1284.png",
+    "contentType": "image/png",
+    "size": 418,
+    "savedAs": "xat.com/web_gear/chat/av/1284.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.624Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1730.png",
+    "contentType": "image/png",
+    "size": 492,
+    "savedAs": "xat.com/web_gear/chat/av/1730.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.630Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/1557.png",
+    "contentType": "image/png",
+    "size": 545,
+    "savedAs": "xat.com/web_gear/chat/av/1557.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.631Z"
+  },
+  {
+    "url": "https://i0.xat.com/web_gear/chat/GetImage9.php?s&W=80&H=80&U=https://xatimg.com/image/DcmoCZe5xIiI.png",
+    "contentType": "image/webp",
+    "size": 74804,
+    "savedAs": "i0.xat.com/web_gear/chat/GetImage9.php__q_P3MmVz04MCZIPTgw",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.684Z"
+  },
+  {
+    "url": "https://i0.xat.com/web_gear/chat/GetImage9.php?s&W=80&H=80&U=https://xatimg.com/image/DcmoCZe5xIiI.png",
+    "contentType": "image/webp",
+    "size": 74804,
+    "savedAs": "i0.xat.com/web_gear/chat/GetImage9.php__q_P3MmVz04MCZIPTgw",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:28.690Z"
+  },
+  {
+    "url": "https://xat.com/Lobby",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 5397,
+    "savedAs": "xat.com/Lobby",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.800Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/pwa.css",
+    "contentType": "text/css",
+    "size": 490,
+    "savedAs": "xat.com/content/web/R00241/pwa.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.818Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/manifest.webmanifest",
+    "contentType": "application/octet-stream",
+    "size": 1886,
+    "savedAs": "xat.com/content/web/R00241/manifest.webmanifest",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.823Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/pwa.js?z4",
+    "contentType": "application/javascript",
+    "size": 90295,
+    "savedAs": "xat.com/content/web/R00241/pwa.js__q_P3o0",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.885Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/xatplanet.svg",
+    "contentType": "image/svg+xml",
+    "size": 1971,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/xatplanet.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.889Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css",
+    "contentType": "text/css; charset=utf-8",
+    "size": 160392,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.894Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/direct.css",
+    "contentType": "text/css",
+    "size": 40147,
+    "savedAs": "xat.com/content/web/R00241/direct.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.900Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/favicon.ico",
+    "contentType": "image/x-icon",
+    "size": 16958,
+    "savedAs": "xat.com/content/web/R00241/img/favicon.ico",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.908Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/direct.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13416,
+    "savedAs": "xat.com/content/web/R00241/direct.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.972Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 4519,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.975Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/terms.svg",
+    "contentType": "image/svg+xml",
+    "size": 2253,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/terms.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.976Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+    "contentType": "application/javascript; charset=utf-8",
+    "size": 89476,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.979Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/xatplanet.svg",
+    "contentType": "image/svg+xml",
+    "size": 1971,
+    "savedAs": "xat.com/content/web/R00241/img/xatplanet.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:45.985Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.041Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.042Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.042Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.043Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.043Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Smilies.js",
+    "contentType": "application/javascript",
+    "size": 387680,
+    "savedAs": "xat.com/content/web/R00241/box/www/Smilies.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.053Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/apps/abx/abx.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 2078,
+    "savedAs": "xat.com/content/web/R00241/apps/abx/abx.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.054Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js",
+    "contentType": "application/javascript; charset=utf-8",
+    "size": 84152,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.103Z"
+  },
+  {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js",
+    "contentType": "application/javascript; charset=utf-8",
+    "size": 52190,
+    "savedAs": "cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.104Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/common.js",
+    "contentType": "application/javascript",
+    "size": 104870,
+    "savedAs": "xat.com/content/web/R00241/common.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.104Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/apps/grid.svg",
+    "contentType": "image/svg+xml",
+    "size": 6075,
+    "savedAs": "xat.com/content/web/R00241/img/apps/grid.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.106Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/apps/media.svg",
+    "contentType": "image/svg+xml",
+    "size": 3891,
+    "savedAs": "xat.com/content/web/R00241/img/apps/media.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.106Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/apps/trade.svg",
+    "contentType": "image/svg+xml",
+    "size": 4067,
+    "savedAs": "xat.com/content/web/R00241/img/apps/trade.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.106Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/apps/doodle.svg",
+    "contentType": "image/svg+xml",
+    "size": 5228,
+    "savedAs": "xat.com/content/web/R00241/img/apps/doodle.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.107Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/close.svg",
+    "contentType": "image/svg+xml",
+    "size": 3600,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/close.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.107Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/apps/pawns.svg",
+    "contentType": "image/svg+xml",
+    "size": 13721,
+    "savedAs": "xat.com/content/web/R00241/img/apps/pawns.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.107Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/embed.svg",
+    "contentType": "image/svg+xml",
+    "size": 2087,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/embed.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.107Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/apps.svg",
+    "contentType": "image/svg+xml",
+    "size": 8151,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/apps.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/group.svg",
+    "contentType": "image/svg+xml",
+    "size": 11007,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/group.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/embed2.svg",
+    "contentType": "image/svg+xml",
+    "size": 993,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/embed2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.108Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/xatframe.svg",
+    "contentType": "image/svg+xml",
+    "size": 219914,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/xatframe.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.110Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/send.svg",
+    "contentType": "image/svg+xml",
+    "size": 1809,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/send.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.110Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/save.svg",
+    "contentType": "image/svg+xml",
+    "size": 500,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/save.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.124Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/apps/abx/abx.css",
+    "contentType": "text/css",
+    "size": 1262,
+    "savedAs": "xat.com/content/web/R00241/apps/abx/abx.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.124Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/pointing.svg",
+    "contentType": "image/svg+xml",
+    "size": 323908,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/pointing.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.142Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/xatme.svg",
+    "contentType": "image/svg+xml",
+    "size": 5193,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/xatme.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.143Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/pencil.svg",
+    "contentType": "image/svg+xml",
+    "size": 582,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/pencil.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.143Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/inappropriate.svg",
+    "contentType": "image/svg+xml",
+    "size": 1338,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/inappropriate.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.144Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 9840,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.144Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/community.svg",
+    "contentType": "image/svg+xml",
+    "size": 1911,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/community.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.145Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/featured.svg",
+    "contentType": "image/svg+xml",
+    "size": 1640,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/featured.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.146Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/popular.svg",
+    "contentType": "image/svg+xml",
+    "size": 924,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/popular.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.147Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/supported.svg",
+    "contentType": "image/svg+xml",
+    "size": 1964,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/supported.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.149Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/games.svg",
+    "contentType": "image/svg+xml",
+    "size": 4327,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/games.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.151Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/search.svg",
+    "contentType": "image/svg+xml",
+    "size": 2020,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/search.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.154Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 4519,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.155Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/trade.svg",
+    "contentType": "image/svg+xml",
+    "size": 4067,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/trade.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.155Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/store.svg",
+    "contentType": "image/svg+xml",
+    "size": 2507,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/store.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.155Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/buyxats.svg",
+    "contentType": "image/svg+xml",
+    "size": 7383,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/buyxats.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.156Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/powers.svg",
+    "contentType": "image/svg+xml",
+    "size": 738,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/powers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.156Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/aces.svg",
+    "contentType": "image/svg+xml",
+    "size": 1961,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/aces.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.157Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/shortname.svg",
+    "contentType": "image/svg+xml",
+    "size": 5840,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/shortname.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.159Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/auctions.svg",
+    "contentType": "image/svg+xml",
+    "size": 3446,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/auctions.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.160Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/promotion.svg",
+    "contentType": "image/svg+xml",
+    "size": 1399,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/promotion.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.160Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/ads.svg",
+    "contentType": "image/svg+xml",
+    "size": 2458,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/ads.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.160Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/buygroup.svg",
+    "contentType": "image/svg+xml",
+    "size": 1860,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/buygroup.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.161Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/xatplanet.svg",
+    "contentType": "image/svg+xml",
+    "size": 1971,
+    "savedAs": "xat.com/content/web/R00241//img/xatplanet.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.163Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/apps.svg",
+    "contentType": "image/svg+xml",
+    "size": 8151,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/apps.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.165Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/wiki.svg",
+    "contentType": "image/svg+xml",
+    "size": 787,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/wiki.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.166Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/support.svg",
+    "contentType": "image/svg+xml",
+    "size": 219634,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/support.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.170Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/ticket.svg",
+    "contentType": "image/svg+xml",
+    "size": 951,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/ticket.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.171Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/x_b.svg",
+    "contentType": "image/svg+xml",
+    "size": 1134,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/x_b.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.172Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/facebook.svg",
+    "contentType": "image/svg+xml",
+    "size": 1662,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/facebook.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.173Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/instagram.svg",
+    "contentType": "image/svg+xml",
+    "size": 2727,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/instagram.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.173Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/html5.svg",
+    "contentType": "image/svg+xml",
+    "size": 217788,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/html5.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.188Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/privacy.svg",
+    "contentType": "image/svg+xml",
+    "size": 4492,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/privacy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.196Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/terms.svg",
+    "contentType": "image/svg+xml",
+    "size": 2253,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/terms.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.197Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/safety.svg",
+    "contentType": "image/svg+xml",
+    "size": 904,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/safety.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.198Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/group.svg",
+    "contentType": "image/svg+xml",
+    "size": 11007,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/group.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.199Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/embed2.svg",
+    "contentType": "image/svg+xml",
+    "size": 993,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/embed2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.201Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/events.svg",
+    "contentType": "image/svg+xml",
+    "size": 6217,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/events.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.203Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/customize.svg",
+    "contentType": "image/svg+xml",
+    "size": 8996,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/customize.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.204Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/message.svg",
+    "contentType": "image/svg+xml",
+    "size": 1304,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/message.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.205Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/xatframe.svg",
+    "contentType": "image/svg+xml",
+    "size": 219914,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/xatframe.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.208Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/account.svg",
+    "contentType": "image/svg+xml",
+    "size": 3857,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/account.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.209Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/embed.svg",
+    "contentType": "image/svg+xml",
+    "size": 2087,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/embed.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.217Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/pencil2.svg",
+    "contentType": "image/svg+xml",
+    "size": 582,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/pencil2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.218Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/settings.svg",
+    "contentType": "image/svg+xml",
+    "size": 5193,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/settings.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.219Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/logout.svg",
+    "contentType": "image/svg+xml",
+    "size": 1562,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/logout.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.220Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/mobile.svg",
+    "contentType": "image/svg+xml",
+    "size": 1278,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/mobile.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.221Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/Apple-en.svg",
+    "contentType": "image/svg+xml",
+    "size": 12224,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/Apple-en.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.222Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/Google-en.png",
+    "contentType": "image/png",
+    "size": 2729,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/Google-en.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.223Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241//img/navbar/globe.svg",
+    "contentType": "image/svg+xml",
+    "size": 234735,
+    "savedAs": "xat.com/content/web/R00241//img/navbar/globe.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.225Z"
+  },
+  {
+    "url": "https://xat.com/content/js/jquery.localize.js",
+    "contentType": "application/javascript",
+    "size": 2172,
+    "savedAs": "xat.com/content/js/jquery.localize.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.234Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/apps/abx/abx.js",
+    "contentType": "application/javascript",
+    "size": 237731,
+    "savedAs": "xat.com/content/web/R00241/apps/abx/abx.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.240Z"
+  },
+  {
+    "url": "https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+    "contentType": "text/javascript;charset=UTF-8",
+    "size": 31169,
+    "savedAs": "static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.240Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/direct.js",
+    "contentType": "application/javascript",
+    "size": 51185,
+    "savedAs": "xat.com/content/web/R00241/direct.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.241Z"
+  },
+  {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-P4SDK5JMQ9",
+    "contentType": "application/javascript; charset=UTF-8",
+    "size": 434880,
+    "savedAs": "www.googletagmanager.com/gtag/js__q_P2lkPUctUDRTREs1",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.292Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/languages.php",
+    "contentType": "",
+    "size": 3097,
+    "savedAs": "xat.com/json/lang/languages.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.326Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/Announce.php?c=1773611986213",
+    "contentType": "application/json",
+    "size": 197,
+    "savedAs": "xat.com/web_gear/chat/Announce.php__q_P2M9MTc3MzYxMTk4",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.327Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/pow2.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 82846,
+    "savedAs": "xat.com/web_gear/chat/pow2.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.368Z"
+  },
+  {
+    "url": "https://xat.com/json/promo.php?c=29560200",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 9168,
+    "savedAs": "xat.com/json/promo.php__q_P2M9Mjk1NjAyMDA",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.409Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/promoted.svg",
+    "contentType": "image/svg+xml",
+    "size": 1726,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/promoted.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.411Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/auser3.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 56,
+    "savedAs": "xat.com/web_gear/chat/auser3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.424Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/roomid.php?d=Lobby",
+    "contentType": "application/json",
+    "size": 288,
+    "savedAs": "xat.com/web_gear/chat/roomid.php__q_P2Q9TG9iYnk",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.512Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/userframe.svg",
+    "contentType": "image/svg+xml",
+    "size": 1432,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/userframe.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.585Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.598Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.599Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/quickbar.css",
+    "contentType": "text/css",
+    "size": 8873,
+    "savedAs": "xat.com/content/web/R00241/box/www/quickbar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.599Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/returnw.svg",
+    "contentType": "image/svg+xml",
+    "size": 617,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/returnw.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.599Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/star.svg",
+    "contentType": "image/svg+xml",
+    "size": 1323,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/star.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.603Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "contentType": "image/svg+xml",
+    "size": 1482,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.604Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "contentType": "image/png",
+    "size": 1418,
+    "savedAs": "xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.604Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/ablogo.svg",
+    "contentType": "image/svg+xml",
+    "size": 1970,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/ablogo.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.606Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abme.svg",
+    "contentType": "image/svg+xml",
+    "size": 6976,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abme.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.607Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abfriends.svg",
+    "contentType": "image/svg+xml",
+    "size": 7567,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abfriends.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.608Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abchats.svg",
+    "contentType": "image/svg+xml",
+    "size": 2446,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abchats.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.608Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abgroups.svg",
+    "contentType": "image/svg+xml",
+    "size": 15578,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abgroups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.610Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/abmore.svg",
+    "contentType": "image/svg+xml",
+    "size": 840,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/abmore.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.618Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "contentType": "image/svg+xml",
+    "size": 3045,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.619Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actStore.svg",
+    "contentType": "image/svg+xml",
+    "size": 2507,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actStore.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.619Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actBuyXats.svg",
+    "contentType": "image/svg+xml",
+    "size": 7222,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actBuyXats.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.620Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 5337,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.620Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 16491,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.620Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/x.svg",
+    "contentType": "image/svg+xml",
+    "size": 1999,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/x.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.620Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/cookie.svg",
+    "contentType": "image/svg+xml",
+    "size": 11292,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/cookie.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.621Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/logoutx.svg",
+    "contentType": "image/svg+xml",
+    "size": 465,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/logoutx.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.621Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "contentType": "image/svg+xml",
+    "size": 583,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.621Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Quickbar.js",
+    "contentType": "application/javascript",
+    "size": 641371,
+    "savedAs": "xat.com/content/web/R00241/box/www/Quickbar.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.664Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.676Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/activity.js",
+    "contentType": "application/javascript",
+    "size": 470380,
+    "savedAs": "xat.com/content/web/R00241/box/activity.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.689Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Count.js",
+    "contentType": "application/javascript",
+    "size": 116964,
+    "savedAs": "xat.com/content/web/R00241/box/www/Count.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.692Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Smilies.js",
+    "contentType": "application/javascript",
+    "size": 387680,
+    "savedAs": "xat.com/content/web/R00241/box/www/Smilies.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.705Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Avatars.js",
+    "contentType": "application/javascript",
+    "size": 129106,
+    "savedAs": "xat.com/content/web/R00241/box/www/Avatars.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.712Z"
+  },
+  {
+    "url": "https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+    "contentType": "text/javascript;charset=UTF-8",
+    "size": 31169,
+    "savedAs": "static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.713Z"
+  },
+  {
+    "url": "https://xat.com/json/abx.php?c=29560200.269833334",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1037,
+    "savedAs": "xat.com/json/abx.php__q_P2M9Mjk1NjAyMDAu",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.752Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/embed.html?n=Lobby",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 14631,
+    "savedAs": "xat.com/content/web/R00241/box/embed.html__q_P249TG9iYnk",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.752Z"
+  },
+  {
+    "url": "https://chatsgroup.com/web_gear/chat/media.php?d=Lobby&p=0&id=11",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 3515,
+    "savedAs": "chatsgroup.com/web_gear/chat/media.php__q_P2Q9TG9iYnkmcD0w",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.839Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/firebase.js",
+    "contentType": "application/javascript",
+    "size": 74689,
+    "savedAs": "xat.com/content/web/R00241/box/www/firebase.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.874Z"
+  },
+  {
+    "url": "https://xat.com/content/js/howler.min.js",
+    "contentType": "application/javascript",
+    "size": 36173,
+    "savedAs": "xat.com/content/js/howler.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.875Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26798,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.876Z"
+  },
+  {
+    "url": "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js",
+    "contentType": "text/javascript; charset=UTF-8",
+    "size": 22121,
+    "savedAs": "www.gstatic.com/firebasejs/8.10.0/firebase-app.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.885Z"
+  },
+  {
+    "url": "https://xat.com/js/noforms.js?h1",
+    "contentType": "application/javascript",
+    "size": 330,
+    "savedAs": "xat.com/js/noforms.js__q_P2gx",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.887Z"
+  },
+  {
+    "url": "https://xat.com/css/loading.css",
+    "contentType": "text/css",
+    "size": 123,
+    "savedAs": "xat.com/css/loading.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.890Z"
+  },
+  {
+    "url": "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js",
+    "contentType": "text/javascript; charset=UTF-8",
+    "size": 40951,
+    "savedAs": "www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.895Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "contentType": "application/wasm",
+    "size": 639989,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "isWasm": true,
+    "timestamp": "2026-03-15T21:59:46.907Z"
+  },
+  {
+    "url": "https://xat.com/js/linkvalidator.js?d1",
+    "contentType": "application/javascript",
+    "size": 675,
+    "savedAs": "xat.com/js/linkvalidator.js__q_P2Qx",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.925Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=mob2&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 12788,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9bW9iMiZsPWVu",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.957Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=mob1&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1879,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9bW9iMSZsPWVu",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.957Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=box&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13950,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9Ym94Jmw9ZW4t",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.958Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/classic.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26213,
+    "savedAs": "xat.com/content/web/R00241/box/www/classic.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:46.958Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.006Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.006Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.007Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.007Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.007Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/quickbar.css",
+    "contentType": "text/css",
+    "size": 8873,
+    "savedAs": "xat.com/content/web/R00241/box/www/quickbar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.008Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/pstyle.css",
+    "contentType": "text/css",
+    "size": 3377,
+    "savedAs": "xat.com/content/web/R00241/box/www/pstyle.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.008Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/return.svg",
+    "contentType": "image/svg+xml",
+    "size": 617,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/return.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.009Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/star.svg",
+    "contentType": "image/svg+xml",
+    "size": 1323,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/star.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.009Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "contentType": "image/svg+xml",
+    "size": 1482,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/makefav.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.009Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "contentType": "image/png",
+    "size": 1418,
+    "savedAs": "xat.com/content/web/R00241/box/www/poweredbygiphy.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.009Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/bold.svg",
+    "contentType": "image/svg+xml",
+    "size": 878,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/bold.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.010Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/italic.svg",
+    "contentType": "image/svg+xml",
+    "size": 497,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/italic.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.010Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/strikethrough.svg",
+    "contentType": "image/svg+xml",
+    "size": 1044,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/strikethrough.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.010Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/blockquote.svg",
+    "contentType": "image/svg+xml",
+    "size": 988,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/blockquote.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.010Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/link.svg",
+    "contentType": "image/svg+xml",
+    "size": 2437,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/link.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.011Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/react.svg",
+    "contentType": "image/svg+xml",
+    "size": 1532,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/react.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.011Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/translate.svg",
+    "contentType": "image/svg+xml",
+    "size": 1454,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/translate.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.011Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/edit.svg",
+    "contentType": "image/svg+xml",
+    "size": 582,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/edit.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.011Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/delete.svg",
+    "contentType": "image/svg+xml",
+    "size": 315,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/delete.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.011Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/copy.svg",
+    "contentType": "image/svg+xml",
+    "size": 1075,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/copy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.011Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/copylink.svg",
+    "contentType": "image/svg+xml",
+    "size": 1071,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/copylink.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.012Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/copysmiley.svg",
+    "contentType": "image/svg+xml",
+    "size": 1238,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/copysmiley.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.012Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "contentType": "image/svg+xml",
+    "size": 628,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.012Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "contentType": "image/svg+xml",
+    "size": 3045,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actSettings.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.012Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "contentType": "image/svg+xml",
+    "size": 583,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/switch.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.013Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/removeb.svg",
+    "contentType": "image/svg+xml",
+    "size": 611,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/removeb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.013Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/reportb.svg",
+    "contentType": "image/svg+xml",
+    "size": 1360,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/reportb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.013Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/call.svg",
+    "contentType": "image/svg+xml",
+    "size": 1589,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/call.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.014Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "contentType": "image/svg+xml",
+    "size": 1338,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.014Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "contentType": "image/svg+xml",
+    "size": 608,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.014Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "contentType": "image/svg+xml",
+    "size": 1581,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.014Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "contentType": "image/svg+xml",
+    "size": 1477,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.014Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 16491,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.015Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/helpicon.svg",
+    "contentType": "image/svg+xml",
+    "size": 4826,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/helpicon.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.015Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/xatsat.svg",
+    "contentType": "image/svg+xml",
+    "size": 9862,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/xatsat.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.015Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/arrowcol.svg",
+    "contentType": "image/svg+xml",
+    "size": 417,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/arrowcol.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.016Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/chatsnd.svg",
+    "contentType": "image/svg+xml",
+    "size": 1418,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/chatsnd.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.073Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/kisseson.svg",
+    "contentType": "image/svg+xml",
+    "size": 1184,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/kisseson.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.074Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/radio.svg",
+    "contentType": "image/svg+xml",
+    "size": 4379,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/radio.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.074Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/playon.svg",
+    "contentType": "image/svg+xml",
+    "size": 1732,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/playon.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.074Z"
+  },
+  {
+    "url": "https://xat.com/content/js/hammer.min.js",
+    "contentType": "application/javascript",
+    "size": 20765,
+    "savedAs": "xat.com/content/js/hammer.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.074Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/qb/VoteComponent.js",
+    "contentType": "application/javascript",
+    "size": 155626,
+    "savedAs": "xat.com/content/web/R00241/box/www/qb/VoteComponent.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.075Z"
+  },
+  {
+    "url": "https://xat.com/json/abxcount.php?c=29560200.269833334",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 23,
+    "savedAs": "xat.com/json/abxcount.php__q_P2M9Mjk1NjAyMDAu",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.165Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/Quickbar.js",
+    "contentType": "application/javascript",
+    "size": 641371,
+    "savedAs": "xat.com/content/web/R00241/box/www/Quickbar.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.225Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/actions.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 11224,
+    "savedAs": "xat.com/content/web/R00241/box/www/actions.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.226Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.226Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.227Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.228Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.228Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.228Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/nano.min.css",
+    "contentType": "text/css",
+    "size": 8865,
+    "savedAs": "xat.com/content/js/pickr/nano.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.229Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 1293,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1NZXJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.229Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/pstyle.css",
+    "contentType": "text/css",
+    "size": 3377,
+    "savedAs": "xat.com/content/web/R00241/box/www/pstyle.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.229Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "contentType": "image/svg+xml",
+    "size": 1338,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.230Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "contentType": "image/svg+xml",
+    "size": 608,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/report3.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.230Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "contentType": "image/svg+xml",
+    "size": 1581,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/voice.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.230Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "contentType": "image/svg+xml",
+    "size": 1477,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/call/video.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.230Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color.svg",
+    "contentType": "image/svg+xml",
+    "size": 2613,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.231Z"
+  },
+  {
+    "url": "https://xat.com/content/js/hammer.min.js",
+    "contentType": "application/javascript",
+    "size": 20765,
+    "savedAs": "xat.com/content/js/hammer.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.231Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.246Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/actions.js",
+    "contentType": "application/javascript",
+    "size": 87867,
+    "savedAs": "xat.com/content/web/R00241/box/www/actions.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.250Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/pickr.min.js",
+    "contentType": "application/javascript",
+    "size": 47954,
+    "savedAs": "xat.com/content/js/pickr/pickr.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.250Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/settings.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 41502,
+    "savedAs": "xat.com/content/web/R00241/box/www/settings.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.251Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.257Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.258Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.260Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/settings.css",
+    "contentType": "text/css",
+    "size": 11649,
+    "savedAs": "xat.com/content/web/R00241/box/www/settings.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.260Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/nano.min.css",
+    "contentType": "text/css",
+    "size": 8865,
+    "savedAs": "xat.com/content/js/pickr/nano.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.261Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/pstyle.css",
+    "contentType": "text/css",
+    "size": 3377,
+    "savedAs": "xat.com/content/web/R00241/box/www/pstyle.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.262Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "contentType": "image/svg+xml",
+    "size": 628,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/remove2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.262Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/search2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2020,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/search2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.263Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/setHelp.svg",
+    "contentType": "image/svg+xml",
+    "size": 219634,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/setHelp.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.269Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color.svg",
+    "contentType": "image/svg+xml",
+    "size": 2613,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.270Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/help.svg",
+    "contentType": "image/svg+xml",
+    "size": 5337,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/help.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.270Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/wiki.svg",
+    "contentType": "image/svg+xml",
+    "size": 787,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/wiki.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.270Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "contentType": "image/svg+xml",
+    "size": 16491,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/groups.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.270Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/terms.svg",
+    "contentType": "image/svg+xml",
+    "size": 2253,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/terms.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.271Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/privacy.svg",
+    "contentType": "image/svg+xml",
+    "size": 4492,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/privacy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.271Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/rocket.svg",
+    "contentType": "image/svg+xml",
+    "size": 11007,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/rocket.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.271Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.275Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/settings.js",
+    "contentType": "application/javascript",
+    "size": 835965,
+    "savedAs": "xat.com/content/web/R00241/box/www/settings.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.333Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/selector.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13941,
+    "savedAs": "xat.com/content/web/R00241/box/www/selector.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.334Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/normalize.css",
+    "contentType": "text/css",
+    "size": 3835,
+    "savedAs": "xat.com/content/web/R00241/box/www/normalize.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.367Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Rubik&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 2680,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1SdWJp",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.367Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/avatar.css",
+    "contentType": "text/css",
+    "size": 3152,
+    "savedAs": "xat.com/content/web/R00241/box/www/avatar.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.367Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.css",
+    "contentType": "text/css",
+    "size": 48161,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.368Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/selector.css",
+    "contentType": "text/css",
+    "size": 12015,
+    "savedAs": "xat.com/content/web/R00241/box/www/selector.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.371Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/platform.css",
+    "contentType": "text/css",
+    "size": 8271,
+    "savedAs": "xat.com/content/web/R00241/box/www/platform.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.372Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/nano.min.css",
+    "contentType": "text/css",
+    "size": 8865,
+    "savedAs": "xat.com/content/js/pickr/nano.min.css",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.372Z"
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap",
+    "contentType": "text/css; charset=utf-8",
+    "size": 1182,
+    "savedAs": "fonts.googleapis.com/css2__q_P2ZhbWlseT1LYWxh",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.372Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "contentType": "image/svg+xml",
+    "size": 2037,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.372Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bkisses.svg",
+    "contentType": "image/svg+xml",
+    "size": 1276,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bkisses.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.372Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bstickers.svg",
+    "contentType": "image/svg+xml",
+    "size": 217174,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bstickers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.374Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actGifts.svg",
+    "contentType": "image/svg+xml",
+    "size": 4665,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actGifts.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.374Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/capyes.svg",
+    "contentType": "image/svg+xml",
+    "size": 500,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/capyes.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.375Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/capno.svg",
+    "contentType": "image/svg+xml",
+    "size": 608,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/capno.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.375Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/promo.svg",
+    "contentType": "image/svg+xml",
+    "size": 1726,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/promo.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.375Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2972,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.375Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/img/navbar/color.svg",
+    "contentType": "image/svg+xml",
+    "size": 2613,
+    "savedAs": "xat.com/content/web/R00241/img/navbar/color.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.376Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/return.svg",
+    "contentType": "image/svg+xml",
+    "size": 617,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/return.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.376Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.391Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat2.js",
+    "contentType": "application/javascript",
+    "size": 70700,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat2.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.392Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actRegister.svg",
+    "contentType": "image/svg+xml",
+    "size": 5840,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actRegister.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.393Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/actLogin.svg",
+    "contentType": "image/svg+xml",
+    "size": 3857,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/actLogin.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.393Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/av/688.png",
+    "contentType": "image/png",
+    "size": 489,
+    "savedAs": "xat.com/web_gear/chat/av/688.png",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.393Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat.js",
+    "contentType": "application/javascript",
+    "size": 298335,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.462Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/xat2.js",
+    "contentType": "application/javascript",
+    "size": 70700,
+    "savedAs": "xat.com/content/web/R00241/box/www/xat2.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.464Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=login&l=en-us",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 9261,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9bG9naW4mbD1l",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.468Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/pickr.min.js",
+    "contentType": "application/javascript",
+    "size": 47954,
+    "savedAs": "xat.com/content/js/pickr/pickr.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.468Z"
+  },
+  {
+    "url": "https://xat.com/content/js/svg.min.js?z1",
+    "contentType": "application/javascript",
+    "size": 131982,
+    "savedAs": "xat.com/content/js/svg.min.js__q_P3ox",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.473Z"
+  },
+  {
+    "url": "https://xat.com/content/js/pickr/pickr.min.js",
+    "contentType": "application/javascript",
+    "size": 47954,
+    "savedAs": "xat.com/content/js/pickr/pickr.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.476Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/selector.js",
+    "contentType": "application/javascript",
+    "size": 895885,
+    "savedAs": "xat.com/content/web/R00241/box/www/selector.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.525Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/messages.js?",
+    "contentType": "application/javascript",
+    "size": 935813,
+    "savedAs": "xat.com/content/web/R00241/box/www/messages.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.594Z"
+  },
+  {
+    "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha",
+    "contentType": "application/javascript; charset=UTF-8",
+    "size": 51125,
+    "savedAs": "challenges.cloudflare.com/turnstile/v0/api.js__q_P2NvbXBhdD1yZWNh",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.596Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/visitors.js",
+    "contentType": "application/javascript",
+    "size": 142491,
+    "savedAs": "xat.com/content/web/R00241/box/www/visitors.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.630Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/roomid.php?v2&d=lobby&i=&cb=1773611986",
+    "contentType": "application/json",
+    "size": 288,
+    "savedAs": "xat.com/web_gear/chat/roomid.php__q_P3YyJmQ9bG9iYnkm",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.633Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/friends.js",
+    "contentType": "application/javascript",
+    "size": 271303,
+    "savedAs": "xat.com/content/web/R00241/box/www/friends.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.783Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/ip3.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 83278,
+    "savedAs": "xat.com/web_gear/chat/ip3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.784Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/classic.js",
+    "contentType": "application/javascript",
+    "size": 456477,
+    "savedAs": "xat.com/content/web/R00241/box/www/classic.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.793Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/giphy.svg",
+    "contentType": "image/svg+xml",
+    "size": 992,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/giphy.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.803Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/stealth.svg",
+    "contentType": "image/svg+xml",
+    "size": 3223,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/stealth.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.805Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/visitors.svg",
+    "contentType": "image/svg+xml",
+    "size": 6087,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/visitors.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.805Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/dark1.svg",
+    "contentType": "image/svg+xml",
+    "size": 4928,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/dark1.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.806Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "contentType": "image/svg+xml",
+    "size": 2037,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8bsmilies.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.806Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/ignored.svg",
+    "contentType": "image/svg+xml",
+    "size": 3422,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/ignored.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/translator.svg",
+    "contentType": "image/svg+xml",
+    "size": 1454,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/translator.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/Powers.svg",
+    "contentType": "image/svg+xml",
+    "size": 3428,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/Powers.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/vote.svg",
+    "contentType": "image/svg+xml",
+    "size": 604,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/vote.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.807Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/events.svg",
+    "contentType": "image/svg+xml",
+    "size": 6217,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/events.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.808Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/moreqb.svg",
+    "contentType": "image/svg+xml",
+    "size": 840,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/moreqb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.808Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/x.svg",
+    "contentType": "image/svg+xml",
+    "size": 1999,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/x.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.808Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/getx.svg",
+    "contentType": "image/svg+xml",
+    "size": 3982,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/getx.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.809Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/bubble2.svg",
+    "contentType": "image/svg+xml",
+    "size": 2907,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/bubble2.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.809Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/8ball.svg",
+    "contentType": "image/svg+xml",
+    "size": 3159,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/8ball.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.809Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/radiooff.svg",
+    "contentType": "image/svg+xml",
+    "size": 5210,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/radiooff.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.810Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/www/svg/arrowqb.svg",
+    "contentType": "image/svg+xml",
+    "size": 417,
+    "savedAs": "xat.com/content/web/R00241/box/www/svg/arrowqb.svg",
+    "isWasm": false,
+    "timestamp": "2026-03-15T21:59:47.810Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26798,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:18.986Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26798,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:18.988Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcore.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 0,
+    "savedAs": "xat.com/content/web/R00241/box/xatcore.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:18.998Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 26798,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.003Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "contentType": "application/wasm",
+    "size": 639989,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "isWasm": true,
+    "timestamp": "2026-03-15T22:00:19.015Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "contentType": "application/wasm",
+    "size": 639989,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "isWasm": true,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.036Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "contentType": "application/wasm",
+    "size": 639989,
+    "savedAs": "xat.com/content/web/R00241/box/xatcorewasm.wasm",
+    "isWasm": true,
+    "timestamp": "2026-03-15T22:00:19.043Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/roomid.php?v2&d=Lobby",
+    "contentType": "application/json",
+    "size": 288,
+    "savedAs": "xat.com/web_gear/chat/roomid.php__q_P3YyJmQ9TG9iYnk",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.335Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/roomid.php?v2&d=Lobby",
+    "contentType": "application/json",
+    "size": 288,
+    "savedAs": "xat.com/web_gear/chat/roomid.php__q_P3YyJmQ9TG9iYnk",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.337Z"
+  },
+  {
+    "url": "https://xat.com/json/abx.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1037,
+    "savedAs": "xat.com/json/abx.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.482Z"
+  },
+  {
+    "url": "https://xat.com/json/abx.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1037,
+    "savedAs": "xat.com/json/abx.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.483Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=box&l=en",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13950,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9Ym94Jmw9ZW4",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.511Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/getlang2.php?f=box&l=en",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 13950,
+    "savedAs": "xat.com/json/lang/getlang2.php__q_P2Y9Ym94Jmw9ZW4",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.512Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/customlang2.php?t=0",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 10,
+    "savedAs": "xat.com/json/lang/customlang2.php__q_P3Q9MA",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.642Z"
+  },
+  {
+    "url": "https://xat.com/json/lang/customlang2.php?t=0",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 10,
+    "savedAs": "xat.com/json/lang/customlang2.php__q_P3Q9MA",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.643Z"
+  },
+  {
+    "url": "https://xat.com/json/lists/0_en_featured.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 4828,
+    "savedAs": "xat.com/json/lists/0_en_featured.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.646Z"
+  },
+  {
+    "url": "https://xat.com/json/lists/0_en_featured.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 4828,
+    "savedAs": "xat.com/json/lists/0_en_featured.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.658Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/auser3.php?",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 56,
+    "savedAs": "xat.com/web_gear/chat/auser3.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.703Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/auser3.php?",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 56,
+    "savedAs": "xat.com/web_gear/chat/auser3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.704Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/ip3.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 83278,
+    "savedAs": "xat.com/web_gear/chat/ip3.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.712Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/ip3.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 83278,
+    "savedAs": "xat.com/web_gear/chat/ip3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.716Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/translate3.php",
+    "contentType": "application/json",
+    "size": 35,
+    "savedAs": "xat.com/web_gear/chat/translate3.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.764Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/translate3.php",
+    "contentType": "application/json",
+    "size": 35,
+    "savedAs": "xat.com/web_gear/chat/translate3.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.765Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/mlogin2.php?v=",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1,
+    "savedAs": "xat.com/web_gear/chat/mlogin2.php__q_P3Y9",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.815Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/mlogin2.php?v=",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 1,
+    "savedAs": "xat.com/web_gear/chat/mlogin2.php__q_P3Y9",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.815Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/register5.php",
+    "contentType": "application/json",
+    "size": 10,
+    "savedAs": "xat.com/web_gear/chat/register5.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.866Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/register5.php",
+    "contentType": "application/json",
+    "size": 10,
+    "savedAs": "xat.com/web_gear/chat/register5.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.868Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/SaveUser.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 9,
+    "savedAs": "xat.com/web_gear/chat/SaveUser.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.917Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/SaveUser.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 9,
+    "savedAs": "xat.com/web_gear/chat/SaveUser.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.917Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/xathlpuserid.php",
+    "contentType": "application/json",
+    "size": 15,
+    "savedAs": "xat.com/web_gear/chat/xathlpuserid.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:19.969Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/xathlpuserid.php",
+    "contentType": "application/json",
+    "size": 15,
+    "savedAs": "xat.com/web_gear/chat/xathlpuserid.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:19.970Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/Giphy.php",
+    "contentType": "application/json",
+    "size": 41,
+    "savedAs": "xat.com/web_gear/chat/Giphy.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:20.112Z"
+  },
+  {
+    "url": "https://xat.com/web_gear/chat/Giphy.php",
+    "contentType": "application/json",
+    "size": 41,
+    "savedAs": "xat.com/web_gear/chat/Giphy.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:20.114Z"
+  },
+  {
+    "url": "https://xat.com/content/js/howler.min.js",
+    "contentType": "application/javascript",
+    "size": 36173,
+    "savedAs": "xat.com/content/js/howler.min.js",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:20.120Z"
+  },
+  {
+    "url": "https://xat.com/content/js/howler.min.js",
+    "contentType": "application/javascript",
+    "size": 36173,
+    "savedAs": "xat.com/content/js/howler.min.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:20.121Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/activity.js",
+    "contentType": "application/javascript",
+    "size": 470380,
+    "savedAs": "xat.com/content/web/R00241/box/activity.js",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:20.148Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/activity.js",
+    "contentType": "application/javascript",
+    "size": 470380,
+    "savedAs": "xat.com/content/web/R00241/box/activity.js",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:20.155Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/embed.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 14133,
+    "savedAs": "xat.com/content/web/R00241/box/embed.html",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:21.438Z"
+  },
+  {
+    "url": "https://xat.com/content/web/R00241/box/embed.html",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 14133,
+    "savedAs": "xat.com/content/web/R00241/box/embed.html",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:21.439Z"
+  },
+  {
+    "url": "https://xat.com/images/planet.svg",
+    "contentType": "image/svg+xml",
+    "size": 1993,
+    "savedAs": "xat.com/images/planet.svg",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:22.098Z"
+  },
+  {
+    "url": "https://xat.com/json/vote.php",
+    "contentType": "application/json",
+    "size": 76,
+    "savedAs": "xat.com/json/vote.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:22.295Z"
+  },
+  {
+    "url": "https://xat.com/json/vote.php",
+    "contentType": "application/json",
+    "size": 76,
+    "savedAs": "xat.com/json/vote.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:22.296Z"
+  },
+  {
+    "url": "https://xat.com/Lobby",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 5397,
+    "savedAs": "xat.com/Lobby",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:22.302Z"
+  },
+  {
+    "url": "https://xat.com/Lobby",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 5397,
+    "savedAs": "xat.com/Lobby",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:22.303Z"
+  },
+  {
+    "url": "https://xat.com/embed/chat.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 642,
+    "savedAs": "xat.com/embed/chat.php",
+    "isWasm": false,
+    "method": "direct-fetch",
+    "timestamp": "2026-03-15T22:00:22.351Z"
+  },
+  {
+    "url": "https://xat.com/embed/chat.php",
+    "contentType": "text/html; charset=UTF-8",
+    "size": 642,
+    "savedAs": "xat.com/embed/chat.php",
+    "isWasm": false,
+    "timestamp": "2026-03-15T22:00:22.351Z"
+  }
+]

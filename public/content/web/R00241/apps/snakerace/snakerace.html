@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake Race | xat</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+    }
+    h1 {
+      font-size: 15px;
+      color: #a0c4ff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .hud {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 8px;
+      font-size: 12px;
+    }
+    .hud-box {
+      background: #16213e;
+      border: 1px solid #2a2a5e;
+      border-radius: 6px;
+      padding: 3px 14px;
+      text-align: center;
+    }
+    .hud-box .label { color: #7080a0; font-size: 10px; }
+    .hud-box .val   { color: #a0c4ff; font-size: 15px; font-weight: bold; }
+    canvas {
+      border: 2px solid #2a2a5e;
+      border-radius: 6px;
+      background: #0d1117;
+      display: block;
+    }
+    .msg {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #a0c4ff;
+      min-height: 20px;
+      text-align: center;
+    }
+    .msg.dead { color: #f85149; }
+    .controls-hint {
+      font-size: 10px;
+      color: #404060;
+      margin-top: 6px;
+    }
+    .btn-start {
+      margin-top: 8px;
+      background: #16213e;
+      border: 1px solid #2a2a5e;
+      color: #a0c4ff;
+      border-radius: 6px;
+      padding: 6px 20px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-start:hover { background: #1c2a50; }
+  </style>
+</head>
+<body>
+  <h1>Snake Race</h1>
+  <div class="hud">
+    <div class="hud-box">
+      <div class="label">Score</div>
+      <div class="val" id="score">0</div>
+    </div>
+    <div class="hud-box">
+      <div class="label">Best</div>
+      <div class="val" id="best">0</div>
+    </div>
+    <div class="hud-box">
+      <div class="label">Length</div>
+      <div class="val" id="length">1</div>
+    </div>
+  </div>
+
+  <canvas id="canvas" width="320" height="320"></canvas>
+  <div class="msg" id="msg">Press Start or any arrow key to play</div>
+  <div class="controls-hint">Arrow keys or WASD to steer</div>
+  <button class="btn-start" id="start-btn" onclick="startGame()">Start</button>
+
+  <script>
+    var COLS = 20, ROWS = 20, CELL = 16;
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = COLS * CELL;
+    canvas.height = ROWS * CELL;
+
+    var snake, dir, nextDir, food, score, best, running, loop;
+
+    best = parseInt(localStorage.getItem('snakeBest') || '0');
+    document.getElementById('best').textContent = best;
+
+    function startGame() {
+      clearInterval(loop);
+      snake = [{x: 10, y: 10}];
+      dir = {x: 1, y: 0};
+      nextDir = {x: 1, y: 0};
+      score = 0;
+      running = true;
+      placeFood();
+      updateHUD();
+      document.getElementById('msg').textContent = '';
+      document.getElementById('msg').className = 'msg';
+      document.getElementById('start-btn').textContent = 'Restart';
+      loop = setInterval(tick, 120);
+    }
+
+    function placeFood() {
+      var occupied = new Set(snake.map(function(s){ return s.x + ',' + s.y; }));
+      do {
+        food = { x: Math.floor(Math.random() * COLS), y: Math.floor(Math.random() * ROWS) };
+      } while (occupied.has(food.x + ',' + food.y));
+    }
+
+    function tick() {
+      dir = nextDir;
+      var head = { x: (snake[0].x + dir.x + COLS) % COLS, y: (snake[0].y + dir.y + ROWS) % ROWS };
+      // Self collision
+      for (var i = 0; i < snake.length; i++) {
+        if (snake[i].x === head.x && snake[i].y === head.y) {
+          die(); return;
+        }
+      }
+      snake.unshift(head);
+      if (head.x === food.x && head.y === food.y) {
+        score++;
+        if (score > best) { best = score; localStorage.setItem('snakeBest', best); }
+        placeFood();
+      } else {
+        snake.pop();
+      }
+      updateHUD();
+      draw();
+    }
+
+    function die() {
+      clearInterval(loop);
+      running = false;
+      var msg = document.getElementById('msg');
+      msg.textContent = 'Game over! Score: ' + score;
+      msg.className = 'msg dead';
+      document.getElementById('best').textContent = best;
+    }
+
+    function updateHUD() {
+      document.getElementById('score').textContent = score;
+      document.getElementById('best').textContent = best;
+      document.getElementById('length').textContent = snake.length;
+    }
+
+    function draw() {
+      ctx.fillStyle = '#0d1117';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Grid dots
+      ctx.fillStyle = '#161b22';
+      for (var r = 0; r < ROWS; r++) {
+        for (var c = 0; c < COLS; c++) {
+          ctx.fillRect(c * CELL + CELL/2 - 1, r * CELL + CELL/2 - 1, 2, 2);
+        }
+      }
+
+      // Food
+      ctx.fillStyle = '#f85149';
+      ctx.beginPath();
+      ctx.arc(food.x * CELL + CELL/2, food.y * CELL + CELL/2, CELL/2 - 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Snake
+      for (var i = snake.length - 1; i >= 0; i--) {
+        var t = 1 - i / snake.length;
+        ctx.fillStyle = i === 0
+          ? '#58a6ff'
+          : 'hsl(' + (200 + t * 40) + ',70%,' + (35 + t * 15) + '%)';
+        var pad = i === 0 ? 1 : 2;
+        ctx.beginPath();
+        ctx.roundRect(
+          snake[i].x * CELL + pad,
+          snake[i].y * CELL + pad,
+          CELL - pad * 2,
+          CELL - pad * 2,
+          3
+        );
+        ctx.fill();
+      }
+
+      // Eyes on head
+      if (snake.length > 0) {
+        ctx.fillStyle = '#0d1117';
+        var hx = snake[0].x * CELL, hy = snake[0].y * CELL;
+        ctx.beginPath(); ctx.arc(hx + CELL * 0.3, hy + CELL * 0.35, 2, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(hx + CELL * 0.7, hy + CELL * 0.35, 2, 0, Math.PI*2); ctx.fill();
+      }
+    }
+
+    // Draw idle board
+    (function() {
+      ctx.fillStyle = '#0d1117';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#161b22';
+      ctx.font = '14px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('Press Start to play', canvas.width/2, canvas.height/2);
+    })();
+
+    var DIRS = {
+      ArrowUp:    {x:0,y:-1}, ArrowDown: {x:0,y:1},
+      ArrowLeft:  {x:-1,y:0}, ArrowRight:{x:1,y:0},
+      w:{x:0,y:-1}, s:{x:0,y:1}, a:{x:-1,y:0}, d:{x:1,y:0},
+      W:{x:0,y:-1}, S:{x:0,y:1}, A:{x:-1,y:0}, D:{x:1,y:0}
+    };
+
+    document.addEventListener('keydown', function(e) {
+      var d = DIRS[e.key];
+      if (!d) return;
+      e.preventDefault();
+      if (!running) { startGame(); return; }
+      // Prevent 180-degree turn
+      if (d.x !== -dir.x || d.y !== -dir.y) nextDir = d;
+    });
+  </script>
+</body>
+</html>

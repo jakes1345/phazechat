@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Glow -->
+  <circle cx="142" cy="160" r="100" fill="#ffe060" opacity="0.15"/>
+  <!-- Shadow -->
+  <ellipse cx="142" cy="278" rx="68" ry="10" fill="#c0a000" opacity="0.25"/>
+  <!-- Star shape -->
+  <polygon points="142,50 163,118 234,118 178,160 200,228 142,186 84,228 106,160 50,118 121,118" fill="#ffd020"/>
+  <!-- Star inner glow -->
+  <polygon points="142,76 157,122 204,122 168,147 181,193 142,168 103,193 116,147 80,122 127,122" fill="#ffe060" opacity="0.5"/>
+  <!-- Shine -->
+  <ellipse cx="118" cy="96" rx="12" ry="8" fill="white" opacity="0.4" transform="rotate(-30 118 96)"/>
+  <circle cx="112" cy="90" r="4" fill="white" opacity="0.5"/>
+</svg>

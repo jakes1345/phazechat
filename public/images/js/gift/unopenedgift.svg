@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Shadow -->
+  <ellipse cx="142" cy="292" rx="90" ry="10" fill="#888" opacity="0.2"/>
+  <!-- Box body -->
+  <rect x="52" y="168" width="180" height="120" rx="6" fill="#4090e0"/>
+  <!-- Box body shading -->
+  <rect x="52" y="168" width="90" height="120" rx="0" fill="#3878c8" opacity="0.3"/>
+  <!-- Box lid -->
+  <rect x="44" y="136" width="196" height="38" rx="6" fill="#5aa0f0"/>
+  <!-- Ribbon vertical on body -->
+  <rect x="130" y="168" width="24" height="120" fill="#ff4060"/>
+  <!-- Ribbon vertical on lid -->
+  <rect x="130" y="136" width="24" height="38" fill="#ff4060"/>
+  <!-- Ribbon horizontal on body -->
+  <rect x="52" y="202" width="180" height="20" fill="#ff4060"/>
+  <!-- Ribbon horizontal on lid -->
+  <rect x="44" y="148" width="196" height="14" fill="#ff4060"/>
+  <!-- Bow left loop -->
+  <ellipse cx="118" cy="130" rx="28" ry="18" fill="#ff6080" transform="rotate(-25 118 130)"/>
+  <!-- Bow right loop -->
+  <ellipse cx="166" cy="130" rx="28" ry="18" fill="#e83058" transform="rotate(25 166 130)"/>
+  <!-- Bow center -->
+  <circle cx="142" cy="136" r="13" fill="#ff4060"/>
+  <!-- Bow tails -->
+  <path d="M134,144 Q120,162 112,158" stroke="#e83058" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M150,144 Q164,162 172,158" stroke="#ff4060" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- Box sheen -->
+  <rect x="56" y="172" width="30" height="112" rx="4" fill="white" opacity="0.08"/>
+  <rect x="48" y="140" width="30" height="30" rx="4" fill="white" opacity="0.08"/>
+</svg>

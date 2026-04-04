@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xat.com clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-tertiary: #16213e;
+            --bg-card: #1e1e36;
+            --bg-input: #252545;
+            --accent: #7c3aed;
+            --accent-hover: #6d28d9;
+            --accent-glow: rgba(124, 58, 237, 0.3);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #2d2d50;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --online-glow: rgba(16, 185, 129, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .logo span { font-weight: 300; opacity: 0.7; }
+
+        .connection-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 500;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            transition: all 0.3s;
+        }
+
+        .connection-badge.offline {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .connection-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 8px var(--online-glow);
+            animation: pulse 2s infinite;
+        }
+
+        .connection-badge.offline .connection-dot {
+            background: var(--danger);
+            box-shadow: none;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.85); }
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Login Section */
+        #login-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .login-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+        }
+
+        .login-box p {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            width: 100%;
+            padding: 12px;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr 240px;
+            height: calc(100vh - 53px);
+        }
+
+        /* Sidebar / User List */
+        .sidebar {
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 14px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .user-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .user-item:hover { background: rgba(124, 58, 237, 0.1); }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .user-name { font-size: 13px; font-weight: 500; }
+        .user-rank { font-size: 11px; color: var(--text-muted); }
+
+        .rank-owner { color: #f59e0b; }
+        .rank-mod { color: #3b82f6; }
+        .rank-member { color: #10b981; }
+
+        /* Chat Area */
+        .chat-area {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-primary);
+        }
+
+        .room-header {
+            padding: 12px 20px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .room-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .room-scroller {
+            font-size: 12px;
+            color: var(--text-muted);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 400px;
+        }
+
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background 0.15s;
+            animation: messageIn 0.3s ease-out;
+        }
+
+        @keyframes messageIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message:hover { background: rgba(255,255,255,0.02); }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .message-content { flex: 1; min-width: 0; }
+
+        .message-header {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 2px;
+        }
+
+        .message-author {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .message-author.owner { color: #f59e0b; }
+        .message-author.mod { color: #3b82f6; }
+        .message-author.member { color: #10b981; }
+        .message-author.guest { color: var(--accent); }
+
+        .message-time {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .message-text {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .message.system {
+            justify-content: center;
+            padding: 4px 0;
+        }
+
+        .message.system .message-text {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Smiley replacement in messages */
+        .message-text img.smiley {
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+
+        /* Chat Input */
+        .chat-input-area {
+            padding: 12px 20px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .chat-input-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        #chat-input {
+            flex: 1;
+            padding: 10px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #chat-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        #chat-input::placeholder { color: var(--text-muted); }
+
+        .btn-send {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-send:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        /* Smiley bar */
+        .smiley-bar {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+            overflow-x: auto;
+            flex-wrap: wrap;
+            max-height: 80px;
+        }
+
+        .smiley-btn {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.15s, transform 0.15s;
+            padding: 2px;
+        }
+
+        .smiley-btn:hover {
+            background: rgba(124, 58, 237, 0.2);
+            transform: scale(1.2);
+        }
+
+        .smiley-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Right Panel */
+        .right-panel {
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel-section h3 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 4px 0;
+        }
+
+        .stat-label { color: var(--text-secondary); }
+        .stat-value { font-weight: 600; color: var(--text-primary); }
+
+        /* Admin mini form */
+        .admin-input {
+            width: 100%;
+            padding: 6px 10px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 12px;
+            margin-bottom: 6px;
+            outline: none;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .btn-small.mint { background: var(--success); color: white; }
+        .btn-small.mint:hover { background: #059669; }
+
+        /* Auth Tabs */
+        .auth-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: var(--bg-input);
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .auth-tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .auth-tab:hover:not(.active) {
+            background: var(--bg-tertiary);
+        }
+
+        /* Rank Badge */
+        .rank-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rank-badge.owner { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .rank-badge.mod { background: rgba(59, 130, 246, 0.2); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .rank-badge.member { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .rank-badge.guest { background: rgba(100, 116, 139, 0.2); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.3); }
+
+        /* Logout Button */
+        .btn-logout {
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        /* Kicked/Banned overlay */
+        .kicked-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+
+        .kicked-box {
+            background: var(--bg-card);
+            border: 1px solid var(--danger);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .kicked-box h2 { color: var(--danger); margin-bottom: 12px; }
+        .kicked-box p { color: var(--text-secondary); margin-bottom: 20px; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+<!-- Login Screen -->
+<!-- Login/Register Modal (shown inside chat, not blocking) -->
+<div id="login-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+    <div class="login-box" style="position:relative;">
+        <button onclick="closeLoginModal()" style="position:absolute; top:10px; right:14px; background:none; border:none; color:#aaa; font-size:20px; cursor:pointer;">&times;</button>
+        <h2>xat Private Server</h2>
+        <p id="auth-subtitle">Login or register your account</p>
+
+        <!-- Auth Tabs -->
+        <div class="auth-tabs">
+            <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+            <button class="auth-tab" onclick="switchAuthTab('register')">Register</button>
+        </div>
+
+        <div class="form-group">
+            <label for="login-name">Username</label>
+            <input type="text" id="login-name" placeholder="YourName" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Password" autocomplete="off">
+        </div>
+        <div id="auth-error" style="color: var(--danger); font-size: 13px; margin-bottom: 10px; display: none;"></div>
+        <button class="btn btn-primary" id="auth-btn" onclick="doAuth()">Login</button>
+    </div>
+</div>
+
+<!-- Room/Avatar picker (shown briefly on first load) -->
+<div id="login-screen">
+    <div class="login-box">
+        <h2>xat Private Server</h2>
+        <p>Choose your room and join instantly</p>
+        <div class="form-group">
+            <label for="login-room">Room</label>
+            <input type="text" id="login-room" value="Lobby" placeholder="Room name">
+        </div>
+        <div class="form-group">
+            <label for="login-avatar">Avatar Color</label>
+            <select id="login-avatar">
+                <option value="#7c3aed">Purple</option>
+                <option value="#3b82f6">Blue</option>
+                <option value="#10b981">Green</option>
+                <option value="#f59e0b">Gold</option>
+                <option value="#ef4444">Red</option>
+                <option value="#ec4899">Pink</option>
+                <option value="#06b6d4">Cyan</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" onclick="joinAsGuest()" style="width:100%; margin-bottom:8px;">Join Chat</button>
+        <button class="btn" onclick="showLoginModal()" style="width:100%; background:transparent; border:1px solid var(--border); color:var(--text-secondary);">Login / Register</button>
+    </div>
+</div>
+
+<!-- Main Chat Interface -->
+<div id="chat-app" style="display:none;">
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">xat<span>.clone</span></div>
+            <div class="connection-badge" id="conn-badge">
+                <div class="connection-dot"></div>
+                <span id="conn-text">Connected</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="rank-badge" id="my-rank-badge"></span>
+            <span style="font-size: 13px; color: var(--text-secondary);" id="my-username"></span>
+            <button class="btn-logout" onclick="doLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        <!-- User List Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">Online — <span id="online-count">0</span></div>
+            <div class="user-list" id="user-list"></div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="room-header">
+                <div class="room-name" id="room-name">Lobby</div>
+                <div class="room-scroller" id="room-scroller"></div>
+            </div>
+            <div class="messages-container" id="messages"></div>
+            <div class="chat-input-area">
+                <div class="smiley-bar" id="smiley-bar"></div>
+                <div class="chat-input-row">
+                    <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+                    <button class="btn-send" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="panel-section">
+                <h3>Room Info</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Room</span>
+                    <span class="stat-value" id="stat-room">Lobby</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Online</span>
+                    <span class="stat-value" id="stat-online">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Status</span>
+                    <span class="stat-value" style="color: var(--success);" id="stat-status">Connected</span>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>Your Profile</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Name</span>
+                    <span class="stat-value" id="stat-name">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Rank</span>
+                    <span class="stat-value" id="stat-rank">Owner</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Xats</span>
+                    <span class="stat-value" id="stat-xats">1000</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Days</span>
+                    <span class="stat-value" id="stat-days">30</span>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>Admin</h3>
+                <input type="number" class="admin-input" id="admin-mint-id" placeholder="User ID">
+                <input type="number" class="admin-input" id="admin-mint-xats" placeholder="Xats amount" value="500">
+                <button class="btn-small mint" onclick="adminMint()">Mint Currency</button>
+                <div id="admin-status" style="margin-top:6px; font-size: 11px; color: var(--text-muted);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ===== XAT PROTOCOL CLIENT =====
+
+const SMILIES = [
+    'smile', 'biggrin', 'sad', 'wink', 'tongue', 'cool', 'mad', 'redface',
+    'cry', 'eek', 'confused', 'rolleyes', 'surprised', 'heart', 'star',
+    'wave', 'clap', 'dance', 'bow', 'hug', 'punch', 'devil', 'angel',
+    'sick', 'nerd', 'pirate', 'ninja', 'yawn', 'sleepy', 'thinking',
+    'd', 'p', 'o', 'e', 'r', 'what', 'hi', 'no', 'yes', 'bye'
+];
+
+let ws = null;
+let myUserId = null;
+let myUsername = '';
+let myRank = 0;
+let currentRoom = '';
+let roomUsers = {}; // userId -> {name, avatar, flags}
+let avatarColor = '#7c3aed';
+let authToken = localStorage.getItem('xat_token') || null;
+let authMode = 'login'; // 'login' or 'register'
+let reconnecting = false;
+let isGuest = false;
+
+// === XML Helpers ===
+function xmlTag(tag, attrs = {}) {
+    const attrStr = Object.entries(attrs)
+        .filter(([_, v]) => v !== undefined && v !== null)
+        .map(([k, v]) => `${k}="${String(v).replace(/"/g, '&quot;')}"`)
+        .join(' ');
+    return `<${tag}${attrStr ? ' ' + attrStr : ''} />`;
+}
+
+function parseXml(raw) {
+    const trimmed = raw.trim().replace(/\0/g, '');
+    if (!trimmed.startsWith('<')) return null;
+    const tagMatch = trimmed.match(/^<(\w+)\s*/);
+    if (!tagMatch) return null;
+    const tag = tagMatch[1];
+    const attrs = {};
+    const re = /(\w+)="([^"]*)"/g;
+    let m;
+    while ((m = re.exec(trimmed)) !== null) attrs[m[1]] = m[2];
+    return { tag, attrs };
+}
+
+// === Auth Tab Switching ===
+function switchAuthTab(mode) {
+    authMode = mode;
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.auth-tab:${mode === 'login' ? 'first' : 'last'}-child`).classList.add('active');
+    document.getElementById('auth-btn').textContent = mode === 'login' ? 'Login' : 'Register';
+    document.getElementById('auth-subtitle').textContent = mode === 'login'
+        ? 'Login to join the chat'
+        : 'Create a new account';
+    document.getElementById('auth-error').style.display = 'none';
+}
+
+// === Show/Hide Login Modal ===
+function showLoginModal() {
+    document.getElementById('login-modal').style.display = 'flex';
+}
+function closeLoginModal() {
+    document.getElementById('login-modal').style.display = 'none';
+    document.getElementById('auth-error').style.display = 'none';
+}
+
+// === Join as Guest (like real xat.com) ===
+async function joinAsGuest() {
+    try {
+        const res = await fetch('/auth/guest', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({}),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+            alert('Failed to join: ' + (data.error || 'Unknown error'));
+            return;
+        }
+        authToken = data.token;
+        // Don't persist guest tokens to localStorage
+        myUserId = String(data.user.id);
+        myUsername = data.user.username;
+        myRank = data.user.rank;
+        isGuest = true;
+        enterChat();
+    } catch (err) {
+        alert('Connection error. Is the server running?');
+    }
+}
+
+// === Auth (Register/Login) — from modal inside chat ===
+async function doAuth() {
+    const username = document.getElementById('login-name').value.trim();
+    const password = document.getElementById('login-password').value;
+    const errEl = document.getElementById('auth-error');
+    errEl.style.display = 'none';
+
+    if (!username || !password) {
+        errEl.textContent = 'Username and password are required.';
+        errEl.style.display = 'block';
+        return;
+    }
+
+    const endpoint = authMode === 'register' ? '/auth/register' : '/auth/login';
+
+    try {
+        const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+            errEl.textContent = data.error || 'Authentication failed.';
+            errEl.style.display = 'block';
+            return;
+        }
+
+        // Store token and user data
+        authToken = data.token;
+        localStorage.setItem('xat_token', authToken);
+        myUserId = String(data.user.id);
+        myUsername = data.user.username;
+        myRank = data.user.rank;
+        isGuest = false;
+
+        // Close modal and reconnect with new identity
+        closeLoginModal();
+        if (ws) ws.close();
+        document.getElementById('my-username').textContent = myUsername;
+        updateMyRankDisplay();
+        addSystemMessage(`You are now logged in as ${myUsername}`);
+        connectWS();
+    } catch (err) {
+        errEl.textContent = 'Connection error. Is the server running?';
+        errEl.style.display = 'block';
+    }
+}
+
+// === Auto-login with saved token ===
+async function tryAutoLogin() {
+    if (!authToken) return false;
+    try {
+        const res = await fetch('/auth/me', {
+            headers: { 'Authorization': `Bearer ${authToken}` },
+        });
+        if (!res.ok) {
+            localStorage.removeItem('xat_token');
+            authToken = null;
+            return false;
+        }
+        const data = await res.json();
+        myUserId = String(data.user.id);
+        myUsername = data.user.username;
+        myRank = data.user.rank;
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+// === Enter Chat ===
+function enterChat() {
+    currentRoom = document.getElementById('login-room').value.trim() || 'Lobby';
+    avatarColor = document.getElementById('login-avatar').value;
+
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('chat-app').style.display = 'block';
+
+    document.getElementById('my-username').textContent = myUsername;
+    document.getElementById('room-name').textContent = currentRoom;
+    document.getElementById('stat-room').textContent = currentRoom;
+    document.getElementById('stat-name').textContent = myUsername;
+    updateMyRankDisplay();
+
+    renderSmileys();
+    connectWS();
+}
+
+// === Logout (returns to guest mode, not login screen) ===
+async function doLogout() {
+    if (authToken) {
+        try {
+            await fetch('/auth/logout', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${authToken}` },
+            });
+        } catch {}
+    }
+    localStorage.removeItem('xat_token');
+    authToken = null;
+    if (ws) ws.close();
+    reconnecting = false;
+    // Re-join as guest (like real xat.com — you stay in chat)
+    addSystemMessage('Logged out. Rejoining as guest...');
+    joinAsGuest();
+}
+
+// === Rank Display ===
+function rankName(flags) {
+    const f = flags & 0xFF; // mask out gag flag
+    if (f >= 16) return 'Owner';
+    if (f >= 4) return 'Mod';
+    if (f >= 2) return 'Member';
+    return 'Guest';
+}
+
+function rankClass(flags) {
+    const f = flags & 0xFF;
+    if (f >= 16) return 'owner';
+    if (f >= 4) return 'mod';
+    if (f >= 2) return 'member';
+    return 'guest';
+}
+
+function updateMyRankDisplay() {
+    const badge = document.getElementById('my-rank-badge');
+    badge.className = `rank-badge ${rankClass(myRank)}`;
+    badge.textContent = rankName(myRank);
+    document.getElementById('stat-rank').textContent = rankName(myRank);
+}
+
+// === WebSocket Connection ===
+function connectWS() {
+    const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+    ws = new WebSocket(`${proto}//${location.host}/ws`);
+
+    ws.onopen = () => {
+        console.log('[WS] Connected');
+        setConnectionStatus(true);
+        reconnecting = false;
+
+        // Send handshake with auth token
+        ws.send(xmlTag('y', { r: currentRoom, v: '0', u: myUserId, token: authToken }) + '\0');
+    };
+
+    ws.onmessage = (evt) => {
+        const packets = evt.data.split('\0').filter(p => p.trim());
+        packets.forEach(pkt => {
+            const parsed = parseXml(pkt);
+            if (!parsed) return;
+            handlePacket(parsed.tag, parsed.attrs);
+        });
+    };
+
+    ws.onclose = () => {
+        console.log('[WS] Disconnected');
+        setConnectionStatus(false);
+        if (authToken && !reconnecting) {
+            reconnecting = true;
+            setTimeout(() => { reconnecting = false; connectWS(); }, 3000);
+        }
+    };
+
+    ws.onerror = (err) => {
+        console.error('[WS] Error:', err);
+    };
+}
+
+// === Packet Handler ===
+function handlePacket(tag, attrs) {
+    switch (tag) {
+        case 'y': // Handshake ack — send j2 (join)
+            myUserId = attrs.u || myUserId;
+            if (attrs.r !== undefined) myRank = parseInt(attrs.r);
+            updateMyRankDisplay();
+
+            ws.send(xmlTag('j2', {
+                cb: Date.now(),
+                y: attrs.i || '0',
+                k: '0',
+                c: currentRoom,
+                u: myUserId,
+                n: myUsername,
+                a: avatarColor,
+                h: '',
+                f: myRank,
+                token: authToken,
+            }) + '\0');
+            break;
+
+        case 'u': { // User joined / user list
+            const uid = attrs.u;
+            const flags = parseInt(attrs.f || '0');
+            roomUsers[uid] = {
+                name: attrs.n || `User_${uid}`,
+                avatar: attrs.a || '#7c3aed',
+                flags: flags,
+            };
+            renderUserList();
+
+            // Update own rank if this is our user packet
+            if (uid === myUserId) {
+                myRank = flags & 0xFF;
+                updateMyRankDisplay();
+            } else if (!attrs.cb) {
+                // Only show "joined" for new joins, not initial user list (which has cb)
+                addSystemMessage(`${roomUsers[uid].name} joined the chat`);
+            }
+            break;
+        }
+
+        case 'o': { // User left
+            const leftUid = attrs.u;
+            const leftName = roomUsers[leftUid]?.name || `User_${leftUid}`;
+            delete roomUsers[leftUid];
+            renderUserList();
+            addSystemMessage(`${leftName} left the chat`);
+            break;
+        }
+
+        case 'm': // Message
+            if (attrs.u === '0' || attrs.s === '1') {
+                // System message (from user "0" or system flag)
+                addSystemMessage(attrs.t || '');
+            } else {
+                addChatMessage(attrs.u, attrs.n, attrs.t);
+            }
+            break;
+
+        case 'p': // Private message
+            addChatMessage(attrs.u, attrs.n, `[PM] ${attrs.t}`, true);
+            break;
+
+        case 'gp': // Group powers / room info
+            if (attrs.t) {
+                document.getElementById('room-scroller').textContent = attrs.t;
+            }
+            break;
+
+        case 'done': // Room load complete
+            addSystemMessage(`Welcome to ${currentRoom}! Type /help for commands.`);
+            break;
+
+        case 'e': // Error packet
+            console.warn('[Server Error]', attrs.t);
+            if (attrs.t && attrs.t.includes('banned')) {
+                showKickedOverlay('Banned', attrs.t);
+            } else if (attrs.t && attrs.t.includes('Authentication')) {
+                // Auth failure - go back to login
+                doLogout();
+            }
+            break;
+
+        case 'c': // Control packet (kick/ban)
+            if (attrs.t === '/k') {
+                showKickedOverlay('Kicked', attrs.r || 'You have been kicked from the room.');
+            } else if (attrs.t === '/b') {
+                showKickedOverlay('Banned', attrs.r || 'You have been banned from this room.');
+            } else if (attrs.t) {
+                addSystemMessage(attrs.t);
+            }
+            break;
+
+        case 'x': // Typing indicator
+            break;
+
+        default:
+            console.log('[Protocol] Unhandled:', tag, attrs);
+    }
+}
+
+// === Kicked/Banned Overlay ===
+function showKickedOverlay(title, reason) {
+    const existing = document.querySelector('.kicked-overlay');
+    if (existing) existing.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'kicked-overlay';
+    overlay.innerHTML = `
+        <div class="kicked-box">
+            <h2>${escapeHtml(title)}</h2>
+            <p>${escapeHtml(reason)}</p>
+            <button class="btn btn-primary" onclick="dismissKicked()" style="width: auto; padding: 10px 30px;">OK</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+}
+
+function dismissKicked() {
+    const overlay = document.querySelector('.kicked-overlay');
+    if (overlay) overlay.remove();
+    // Go back to login screen to rejoin
+    document.getElementById('chat-app').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    roomUsers = {};
+    document.getElementById('messages').innerHTML = '';
+    document.getElementById('user-list').innerHTML = '';
+}
+
+// === UI Rendering ===
+function renderUserList() {
+    const ul = document.getElementById('user-list');
+    const users = Object.entries(roomUsers);
+
+    // Sort: owners first, then mods, then members, then guests
+    users.sort((a, b) => (b[1].flags & 0xFF) - (a[1].flags & 0xFF));
+
+    ul.innerHTML = users.map(([uid, user]) => {
+        const initial = user.name.charAt(0).toUpperCase();
+        const rc = rankClass(user.flags);
+        const rl = rankName(user.flags);
+        const bg = user.avatar || '#7c3aed';
+        const gagged = (user.flags & 0x200) ? ' (gagged)' : '';
+        return `
+            <div class="user-item" onclick="startPM('${uid}')">
+                <div class="user-avatar" style="background: ${bg};">${initial}</div>
+                <div>
+                    <div class="user-name">${escapeHtml(user.name)}</div>
+                    <div class="user-rank rank-${rc}">${rl}${gagged}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    document.getElementById('online-count').textContent = users.length;
+    document.getElementById('stat-online').textContent = users.length;
+}
+
+function addChatMessage(userId, name, text, isPM = false) {
+    const container = document.getElementById('messages');
+    const user = roomUsers[userId] || { name: name || `User_${userId}`, avatar: '#7c3aed', flags: 0 };
+    const initial = user.name.charAt(0).toUpperCase();
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const bg = user.avatar || '#7c3aed';
+    const rc = rankClass(user.flags || 0);
+
+    let displayText = escapeHtml(text || '');
+    displayText = displayText.replace(/\((\w+)\)/g, (match, name) => {
+        return `<img class="smiley" src="/smilies/${name}.webp" onerror="this.onerror=null;this.src='/smilies/${name}.png'" alt="${name}" title="${name}">`;
+    });
+
+    const msgEl = document.createElement('div');
+    msgEl.className = 'message';
+    msgEl.innerHTML = `
+        <div class="message-avatar" style="background: ${bg};">${initial}</div>
+        <div class="message-content">
+            <div class="message-header">
+                <span class="message-author ${isPM ? '' : rc}" ${isPM ? 'style="color: #ec4899;"' : ''}>${escapeHtml(user.name)}${isPM ? ' (PM)' : ''}</span>
+                <span class="message-time">${time}</span>
+            </div>
+            <div class="message-text">${displayText}</div>
+        </div>
+    `;
+    container.appendChild(msgEl);
+    container.scrollTop = container.scrollHeight;
+}
+
+function addSystemMessage(text) {
+    const container = document.getElementById('messages');
+    const msgEl = document.createElement('div');
+    msgEl.className = 'message system';
+    msgEl.innerHTML = `<div class="message-text">${escapeHtml(text)}</div>`;
+    container.appendChild(msgEl);
+    container.scrollTop = container.scrollHeight;
+}
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// === Smileys ===
+function renderSmileys() {
+    const bar = document.getElementById('smiley-bar');
+    bar.innerHTML = SMILIES.map(name =>
+        `<button class="smiley-btn" onclick="insertSmiley('${name}')" title=":${name}:">
+            <img src="/smilies/${name}.webp" onerror="this.onerror=null;this.src='/smilies/${name}.png'" alt="${name}">
+        </button>`
+    ).join('');
+}
+
+function insertSmiley(name) {
+    const input = document.getElementById('chat-input');
+    input.value += `(${name})`;
+    input.focus();
+}
+
+// === Actions ===
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text || !ws || ws.readyState !== 1) return;
+
+    ws.send(xmlTag('m', { t: text, u: myUserId }) + '\0');
+    input.value = '';
+    input.focus();
+}
+
+function startPM(targetId) {
+    const input = document.getElementById('chat-input');
+    const user = roomUsers[targetId];
+    if (user) {
+        input.value = `/pm ${user.name} `;
+        input.focus();
+    }
+}
+
+function setConnectionStatus(connected) {
+    const badge = document.getElementById('conn-badge');
+    const text = document.getElementById('conn-text');
+    const status = document.getElementById('stat-status');
+    if (connected) {
+        badge.className = 'connection-badge';
+        text.textContent = 'Connected';
+        status.textContent = 'Connected';
+        status.style.color = 'var(--success)';
+    } else {
+        badge.className = 'connection-badge offline';
+        text.textContent = 'Disconnected';
+        status.textContent = 'Disconnected';
+        status.style.color = 'var(--danger)';
+    }
+}
+
+// === Admin ===
+function adminMint() {
+    const userId = document.getElementById('admin-mint-id').value;
+    const xats = document.getElementById('admin-mint-xats').value;
+    const status = document.getElementById('admin-status');
+
+    fetch('/admin/mint', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, xats: parseInt(xats), days: 30 })
+    })
+    .then(r => r.json())
+    .then(d => { status.textContent = d.status === 'ok' ? 'Minted!' : 'Error: ' + d.message; })
+    .catch(() => { status.textContent = 'Connection error'; });
+}
+
+// === Enter key to send / login ===
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && document.activeElement.id === 'chat-input') {
+        sendMessage();
+    }
+    if (e.key === 'Enter' && (document.activeElement.id === 'login-name' || document.activeElement.id === 'login-password')) {
+        doAuth();
+    }
+});
+
+// === Auto-login on page load (or auto-guest like real xat.com) ===
+(async () => {
+    if (await tryAutoLogin()) {
+        console.log(`[Auth] Auto-login: ${myUsername}`);
+        enterChat();
+    }
+    // If no saved token, show the room picker screen (quick entry)
+    // User clicks "Join Chat" -> auto-joins as guest
+})();
+
+console.log('[xat-clone] Private server client loaded.');
+</script>
+
+</body>
+</html>

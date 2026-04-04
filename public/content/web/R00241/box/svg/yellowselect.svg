@@ -1,0 +1,26 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<path id="_App_Icons_yellowselect_0_Layer1_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 19 9.55
+Q 19 13.45 16.2 16.25 13.4 19 9.5 19.05 5.55 19 2.8 16.25 0 13.45 0 9.55 0 6.05 2.2 3.45 2.45 3.1 2.8 2.8 3.5 2.1 4.3 1.55 6.25 0.25 8.7 0.05 9.1 0 9.5 0.05 12.5 0 14.85 1.7 15.55 2.15 16.2 2.8 19 5.6 19 9.55 Z"/>
+
+<path id="_App_Icons_yellowselect_0_Layer0_0_1_STROKES" stroke="#000000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 15.15 7.15
+Q 15.15 8.45 14.45 9.3 13.75 10.2 12.85 10.2 11.9 10.2 11.2 9.3 10.5 8.45 10.5 7.15 10.5 5.85 11.2 4.95 11.9 4.05 12.85 4.05 13.75 4.05 14.45 4.95 15.15 5.85 15.15 7.15 Z
+M 4.25 9.3
+Q 3.55 8.45 3.55 7.15 3.55 5.85 4.25 4.95 4.95 4.05 5.9 4.05 6.8 4.05 7.5 4.95 8.2 5.85 8.2 7.15 8.2 8.45 7.5 9.3 6.8 10.2 5.9 10.2 4.95 10.2 4.25 9.3 Z
+M 5.2 13.4
+Q 9.3 18.35 14.15 13.35"/>
+</defs>
+
+<g transform="matrix( 1.5, 0, 0, 1.5, 5.6,5.6) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_App_Icons_yellowselect_0_Layer1_0_1_STROKES"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_App_Icons_yellowselect_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</svg>

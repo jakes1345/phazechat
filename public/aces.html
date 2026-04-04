@@ -1,0 +1,109 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.aces">aces</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.aces">Aces</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/navbar/star.svg" width="96" alt="aces" class="mb-3">
+    <h2>Become an Ace!</h2>
+    <p class="lead">Aces are premium xat members who get exclusive benefits and recognition.</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-warning">
+        <div class="card-body text-center">
+          <h4 class="text-warning">Ace Badge</h4>
+          <p>Display a golden star badge next to your name in chat, showing your Ace status to everyone.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-warning">
+        <div class="card-body text-center">
+          <h4 class="text-warning">Priority Support</h4>
+          <p>Get faster support and assistance from the xat team when you need help.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 border-warning">
+        <div class="card-body text-center">
+          <h4 class="text-warning">Exclusive Features</h4>
+          <p>Access special features and content only available to Ace members.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>How to Become an Ace</h3>
+      <p>To become an Ace, you need:</p>
+      <ul>
+        <li>A registered xat account with days (subscription)</li>
+        <li>A minimum balance of xats and days</li>
+        <li>Good standing in the xat community</li>
+      </ul>
+      <p>Ace status is automatically applied when your account meets the requirements. Keep your days active to maintain your Ace status.</p>
+
+      <h3>Ace Tiers</h3>
+      <table class="table">
+        <thead><tr><th>Tier</th><th>Requirements</th><th>Benefits</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="text-warning">Bronze Ace</span></td>
+            <td>1,000+ xats, 30+ days</td>
+            <td>Ace badge, bronze name glow</td>
+          </tr>
+          <tr>
+            <td><span class="text-warning">Silver Ace</span></td>
+            <td>10,000+ xats, 180+ days</td>
+            <td>All bronze benefits + silver name glow + priority chat entry</td>
+          </tr>
+          <tr>
+            <td><span class="text-warning">Gold Ace</span></td>
+            <td>100,000+ xats, 365+ days</td>
+            <td>All silver benefits + gold name glow + custom namecolor + exclusive smilies</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>

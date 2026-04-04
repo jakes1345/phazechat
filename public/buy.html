@@ -1,0 +1,219 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.buyxd">buy xats &amp; days</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.buyxd">Buy xats &amp; Days</h1>
+
+  <div id="buyerr" class="alert alert-danger d-none" role="alert"></div>
+  <div id="buysuccess" class="alert alert-success d-none" role="alert"></div>
+
+  <div id="notLoggedIn" class="alert alert-warning">
+    You must be <a href="/login">logged in</a> to purchase xats and days.
+  </div>
+
+  <div id="buyPanel" class="d-none">
+    <div class="card mb-4">
+      <div class="card-header">
+        <h4>Your Balance</h4>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h5>xats</h5>
+            <h2 id="balanceXats" class="text-primary">0</h2>
+          </div>
+          <div class="col-md-4">
+            <h5>Days</h5>
+            <h2 id="balanceDays" class="text-success">0</h2>
+          </div>
+          <div class="col-md-4">
+            <h5>User ID</h5>
+            <h2 id="balanceId" class="text-info">-</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>xats Packages</h3>
+    <div class="row mb-4">
+      <div class="col-md-3 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4>1,000 xats</h4>
+            <p class="text-muted">Starter pack</p>
+            <p class="h3 text-primary">$2.99</p>
+            <button class="btn btn-primary btn-block buyBtn" data-type="xats" data-amount="1000" data-price="2.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4>5,000 xats</h4>
+            <p class="text-muted">Popular</p>
+            <p class="h3 text-primary">$9.99</p>
+            <button class="btn btn-primary btn-block buyBtn" data-type="xats" data-amount="5000" data-price="9.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-center border-primary">
+          <div class="card-header bg-primary text-white">Best Value</div>
+          <div class="card-body">
+            <h4>25,000 xats</h4>
+            <p class="text-muted">Power trader</p>
+            <p class="h3 text-primary">$39.99</p>
+            <button class="btn btn-primary btn-block buyBtn" data-type="xats" data-amount="25000" data-price="39.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4>100,000 xats</h4>
+            <p class="text-muted">Ultimate</p>
+            <p class="h3 text-primary">$129.99</p>
+            <button class="btn btn-primary btn-block buyBtn" data-type="xats" data-amount="100000" data-price="129.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Days Packages</h3>
+    <div class="row mb-4">
+      <div class="col-md-3 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4>30 Days</h4>
+            <p class="text-muted">1 month</p>
+            <p class="h3 text-success">$4.99</p>
+            <button class="btn btn-success btn-block buyBtn" data-type="days" data-amount="30" data-price="4.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4>90 Days</h4>
+            <p class="text-muted">3 months</p>
+            <p class="h3 text-success">$11.99</p>
+            <button class="btn btn-success btn-block buyBtn" data-type="days" data-amount="90" data-price="11.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-center border-success">
+          <div class="card-header bg-success text-white">Best Value</div>
+          <div class="card-body">
+            <h4>365 Days</h4>
+            <p class="text-muted">1 year</p>
+            <p class="h3 text-success">$34.99</p>
+            <button class="btn btn-success btn-block buyBtn" data-type="days" data-amount="365" data-price="34.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h4>730 Days</h4>
+            <p class="text-muted">2 years</p>
+            <p class="h3 text-success">$59.99</p>
+            <button class="btn btn-success btn-block buyBtn" data-type="days" data-amount="730" data-price="59.99">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <strong>Private Server:</strong> Packages are claimed directly — no real payment required.
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var token = localStorage.getItem('xat_token');
+  if (token) {
+    fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.user) {
+        document.getElementById('notLoggedIn').classList.add('d-none');
+        document.getElementById('buyPanel').classList.remove('d-none');
+        document.getElementById('balanceXats').textContent = (data.user.xats || 0).toLocaleString();
+        document.getElementById('balanceDays').textContent = data.user.days || 0;
+        document.getElementById('balanceId').textContent = data.user.id;
+      }
+    });
+  }
+
+  document.querySelectorAll('.buyBtn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var type = this.dataset.type;
+      var amount = parseInt(this.dataset.amount);
+      if (!confirm('Claim ' + amount.toLocaleString() + ' ' + type + '?')) return;
+      var body = {};
+      if (type === 'xats') body.xats = amount;
+      else body.days = amount;
+      var token = localStorage.getItem('xat_token');
+      fetch('/api/store/claim', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+        body: JSON.stringify(body)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          document.getElementById('buysuccess').textContent = 'Claimed ' + amount.toLocaleString() + ' ' + type + '!';
+          document.getElementById('buysuccess').classList.remove('d-none');
+          document.getElementById('buyerr').classList.add('d-none');
+          document.getElementById('balanceXats').textContent = (data.user.xats || 0).toLocaleString();
+          document.getElementById('balanceDays').textContent = data.user.days || 0;
+        } else {
+          document.getElementById('buyerr').textContent = data.error || 'Claim failed';
+          document.getElementById('buyerr').classList.remove('d-none');
+        }
+      })
+      .catch(function() {
+        document.getElementById('buyerr').textContent = 'Network error. Try again.';
+        document.getElementById('buyerr').classList.remove('d-none');
+      });
+    });
+  });
+})();
+</script>

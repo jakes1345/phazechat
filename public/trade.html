@@ -1,0 +1,728 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span>trade</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19">groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19">store</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/trade"><img class="mr-1" src="/content/web/R00241/img/navbar/trade.svg" width="19">trade</a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<style>
+  .trade-wrap { padding-top: 70px; padding-bottom: 40px; }
+  .store-login { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .store-login.logged-in { background: #d4edda; border-color: #c3e6cb; }
+  .balance-bar { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .balance-item { display: flex; align-items: center; gap: 6px; }
+  .balance-item strong { color: #007bff; }
+  .trade-section-title { font-size: 20px; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 8px; display: inline-block; }
+  #tradeAlert { position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 9999; min-width: 320px; max-width: 90vw; }
+
+  /* User search */
+  .user-search-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .user-search-results { position: absolute; background: #fff; border: 1px solid #dee2e6; border-radius: 6px; z-index: 100;
+    min-width: 280px; max-height: 220px; overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+  .user-result-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
+  .user-result-item:last-child { border-bottom: none; }
+  .user-result-item:hover { background: #f0f7ff; }
+  .user-result-avatar { width: 28px; height: 28px; border-radius: 50%; background: #dee2e6; object-fit: cover; }
+  .search-wrap { position: relative; flex: 1; max-width: 300px; }
+
+  /* Trade panels */
+  .trade-panels { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: start; }
+  .trade-panel { border: 2px solid #dee2e6; border-radius: 10px; padding: 18px; background: #fff; min-height: 320px; }
+  .trade-panel.your-offer { border-color: #007bff; }
+  .trade-panel.their-offer { border-color: #28a745; }
+  .trade-panel.inactive { opacity: .5; pointer-events: none; }
+  .trade-panel-title { font-weight: 700; font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .trade-panel-title .badge { font-size: 11px; }
+  .trade-divider { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 14px; gap: 10px; }
+  .trade-arrow { font-size: 28px; color: #adb5bd; }
+  .trade-controls { display: flex; flex-direction: column; gap: 8px; }
+  .trade-amount-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .trade-amount-row label { width: 55px; font-size: 13px; color: #555; margin: 0; }
+  .trade-amount-row input { flex: 1; }
+  .powers-checklist { max-height: 200px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 6px; padding: 4px 0; }
+  .power-check-item { display: flex; align-items: center; gap: 8px; padding: 5px 10px; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .power-check-item:last-child { border-bottom: none; }
+  .power-check-item:hover { background: #f8f9fa; }
+  .power-check-item img { width: 20px; height: 20px; }
+  .power-check-item label { margin: 0; cursor: pointer; flex: 1; }
+  .no-powers-msg { text-align: center; color: #aaa; padding: 20px; font-size: 13px; }
+
+  /* Their offer (read-only display) */
+  .offer-display { font-size: 13px; }
+  .offer-display .offer-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-bottom: 1px solid #f0f0f0; }
+  .offer-display .offer-row:last-child { border-bottom: none; }
+  .offer-display .offer-label { color: #888; min-width: 60px; }
+  .offer-display .offer-value { font-weight: 600; color: #333; }
+  .offer-placeholder { text-align: center; color: #aaa; padding: 30px 10px; font-size: 13px; }
+
+  /* Active trades */
+  .trade-card { border: 1px solid #dee2e6; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .trade-card.status-pending { border-left: 4px solid #ffc107; }
+  .trade-card.status-completed { border-left: 4px solid #28a745; }
+  .trade-card.status-rejected { border-left: 4px solid #dc3545; }
+  .trade-card.status-cancelled { border-left: 4px solid #6c757d; }
+  .trade-card-meta { flex: 1; min-width: 0; }
+  .trade-card-meta strong { font-size: 14px; }
+  .trade-card-meta small { color: #888; display: block; }
+  .trade-card-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+  .trade-status-badge { font-size: 11px; padding: 2px 8px; border-radius: 3px; color: #fff; font-weight: 600; }
+  .trade-status-badge.pending { background: #ffc107; color: #333; }
+  .trade-status-badge.completed { background: #28a745; }
+  .trade-status-badge.rejected { background: #dc3545; }
+  .trade-status-badge.cancelled { background: #6c757d; }
+
+  /* History */
+  .history-table { width: 100%; font-size: 13px; }
+  .history-table th { background: #f8f9fa; font-size: 12px; padding: 6px 10px; border-bottom: 2px solid #dee2e6; }
+  .history-table td { padding: 7px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  .history-table tr:last-child td { border-bottom: none; }
+  .history-table tr:hover td { background: #fafafa; }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .trade-panels { grid-template-columns: 1fr; }
+    .trade-divider { flex-direction: row; padding: 10px 0; }
+    .trade-arrow { font-size: 20px; }
+    .trade-controls { flex-direction: row; flex-wrap: wrap; }
+  }
+</style>
+
+<div class="container trade-wrap">
+  <!-- Alert -->
+  <div id="tradeAlert" class="alert d-none" role="alert"></div>
+
+  <!-- Login / Balance section -->
+  <div id="loginSection" class="store-login">
+    <div id="loginForm">
+      <div class="row align-items-end">
+        <div class="col-md-3">
+          <label class="mb-1"><small>xat username:</small></label>
+          <input id="tradeUser" type="text" class="form-control form-control-sm" placeholder="username">
+        </div>
+        <div class="col-md-3">
+          <label class="mb-1"><small>password:</small></label>
+          <input id="tradePass" type="password" class="form-control form-control-sm" placeholder="password">
+        </div>
+        <div class="col-md-3 mt-2">
+          <div class="form-check">
+            <input id="agreeterms" type="checkbox" class="form-check-input">
+            <label class="form-check-label" for="agreeterms"><small>I agree to the <a href="/terms">terms</a></small></label>
+          </div>
+        </div>
+        <div class="col-md-3 mt-2">
+          <button class="btn btn-primary btn-sm btn-block" onclick="tradeLogin()">log in</button>
+        </div>
+      </div>
+    </div>
+    <div id="balanceSection" class="d-none">
+      <div class="balance-bar">
+        <div class="balance-item"><small>logged in as:</small> <strong id="balUser">-</strong></div>
+        <div class="balance-item"><small>ID:</small> <strong id="balId">-</strong></div>
+        <div class="balance-item"><small>xats:</small> <strong id="balXats">0</strong></div>
+        <div class="balance-item"><small>days:</small> <strong id="balDays" style="color:#28a745">0</strong></div>
+        <button class="btn btn-outline-secondary btn-sm ml-auto" onclick="tradeLogout()">log out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content (hidden until logged in) -->
+  <div id="tradeContent" class="d-none">
+
+    <!-- User Search -->
+    <div class="mb-4">
+      <h2 class="trade-section-title">find a user to trade with</h2>
+      <div class="user-search-bar">
+        <div class="search-wrap">
+          <input id="userSearchInput" type="text" class="form-control form-control-sm" placeholder="search by username..." autocomplete="off" oninput="searchUsers(this.value)">
+          <div id="userSearchResults" class="user-search-results d-none"></div>
+        </div>
+        <div id="selectedUser" class="d-none">
+          <span class="badge badge-secondary py-2 px-3" style="font-size:13px;">
+            trading with: <strong id="selectedUserName">-</strong>
+            <button type="button" class="ml-2 btn-close" onclick="clearSelectedUser()" style="background:none;border:none;color:#555;font-size:14px;padding:0;cursor:pointer;">&times;</button>
+          </span>
+        </div>
+        <button id="sendTradeBtn" class="btn btn-primary btn-sm d-none" onclick="initiateTrade()">send trade request</button>
+      </div>
+    </div>
+
+    <!-- Active Trade Interface -->
+    <div id="activeTradeSection" class="d-none mb-4">
+      <h2 class="trade-section-title">active trade</h2>
+      <div class="trade-panels mb-3">
+        <!-- Your offer -->
+        <div class="trade-panel your-offer">
+          <div class="trade-panel-title">
+            <span>your offer</span>
+            <span class="badge badge-primary">you</span>
+          </div>
+          <div class="trade-amount-row">
+            <label>xats:</label>
+            <input id="offerXats" type="number" class="form-control form-control-sm" min="0" value="0" placeholder="0">
+          </div>
+          <div class="trade-amount-row">
+            <label>days:</label>
+            <input id="offerDays" type="number" class="form-control form-control-sm" min="0" value="0" placeholder="0">
+          </div>
+          <div class="mb-2"><small class="text-muted">powers to include:</small></div>
+          <div id="offerPowersList" class="powers-checklist">
+            <div class="no-powers-msg">loading your powers...</div>
+          </div>
+          <div class="mt-3">
+            <button class="btn btn-primary btn-sm btn-block" onclick="submitOffer()">update offer</button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="trade-divider">
+          <div class="trade-arrow">&#8644;</div>
+          <div class="trade-controls">
+            <button id="acceptTradeBtn" class="btn btn-success btn-sm" onclick="acceptTrade()">accept</button>
+            <button id="rejectTradeBtn" class="btn btn-danger btn-sm" onclick="rejectTrade()">reject</button>
+            <button id="cancelTradeBtn" class="btn btn-outline-secondary btn-sm" onclick="cancelTrade()">cancel</button>
+          </div>
+        </div>
+
+        <!-- Their offer -->
+        <div class="trade-panel their-offer" id="theirOfferPanel">
+          <div class="trade-panel-title">
+            <span>their offer</span>
+            <span class="badge badge-success" id="theirOfferBadge">partner</span>
+          </div>
+          <div id="theirOfferContent">
+            <div class="offer-placeholder">waiting for their offer...</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-warning py-2 px-3" style="font-size:13px;">
+        <strong>tip:</strong> both parties must submit an offer before accepting. verify all items carefully before accepting.
+      </div>
+    </div>
+
+    <!-- Pending Trades List -->
+    <div class="mb-4">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <h2 class="trade-section-title mb-0">pending trades</h2>
+        <button class="btn btn-outline-secondary btn-sm" onclick="loadPendingTrades()">
+          <span style="font-size:12px;">&#8635;</span> refresh
+        </button>
+      </div>
+      <div id="pendingTradesList">
+        <div class="text-center text-muted py-3"><small>no pending trades</small></div>
+      </div>
+    </div>
+
+    <!-- Trade History -->
+    <div class="mb-4">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <h2 class="trade-section-title mb-0">recent trade history</h2>
+        <button class="btn btn-outline-secondary btn-sm" onclick="loadTradeHistory()">
+          <span style="font-size:12px;">&#8635;</span> refresh
+        </button>
+      </div>
+      <div id="tradeHistoryWrap" style="border:1px solid #dee2e6;border-radius:8px;overflow:hidden;">
+        <div class="text-center text-muted py-4"><small>no trade history yet</small></div>
+      </div>
+    </div>
+
+  </div><!-- /tradeContent -->
+</div>
+
+<script>
+(function() {
+  var token = localStorage.getItem('xat_token');
+  var user = null;
+  var selectedUser = null;  // { id, username }
+  var activeTrade = null;   // current trade object
+  var userPowers = [];      // powers the logged-in user owns
+  var refreshTimer = null;
+
+  // ===================== HELPERS =====================
+
+  function showAlert(msg, type) {
+    type = type || 'info';
+    var el = document.getElementById('tradeAlert');
+    el.className = 'alert alert-' + type;
+    el.textContent = msg;
+    el.classList.remove('d-none');
+    setTimeout(function() { el.classList.add('d-none'); }, 4500);
+  }
+
+  function authHeaders() {
+    return { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
+  }
+
+  function fmtTime(unix) {
+    if (!unix) return '-';
+    var d = new Date(unix * 1000);
+    return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ===================== AUTH =====================
+
+  window.tradeLogin = function() {
+    var u = document.getElementById('tradeUser').value.trim();
+    var p = document.getElementById('tradePass').value;
+    if (!document.getElementById('agreeterms').checked) return showAlert('Please agree to the terms.', 'warning');
+    if (!u || !p) return showAlert('Enter username and password.', 'warning');
+    fetch('/auth/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: u, password: p })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.token) {
+        localStorage.setItem('xat_token', data.token);
+        token = data.token;
+        loadUser();
+      } else { showAlert(data.error || 'Login failed', 'danger'); }
+    }).catch(function() { showAlert('Login failed', 'danger'); });
+  };
+
+  window.tradeLogout = function() {
+    localStorage.removeItem('xat_token');
+    token = null; user = null; activeTrade = null;
+    clearInterval(refreshTimer);
+    document.getElementById('loginForm').classList.remove('d-none');
+    document.getElementById('balanceSection').classList.add('d-none');
+    document.getElementById('loginSection').classList.remove('logged-in');
+    document.getElementById('tradeContent').classList.add('d-none');
+  };
+
+  function loadUser() {
+    if (!token) return;
+    fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (!data.user) { tradeLogout(); return; }
+        user = data.user;
+        document.getElementById('loginForm').classList.add('d-none');
+        document.getElementById('balanceSection').classList.remove('d-none');
+        document.getElementById('loginSection').classList.add('logged-in');
+        document.getElementById('tradeContent').classList.remove('d-none');
+        document.getElementById('balUser').textContent = user.username;
+        document.getElementById('balId').textContent = user.id;
+        document.getElementById('balXats').textContent = user.xats.toLocaleString();
+        document.getElementById('balDays').textContent = user.days.toLocaleString();
+        loadUserPowers();
+        loadPendingTrades();
+        loadTradeHistory();
+        startPolling();
+      }).catch(function() { tradeLogout(); });
+  }
+
+  // ===================== USER SEARCH =====================
+
+  var searchTimer = null;
+  window.searchUsers = function(q) {
+    clearTimeout(searchTimer);
+    var resultsEl = document.getElementById('userSearchResults');
+    if (!q || q.length < 2) { resultsEl.classList.add('d-none'); return; }
+    searchTimer = setTimeout(function() {
+      fetch('/api/users/search?q=' + encodeURIComponent(q))
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var users = (data.users || []).filter(function(u) { return !user || u.id !== user.id; });
+          if (!users.length) {
+            resultsEl.innerHTML = '<div class="user-result-item text-muted"><small>no users found</small></div>';
+            resultsEl.classList.remove('d-none');
+            return;
+          }
+          resultsEl.innerHTML = users.map(function(u) {
+            var av = u.avatar ? '<img src="' + escHtml(u.avatar) + '" class="user-result-avatar" onerror="this.style.display=\'none\'">' : '<div class="user-result-avatar" style="background:#dee2e6;"></div>';
+            return '<div class="user-result-item" onclick="selectUser(' + u.id + ',' + JSON.stringify(escHtml(u.username)) + ')">' +
+              av + '<span>' + escHtml(u.username) + '</span><small class="text-muted ml-auto">ID: ' + u.id + '</small></div>';
+          }).join('');
+          resultsEl.classList.remove('d-none');
+        }).catch(function() {});
+    }, 300);
+  };
+
+  window.selectUser = function(id, username) {
+    selectedUser = { id: id, username: username };
+    document.getElementById('userSearchInput').value = '';
+    document.getElementById('userSearchResults').classList.add('d-none');
+    document.getElementById('selectedUserName').textContent = username;
+    document.getElementById('selectedUser').classList.remove('d-none');
+    document.getElementById('sendTradeBtn').classList.remove('d-none');
+  };
+
+  window.clearSelectedUser = function() {
+    selectedUser = null;
+    document.getElementById('selectedUser').classList.add('d-none');
+    document.getElementById('sendTradeBtn').classList.add('d-none');
+  };
+
+  // Close search results when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-wrap')) {
+      document.getElementById('userSearchResults').classList.add('d-none');
+    }
+  });
+
+  // ===================== TRADE INITIATION =====================
+
+  window.initiateTrade = function() {
+    if (!selectedUser) return showAlert('Select a user to trade with.', 'warning');
+    if (!user) return showAlert('You must be logged in.', 'warning');
+    fetch('/api/trades/initiate', {
+      method: 'POST', headers: authHeaders(),
+      body: JSON.stringify({ targetId: selectedUser.id })
+    }).then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          showAlert('Trade request sent to ' + selectedUser.username + '!', 'success');
+          activeTrade = { id: data.tradeId, initiator_id: user.id, target_id: selectedUser.id,
+            status: 'pending', initiator_offer: '{}', target_offer: '{}' };
+          openActiveTrade(activeTrade, selectedUser.username);
+          clearSelectedUser();
+          loadPendingTrades();
+        } else {
+          showAlert(data.error || 'Failed to initiate trade', 'danger');
+        }
+      }).catch(function() { showAlert('Failed to initiate trade', 'danger'); });
+  };
+
+  // ===================== ACTIVE TRADE UI =====================
+
+  function openActiveTrade(trade, partnerName) {
+    activeTrade = trade;
+    document.getElementById('activeTradeSection').classList.remove('d-none');
+    document.getElementById('theirOfferBadge').textContent = partnerName || 'partner';
+
+    var isInitiator = (user && trade.initiator_id === user.id);
+    var myOffer = isInitiator ? JSON.parse(trade.initiator_offer || '{}') : JSON.parse(trade.target_offer || '{}');
+    var theirOffer = isInitiator ? JSON.parse(trade.target_offer || '{}') : JSON.parse(trade.initiator_offer || '{}');
+
+    // Populate my offer fields
+    document.getElementById('offerXats').value = myOffer.xats || 0;
+    document.getElementById('offerDays').value = myOffer.days || 0;
+
+    // Populate their offer display
+    renderTheirOffer(theirOffer, partnerName);
+
+    // Update powers checklist with pre-checked powers
+    renderPowersChecklist(myOffer.powers || []);
+  }
+
+  function renderTheirOffer(offer, partnerName) {
+    var el = document.getElementById('theirOfferContent');
+    if (!offer || (!offer.xats && !offer.days && (!offer.powers || !offer.powers.length))) {
+      el.innerHTML = '<div class="offer-placeholder">waiting for ' + escHtml(partnerName || 'their') + ' offer...</div>';
+      return;
+    }
+    var html = '<div class="offer-display">';
+    if (offer.xats) html += '<div class="offer-row"><span class="offer-label">xats:</span><span class="offer-value">' + Number(offer.xats).toLocaleString() + '</span></div>';
+    if (offer.days) html += '<div class="offer-row"><span class="offer-label">days:</span><span class="offer-value">' + Number(offer.days).toLocaleString() + '</span></div>';
+    if (offer.powers && offer.powers.length) {
+      offer.powers.forEach(function(pid) {
+        var pw = userPowers.find(function(p) { return p.id === pid; }) || { name: 'power #' + pid };
+        html += '<div class="offer-row"><span class="offer-label">power:</span><span class="offer-value">' + escHtml(pw.name) + '</span></div>';
+      });
+    }
+    html += '</div>';
+    el.innerHTML = html;
+  }
+
+  function renderPowersChecklist(checkedIds) {
+    var el = document.getElementById('offerPowersList');
+    if (!userPowers.length) {
+      el.innerHTML = '<div class="no-powers-msg">you have no powers to offer</div>';
+      return;
+    }
+    el.innerHTML = userPowers.map(function(p) {
+      var checked = checkedIds.indexOf(p.id) !== -1 ? 'checked' : '';
+      var imgSrc = '/api/smiley/' + p.id;
+      return '<div class="power-check-item">' +
+        '<input type="checkbox" id="pw' + p.id + '" value="' + p.id + '" ' + checked + '>' +
+        '<img src="' + imgSrc + '" width="20" height="20" onerror="this.style.display=\'none\'" alt="">' +
+        '<label for="pw' + p.id + '">' + escHtml(p.name) + '</label>' +
+        '</div>';
+    }).join('');
+  }
+
+  window.submitOffer = function() {
+    if (!activeTrade) return showAlert('No active trade.', 'warning');
+    var xats = parseInt(document.getElementById('offerXats').value) || 0;
+    var days = parseInt(document.getElementById('offerDays').value) || 0;
+    var powers = [];
+    document.querySelectorAll('#offerPowersList input[type=checkbox]:checked').forEach(function(cb) {
+      powers.push(parseInt(cb.value));
+    });
+    fetch('/api/trades/' + activeTrade.id + '/offer', {
+      method: 'POST', headers: authHeaders(),
+      body: JSON.stringify({ xats: xats, days: days, powers: powers })
+    }).then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          showAlert('Offer updated!', 'success');
+          // Update local trade state
+          var isInitiator = (activeTrade.initiator_id === user.id);
+          var offerJson = JSON.stringify({ xats: xats, days: days, powers: powers });
+          if (isInitiator) activeTrade.initiator_offer = offerJson;
+          else activeTrade.target_offer = offerJson;
+        } else {
+          showAlert(data.error || 'Failed to update offer', 'danger');
+        }
+      }).catch(function() { showAlert('Failed to update offer', 'danger'); });
+  };
+
+  window.acceptTrade = function() {
+    if (!activeTrade) return showAlert('No active trade.', 'warning');
+    if (!confirm('Are you sure you want to accept this trade? This will immediately transfer items.')) return;
+    fetch('/api/trades/' + activeTrade.id + '/accept', { method: 'POST', headers: authHeaders() })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          showAlert('Trade accepted! Items transferred.', 'success');
+          activeTrade = null;
+          document.getElementById('activeTradeSection').classList.add('d-none');
+          loadUser();
+          loadPendingTrades();
+          loadTradeHistory();
+        } else {
+          showAlert(data.error || 'Failed to accept trade', 'danger');
+        }
+      }).catch(function() { showAlert('Failed to accept trade', 'danger'); });
+  };
+
+  window.rejectTrade = function() {
+    if (!activeTrade) return showAlert('No active trade.', 'warning');
+    fetch('/api/trades/' + activeTrade.id + '/reject', { method: 'POST', headers: authHeaders() })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          showAlert('Trade rejected.', 'info');
+          closeTrade();
+        } else {
+          showAlert(data.error || 'Failed to reject trade', 'danger');
+        }
+      }).catch(function() { showAlert('Failed to reject trade', 'danger'); });
+  };
+
+  window.cancelTrade = function() {
+    if (!activeTrade) return showAlert('No active trade.', 'warning');
+    fetch('/api/trades/' + activeTrade.id + '/reject', { method: 'POST', headers: authHeaders() })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          showAlert('Trade cancelled.', 'info');
+          closeTrade();
+        } else {
+          showAlert(data.error || 'Failed to cancel trade', 'danger');
+        }
+      }).catch(function() { showAlert('Failed to cancel', 'danger'); });
+  };
+
+  function closeTrade() {
+    activeTrade = null;
+    document.getElementById('activeTradeSection').classList.add('d-none');
+    loadPendingTrades();
+    loadTradeHistory();
+  }
+
+  // ===================== POWERS =====================
+
+  function loadUserPowers() {
+    fetch('/api/user/powers', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        userPowers = data.powers || [];
+        if (activeTrade) renderPowersChecklist([]);
+        else renderPowersChecklist([]);
+        if (!userPowers.length) {
+          document.getElementById('offerPowersList').innerHTML = '<div class="no-powers-msg">you have no powers to offer</div>';
+        } else {
+          renderPowersChecklist([]);
+        }
+      }).catch(function() {});
+  }
+
+  // ===================== PENDING TRADES =====================
+
+  window.loadPendingTrades = function() {
+    if (!user || !token) return;
+    fetch('/api/trades?status=pending', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) { renderPendingList(data.trades || []); })
+      .catch(function() {});
+  };
+
+  function renderPendingList(trades) {
+    var el = document.getElementById('pendingTradesList');
+    if (!trades.length) {
+      el.innerHTML = '<div class="text-center text-muted py-3"><small>no pending trades &mdash; search for a user above to start one</small></div>';
+      return;
+    }
+    el.innerHTML = trades.map(function(t) {
+      var isInitiator = t.initiator_id === user.id;
+      var partnerName = isInitiator ? t.target_username : t.initiator_username;
+      var role = isInitiator ? 'you initiated' : 'they initiated';
+      var isActive = activeTrade && activeTrade.id === t.id;
+      return '<div class="trade-card status-pending">' +
+        '<div class="trade-card-meta">' +
+          '<strong>trade #' + t.id + '</strong>' +
+          '<small>with <strong>' + escHtml(partnerName || '?') + '</strong> &bull; ' + role + ' &bull; ' + fmtTime(t.updated_at) + '</small>' +
+        '</div>' +
+        '<span class="trade-status-badge pending">pending</span>' +
+        '<div class="trade-card-actions">' +
+          (isActive
+            ? '<button class="btn btn-primary btn-sm" onclick="document.getElementById(\'activeTradeSection\').scrollIntoView({behavior:\'smooth\'})">view active</button>'
+            : '<button class="btn btn-primary btn-sm" onclick="openExistingTrade(' + t.id + ',' + JSON.stringify(escHtml(partnerName||'?')) + ',' + (isInitiator?'true':'false') + ',' + JSON.stringify(t) + ')">open</button>') +
+          '<button class="btn btn-outline-danger btn-sm" onclick="cancelTradeById(' + t.id + ')">cancel</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // ===================== TRADE HISTORY =====================
+
+  window.loadTradeHistory = function() {
+    var el = document.getElementById('tradeHistoryWrap');
+    if (!user || !token) return;
+    fetch('/api/trades', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var history = (data.trades || []).filter(function(t) { return t.status !== 'pending'; });
+        if (!history.length) {
+          el.innerHTML = '<div class="text-center text-muted py-4"><small>no trade history yet</small></div>';
+          return;
+        }
+        var rows = history.map(function(t) {
+          var isInitiator = t.initiator_id === user.id;
+          var partnerName = isInitiator ? t.target_username : t.initiator_username;
+          var myOffer = JSON.parse(isInitiator ? (t.initiator_offer || '{}') : (t.target_offer || '{}'));
+          var theirOffer = JSON.parse(isInitiator ? (t.target_offer || '{}') : (t.initiator_offer || '{}'));
+          var statusClass = t.status;
+          var statusLabel = t.status;
+          var mySummary = summarizeOffer(myOffer);
+          var theirSummary = summarizeOffer(theirOffer);
+          return '<tr>' +
+            '<td><small class="text-muted">#' + t.id + '</small></td>' +
+            '<td><strong>' + escHtml(partnerName || '?') + '</strong></td>' +
+            '<td>' + mySummary + '</td>' +
+            '<td>' + theirSummary + '</td>' +
+            '<td><span class="trade-status-badge ' + statusClass + '">' + statusLabel + '</span></td>' +
+            '<td><small class="text-muted">' + fmtTime(t.updated_at) + '</small></td>' +
+            '</tr>';
+        }).join('');
+        el.innerHTML = '<table class="history-table">' +
+          '<thead><tr><th>#</th><th>partner</th><th>you offered</th><th>they offered</th><th>status</th><th>time</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody>' +
+          '</table>';
+      }).catch(function() {
+        el.innerHTML = '<div class="text-center text-muted py-4"><small>could not load trade history</small></div>';
+      });
+  };
+
+  function summarizeOffer(offer) {
+    if (!offer) return '<span class="text-muted">nothing</span>';
+    var parts = [];
+    if (offer.xats) parts.push(Number(offer.xats).toLocaleString() + ' xats');
+    if (offer.days) parts.push(Number(offer.days).toLocaleString() + ' days');
+    if (offer.powers && offer.powers.length) parts.push(offer.powers.length + ' power(s)');
+    return parts.length ? escHtml(parts.join(', ')) : '<span class="text-muted">nothing</span>';
+  }
+
+  // Open an existing pending trade from the list
+  window.openExistingTrade = function(tradeId, partnerName, isInitiator, tradeObj) {
+    openActiveTrade(tradeObj, partnerName);
+    document.getElementById('activeTradeSection').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  window.cancelTradeById = function(tradeId) {
+    if (!confirm('Cancel trade #' + tradeId + '?')) return;
+    fetch('/api/trades/' + tradeId + '/reject', { method: 'POST', headers: authHeaders() })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          showAlert('Trade cancelled.', 'info');
+          if (activeTrade && activeTrade.id === tradeId) {
+            activeTrade = null;
+            document.getElementById('activeTradeSection').classList.add('d-none');
+          }
+          loadPendingTrades();
+          loadTradeHistory();
+        } else {
+          showAlert(data.error || 'Failed to cancel trade', 'danger');
+        }
+      }).catch(function() { showAlert('Failed to cancel trade', 'danger'); });
+  };
+
+  // ===================== POLLING =====================
+
+  function startPolling() {
+    clearInterval(refreshTimer);
+    refreshTimer = setInterval(function() {
+      if (!token || !user) return;
+      // Refresh balance
+      fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.user) {
+            user = data.user;
+            document.getElementById('balXats').textContent = user.xats.toLocaleString();
+            document.getElementById('balDays').textContent = user.days.toLocaleString();
+          }
+        }).catch(function() {});
+      // Refresh active trade offer if one is open
+      if (activeTrade) {
+        fetch('/api/trades?status=pending', { headers: { 'Authorization': 'Bearer ' + token } })
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            var trades = data.trades || [];
+            var updated = trades.find(function(t) { return t.id === activeTrade.id; });
+            if (updated) {
+              var partnerName = document.getElementById('theirOfferBadge').textContent;
+              var isInitiator = updated.initiator_id === user.id;
+              var theirOffer = JSON.parse(isInitiator ? (updated.target_offer || '{}') : (updated.initiator_offer || '{}'));
+              renderTheirOffer(theirOffer, partnerName);
+              activeTrade = updated;
+            } else if (activeTrade) {
+              // Trade is no longer pending — was completed or cancelled externally
+              showAlert('Trade #' + activeTrade.id + ' is no longer pending.', 'info');
+              activeTrade = null;
+              document.getElementById('activeTradeSection').classList.add('d-none');
+              loadTradeHistory();
+            }
+            renderPendingList(trades);
+          }).catch(function() {});
+      } else {
+        loadPendingTrades();
+      }
+    }, 15000);
+  }
+
+  // ===================== INIT =====================
+
+  if (token) {
+    loadUser();
+  }
+})();
+</script>

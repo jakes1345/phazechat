@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- String -->
+  <path d="M142,248 Q128,264 138,280 Q148,295 136,308" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Balloon body -->
+  <ellipse cx="142" cy="148" rx="88" ry="100" fill="#f04040"/>
+  <!-- Balloon highlight -->
+  <ellipse cx="112" cy="108" rx="22" ry="28" fill="white" opacity="0.25"/>
+  <ellipse cx="108" cy="102" rx="10" ry="14" fill="white" opacity="0.25"/>
+  <!-- Balloon bottom knot -->
+  <ellipse cx="142" cy="244" rx="10" ry="8" fill="#c02828"/>
+  <path d="M136,248 Q142,258 148,248" stroke="#c02828" stroke-width="3" fill="none"/>
+  <!-- Stars decoration on balloon -->
+  <polygon points="142,120 145,130 156,130 147,136 150,147 142,141 134,147 137,136 128,130 139,130" fill="white" opacity="0.3"/>
+</svg>

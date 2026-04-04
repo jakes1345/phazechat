@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Snake Ban</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden}
+canvas{border:2px solid #333;border-radius:4px}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#e0e0e0;font-family:'Courier New',monospace;pointer-events:none;z-index:10}
+.hud{position:fixed;top:10px;width:100%;display:flex;justify-content:space-between;padding:0 20px;color:#888;font-family:'Courier New',monospace;font-size:14px;z-index:5}
+.result{font-size:32px;font-weight:bold}
+.win{color:#00ff88}.lose{color:#e94560}
+</style></head><body>
+<div class="hud"><span id="score">Score: 0 / 10</span><span id="time">Time: --s</span></div>
+<canvas id="c"></canvas>
+<div class="overlay" id="overlay" style="display:none"><div class="result" id="result"></div></div>
+<script>
+const params = location.hash.slice(1).split(',');
+const timeMs = parseInt(params[0]) || 60000;
+const W = Math.min(parseInt(params[5]) || 400, 500);
+const H = Math.min(parseInt(params[6]) || 400, 500);
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+const G = 20;
+c.width = Math.floor(W/G)*G; c.height = Math.floor(H/G)*G;
+const cols = c.width/G, rows = c.height/G;
+
+let snake = [{x:5,y:5}], dir={x:1,y:0}, food, score=0, done=false, deadline;
+const target = 10;
+
+function placeFood() {
+  do { food = {x:Math.floor(Math.random()*cols), y:Math.floor(Math.random()*rows)}; }
+  while (snake.some(s => s.x===food.x && s.y===food.y));
+}
+
+function finish(won) {
+  if(done) return; done=true;
+  document.getElementById('overlay').style.display='flex';
+  document.getElementById('result').textContent = won ? 'ESCAPED!' : 'FAILED!';
+  document.getElementById('result').className = 'result '+(won?'win':'lose');
+  try { parent.postMessage(JSON.stringify({type:'gameComplete',won}),'*'); } catch(e){}
+}
+
+function draw() {
+  ctx.fillStyle='#0a0a0a'; ctx.fillRect(0,0,c.width,c.height);
+  ctx.fillStyle='#e94560'; ctx.fillRect(food.x*G+1,food.y*G+1,G-2,G-2);
+  snake.forEach((s,i) => {
+    ctx.fillStyle = i===0 ? '#00ff88' : '#00cc66';
+    ctx.fillRect(s.x*G+1,s.y*G+1,G-2,G-2);
+  });
+}
+
+function tick() {
+  if(done) return;
+  const left = Math.max(0,Math.ceil((deadline-Date.now())/1000));
+  document.getElementById('time').textContent='Time: '+left+'s';
+  if(left<=0){finish(false);return;}
+  const head = {x:(snake[0].x+dir.x+cols)%cols, y:(snake[0].y+dir.y+rows)%rows};
+  if(snake.some(s=>s.x===head.x&&s.y===head.y)){finish(false);return;}
+  snake.unshift(head);
+  if(head.x===food.x&&head.y===food.y){score++;document.getElementById('score').textContent='Score: '+score+' / '+target;if(score>=target){finish(true);return;}placeFood();}
+  else snake.pop();
+  draw();
+}
+
+document.addEventListener('keydown', e => {
+  if(done) return;
+  const k={ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1},ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0},w:{x:0,y:-1},s:{x:0,y:1},a:{x:-1,y:0},d:{x:1,y:0}};
+  const d=k[e.key]; if(d&&(d.x+dir.x!==0||d.y+dir.y!==0)) dir=d;
+  e.preventDefault();
+});
+
+placeFood(); deadline=Date.now()+timeMs; draw();
+setInterval(tick, 120);
+</script></body></html>

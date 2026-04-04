@@ -1,0 +1,40 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<g id="_App_Icons_logout_0_Layer0_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 17.45 7
+L 17.45 12.3 8.9 12.3
+Q 7.45 12.3 7.45 13.75
+L 7.45 18.65
+Q 7.45 20.1 8.9 20.1
+L 17.45 20.1 17.45 25.75 28.55 16.35 17.45 7 Z"/>
+</g>
+
+<path id="_App_Icons_logout_0_Layer0_0_1_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 25.65 9.9
+L 25.65 2.9
+Q 25.65 0 22.75 0
+L 2.9 0
+Q 0 0 0 2.9
+L 0 30.85
+Q 0 33.75 2.9 33.75
+L 22.75 33.75
+Q 25.65 33.75 25.65 30.85
+L 25.65 22.9
+M 17.45 12.3
+L 8.9 12.3
+Q 7.45 12.3 7.45 13.75
+L 7.45 18.65
+Q 7.45 20.1 8.9 20.1
+L 17.45 20.1 17.45 25.75 28.55 16.35 17.45 7 17.45 12.3 Z"/>
+</defs>
+
+<g transform="matrix( 1, 0, 0, 1, 6.75,3.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#_App_Icons_logout_0_Layer0_0_FILL"/>
+
+<use xlink:href="#_App_Icons_logout_0_Layer0_0_1_STROKES"/>
+</g>
+</g>
+</svg>

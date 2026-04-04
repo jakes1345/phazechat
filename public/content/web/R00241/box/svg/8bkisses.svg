@@ -1,0 +1,40 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="21px" height="21px" viewBox="0 0 21 21">
+<defs>
+<g id="Symbol_106_0_Layer0_0_FILL">
+<path fill="#FF0000" stroke="none" d="
+M 19.05 7.1
+Q 16.2 6.5 14.35 2.5 12.55 -1.5 9.4 5.5 6.65 -1.25 4.1 2.7 1.5 6.65 0.05 7.25 6.15 15.3 9.25 15.25 12.4 15.15 19.05 7.1
+M 12.75 2.2
+L 11.35 3.8 12.75 2.2
+M 5.8 2.3
+L 4.5 4.2 5.8 2.3
+M 7 7.95
+Q 9.45 8.4 11.3 7.95 9.45 8.4 7 7.95
+M 4.35 8.95
+Q 9.25 15.25 14.4 8.65 9.25 15.25 4.35 8.95 Z"/>
+</g>
+
+<path id="Symbol_106_0_Layer0_0_1_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 12.75 2.2
+L 11.35 3.8
+M 5.8 2.3
+L 4.5 4.2
+M 4.35 8.95
+Q 9.25 15.25 14.4 8.65"/>
+
+<path id="Symbol_106_0_Layer0_0_2_STROKES" stroke="#CC0000" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 7 7.95
+Q 9.45 8.4 11.3 7.95"/>
+</defs>
+
+<g transform="matrix( 0.783111572265625, 0, 0, 0.78472900390625, 3.55,5.1) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_106_0_Layer0_0_FILL"/>
+
+<use xlink:href="#Symbol_106_0_Layer0_0_1_STROKES"/>
+
+<use xlink:href="#Symbol_106_0_Layer0_0_2_STROKES"/>
+</g>
+</g>
+</svg>

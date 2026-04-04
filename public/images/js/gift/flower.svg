@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Wrap paper -->
+  <polygon points="142,230 82,290 202,290" fill="#80c060"/>
+  <polygon points="142,230 82,290 142,270" fill="#60a040"/>
+  <!-- Stems -->
+  <line x1="108" y1="230" x2="98" y2="150" stroke="#3a8a20" stroke-width="5" stroke-linecap="round"/>
+  <line x1="130" y1="230" x2="128" y2="130" stroke="#3a8a20" stroke-width="5" stroke-linecap="round"/>
+  <line x1="154" y1="230" x2="156" y2="130" stroke="#3a8a20" stroke-width="5" stroke-linecap="round"/>
+  <line x1="176" y1="230" x2="186" y2="150" stroke="#3a8a20" stroke-width="5" stroke-linecap="round"/>
+  <!-- Leaves -->
+  <ellipse cx="90" cy="190" rx="22" ry="10" fill="#50aa30" transform="rotate(-40 90 190)"/>
+  <ellipse cx="170" cy="185" rx="22" ry="10" fill="#50aa30" transform="rotate(40 170 185)"/>
+  <!-- Left flower (pink) -->
+  <circle cx="78" cy="128" r="18" fill="#f080b0"/>
+  <circle cx="60" cy="118" r="14" fill="#f080b0"/>
+  <circle cx="68" cy="102" r="14" fill="#f080b0"/>
+  <circle cx="86" cy="98" r="14" fill="#f080b0"/>
+  <circle cx="98" cy="112" r="14" fill="#f080b0"/>
+  <circle cx="78" cy="128" r="12" fill="#ffd0e8"/>
+  <circle cx="78" cy="128" r="7" fill="#f0a000"/>
+  <!-- Center flower (yellow) -->
+  <circle cx="142" cy="108" r="18" fill="#ffe040"/>
+  <circle cx="124" cy="96" r="14" fill="#ffe040"/>
+  <circle cx="132" cy="80" r="14" fill="#ffe040"/>
+  <circle cx="152" cy="80" r="14" fill="#ffe040"/>
+  <circle cx="160" cy="96" r="14" fill="#ffe040"/>
+  <circle cx="142" cy="108" r="12" fill="#fff8b0"/>
+  <circle cx="142" cy="108" r="7" fill="#e08000"/>
+  <!-- Right flower (purple) -->
+  <circle cx="206" cy="128" r="18" fill="#a060e0"/>
+  <circle cx="224" cy="118" r="14" fill="#a060e0"/>
+  <circle cx="216" cy="102" r="14" fill="#a060e0"/>
+  <circle cx="198" cy="98" r="14" fill="#a060e0"/>
+  <circle cx="186" cy="112" r="14" fill="#a060e0"/>
+  <circle cx="206" cy="128" r="12" fill="#d0a0f8"/>
+  <circle cx="206" cy="128" r="7" fill="#f0a000"/>
+</svg>

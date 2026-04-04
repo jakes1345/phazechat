@@ -1,0 +1,60 @@
+{
+  "en": [],
+  "ar": [],
+  "es": [],
+  "ro": [
+    {
+      "start": 1774104481,
+      "time": 7200,
+      "group": "DinamicFM",
+      "roomid": "166879188",
+      "adimg": "xatimg.com/image/l53wfnH67Qk2.png",
+      "base64": "1"
+    },
+    {
+      "start": 1774100641,
+      "time": 21600,
+      "group": "RadioManeleMix",
+      "roomid": "128822184",
+      "adimg": "xatimg.com/image/UTWuNpP3iIBy.png",
+      "base64": "1\n1774100627"
+    },
+    {
+      "start": 1774107362,
+      "time": 14400,
+      "group": "RadioHiTFm",
+      "roomid": "87531532",
+      "adimg": "xatimg.com/image/vZciqkK1mp7S.jpg",
+      "base64": "1"
+    }
+  ],
+  "pt": [
+    {
+      "start": 1774092541,
+      "time": 21600,
+      "group": "TUGA",
+      "roomid": "12311368",
+      "adimg": "xatimg.com/image/byMtP5i0aioC.jpg",
+      "base64": "1"
+    }
+  ],
+  "tr": [],
+  "it": [],
+  "el": [],
+  "n0": [],
+  "fr": [],
+  "de": [],
+  "th": [],
+  "sr": [],
+  "bs": [],
+  "eo": [],
+  "pl": [],
+  "sq": [],
+  "hu": [],
+  "bg": [],
+  "fa": [],
+  "": [],
+  "ps": [],
+  "da": [],
+  "hr": []
+}

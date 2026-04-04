@@ -1,0 +1,58 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="15.150000000000002" x2="0" y2="-7.250000000000001" spreadMethod="pad">
+<stop  offset="0%" stop-color="#000000" stop-opacity="0.34901960784313724"/>
+
+<stop  offset="60%" stop-color="#FFFFFF" stop-opacity="0.14901960784313725"/>
+</linearGradient>
+
+<g id="Extra_Symbols__Ignore_This_Folder__gifts_0_Layer2_0_FILL">
+<path fill="#FF0000" stroke="none" d="
+M -3.55 -7.35
+L -15.25 -7.35 -15.25 -1.05 -13.9 -1.05 -13.9 15.3 -3.55 15.3 -3.55 -7.35
+M 15.3 -7.35
+L 3.5 -7.35 3.5 15.3 14.1 15.3 14.1 -1.05 15.3 -1.05 15.3 -7.35 Z"/>
+
+<path fill="#FFFFFF" stroke="none" d="
+M 3.5 15.3
+L 3.5 -7.35 -3.55 -7.35 -3.55 15.3 3.5 15.3 Z"/>
+</g>
+
+<g id="Extra_Symbols__Ignore_This_Folder__gifts_0_Layer1_0_FILL">
+<path fill="url(#Gradient_1)" stroke="none" d="
+M -15.25 -1.05
+L -13.9 -1.05 -13.9 15.3 14.1 15.3 14.1 -1.05 15.3 -1.05 15.3 -7.35 -15.25 -7.35 -15.25 -1.05 Z"/>
+</g>
+
+<path id="Extra_Symbols__Ignore_This_Folder__gifts_0_Layer0_0_1_STROKES" stroke="#333333" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 14.1 -1.05
+L 15.3 -1.05 15.3 -7.35 7.25 -7.35 3.5 -7.35 3.5 -1.05 14.1 -1.05 14.1 15.3 3.5 15.3 -3.55 15.3 -13.9 15.3 -13.9 -1.05 -15.25 -1.05 -15.25 -7.35 -7.1 -7.35
+M -13.9 -1.05
+L -3.55 -1.05 -3.55 -7.35 -7.1 -7.35
+M -3.55 -7.35
+L 3.5 -7.35
+M 3.5 15.3
+L 3.5 -1.05 -3.55 -1.05 -3.55 15.3"/>
+
+<path id="Extra_Symbols__Ignore_This_Folder__gifts_0_Layer0_0_2_STROKES" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M -7.1 -7.35
+Q -13.15 -12.35 -8.95 -14.95 -5.9 -16.3 -3.9 -11.75 -2.55 -8.7 0 -7.9 2.85 -8.7 4.15 -11.75 6.05 -16.3 9.15 -14.95 13.3 -12.35 7.25 -7.35"/>
+</defs>
+
+<g transform="matrix( 1.22222900390625, 0, 0, 1.22222900390625, 19.9,20.05) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder__gifts_0_Layer2_0_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder__gifts_0_Layer1_0_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder__gifts_0_Layer0_0_1_STROKES"/>
+
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder__gifts_0_Layer0_0_2_STROKES"/>
+</g>
+</g>
+</svg>

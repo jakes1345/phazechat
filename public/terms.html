@@ -1,0 +1,112 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.terms">terms of service</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.terms">Terms of Service</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>1. Acceptance of Terms</h3>
+      <p>By using xat, you agree to these Terms of Service. If you do not agree, do not use the service.</p>
+
+      <h3>2. Account Registration</h3>
+      <ul>
+        <li>You must provide accurate information when registering.</li>
+        <li>You are responsible for maintaining the security of your account.</li>
+        <li>You must not share your password with anyone.</li>
+        <li>You must be at least 13 years old to use xat.</li>
+      </ul>
+
+      <h3>3. Acceptable Use</h3>
+      <p>You agree NOT to:</p>
+      <ul>
+        <li>Harass, bully, or threaten other users</li>
+        <li>Post illegal, obscene, or harmful content</li>
+        <li>Impersonate other users or staff</li>
+        <li>Attempt to hack, exploit, or disrupt the service</li>
+        <li>Use automated scripts or bots without authorization</li>
+        <li>Engage in spam or unsolicited advertising</li>
+        <li>Share personal information of others without consent</li>
+      </ul>
+
+      <h3>4. Virtual Currency</h3>
+      <ul>
+        <li>xats and days are virtual currencies used within the xat platform.</li>
+        <li>Virtual currency has no real-world monetary value.</li>
+        <li>Purchases of virtual currency are final and non-refundable.</li>
+        <li>xat reserves the right to modify virtual currency values and availability.</li>
+      </ul>
+
+      <h3>5. Powers</h3>
+      <ul>
+        <li>Powers are virtual items that provide additional features.</li>
+        <li>Powers can be purchased with xats or traded with other users.</li>
+        <li>xat reserves the right to modify power functionality.</li>
+      </ul>
+
+      <h3>6. Chat Groups</h3>
+      <ul>
+        <li>Group owners are responsible for moderating their groups.</li>
+        <li>xat reserves the right to remove groups that violate these terms.</li>
+        <li>Group names must not be offensive or impersonate official entities.</li>
+      </ul>
+
+      <h3>7. Moderation</h3>
+      <p>xat staff and group moderators may:</p>
+      <ul>
+        <li>Remove messages that violate these terms</li>
+        <li>Ban users from specific groups or the entire platform</li>
+        <li>Revoke virtual items from rule violators</li>
+      </ul>
+
+      <h3>8. Limitation of Liability</h3>
+      <p>xat is provided "as is" without warranties. We are not liable for:</p>
+      <ul>
+        <li>Loss of virtual currency or items</li>
+        <li>Service interruptions or data loss</li>
+        <li>Actions of other users</li>
+        <li>Content posted by users</li>
+      </ul>
+
+      <h3>9. Changes to Terms</h3>
+      <p>We may update these terms at any time. Continued use after changes constitutes acceptance.</p>
+
+      <p class="text-muted mt-4"><small>Last updated: 2026</small></p>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>

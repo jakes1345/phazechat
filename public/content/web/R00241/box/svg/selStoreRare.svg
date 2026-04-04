@@ -1,0 +1,68 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40">
+<defs>
+<g id="Extra_Symbols__Ignore_This_Folder___App_Icons_rarepower_0_Layer1_0_FILL">
+<path fill="#8CB8C0" stroke="none" d="
+M 8.55 7.25
+L 0 7.25 13.1 31.15 8.1 7.75 8.55 7.25 Z"/>
+
+<path fill="#70BCC1" stroke="none" d="
+M 14.6 0
+L 8.55 7.25 20.7 7.25 14.6 0 Z"/>
+
+<path fill="#79A6AF" stroke="none" d="
+M 3.6 0
+L 0 7.25 8.55 7.25 3.6 0 Z"/>
+
+<path fill="#D1DCE1" stroke="none" d="
+M 14.6 0
+L 3.6 0 8.55 7.25 14.6 0 Z"/>
+
+<path fill="#4E8F98" stroke="none" d="
+M 21.1 7.75
+L 20.7 7.25 8.55 7.25 8.1 7.75 13.1 31.15 14.5 33.75 16 31.05 21.1 7.75 Z"/>
+
+<path fill="#5068A3" stroke="none" d="
+M 29.2 7.25
+L 20.7 7.25 21.1 7.75 16 31.05 29.2 7.25
+M 25.6 0
+L 20.7 7.25 29.2 7.25 25.6 0 Z"/>
+
+<path fill="#4C7DA0" stroke="none" d="
+M 20.7 7.25
+L 25.6 0 14.6 0 20.7 7.25 Z"/>
+</g>
+
+<g id="Extra_Symbols__Ignore_This_Folder___App_Icons_rarepower_0_Layer0_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 1.1 5.65
+L 3.65 9.8 4 5 8.1 2.45 3.3 2.1 0.75 -2 0.4 2.75 -3.7 5.3 1.1 5.65
+M 21.5 23.35
+L 24.65 22.5 21.6 21.35 20.8 18.2 19.6 21.2 16.5 22 19.5 23.2 20.3 26.4 21.5 23.35
+M 22.95 -1.1
+L 20.3 -0.4 22.9 0.65 23.6 3.4 24.6 0.75 27.35 0.05 24.7 -0.95 24 -3.7 22.95 -1.1 Z"/>
+</g>
+
+<path id="Extra_Symbols__Ignore_This_Folder___App_Icons_rarepower_0_Layer1_0_1_STROKES" stroke="#000000" stroke-opacity="0.45098039215686275" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none" d="
+M 25.6 0
+L 20.7 7.25 29.2 7.25 25.6 0 14.6 0 20.7 7.25 21.1 7.75 16 31.05 29.2 7.25
+M 3.6 0
+L 14.6 0 8.55 7.25 20.7 7.25
+M 0 7.25
+L 3.6 0 8.55 7.25 8.1 7.75 13.1 31.15 14.5 33.75 16 31.05
+M 8.55 7.25
+L 0 7.25 13.1 31.15"/>
+</defs>
+
+<g transform="matrix( 1.04388427734375, 0, 0, 1.04388427734375, 5.15,4.1) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder___App_Icons_rarepower_0_Layer1_0_FILL"/>
+
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder___App_Icons_rarepower_0_Layer1_0_1_STROKES"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Extra_Symbols__Ignore_This_Folder___App_Icons_rarepower_0_Layer0_0_FILL"/>
+</g>
+</g>
+</svg>

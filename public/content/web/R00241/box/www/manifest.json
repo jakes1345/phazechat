@@ -1,0 +1,15 @@
+{
+  "name": "xat",
+  "short_name": "xat",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000088",
+  "theme_color": "#000088",
+  "icons": [
+    {
+      "src": "/content/web/R00241/img/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

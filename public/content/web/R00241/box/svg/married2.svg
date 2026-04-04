@@ -1,0 +1,24 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19">
+<defs>
+<radialGradient id="Gradient_1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="7.413437967636878" fx="0" fy="0" gradientTransform="matrix( -0.9661509317630579, 0.2579774739262615, 0.2394300738400597, 0.897019713259942, 4.7,4.2) " spreadMethod="pad">
+<stop  offset="1.5686274509803921%" stop-color="#FFFFFF" stop-opacity="0.792156862745098"/>
+
+<stop  offset="61.1764705882353%" stop-color="#FFFFFF" stop-opacity="0"/>
+</radialGradient>
+
+<g id="heart_0_Layer1_0_FILL">
+<path fill="#000000" stroke="none" d="
+M 14.3 0.3
+Q 10.45 0.4 9.55 4 8.25 -0.1 4.65 0 2.5529296875 0.3013671875 1.35 1.65 0.24296875 2.9693359375 0 5.25 -0.17421875 11.8267578125 9.15 17.3 18.841796875 11.84453125 19 5.65 18.712890625 3.003125 17.5 1.65 16.35859375 0.340234375 14.3 0.3 Z"/>
+</g>
+</defs>
+
+<g transform="matrix( 1.1999969482421875, 0, 0, 1.2044219970703125, 3.3,5) ">
+<g transform="matrix( 0.5263214111328125, 0, 0, 0.5235748291015625, 0,-0.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#heart_0_Layer1_0_FILL"/>
+</g>
+</g>
+</g>
+</svg>

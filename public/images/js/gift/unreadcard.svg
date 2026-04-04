@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Shadow -->
+  <ellipse cx="142" cy="290" rx="92" ry="10" fill="#888" opacity="0.2"/>
+  <!-- Envelope body -->
+  <rect x="44" y="130" width="196" height="152" rx="8" fill="#f0e8d8"/>
+  <!-- Envelope back flap (bottom) -->
+  <path d="M44,282 L142,214 L240,282 Z" fill="#e0d0b8"/>
+  <!-- Envelope side triangles -->
+  <path d="M44,130 L44,282 L142,214 Z" fill="#d8c8a8"/>
+  <path d="M240,130 L240,282 L142,214 Z" fill="#e8d8c0"/>
+  <!-- Envelope flap sealed -->
+  <path d="M44,130 L142,200 L240,130 Z" fill="#e8d8c0"/>
+  <!-- Flap fold line -->
+  <path d="M44,130 L142,200 L240,130" stroke="#c8b898" stroke-width="1.5" fill="none"/>
+  <!-- Wax seal -->
+  <circle cx="142" cy="192" r="20" fill="#c03030"/>
+  <circle cx="142" cy="192" r="16" fill="#d04040"/>
+  <!-- Seal letter -->
+  <text x="142" y="198" text-anchor="middle" font-family="serif" font-size="16" font-weight="bold" fill="white">X</text>
+  <!-- Envelope lines (suggests letter inside) -->
+  <line x1="76" y1="232" x2="208" y2="232" stroke="#c8b898" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="76" y1="248" x2="208" y2="248" stroke="#c8b898" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="76" y1="264" x2="180" y2="264" stroke="#c8b898" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+  <!-- Small hearts decoration -->
+  <path d="M96,155 C92,150 84,150 84,158 C84,165 96,172 96,172 C96,172 108,165 108,158 C108,150 100,150 96,155 Z" fill="#e86080" opacity="0.6"/>
+  <path d="M188,155 C184,150 176,150 176,158 C176,165 188,172 188,172 C188,172 200,165 200,158 C200,150 192,150 188,155 Z" fill="#e86080" opacity="0.6"/>
+</svg>

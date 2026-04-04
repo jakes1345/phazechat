@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Code Ban Challenge</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;color:#e0e0e0;font-family:'Courier New',monospace;display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden}
+.container{text-align:center;padding:20px}
+h1{color:#e94560;font-size:24px;margin-bottom:10px}
+.code-display{font-size:48px;letter-spacing:8px;color:#0f3460;background:#16213e;padding:20px 40px;border-radius:10px;margin:20px 0;border:2px solid #e94560;user-select:none}
+input{font-size:32px;letter-spacing:6px;text-align:center;width:300px;padding:10px;background:#16213e;border:2px solid #0f3460;color:#e0e0e0;border-radius:8px;outline:none}
+input:focus{border-color:#e94560}
+.timer{font-size:20px;color:#e94560;margin:15px 0}
+.result{font-size:28px;margin-top:20px;font-weight:bold}
+.win{color:#00ff88}.lose{color:#e94560}
+</style></head><body>
+<div class="container">
+<h1>TYPE THE CODE TO ESCAPE</h1>
+<div class="timer">Time: <span id="time">--</span>s</div>
+<div class="code-display" id="code"></div>
+<input type="text" id="input" maxlength="6" autocomplete="off" autofocus>
+<div class="result" id="result"></div>
+</div>
+<script>
+const params = location.hash.slice(1).split(',');
+const timeMs = parseInt(params[0]) || 30000;
+const myId = params[4] || 0;
+const codeEl = document.getElementById('code');
+const inputEl = document.getElementById('input');
+const timeEl = document.getElementById('time');
+const resultEl = document.getElementById('result');
+const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+let code = '', deadline, timer, done = false;
+
+function genCode() {
+  code = '';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  codeEl.textContent = code;
+  inputEl.value = '';
+}
+
+function finish(won) {
+  if (done) return;
+  done = true;
+  clearInterval(timer);
+  resultEl.textContent = won ? 'ESCAPED!' : 'FAILED!';
+  resultEl.className = 'result ' + (won ? 'win' : 'lose');
+  inputEl.disabled = true;
+  try { parent.postMessage(JSON.stringify({type:'gameComplete', won}), '*'); } catch(e) {}
+}
+
+genCode();
+deadline = Date.now() + timeMs;
+timer = setInterval(() => {
+  const left = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+  timeEl.textContent = left;
+  if (left <= 0) finish(false);
+}, 100);
+
+inputEl.addEventListener('input', () => {
+  if (inputEl.value.toUpperCase() === code) {
+    genCode();
+    let rounds = parseInt(inputEl.dataset.rounds || '0') + 1;
+    inputEl.dataset.rounds = rounds;
+    if (rounds >= 3) finish(true);
+  }
+});
+</script></body></html>

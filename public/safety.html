@@ -1,0 +1,94 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.safety">safety</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.safety">Safety Center</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Staying Safe on xat</h3>
+      <p>xat is committed to providing a safe environment for all users. Here are some important safety tips:</p>
+
+      <div class="alert alert-danger">
+        <strong>IMPORTANT:</strong> We will NEVER ask for your email password. Only use your email password to log in to your email provider.
+      </div>
+
+      <h4>Protect Your Account</h4>
+      <ul>
+        <li><strong>Never share your password</strong> with anyone, including people claiming to be xat staff.</li>
+        <li><strong>Use a strong password</strong> that is unique to xat.</li>
+        <li><strong>Be careful of phishing</strong> — always verify you are on the correct xat server before entering credentials.</li>
+        <li><strong>Log out</strong> when using shared computers.</li>
+      </ul>
+
+      <h4>Protect Your Personal Information</h4>
+      <ul>
+        <li><strong>Never share</strong> your real name, address, phone number, or school with strangers.</li>
+        <li><strong>Be cautious</strong> about sharing photos or personal details in chat.</li>
+        <li><strong>Don't click</strong> suspicious links sent by other users.</li>
+      </ul>
+
+      <h4>Trading Safety</h4>
+      <ul>
+        <li>Only trade through the official xat trade system.</li>
+        <li>Never give items first in a "trust trade."</li>
+        <li>Be wary of deals that seem too good to be true.</li>
+        <li>Report scammers to a moderator immediately.</li>
+      </ul>
+
+      <h4>Reporting</h4>
+      <p>If you encounter any of the following, please report it immediately:</p>
+      <ul>
+        <li>Harassment or bullying</li>
+        <li>Inappropriate content</li>
+        <li>Scams or fraud</li>
+        <li>Users under 13 years old</li>
+        <li>Any illegal activity</li>
+      </ul>
+      <p>To report, contact a moderator in the <a href="/Help">Help</a> chat or use the report function in any chat group.</p>
+
+      <h4>For Parents</h4>
+      <p>xat is designed for users 13 and older. We recommend that parents:</p>
+      <ul>
+        <li>Talk to their children about online safety</li>
+        <li>Monitor their children's online activity</li>
+        <li>Report any concerns to xat staff</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>

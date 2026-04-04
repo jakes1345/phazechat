@@ -1,0 +1,962 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span>group control</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19">groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19">store</a></li>
+        <li class="nav-item"><a class="nav-link" href="/trade"><img class="mr-1" src="/content/web/R00241/img/navbar/trade.svg" width="19">trade</a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<style>
+  .gc-wrap { padding-top: 70px; padding-bottom: 60px; }
+  .auth-bar { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px 18px; margin-bottom: 18px; display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .auth-bar.logged-in { background: #d4edda; border-color: #c3e6cb; }
+  .auth-item { display: flex; align-items: center; gap: 5px; font-size: 14px; }
+  .auth-item strong { color: #007bff; }
+  .auth-item strong.days { color: #28a745; }
+  .auth-actions { margin-left: auto; display: flex; gap: 6px; }
+  .gc-panel { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
+  .gc-header { background: #f8f9fa; border-bottom: 1px solid #dee2e6; padding: 14px 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .gc-header h5 { margin: 0; font-size: 16px; }
+  .gc-room-select { min-width: 220px; }
+  .gc-tabs { display: flex; border-bottom: 2px solid #dee2e6; background: #f8f9fa; flex-wrap: wrap; }
+  .gc-tab { padding: 10px 18px; cursor: pointer; font-size: 13px; color: #555; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all .15s; }
+  .gc-tab:hover { color: #333; background: #e9ecef; }
+  .gc-tab.active { color: #007bff; border-bottom-color: #007bff; background: #fff; font-weight: 600; }
+  .gc-body { padding: 20px; }
+  .tab-section { display: none; }
+  .tab-section.active { display: block; }
+  .field-row { margin-bottom: 14px; }
+  .field-row label { font-size: 13px; font-weight: 600; margin-bottom: 4px; display: block; }
+  .field-row small { color: #666; }
+  .toggle-row { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; gap: 10px; }
+  .toggle-row:last-child { border-bottom: none; }
+  .toggle-label { flex: 1; }
+  .toggle-label strong { font-size: 13px; display: block; }
+  .toggle-label small { color: #666; }
+  .toggle-key { font-family: monospace; font-size: 11px; background: #e9ecef; padding: 2px 6px; border-radius: 3px; color: #555; }
+  .rank-select { width: 140px; }
+  .color-preview { width: 32px; height: 32px; border: 1px solid #ccc; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: 6px; }
+  .save-bar { margin-top: 20px; padding-top: 16px; border-top: 1px solid #dee2e6; display: flex; align-items: center; gap: 10px; }
+  .gc-alert { position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 9999; min-width: 320px; display: none; }
+  .locked-msg { text-align: center; padding: 40px; color: #888; }
+  .locked-msg .lock-icon { font-size: 48px; margin-bottom: 10px; }
+  .no-rooms-msg { text-align: center; padding: 30px; color: #888; }
+  @media (max-width: 576px) {
+    .gc-tabs { overflow-x: auto; flex-wrap: nowrap; }
+    .gc-tab { padding: 8px 12px; }
+  }
+</style>
+
+<div class="container gc-wrap">
+
+  <!-- Alert -->
+  <div id="gcAlert" class="alert gc-alert" role="alert"></div>
+
+  <!-- Auth Bar -->
+  <div id="authBar" class="auth-bar">
+    <div id="authGuest">
+      <span class="text-muted" style="font-size:14px;">you must be <a href="/login">logged in</a> to manage your groups.</span>
+    </div>
+    <div id="authUser" style="display:none; width:100%;">
+      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:14px; width:100%;">
+        <div class="auth-item"><small>logged in as:</small> <strong id="authUsername">-</strong></div>
+        <div class="auth-item"><small>ID:</small> <strong id="authId">-</strong></div>
+        <div class="auth-item"><small>xats:</small> <strong id="authXats">0</strong></div>
+        <div class="auth-item"><small>days:</small> <strong class="days" id="authDays">0</strong></div>
+        <div class="auth-actions">
+          <button class="btn btn-outline-secondary btn-sm" onclick="gcLogout()">log out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Panel (shown only when logged in) -->
+  <div id="gcMain" style="display:none;">
+    <div class="gc-panel">
+      <!-- Panel Header: Room Selector -->
+      <div class="gc-header">
+        <h5>group control</h5>
+        <select id="roomSelect" class="form-control form-control-sm gc-room-select" onchange="loadRoom(this.value)">
+          <option value="">-- select a group --</option>
+        </select>
+        <small class="text-muted ml-1" id="roomHint"></small>
+      </div>
+
+      <!-- No rooms fallback -->
+      <div id="noRoomsMsg" class="no-rooms-msg" style="display:none;">
+        <p>you don't own any groups yet. <a href="/store#!groups">buy or create a group</a> first.</p>
+      </div>
+
+      <!-- Settings area (shown after room selected) -->
+      <div id="settingsArea" style="display:none;">
+        <!-- Tabs -->
+        <div class="gc-tabs" id="gcTabs">
+          <div class="gc-tab active" data-tab="general" onclick="switchGcTab('general')">general</div>
+          <div class="gc-tab" data-tab="appearance" onclick="switchGcTab('appearance')">appearance</div>
+          <div class="gc-tab" data-tab="moderation" onclick="switchGcTab('moderation')">moderation</div>
+          <div class="gc-tab" data-tab="scroller" onclick="switchGcTab('scroller')">scroller</div>
+          <div class="gc-tab" data-tab="password" onclick="switchGcTab('password')">password</div>
+          <div class="gc-tab" data-tab="advanced" onclick="switchGcTab('advanced')">advanced</div>
+        </div>
+
+        <div class="gc-body">
+
+          <!-- ===== GENERAL TAB ===== -->
+          <div class="tab-section active" id="tab-general">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="field-row">
+                  <label for="fRoomName">room name</label>
+                  <input type="text" id="fRoomName" class="form-control form-control-sm" maxlength="64" placeholder="my chat room">
+                  <small>the public display name for your group</small>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field-row">
+                  <label for="fLanguage">language</label>
+                  <select id="fLanguage" class="form-control form-control-sm">
+                    <option value="">default</option>
+                    <option value="en">english</option>
+                    <option value="pt">portuguese</option>
+                    <option value="es">spanish</option>
+                    <option value="fr">french</option>
+                    <option value="de">german</option>
+                    <option value="it">italian</option>
+                    <option value="nl">dutch</option>
+                    <option value="pl">polish</option>
+                    <option value="ro">romanian</option>
+                    <option value="tr">turkish</option>
+                    <option value="ar">arabic</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="field-row">
+                  <label for="fDescription">description</label>
+                  <input type="text" id="fDescription" class="form-control form-control-sm" maxlength="200" placeholder="a brief description of your room">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="field-row">
+                  <label for="fRadio">radio URL</label>
+                  <input type="url" id="fRadio" class="form-control form-control-sm" placeholder="http://stream.example.com:8000/listen">
+                  <small>streaming audio URL played in the room (must be http/https)</small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="field-row">
+                  <label for="fTopic">topic</label>
+                  <input type="text" id="fTopic" class="form-control form-control-sm" maxlength="120" placeholder="room topic">
+                </div>
+              </div>
+            </div>
+            <div class="save-bar">
+              <button class="btn btn-primary btn-sm" onclick="saveTab('general')">save general settings</button>
+              <span id="save-status-general" class="text-muted" style="font-size:13px;"></span>
+            </div>
+          </div>
+
+          <!-- ===== APPEARANCE TAB ===== -->
+          <div class="tab-section" id="tab-appearance">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="field-row">
+                  <label for="fBackground">background URL / ID</label>
+                  <input type="text" id="fBackground" class="form-control form-control-sm" placeholder="https://... or background ID number">
+                  <small>enter a URL or a numeric background ID</small>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="field-row">
+                  <label for="fInnerColor">inner color</label>
+                  <div class="d-flex align-items-center">
+                    <input type="text" id="fInnerColor" class="form-control form-control-sm" maxlength="7" placeholder="#ffffff" oninput="syncColor('inner')">
+                    <input type="color" id="fInnerColorPicker" value="#ffffff" oninput="syncColorPicker('inner')" style="width:36px;height:31px;padding:2px;border:1px solid #ccc;border-radius:4px;margin-left:6px;cursor:pointer;">
+                  </div>
+                  <small>chat background / inner area color</small>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="field-row">
+                  <label for="fOuterColor">outer color</label>
+                  <div class="d-flex align-items-center">
+                    <input type="text" id="fOuterColor" class="form-control form-control-sm" maxlength="7" placeholder="#000000" oninput="syncColor('outer')">
+                    <input type="color" id="fOuterColorPicker" value="#000000" oninput="syncColorPicker('outer')" style="width:36px;height:31px;padding:2px;border:1px solid #ccc;border-radius:4px;margin-left:6px;cursor:pointer;">
+                  </div>
+                  <small>outer border / nav area color</small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="field-row">
+                  <label for="fNavStyle">nav style</label>
+                  <select id="fNavStyle" class="form-control form-control-sm">
+                    <option value="">default</option>
+                    <option value="dark">dark</option>
+                    <option value="light">light</option>
+                    <option value="color">color</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="field-row">
+                  <label for="fFontName">font</label>
+                  <select id="fFontName" class="form-control form-control-sm">
+                    <option value="">default</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Impact">Impact</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="field-row">
+                  <label for="fScrollType">scroller type</label>
+                  <select id="fScrollType" class="form-control form-control-sm">
+                    <option value="0">none</option>
+                    <option value="1">marquee</option>
+                    <option value="2">fade</option>
+                    <option value="3">ticker</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="save-bar">
+              <button class="btn btn-primary btn-sm" onclick="saveTab('appearance')">save appearance</button>
+              <span id="save-status-appearance" class="text-muted" style="font-size:13px;"></span>
+            </div>
+          </div>
+
+          <!-- ===== MODERATION TAB ===== -->
+          <div class="tab-section" id="tab-moderation">
+            <p class="text-muted" style="font-size:13px;">configure the gcontrol moderation settings for this room. rank levels: 0=guest, 1=member, 2=mod, 3=owner.</p>
+
+            <div id="gcToggles">
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>min gag rank <span class="toggle-key">mg</span></strong>
+                  <small>minimum rank required to gag (mute) users</small>
+                </div>
+                <select id="gc-mg" class="form-control form-control-sm rank-select">
+                  <option value="2">mod (2)</option>
+                  <option value="3">owner (3)</option>
+                  <option value="1">member (1)</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>min ban rank <span class="toggle-key">mb</span></strong>
+                  <small>minimum rank required to ban users from the room</small>
+                </div>
+                <select id="gc-mb" class="form-control form-control-sm rank-select">
+                  <option value="2">mod (2)</option>
+                  <option value="3">owner (3)</option>
+                  <option value="1">member (1)</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>min member rank <span class="toggle-key">mm</span></strong>
+                  <small>minimum rank required to promote to member</small>
+                </div>
+                <select id="gc-mm" class="form-control form-control-sm rank-select">
+                  <option value="2">mod (2)</option>
+                  <option value="3">owner (3)</option>
+                  <option value="1">member (1)</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>min kick rank <span class="toggle-key">kk</span></strong>
+                  <small>minimum rank required to kick users</small>
+                </div>
+                <select id="gc-kk" class="form-control form-control-sm rank-select">
+                  <option value="2">mod (2)</option>
+                  <option value="3">owner (3)</option>
+                  <option value="1">member (1)</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>min message rank <span class="toggle-key">mmt</span></strong>
+                  <small>minimum rank required to send messages (for locked rooms)</small>
+                </div>
+                <select id="gc-mmt" class="form-control form-control-sm rank-select">
+                  <option value="0">guest (0)</option>
+                  <option value="1">member (1)</option>
+                  <option value="2">mod (2)</option>
+                  <option value="3">owner (3)</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>ban <span class="toggle-key">bn</span></strong>
+                  <small>enable / disable the ban feature in this room</small>
+                </div>
+                <select id="gc-bn" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>unban <span class="toggle-key">ubn</span></strong>
+                  <small>allow mods to unban users</small>
+                </div>
+                <select id="gc-ubn" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>mod ban time <span class="toggle-key">mbt</span></strong>
+                  <small>maximum ban duration (hours) that moderators can apply</small>
+                </div>
+                <input type="number" id="gc-mbt" class="form-control form-control-sm rank-select" min="1" max="720" value="6" placeholder="6">
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>owner ban time <span class="toggle-key">obt</span></strong>
+                  <small>maximum ban duration (hours) that owners can apply</small>
+                </div>
+                <input type="number" id="gc-obt" class="form-control form-control-sm rank-select" min="1" max="8760" value="72" placeholder="72">
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>screenshot <span class="toggle-key">ss</span></strong>
+                  <small>allow room screenshots to be taken</small>
+                </div>
+                <select id="gc-ss" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>dunce <span class="toggle-key">dnc</span></strong>
+                  <small>enable dunce punishment (restricts user smiley use)</small>
+                </div>
+                <select id="gc-dnc" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>badge <span class="toggle-key">bdg</span></strong>
+                  <small>enable badges in this room</small>
+                </div>
+                <select id="gc-bdg" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>naughty step <span class="toggle-key">ns</span></strong>
+                  <small>enable the naughty step (public shame ban)</small>
+                </div>
+                <select id="gc-ns" class="form-control form-control-sm rank-select">
+                  <option value="0">disabled</option>
+                  <option value="1">enabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>yellow card <span class="toggle-key">yl</span></strong>
+                  <small>enable yellow card warning system</small>
+                </div>
+                <select id="gc-yl" class="form-control form-control-sm rank-select">
+                  <option value="0">disabled</option>
+                  <option value="1">enabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>red card <span class="toggle-key">rc</span></strong>
+                  <small>enable red card (auto-kick on yellow card)</small>
+                </div>
+                <select id="gc-rc" class="form-control form-control-sm rank-select">
+                  <option value="0">disabled</option>
+                  <option value="1">enabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>reflood <span class="toggle-key">rf</span></strong>
+                  <small>enable reflood protection (auto-kick repeated messages)</small>
+                </div>
+                <select id="gc-rf" class="form-control form-control-sm rank-select">
+                  <option value="0">disabled</option>
+                  <option value="1">enabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>kick all <span class="toggle-key">ka</span></strong>
+                  <small>allow owners to kick all users at once</small>
+                </div>
+                <select id="gc-ka" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>ranklock <span class="toggle-key">rl</span></strong>
+                  <small>lock the room so only members and above can enter</small>
+                </div>
+                <select id="gc-rl" class="form-control form-control-sm rank-select">
+                  <option value="0">off</option>
+                  <option value="1">members+</option>
+                  <option value="2">mods+</option>
+                  <option value="3">owners only</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>smiley effect <span class="toggle-key">sme</span></strong>
+                  <small>allow smiley effects (animations) in the room</small>
+                </div>
+                <select id="gc-sme" class="form-control form-control-sm rank-select">
+                  <option value="1">enabled</option>
+                  <option value="0">disabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>pool <span class="toggle-key">p</span></strong>
+                  <small>enable the xat pool (prize drawing) in this room</small>
+                </div>
+                <select id="gc-p" class="form-control form-control-sm rank-select">
+                  <option value="0">disabled</option>
+                  <option value="1">enabled</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>join <span class="toggle-key">j</span></strong>
+                  <small>show or suppress join messages in the room</small>
+                </div>
+                <select id="gc-j" class="form-control form-control-sm rank-select">
+                  <option value="1">show</option>
+                  <option value="0">hide</option>
+                </select>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-label">
+                  <strong>custom messages <span class="toggle-key">cm</span></strong>
+                  <small>enable custom kick/ban messages for this room</small>
+                </div>
+                <select id="gc-cm" class="form-control form-control-sm rank-select">
+                  <option value="0">disabled</option>
+                  <option value="1">enabled</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="save-bar">
+              <button class="btn btn-primary btn-sm" onclick="saveTab('moderation')">save moderation settings</button>
+              <span id="save-status-moderation" class="text-muted" style="font-size:13px;"></span>
+            </div>
+          </div>
+
+          <!-- ===== SCROLLER TAB ===== -->
+          <div class="tab-section" id="tab-scroller">
+            <div class="field-row">
+              <label for="fScrollMsg">scroller message</label>
+              <input type="text" id="fScrollMsg" class="form-control form-control-sm" maxlength="255" placeholder="welcome to my room! check the rules...">
+              <small>this message scrolls across the top of the room for all visitors</small>
+            </div>
+            <div class="save-bar">
+              <button class="btn btn-primary btn-sm" onclick="saveTab('scroller')">save scroller</button>
+              <span id="save-status-scroller" class="text-muted" style="font-size:13px;"></span>
+            </div>
+          </div>
+
+          <!-- ===== PASSWORD TAB ===== -->
+          <div class="tab-section" id="tab-password">
+            <div class="alert alert-warning" style="font-size:13px;">
+              setting a password will restrict entry to the room. users must enter the password to join. leave blank to remove the password.
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="field-row">
+                  <label for="fPassword">room password</label>
+                  <input type="text" id="fPassword" class="form-control form-control-sm" maxlength="64" placeholder="leave blank for no password" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <div class="save-bar">
+              <button class="btn btn-primary btn-sm" onclick="saveTab('password')">save password</button>
+              <span id="save-status-password" class="text-muted" style="font-size:13px;"></span>
+            </div>
+          </div>
+
+          <!-- ===== ADVANCED TAB ===== -->
+          <div class="tab-section" id="tab-advanced">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="field-row">
+                  <label for="fBotId">bot ID</label>
+                  <input type="number" id="fBotId" class="form-control form-control-sm" min="0" placeholder="0">
+                  <small>xat ID of the bot user for this room (0 = none)</small>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="field-row">
+                  <label for="fIframeUrl">iframe URL</label>
+                  <input type="url" id="fIframeUrl" class="form-control form-control-sm" placeholder="https://example.com/panel.html">
+                  <small>URL loaded in the iframe panel beside the chat</small>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field-row">
+                  <label for="fButton">button text</label>
+                  <input type="text" id="fButton" class="form-control form-control-sm" maxlength="32" placeholder="visit website">
+                  <small>label for the custom button link</small>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field-row">
+                  <label for="fAttached">attached rooms</label>
+                  <input type="text" id="fAttached" class="form-control form-control-sm" placeholder="room1,room2,room3">
+                  <small>comma-separated list of room names to show in the room list</small>
+                </div>
+              </div>
+            </div>
+            <div class="field-row">
+              <label for="fTabInfo">tab info / announcement</label>
+              <textarea id="fTabInfo" class="form-control form-control-sm" rows="3" maxlength="512" placeholder="room announcement shown in the tab..."></textarea>
+              <small>shown in the room info tab for all visitors</small>
+            </div>
+            <div class="save-bar">
+              <button class="btn btn-primary btn-sm" onclick="saveTab('advanced')">save advanced settings</button>
+              <span id="save-status-advanced" class="text-muted" style="font-size:13px;"></span>
+            </div>
+          </div>
+
+        </div><!-- /.gc-body -->
+      </div><!-- /#settingsArea -->
+    </div><!-- /.gc-panel -->
+  </div><!-- /#gcMain -->
+
+</div><!-- /.container -->
+
+<!-- Cookie notice -->
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy" target="_blank" rel="noopener noreferrer">cookies</a> and your use is subject to <a href="/terms" target="_blank" rel="noopener noreferrer">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton">agree</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="pt-2 py-2">
+  <div class="container text-center">
+    <span>
+      <a href="/privacy">privacy/cookies</a>
+      <span>&bull;</span>
+      <a href="/terms">terms of service</a>
+      <span>&bull;</span>
+      <a href="/safety">safety</a>
+    </span>
+    <span class="ml-3">&copy; 2026 xat</span>
+  </div>
+</footer>
+
+<!--
+  API ENDPOINTS NEEDED IN server.js:
+  ====================================
+
+  GET /api/groups/mine
+    - Auth required (Bearer token)
+    - Returns: [{ id, name, room_id }] - list of groups the authenticated user owns
+    - SQL: SELECT room_id, name FROM room_settings WHERE owner_id = $userId
+
+  GET /api/groups/:id/settings
+    - Auth required (Bearer token)
+    - Must verify caller is owner of room :id
+    - Returns all columns from room_settings for that room_id
+    - Includes parsed gcontrol JSON
+
+  POST /api/groups/:id/settings
+    - Auth required (Bearer token)
+    - Must verify caller is owner of room :id
+    - Body: { name, description, language, radio, scroll_msg, password, background,
+              inner_color, color1, color2, nav_style, font_name, scroll_type,
+              bot_id, iframe_url, button, attached, tab_info, topic,
+              gcontrol: { mg, mb, mm, kk, mmt, bn, ubn, mbt, obt, ss, dnc,
+                          bdg, ns, yl, rc, rf, ka, rl, sme, p, j, cm } }
+    - Updates room_settings, bumps revision
+    - Returns: { ok: true }
+
+  room_settings relevant columns:
+    room_id, owner_id, background, tab_info, iframe_url, gcontrol (JSON),
+    pool_config (JSON), cs, gb, bot_id, color1, color2, nav_style,
+    font_name, scroll_type, name, language, description, scroll_msg,
+    radio, password, button, attached, inner_color, topic, revision
+-->
+
+<script>
+(function() {
+  'use strict';
+
+  // ===================== STATE =====================
+  var token = localStorage.getItem('xat_token');
+  var user = null;
+  var currentRoomId = null;
+  var currentSettings = {};
+
+  // ===================== AUTH =====================
+  function init() {
+    // Cookie popup
+    if (!localStorage.getItem('cookieAgreed')) {
+      var popup = document.getElementById('cookiePopup');
+      if (popup) popup.style.display = 'block';
+    }
+    document.getElementById('cookieAgree') && document.getElementById('cookieAgree').addEventListener('click', function() {
+      localStorage.setItem('cookieAgreed', '1');
+      document.getElementById('cookiePopup').style.display = 'none';
+    });
+
+    if (!token) {
+      showGuest();
+      return;
+    }
+    fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.user) {
+          user = data.user;
+          showLoggedIn();
+          loadMyGroups();
+        } else {
+          showGuest();
+        }
+      })
+      .catch(function() { showGuest(); });
+  }
+
+  function showGuest() {
+    document.getElementById('authGuest').style.display = '';
+    document.getElementById('authUser').style.display = 'none';
+    document.getElementById('gcMain').style.display = 'none';
+  }
+
+  function showLoggedIn() {
+    document.getElementById('authGuest').style.display = 'none';
+    document.getElementById('authUser').style.display = '';
+    document.getElementById('authBar').classList.add('logged-in');
+    document.getElementById('gcMain').style.display = '';
+    document.getElementById('authUsername').textContent = user.username || user.name || String(user.id);
+    document.getElementById('authId').textContent = user.id;
+    document.getElementById('authXats').textContent = (user.xats || 0).toLocaleString();
+    document.getElementById('authDays').textContent = user.days || 0;
+  }
+
+  window.gcLogout = function() {
+    localStorage.removeItem('xat_token');
+    location.reload();
+  };
+
+  // ===================== GROUPS =====================
+  function loadMyGroups() {
+    fetch('/api/groups/mine', { headers: { 'Authorization': 'Bearer ' + token } })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var rooms = Array.isArray(data) ? data : (data.rooms || []);
+        var select = document.getElementById('roomSelect');
+        select.innerHTML = '<option value="">-- select a group --</option>';
+        if (!rooms.length) {
+          document.getElementById('noRoomsMsg').style.display = '';
+          document.getElementById('roomHint').textContent = 'no groups found';
+          return;
+        }
+        rooms.forEach(function(r) {
+          var opt = document.createElement('option');
+          opt.value = r.room_id || r.id;
+          opt.textContent = r.name || r.room_id || r.id;
+          select.appendChild(opt);
+        });
+        // Auto-select if only one
+        if (rooms.length === 1) {
+          select.value = rooms[0].room_id || rooms[0].id;
+          loadRoom(select.value);
+        }
+      })
+      .catch(function() {
+        document.getElementById('roomHint').textContent = 'failed to load groups';
+      });
+  }
+
+  window.loadRoom = function(roomId) {
+    currentRoomId = roomId;
+    if (!roomId) {
+      document.getElementById('settingsArea').style.display = 'none';
+      document.getElementById('noRoomsMsg').style.display = 'none';
+      return;
+    }
+    document.getElementById('settingsArea').style.display = 'none';
+    document.getElementById('roomHint').textContent = 'loading...';
+
+    fetch('/api/groups/' + encodeURIComponent(roomId) + '/settings', {
+      headers: { 'Authorization': 'Bearer ' + token }
+    })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.error) {
+          showAlert(data.error, 'danger');
+          document.getElementById('roomHint').textContent = data.error;
+          return;
+        }
+        currentSettings = data.settings || data;
+        populateFields(currentSettings);
+        document.getElementById('settingsArea').style.display = '';
+        document.getElementById('noRoomsMsg').style.display = 'none';
+        document.getElementById('roomHint').textContent = 'room ID: ' + roomId;
+      })
+      .catch(function() {
+        showAlert('Failed to load room settings.', 'danger');
+        document.getElementById('roomHint').textContent = 'error loading settings';
+      });
+  };
+
+  // ===================== POPULATE FIELDS =====================
+  function populateFields(s) {
+    // General
+    setVal('fRoomName', s.name || '');
+    setVal('fDescription', s.description || '');
+    setVal('fLanguage', s.language || '');
+    setVal('fRadio', s.radio || '');
+    setVal('fTopic', s.topic || '');
+
+    // Appearance
+    setVal('fBackground', s.background || '');
+    setVal('fInnerColor', s.inner_color || '#ffffff');
+    setVal('fOuterColor', s.color2 || '#000000');
+    setVal('fNavStyle', s.nav_style || '');
+    setVal('fFontName', s.font_name || '');
+    setVal('fScrollType', s.scroll_type !== undefined ? String(s.scroll_type) : '0');
+    syncColorFromText('inner');
+    syncColorFromText('outer');
+
+    // Scroller
+    setVal('fScrollMsg', s.scroll_msg || '');
+
+    // Password
+    setVal('fPassword', s.password || '');
+
+    // Advanced
+    setVal('fBotId', s.bot_id || '');
+    setVal('fIframeUrl', s.iframe_url || '');
+    setVal('fButton', s.button || '');
+    setVal('fAttached', s.attached || '');
+    setVal('fTabInfo', s.tab_info || '');
+
+    // Moderation / gcontrol
+    var gc = {};
+    if (s.gcontrol) {
+      try { gc = typeof s.gcontrol === 'string' ? JSON.parse(s.gcontrol) : s.gcontrol; } catch(e) {}
+    }
+    var gcDefaults = { mg:2, mb:2, mm:2, kk:2, mmt:0, bn:1, ubn:1, mbt:6, obt:72,
+                       ss:1, dnc:1, bdg:1, ns:0, yl:0, rc:0, rf:0, ka:1, rl:0,
+                       sme:1, p:0, j:1, cm:0 };
+    Object.keys(gcDefaults).forEach(function(key) {
+      var val = gc[key] !== undefined ? gc[key] : gcDefaults[key];
+      setVal('gc-' + key, String(val));
+    });
+  }
+
+  function setVal(id, val) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (el.tagName === 'SELECT') {
+      // Try to set value; if not found, select first option
+      el.value = val;
+      if (el.value !== val && el.options.length) el.selectedIndex = 0;
+    } else {
+      el.value = val;
+    }
+  }
+
+  // ===================== COLOR PICKERS =====================
+  window.syncColor = function(which) {
+    var textEl = document.getElementById('f' + (which === 'inner' ? 'InnerColor' : 'OuterColor'));
+    var pickerEl = document.getElementById('f' + (which === 'inner' ? 'InnerColor' : 'OuterColor') + 'Picker');
+    var val = textEl.value.trim();
+    if (/^#[0-9a-fA-F]{6}$/.test(val)) pickerEl.value = val;
+  };
+
+  window.syncColorPicker = function(which) {
+    var textEl = document.getElementById('f' + (which === 'inner' ? 'InnerColor' : 'OuterColor'));
+    var pickerEl = document.getElementById('f' + (which === 'inner' ? 'InnerColor' : 'OuterColor') + 'Picker');
+    textEl.value = pickerEl.value;
+  };
+
+  function syncColorFromText(which) {
+    var textEl = document.getElementById('f' + (which === 'inner' ? 'InnerColor' : 'OuterColor'));
+    var pickerEl = document.getElementById('f' + (which === 'inner' ? 'InnerColor' : 'OuterColor') + 'Picker');
+    if (!textEl || !pickerEl) return;
+    var val = textEl.value.trim();
+    if (/^#[0-9a-fA-F]{6}$/.test(val)) pickerEl.value = val;
+  }
+
+  // ===================== TABS =====================
+  window.switchGcTab = function(tab) {
+    document.querySelectorAll('.gc-tab').forEach(function(t) {
+      t.classList.toggle('active', t.dataset.tab === tab);
+    });
+    document.querySelectorAll('.tab-section').forEach(function(s) {
+      s.classList.toggle('active', s.id === 'tab-' + tab);
+    });
+  };
+
+  // ===================== SAVE =====================
+  window.saveTab = function(tab) {
+    if (!currentRoomId) return showAlert('Select a room first.', 'warning');
+
+    var payload = {};
+
+    if (tab === 'general') {
+      payload.name = document.getElementById('fRoomName').value.trim();
+      payload.description = document.getElementById('fDescription').value.trim();
+      payload.language = document.getElementById('fLanguage').value;
+      payload.radio = document.getElementById('fRadio').value.trim();
+      payload.topic = document.getElementById('fTopic').value.trim();
+    }
+
+    if (tab === 'appearance') {
+      payload.background = document.getElementById('fBackground').value.trim();
+      payload.inner_color = document.getElementById('fInnerColor').value.trim();
+      payload.color2 = document.getElementById('fOuterColor').value.trim();
+      payload.nav_style = document.getElementById('fNavStyle').value;
+      payload.font_name = document.getElementById('fFontName').value;
+      payload.scroll_type = parseInt(document.getElementById('fScrollType').value) || 0;
+    }
+
+    if (tab === 'moderation') {
+      var gc = {};
+      ['mg','mb','mm','kk','mmt','bn','ubn','ss','dnc','bdg','ns','yl','rc','rf','ka','rl','sme','p','j','cm'].forEach(function(key) {
+        var el = document.getElementById('gc-' + key);
+        if (el) gc[key] = parseInt(el.value) || 0;
+      });
+      // Numeric fields
+      ['mbt','obt'].forEach(function(key) {
+        var el = document.getElementById('gc-' + key);
+        if (el) gc[key] = parseInt(el.value) || 0;
+      });
+      payload.gcontrol = gc;
+    }
+
+    if (tab === 'scroller') {
+      payload.scroll_msg = document.getElementById('fScrollMsg').value;
+    }
+
+    if (tab === 'password') {
+      payload.password = document.getElementById('fPassword').value;
+    }
+
+    if (tab === 'advanced') {
+      var botId = parseInt(document.getElementById('fBotId').value) || 0;
+      payload.bot_id = botId;
+      payload.iframe_url = document.getElementById('fIframeUrl').value.trim();
+      payload.button = document.getElementById('fButton').value.trim();
+      payload.attached = document.getElementById('fAttached').value.trim();
+      payload.tab_info = document.getElementById('fTabInfo').value.trim();
+    }
+
+    var statusEl = document.getElementById('save-status-' + tab);
+    if (statusEl) statusEl.textContent = 'saving...';
+
+    fetch('/api/groups/' + encodeURIComponent(currentRoomId) + '/settings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok || data.success) {
+          showAlert('Settings saved!', 'success');
+          if (statusEl) {
+            statusEl.textContent = 'saved ' + new Date().toLocaleTimeString();
+            statusEl.style.color = '#28a745';
+          }
+        } else {
+          showAlert(data.error || 'Save failed.', 'danger');
+          if (statusEl) { statusEl.textContent = 'error'; statusEl.style.color = '#dc3545'; }
+        }
+      })
+      .catch(function() {
+        showAlert('Network error — settings not saved.', 'danger');
+        if (statusEl) { statusEl.textContent = 'network error'; statusEl.style.color = '#dc3545'; }
+      });
+  };
+
+  // ===================== ALERTS =====================
+  function showAlert(msg, type) {
+    var el = document.getElementById('gcAlert');
+    el.className = 'alert alert-' + (type || 'info') + ' gc-alert';
+    el.textContent = msg;
+    el.style.display = 'block';
+    clearTimeout(showAlert._t);
+    showAlert._t = setTimeout(function() { el.style.display = 'none'; }, 4000);
+  }
+
+  // ===================== INIT =====================
+  init();
+
+})();
+</script>

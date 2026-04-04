@@ -1,0 +1,59 @@
+<div class="modal fade" id="inappReportModal" tabindex="-1" role="dialog" aria-labelledby="inappReportModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inappReportModalTitle">
+          <img class="mr-2" src="../src/img/navbar/terms.svg" alt="report">
+          <span data-localize="web.report">report</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="inappReportForm" class="needs-validation" novalidate
+            action="/web_gear/chat/ownerfeedback2.php" method="post">
+        <input type="hidden" name="type" value="report">
+        <input type="hidden" name="gn" value="{{gn}}">
+        <div class="modal-body">
+          <div id="inappReportErr" class="alert alert-danger d-none" role="alert"></div>
+          <div class="row mb-3">
+            <div class="col-lg">
+              <label for="inappReason">
+                <span data-localize="web.reason">reason</span>:
+              </label>
+              <select class="form-control form-control-sm" id="inappReason" name="reason" required>
+                <option value="" disabled selected>
+                  <span data-localize="web.selectreason">Select a reason...</span>
+                </option>
+                <option value="spam" data-localize="web.spam">spam</option>
+                <option value="harassment" data-localize="web.harassment">harassment</option>
+                <option value="inappropriate" data-localize="web.inappropriate">inappropriate content</option>
+                <option value="underage" data-localize="web.underage">underage user</option>
+                <option value="other" data-localize="web.other">other</option>
+              </select>
+              <div class="invalid-feedback">
+                <span data-localize="web.requiredfield">This field is required.</span>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-lg">
+              <label for="inappDescription">
+                <span data-localize="web.description">description</span>:
+              </label>
+              <textarea class="form-control cssareamin" id="inappDescription" name="description" rows="4" maxlength="1000"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <span data-localize="web.cancel">cancel</span>
+          </button>
+          <button type="submit" class="btn btn-danger">
+            <span data-localize="web.submit">submit</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

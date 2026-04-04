@@ -1,0 +1,1 @@
+{"buy":{"xatname":"xat username","password":"password"}}

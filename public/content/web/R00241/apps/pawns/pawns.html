@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pawns | xat</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+    }
+    h1 {
+      font-size: 15px;
+      color: #a0c4ff;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      font-size: 10px;
+      color: #7080a0;
+      margin-bottom: 10px;
+    }
+    .board-wrap {
+      border: 2px solid #2a2a5e;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(8, 44px);
+      grid-template-rows: repeat(8, 44px);
+    }
+    .sq {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.1s;
+    }
+    .sq.light { background: #f0d9b5; }
+    .sq.dark  { background: #b58863; }
+    .sq.selected { outline: 3px solid #5aaaff; outline-offset: -3px; }
+    .sq.possible::after {
+      content: '';
+      position: absolute;
+      width: 14px; height: 14px;
+      background: rgba(80,160,255,0.5);
+      border-radius: 50%;
+    }
+    .sq.possible.occupied::after {
+      width: 100%; height: 100%;
+      border-radius: 0;
+      background: rgba(255,80,80,0.3);
+    }
+    .info-row {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      font-size: 12px;
+      align-items: center;
+    }
+    .turn-badge {
+      background: #16213e;
+      border: 1px solid #2a2a5e;
+      border-radius: 6px;
+      padding: 4px 14px;
+      color: #a0c4ff;
+      font-size: 12px;
+    }
+    .status {
+      font-size: 12px;
+      color: #70d090;
+      min-width: 130px;
+      text-align: center;
+    }
+    .btn-reset {
+      background: #16213e;
+      border: 1px solid #2a2a5e;
+      color: #a0c4ff;
+      border-radius: 6px;
+      padding: 5px 16px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-reset:hover { background: #1c2a50; }
+  </style>
+</head>
+<body>
+  <h1>Pawns</h1>
+  <p class="subtitle">Move pawns to the opposite side to promote</p>
+
+  <div class="board-wrap">
+    <div class="board" id="board"></div>
+  </div>
+
+  <div class="info-row">
+    <div class="turn-badge" id="turn-badge">White's turn</div>
+    <div class="status" id="status"></div>
+    <button class="btn-reset" onclick="initGame()">New Game</button>
+  </div>
+
+  <script>
+    // Simplified pawns-only chess game
+    // White pawns start on rows 6-7 (indices 48-63 rank 1-2), move up (decreasing row)
+    // Black pawns start on rows 0-1 (indices 0-15 rank 7-8), move down (increasing row)
+    // Pawns can capture diagonally. Promote when reaching opposite end.
+
+    var EMPTY = 0, WHITE = 1, BLACK = 2;
+    var board = Array(64).fill(EMPTY);
+    var turn = WHITE;
+    var selected = -1;
+    var possible = [];
+
+    function initGame() {
+      board = Array(64).fill(EMPTY);
+      // Black pawns rows 1 (indices 8-15)
+      for (var i = 8; i < 16; i++) board[i] = BLACK;
+      // White pawns rows 6 (indices 48-55)
+      for (var i = 48; i < 56; i++) board[i] = WHITE;
+      turn = WHITE;
+      selected = -1;
+      possible = [];
+      document.getElementById('status').textContent = '';
+      document.getElementById('turn-badge').textContent = "White's turn";
+      renderBoard();
+    }
+
+    function renderBoard() {
+      var el = document.getElementById('board');
+      el.innerHTML = '';
+      for (var i = 0; i < 64; i++) {
+        var row = Math.floor(i / 8), col = i % 8;
+        var sq = document.createElement('div');
+        var isLight = (row + col) % 2 === 0;
+        sq.className = 'sq ' + (isLight ? 'light' : 'dark');
+        if (i === selected) sq.classList.add('selected');
+        if (possible.indexOf(i) !== -1) {
+          sq.classList.add('possible');
+          if (board[i] !== EMPTY) sq.classList.add('occupied');
+        }
+        if (board[i] === WHITE) sq.textContent = '♙';
+        else if (board[i] === BLACK) sq.textContent = '♟';
+        sq.dataset.i = i;
+        sq.onclick = handleClick;
+        el.appendChild(sq);
+      }
+    }
+
+    function getMoves(idx) {
+      var row = Math.floor(idx / 8), col = idx % 8;
+      var piece = board[idx];
+      var moves = [];
+      if (piece === WHITE) {
+        var fwd = idx - 8;
+        if (fwd >= 0 && board[fwd] === EMPTY) {
+          moves.push(fwd);
+          // Double move from starting row
+          if (row === 6 && board[idx - 16] === EMPTY) moves.push(idx - 16);
+        }
+        // Captures
+        if (col > 0 && board[idx - 9] === BLACK) moves.push(idx - 9);
+        if (col < 7 && board[idx - 7] === BLACK) moves.push(idx - 7);
+      } else {
+        var fwd = idx + 8;
+        if (fwd < 64 && board[fwd] === EMPTY) {
+          moves.push(fwd);
+          if (row === 1 && board[idx + 16] === EMPTY) moves.push(idx + 16);
+        }
+        if (col > 0 && board[idx + 7] === WHITE) moves.push(idx + 7);
+        if (col < 7 && board[idx + 9] === WHITE) moves.push(idx + 9);
+      }
+      return moves;
+    }
+
+    function handleClick(e) {
+      var i = parseInt(e.currentTarget.dataset.i);
+      var statusEl = document.getElementById('status');
+
+      // If clicking a valid move
+      if (possible.indexOf(i) !== -1) {
+        board[i] = board[selected];
+        board[selected] = EMPTY;
+        selected = -1;
+        possible = [];
+
+        // Check promotion
+        var promoted = false;
+        for (var c = 0; c < 8; c++) {
+          if (board[c] === WHITE) { statusEl.textContent = 'White promotes! White wins!'; statusEl.style.color = '#58a6ff'; renderBoard(); return; }
+          if (board[56 + c] === BLACK) { statusEl.textContent = 'Black promotes! Black wins!'; statusEl.style.color = '#f85149'; renderBoard(); return; }
+        }
+
+        turn = turn === WHITE ? BLACK : WHITE;
+        document.getElementById('turn-badge').textContent = (turn === WHITE ? 'White' : 'Black') + "'s turn";
+        statusEl.textContent = '';
+        renderBoard();
+        return;
+      }
+
+      // Select a piece
+      if (board[i] !== EMPTY && board[i] === turn) {
+        selected = i;
+        possible = getMoves(i);
+      } else {
+        selected = -1;
+        possible = [];
+      }
+      renderBoard();
+    }
+
+    initGame();
+  </script>
+</body>
+</html>

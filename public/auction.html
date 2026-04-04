@@ -1,0 +1,218 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.auction">auction</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.auction">Short Name Auctions</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/navbar/shortname.svg" width="96" alt="auction" class="mb-3">
+    <h2>Bid on Premium Short Names</h2>
+    <p class="lead">Compete for the most desirable short names on xat. The highest bidder at the end of the auction wins.</p>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Active Auctions</h3>
+      <p class="text-muted">Auctions update in real time. Refresh the page to see the latest bids.</p>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th>Name</th>
+              <th>Current Bid</th>
+              <th>Time Left</th>
+              <th>Top Bidder</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/chat" class="font-weight-bold">chat</a></td>
+              <td>42,500 xats</td>
+              <td><span class="text-danger">1h 23m</span></td>
+              <td>xXChatKingXx</td>
+              <td><button class="btn btn-sm btn-primary" onclick="openBid('chat', 42500)">Bid</button></td>
+            </tr>
+            <tr>
+              <td><a href="/music" class="font-weight-bold">music</a></td>
+              <td>18,000 xats</td>
+              <td>6h 45m</td>
+              <td>MelodyQueen</td>
+              <td><button class="btn btn-sm btn-primary" onclick="openBid('music', 18000)">Bid</button></td>
+            </tr>
+            <tr>
+              <td><a href="/games" class="font-weight-bold">games</a></td>
+              <td>31,200 xats</td>
+              <td>12h 08m</td>
+              <td>GamerZone99</td>
+              <td><button class="btn btn-sm btn-primary" onclick="openBid('games', 31200)">Bid</button></td>
+            </tr>
+            <tr>
+              <td><a href="/help" class="font-weight-bold">help</a></td>
+              <td>9,750 xats</td>
+              <td>1d 4h</td>
+              <td>SupportPro</td>
+              <td><button class="btn btn-sm btn-primary" onclick="openBid('help', 9750)">Bid</button></td>
+            </tr>
+            <tr>
+              <td><a href="/trade" class="font-weight-bold">trade</a></td>
+              <td>55,000 xats</td>
+              <td>2d 17h</td>
+              <td>xTrader</td>
+              <td><button class="btn btn-sm btn-primary" onclick="openBid('trade', 55000)">Bid</button></td>
+            </tr>
+            <tr>
+              <td><a href="/anime" class="font-weight-bold">anime</a></td>
+              <td>7,100 xats</td>
+              <td>3d 2h</td>
+              <td>OtakuWorld</td>
+              <td><button class="btn btn-sm btn-primary" onclick="openBid('anime', 7100)">Bid</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4" id="bidSection">
+    <div class="card-body">
+      <h3>Place a Bid</h3>
+      <p>To place a bid you must be logged in and have sufficient xats in your account. Your bid must exceed the current highest bid.</p>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="bidName">Short Name</label>
+          <input type="text" class="form-control" id="bidName" placeholder="e.g. chat" maxlength="20" style="max-width: 200px;">
+        </div>
+        <div class="form-group">
+          <label for="bidAmount">Your Bid (xats)</label>
+          <input type="number" class="form-control" id="bidAmount" min="1" placeholder="Enter bid amount" style="max-width: 200px;">
+          <small class="form-text text-muted">Must be higher than the current bid. Minimum increment: 100 xats.</small>
+        </div>
+        <div class="alert alert-warning">
+          <strong>Important:</strong> Bids are binding. Xats are held in escrow while your bid is active and returned if you are outbid.
+        </div>
+        <button type="submit" class="btn btn-primary">Place Bid</button>
+        <a href="/login" class="btn btn-outline-secondary ml-2">Log in to bid</a>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>How Auctions Work</h3>
+      <ul>
+        <li>Short name auctions run for a set period (typically 3–7 days).</li>
+        <li>The highest bidder at the end of the auction wins the short name.</li>
+        <li>Xats are held in escrow when you bid. If outbid, your xats are immediately returned.</li>
+        <li>The winning bidder receives the short name assigned to a group of their choice.</li>
+        <li>Short names won at auction cannot be transferred or re-auctioned for 30 days.</li>
+        <li>xat reserves the right to cancel any auction if the name is flagged as inappropriate.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+const token = localStorage.getItem('xat_token') || '';
+
+function openBid(name, currentBid) {
+  document.getElementById('bidName').value = name;
+  document.getElementById('bidAmount').value = currentBid + 100;
+  document.getElementById('bidSection').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('bidAmount').focus();
+}
+
+// Load active auctions from server
+function loadAuctions() {
+  fetch('/api/auctions').then(r => r.json()).then(auctions => {
+    if (!Array.isArray(auctions) || !auctions.length) return;
+    const tbody = document.querySelector('table tbody');
+    tbody.innerHTML = '';
+    auctions.forEach(a => {
+      const timeLeft = a.ends_at ? formatTimeLeft(a.ends_at) : 'N/A';
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td><a href="/' + a.name + '" class="font-weight-bold">' + a.name + '</a></td>' +
+        '<td>' + (a.current_bid || a.starting_bid || 0).toLocaleString() + ' xats</td>' +
+        '<td>' + timeLeft + '</td>' +
+        '<td>' + (a.top_bidder || 'None') + '</td>' +
+        '<td><button class="btn btn-sm btn-primary" onclick="openBid(\'' + a.name + '\',' + (a.current_bid || a.starting_bid || 0) + ')">Bid</button></td>';
+      tbody.appendChild(tr);
+    });
+  }).catch(() => {});
+}
+
+function formatTimeLeft(endsAt) {
+  const diff = endsAt - Math.floor(Date.now() / 1000);
+  if (diff <= 0) return 'Ended';
+  const d = Math.floor(diff / 86400);
+  const h = Math.floor((diff % 86400) / 3600);
+  const m = Math.floor((diff % 3600) / 60);
+  return (d > 0 ? d + 'd ' : '') + h + 'h ' + m + 'm';
+}
+
+// Submit bid
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!token) { alert('Please log in to place a bid.'); return; }
+  const name = document.getElementById('bidName').value.trim();
+  const amount = parseInt(document.getElementById('bidAmount').value);
+  if (!name || !amount || amount <= 0) { alert('Enter a valid name and bid amount.'); return; }
+
+  // Find auction by name
+  fetch('/api/auctions').then(r => r.json()).then(auctions => {
+    const auction = auctions.find(a => a.name === name);
+    if (!auction) { alert('No active auction found for "' + name + '"'); return; }
+    return fetch('/api/auctions/' + auction.id + '/bid', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify({ amount: amount }),
+    }).then(r => r.json());
+  }).then(data => {
+    if (data && data.ok) { alert('Bid placed successfully!'); loadAuctions(); }
+    else if (data) { alert('Error: ' + (data.error || 'Failed to place bid')); }
+  }).catch(() => alert('Failed to place bid.'));
+});
+
+// Update login button state
+if (token) {
+  const loginBtn = document.querySelector('a[href="/login"].btn');
+  if (loginBtn) loginBtn.style.display = 'none';
+}
+
+loadAuctions();
+</script>

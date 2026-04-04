@@ -1,0 +1,191 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.report">report</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.report">Report a User or Group</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/xatplanet.svg" width="80" alt="report" class="mb-3">
+    <h2>Help Keep xat Safe</h2>
+    <p class="lead">If you encounter someone breaking the rules, use this form to report them to the xat moderation team.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3>Submit a Report</h3>
+          <form onsubmit="submitReport(event)">
+            <div class="form-group">
+              <label for="reporterName">Your xat Username</label>
+              <input type="text" class="form-control" id="reporterName" name="reporterName" required maxlength="50" placeholder="Your username">
+              <small class="form-text text-muted">Provide your username so our team can follow up if needed. Reports are kept confidential.</small>
+            </div>
+            <div class="form-group">
+              <label for="reportType">Report Type</label>
+              <div class="d-flex">
+                <div class="custom-control custom-radio mr-4">
+                  <input type="radio" id="typeUser" name="reportType" class="custom-control-input" value="user" checked onchange="updateTypeLabel()">
+                  <label class="custom-control-label" for="typeUser">User</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="typeGroup" name="reportType" class="custom-control-input" value="group" onchange="updateTypeLabel()">
+                  <label class="custom-control-label" for="typeGroup">Group</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="reportedName" id="reportedNameLabel">Username of Reported User</label>
+              <input type="text" class="form-control" id="reportedName" name="reportedName" required maxlength="50" placeholder="Username or group name">
+              <small class="form-text text-muted">Enter the exact username or group short name of the person or group you are reporting.</small>
+            </div>
+            <div class="form-group">
+              <label for="reportReason">Reason</label>
+              <select class="form-control" id="reportReason" name="reportReason" required onchange="updateReasonHint()">
+                <option value="">-- Select a reason --</option>
+                <option value="spam">Spam or advertising</option>
+                <option value="harassment">Harassment or bullying</option>
+                <option value="inappropriate">Inappropriate or offensive content</option>
+                <option value="underage">Underage user</option>
+                <option value="impersonation">Impersonation</option>
+                <option value="scam">Scam or fraud</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div id="reasonHint" class="alert alert-light small" style="display:none;"></div>
+            <div class="form-group">
+              <label for="reportGroup">Group Where This Occurred <span class="text-muted">(optional)</span></label>
+              <input type="text" class="form-control" id="reportGroup" name="reportGroup" maxlength="50" placeholder="e.g. HelpChat">
+              <small class="form-text text-muted">If this happened in a specific chat room, enter the group name.</small>
+            </div>
+            <div class="form-group">
+              <label for="reportDescription">Description</label>
+              <textarea class="form-control" id="reportDescription" name="reportDescription" rows="5" required maxlength="1000" placeholder="Describe what happened. Include as much detail as possible — times, messages, what was said or done."></textarea>
+              <div class="text-right text-muted small mt-1"><span id="descCount">0</span> / 1000</div>
+            </div>
+            <div class="form-group">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="confirmAccurate" required>
+                <label class="custom-control-label" for="confirmAccurate">I confirm this report is accurate and made in good faith. I understand that filing false reports may result in action against my own account.</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Submit Report</button>
+          </form>
+          <div id="reportSuccess" class="alert alert-success mt-3" style="display:none;">
+            <strong>Report submitted.</strong> Thank you for helping keep xat safe. Our moderation team will review your report and take appropriate action. You will not be notified of the outcome, but all reports are taken seriously.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card mb-4 border-danger">
+        <div class="card-body">
+          <h5 class="text-danger">Emergency Safety</h5>
+          <p class="small">If someone is in immediate danger or you are experiencing a genuine emergency, please contact your local emergency services directly. xat cannot respond to emergencies in real time.</p>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5>What Happens Next?</h5>
+          <ol class="small pl-3">
+            <li>Your report is sent to the xat moderation team.</li>
+            <li>A moderator reviews the report within 48 hours.</li>
+            <li>If a violation is found, appropriate action is taken (warn, ban, or escalate).</li>
+            <li>Repeated or severe violations may result in a permanent ban.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5>Other Resources</h5>
+          <ul class="small pl-3 mb-0">
+            <li><a href="/safety">Safety Centre</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/help">Help &amp; FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+var reasonHints = {
+  spam: 'Examples: repeated unsolicited messages, advertising links in chat, bot-like behaviour.',
+  harassment: 'Examples: persistent unwanted contact, threats, targeting someone repeatedly.',
+  inappropriate: 'Examples: offensive language, hate speech, adult content in a general chat.',
+  underage: 'If you believe a user is under 13, please report them immediately.',
+  impersonation: 'Examples: using a name or avatar designed to look like another user or xat staff.',
+  scam: 'Examples: fake power trades, requesting payments outside xat, phishing links.',
+  other: 'Please describe the issue in detail in the description field below.'
+};
+
+function updateTypeLabel() {
+  var isGroup = document.getElementById('typeGroup').checked;
+  document.getElementById('reportedNameLabel').textContent = isGroup
+    ? 'Name of Reported Group'
+    : 'Username of Reported User';
+  document.getElementById('reportedName').placeholder = isGroup ? 'Group short name' : 'Username';
+}
+
+function updateReasonHint() {
+  var val = document.getElementById('reportReason').value;
+  var box = document.getElementById('reasonHint');
+  if (val && reasonHints[val]) {
+    box.textContent = reasonHints[val];
+    box.style.display = 'block';
+  } else {
+    box.style.display = 'none';
+  }
+}
+
+var descArea = document.getElementById('reportDescription');
+var descCount = document.getElementById('descCount');
+descArea.addEventListener('input', function() {
+  descCount.textContent = descArea.value.length;
+});
+
+function submitReport(e) {
+  e.preventDefault();
+  document.querySelector('button[type="submit"]').disabled = true;
+  document.getElementById('reportSuccess').style.display = 'block';
+  document.getElementById('reportSuccess').scrollIntoView({ behavior: 'smooth' });
+}
+</script>

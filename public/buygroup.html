@@ -1,0 +1,182 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="web.buygroup">buy group</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1 data-localize="web.buygroup">Buy a Group</h1>
+
+  <div class="text-center mb-4">
+    <img src="/content/web/R00241/img/navbar/groups.svg" width="96" alt="buygroup" class="mb-3">
+    <h2>Purchase an Established Chat Group</h2>
+    <p class="lead">Browse groups listed for sale by their owners. Take over an existing community complete with members, settings, and history.</p>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Search Groups for Sale</h3>
+      <form onsubmit="return false;" class="mb-3">
+        <div class="input-group">
+          <input id="groupSearch" type="text" class="form-control" placeholder="Search by group name or topic...">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th>Group Name</th>
+              <th>Topic</th>
+              <th>Members</th>
+              <th>Rank</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/RetroGaming" class="font-weight-bold">RetroGaming</a></td>
+              <td>Gaming</td>
+              <td>1,204</td>
+              <td><span class="badge badge-warning">Featured</span></td>
+              <td>85,000 xats</td>
+              <td><button class="btn btn-sm btn-success" onclick="openPurchase('RetroGaming', 85000)">Buy</button></td>
+            </tr>
+            <tr>
+              <td><a href="/MusicLounge" class="font-weight-bold">MusicLounge</a></td>
+              <td>Music</td>
+              <td>743</td>
+              <td><span class="badge badge-secondary">Standard</span></td>
+              <td>32,000 xats</td>
+              <td><button class="btn btn-sm btn-success" onclick="openPurchase('MusicLounge', 32000)">Buy</button></td>
+            </tr>
+            <tr>
+              <td><a href="/ArtCorner" class="font-weight-bold">ArtCorner</a></td>
+              <td>Art &amp; Design</td>
+              <td>510</td>
+              <td><span class="badge badge-secondary">Standard</span></td>
+              <td>20,000 xats</td>
+              <td><button class="btn btn-sm btn-success" onclick="openPurchase('ArtCorner', 20000)">Buy</button></td>
+            </tr>
+            <tr>
+              <td><a href="/LanguageExchange" class="font-weight-bold">LanguageExchange</a></td>
+              <td>Education</td>
+              <td>2,891</td>
+              <td><span class="badge badge-primary">Top 100</span></td>
+              <td>200,000 xats</td>
+              <td><button class="btn btn-sm btn-success" onclick="openPurchase('LanguageExchange', 200000)">Buy</button></td>
+            </tr>
+            <tr>
+              <td><a href="/NightOwls" class="font-weight-bold">NightOwls</a></td>
+              <td>Social</td>
+              <td>389</td>
+              <td><span class="badge badge-secondary">Standard</span></td>
+              <td>12,500 xats</td>
+              <td><button class="btn btn-sm btn-success" onclick="openPurchase('NightOwls', 12500)">Buy</button></td>
+            </tr>
+            <tr>
+              <td><a href="/TechTalk" class="font-weight-bold">TechTalk</a></td>
+              <td>Technology</td>
+              <td>1,057</td>
+              <td><span class="badge badge-warning">Featured</span></td>
+              <td>60,000 xats</td>
+              <td><button class="btn btn-sm btn-success" onclick="openPurchase('TechTalk', 60000)">Buy</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted small">Showing 6 of 48 groups for sale. Use the search above to find specific groups.</p>
+    </div>
+  </div>
+
+  <div class="card mb-4" id="purchaseSection">
+    <div class="card-body">
+      <h3>Purchase a Group</h3>
+      <p>Complete ownership is transferred instantly upon payment. The seller receives the xats and you become the new main owner.</p>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="buyGroupName">Group Name</label>
+          <input type="text" class="form-control" id="buyGroupName" readonly style="max-width: 280px; background: #f8f9fa;">
+        </div>
+        <div class="form-group">
+          <label>Purchase Price</label>
+          <div class="input-group" style="max-width: 200px;">
+            <input type="text" class="form-control" id="buyGroupPrice" readonly style="background: #f8f9fa;">
+            <div class="input-group-append"><span class="input-group-text">xats</span></div>
+          </div>
+        </div>
+        <div class="alert alert-warning">
+          <strong>Before you buy:</strong> Review the group's member count, existing bans, and settings. Group purchases are final and non-refundable. xat takes a 5% transaction fee.
+        </div>
+        <button type="submit" class="btn btn-success">Confirm Purchase</button>
+        <a href="/login" class="btn btn-outline-secondary ml-2">Log in to buy</a>
+      </form>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Sell Your Group</h3>
+      <p>Want to list your own group for sale? You can set a price and let other xat users purchase it from you.</p>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="sellGroupSelect">Select Group to Sell</label>
+          <select class="form-control" id="sellGroupSelect" style="max-width: 280px;">
+            <option value="">-- Select a group you own --</option>
+          </select>
+          <small class="form-text text-muted">Only groups where you are the main owner appear here.</small>
+        </div>
+        <div class="form-group">
+          <label for="sellGroupPrice">Asking Price (xats)</label>
+          <input type="number" class="form-control" id="sellGroupPrice" min="1000" placeholder="e.g. 50000" style="max-width: 200px;">
+          <small class="form-text text-muted">Minimum listing price: 1,000 xats. xat charges a 5% fee on completed sales.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">List Group for Sale</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+function openPurchase(name, price) {
+  document.getElementById('buyGroupName').value = name;
+  document.getElementById('buyGroupPrice').value = price.toLocaleString();
+  document.getElementById('purchaseSection').scrollIntoView({ behavior: 'smooth' });
+}
+</script>

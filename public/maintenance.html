@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xat - Maintenance</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    .logo-text {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2196F3;
+      letter-spacing: -1px;
+    }
+
+    .icon-wrap {
+      margin-bottom: 20px;
+    }
+
+    .wrench-icon {
+      font-size: 56px;
+      display: inline-block;
+      animation: wrench-wobble 2.4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes wrench-wobble {
+      0%   { transform: rotate(-15deg); }
+      25%  { transform: rotate(15deg); }
+      50%  { transform: rotate(-10deg); }
+      75%  { transform: rotate(10deg); }
+      100% { transform: rotate(-15deg); }
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .eta-card {
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 6px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+    }
+
+    .eta-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #1565C0;
+      margin-bottom: 4px;
+    }
+
+    .eta-time {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0d47a1;
+    }
+
+    .links {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .links a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      margin: 0 6px;
+      color: #ccc;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img class="logo-icon" src="/content/web/R00241/img/xatsat.svg" alt="xat" onerror="this.style.display='none'">
+      <span class="logo-text">xat</span>
+    </div>
+
+    <div class="icon-wrap">
+      <span class="wrench-icon">&#x1F527;</span>
+    </div>
+
+    <h1>xat is undergoing maintenance</h1>
+
+    <p class="subtitle">
+      We're making improvements to give you a better experience.
+      The site will be back shortly. Thank you for your patience!
+    </p>
+
+    <div class="eta-card">
+      <div class="eta-label">Estimated return</div>
+      <div class="eta-time" id="eta-display">Checking...</div>
+    </div>
+
+    <div class="links">
+      <a href="https://twitter.com/xat_news" target="_blank" rel="noopener">Status updates</a>
+      <span class="divider">|</span>
+      <a href="mailto:support@xat.com">Contact Support</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; xat.com
+  </div>
+
+  <script>
+    // Show a countdown or a static ETA string
+    // You can update window.xatMaintenanceETA to a Unix timestamp (ms) or a display string
+    var eta = window.xatMaintenanceETA;
+    var display = document.getElementById('eta-display');
+
+    if (eta && typeof eta === 'number') {
+      function tick() {
+        var now = Date.now();
+        var diff = eta - now;
+        if (diff <= 0) {
+          display.textContent = 'Very soon — please refresh';
+          return;
+        }
+        var h = Math.floor(diff / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        var parts = [];
+        if (h > 0) parts.push(h + 'h');
+        parts.push((m < 10 ? '0' : '') + m + 'm');
+        parts.push((s < 10 ? '0' : '') + s + 's');
+        display.textContent = parts.join(' ');
+        setTimeout(tick, 1000);
+      }
+      tick();
+    } else if (eta && typeof eta === 'string') {
+      display.textContent = eta;
+    } else {
+      display.textContent = 'A few hours';
+    }
+  </script>
+</body>
+</html>

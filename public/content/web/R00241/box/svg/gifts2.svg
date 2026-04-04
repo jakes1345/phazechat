@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="22px" height="22px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve">
+<style type="text/css">
+	.Sombra_x0020_paralela{fill:none;}
+	.Resplandor_x0020_externo_x0020_5_x0020_pt_x002E_{fill:none;}
+	.Neón_x0020_azul{fill:none;stroke:#8AACDA;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;}
+	.Resalte_x0020_cromado{fill:url(#SVGID_1_);stroke:#FFFFFF;stroke-width:0.3629;stroke-miterlimit:1;}
+	.A_x0020_todo_x0020_ritmo_GS{fill:#FFDD00;}
+	.Alyssa_GS{fill:#A6D0E4;}
+	.st0{fill:#FCAC21;}
+	.st1{fill:#FF9800;}
+	.st2{fill:#FF1D25;}
+	.st3{fill:#861D25;}
+</style>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="6.123234e-17" y2="-1">
+	<stop  offset="0" style="stop-color:#656565"/>
+	<stop  offset="0.618" style="stop-color:#1B1B1B"/>
+	<stop  offset="0.6292" style="stop-color:#545454"/>
+	<stop  offset="0.9831" style="stop-color:#3E3E3E"/>
+</linearGradient>
+<polygon class="st0" points="2.054,20.147 20.127,20.147 20.127,10.207 21.934,10.207 21.934,6.592 0.246,6.592 0.246,10.207 
+	2.054,10.207 "/>
+<rect x="2.054" y="10.207" class="st1" width="18.073" height="1.468"/>
+<polyline class="st2" points="9.207,6.14 9.283,20.147 9.207,5.914 12.973,5.99 12.897,20.147 9.283,20.147 "/>
+<path class="st2" d="M4.061,6.741L18.369,6.59c0,0,2.937-1.732-0.226-5.121c-0.225-0.115-0.538-0.243-0.924-0.314
+	c-0.681-0.124-1.246-0.005-1.561,0.088c-0.367,0.12-0.802,0.307-1.252,0.602c-0.687,0.452-1.497,1.205-1.986,2.41L9.709,4.407
+	c0,0-2.059-3.314-3.49-2.938C5.984,1.392,5.751,1.386,5.344,1.375c-0.369-0.01-0.679,0.04-0.906,0.095
+	C3.24,2.261,1.438,4.406,4.061,6.741z"/>
+<path class="st3" d="M9.185,5.301l-0.04,1.227h3.615c0,0,0.226-1.28-0.527-2.259l-1.905-0.048C9.715,4.206,9.204,4.688,9.185,5.301z
+	"/>
+</svg>

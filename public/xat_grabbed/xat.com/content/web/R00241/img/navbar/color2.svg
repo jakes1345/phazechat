@@ -1,0 +1,114 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19">
+<defs>
+<filter id="Filter_1" x="-66.99172170919047%" y="-66.99172170919047%" width="233.98344341838094%" height="233.98344341838094%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceGraphic" stdDeviation="2.6666666666666665,2.6666666666666665" result="result1"/>
+</filter>
+
+<g id="Mask_2_MASK_0_FILL">
+<path fill="#FFFFFF" stroke="none" d="
+M 2.8 16.2
+Q 5.5326171875 18.9822265625 9.45 19
+L 9.45 9.65 2.3 15.65
+Q 2.5384765625 15.9431640625 2.8 16.2
+M 0 9.5
+L 9.4 9.5 2.2 3.45
+Q 0 5.99921875 0 9.5
+M 9.45 9.55
+L 9.4 9.5 0 9.5
+Q 0 13.080859375 2.3 15.65
+L 9.45 9.65 9.45 9.55
+M 9.65 9.5
+L 9.5 9.6 16.7 15.65
+Q 19 13.0609375 19 9.5
+L 9.65 9.5
+M 9.5 9.6
+L 9.45 9.65 9.45 19 9.5 19
+Q 13.45 19 16.2 16.2 16.47578125 15.9291015625 16.7 15.65
+L 9.5 9.6
+M 2.8 2.8
+Q 2.481640625 3.1126953125 2.2 3.45
+L 9.4 9.5 9.45 9.5 9.45 0
+Q 5.5326171875 0.0177734375 2.8 2.8
+M 19 9.5
+Q 19 6.01875 16.8 3.45
+L 9.65 9.5 19 9.5
+M 16.8 3.45
+Q 16.5322265625 3.1263671875 16.2 2.8 13.45 0 9.5 0
+L 9.45 0 9.45 9.5 9.4 9.5 9.45 9.55 9.45 9.65 9.5 9.6 9.65 9.5 16.8 3.45 Z"/>
+</g>
+
+<g id="colors_0_Layer0_0_FILL">
+<path fill="#1300FF" stroke="none" d="
+M 2.8 16.2
+Q 5.5326171875 18.9822265625 9.45 19
+L 9.45 9.65 2.3 15.65
+Q 2.5384765625 15.9431640625 2.8 16.2 Z"/>
+
+<path fill="#00FFA4" stroke="none" d="
+M 0 9.5
+L 9.4 9.5 2.2 3.45
+Q 0 5.99921875 0 9.5 Z"/>
+
+<path fill="#01A2FF" stroke="none" d="
+M 9.45 9.55
+L 9.4 9.5 0 9.5
+Q 0 13.080859375 2.3 15.65
+L 9.45 9.65 9.45 9.55 Z"/>
+
+<path fill="#FF0079" stroke="none" d="
+M 9.65 9.5
+L 9.5 9.6 16.7 15.65
+Q 19 13.0609375 19 9.5
+L 9.65 9.5 Z"/>
+
+<path fill="#CB00FF" stroke="none" d="
+M 9.5 9.6
+L 9.45 9.65 9.45 19 9.5 19
+Q 13.45 19 16.2 16.2 16.47578125 15.9291015625 16.7 15.65
+L 9.5 9.6 Z"/>
+
+<path fill="#06FF01" stroke="none" d="
+M 2.8 2.8
+Q 2.481640625 3.1126953125 2.2 3.45
+L 9.4 9.5 9.45 9.5 9.45 0
+Q 5.5326171875 0.0177734375 2.8 2.8 Z"/>
+
+<path fill="#FF5500" stroke="none" d="
+M 19 9.5
+Q 19 6.01875 16.8 3.45
+L 9.65 9.5 19 9.5 Z"/>
+
+<path fill="#ECFF01" stroke="none" d="
+M 16.8 3.45
+Q 16.5322265625 3.1263671875 16.2 2.8 13.45 0 9.5 0
+L 9.45 0 9.45 9.5 9.4 9.5 9.45 9.55 9.45 9.65 9.5 9.6 9.65 9.5 16.8 3.45 Z"/>
+</g>
+</defs>
+
+<mask id="Mask_Mask_1">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Mask_2_MASK_0_FILL"/>
+</g>
+</mask>
+
+<g mask="url(#Mask_Mask_1)">
+<g filter="url(#Filter_1)" transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#colors_0_Layer0_0_FILL"/>
+</g>
+</g>
+</g>
+</g>
+
+<g mask="url(#Mask_Mask_1)">
+<g filter="url(#Filter_1)" transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#colors_0_Layer0_0_FILL"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

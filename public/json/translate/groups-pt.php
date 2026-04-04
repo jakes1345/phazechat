@@ -1,0 +1,1 @@
+{"groups":{"xatgroups":"grupos do xat","searchb":"Pesquisar","featured":"Destaque","popular":"Populares","supported":"Apoiados","games":"Jogos","prev":"Anterior","next":"Pr\u00f3ximo"}}

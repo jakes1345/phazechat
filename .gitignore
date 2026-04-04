@@ -1,0 +1,19 @@
+node_modules/
+.env
+*.log
+.DS_Store
+.vscode/
+.claude/
+.openclaw/
+
+# Agent workspace files - personal config, not project code
+SOUL.md
+USER.md
+MEMORY.md
+HEARTBEAT.md
+TOOLS.md
+AGENTS.md
+BOOTSTRAP.md
+IDENTITY.md
+LEARNINGS.md
+memory/

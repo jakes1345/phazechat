@@ -1,0 +1,634 @@
+XAT.COM WEB PAGES AND API ENDPOINTS - COMPLETE ANALYSIS
+=========================================================
+Fetched: 2026-03-21
+
+NOTE: Most xat.com pages are behind Cloudflare challenge protection.
+Only the homepage, store page, and pow2.php API responded without challenge.
+
+========================================================================
+1. HOMEPAGE - https://xat.com
+========================================================================
+
+METADATA:
+  - xjson: {"type":"home","dir":"/content/web/R00242/"}
+  - Title: "xat"
+  - Description: "xat.com is a fun social networking site, join a group, make friends, create your own xat group"
+  - Body class: "hmbody"
+
+CONTENT-SECURITY-POLICY:
+  default-src 'self' https://xatech.com/ https://*.xatech.com/
+  style-src: self, xat.com, xatech.com, bootstrap 4.5.3, gstatic, google fonts
+  connect-src: self, xat.com, xatech.com, xat.wiki, google-analytics, googletagmanager
+  img-src: self, xat.com, xatech.com, xat.wiki, google-analytics, images.weserv.nl, wsrv.nl
+  script-src: self, xat.com, xatech.com, jquery 3.5.1, bootstrap 4.5.3, handlebars 4.7.6, jquery-csv 1.0.11, googletagmanager, google-analytics, cloudflare challenges, gstatic
+  frame-src: self, xat.com, xatech.com, cloudflare challenges
+  form-action: self, xat.com, xatech.com
+
+CSS FILES:
+  - https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css
+  - https://xat.com/css/animate.css
+  - /content/web/R00242/direct.css
+
+JAVASCRIPT FILES:
+  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js
+  - /content/js/jquery.localize.js
+  - /content/web/R00242/common.js
+  - /content/web/R00242/direct.js?z=qKBsnn#
+
+NAVIGATION BAR:
+  - Fixed top navbar with gradient background (class: gradback)
+  - Logo: /content/web/R00242/img/xatplanet.svg (height=50)
+  - #groupName div (empty on homepage)
+  - #groupDescription div (empty on homepage)
+  - #statnav span (dynamically populated)
+
+HERO SECTION (carousel with data-interval=false):
+  Slide 1 (active): Chat box iframe + "new to xat?" welcome
+    - iframe#embedframe (name=box, 728x486, class=hmemb)
+    - #promo div (empty, dynamically filled)
+    - "learn more" button -> next carousel slide
+    - Social links: twitter, facebook, instagram
+
+  Slide 2: "create a xat group"
+    - Image: tourgroup.png
+    - Link: //xat.com/create
+    - Features: embed on site, members only, customizable
+
+  Slide 3: "powers"
+    - Image: tourpowers.png
+    - Link: //xat.com/powers
+    - Mentions: custom smilies, special effects, group powers
+    - Wiki link: https://xat.wiki/Powers
+
+  Slide 4: "trade powers"
+    - Image: tourtrade.png
+    - Link: //xat.com/trade?new
+    - Stock exchange for traders
+
+  Slide 5: "games"
+    - Image: tourgames.png
+    - Link: //xat.com/game
+    - Doodle: //xat.com/game?ss=10000
+    - DoodleRace: //xat.com/game?ss=60189
+    - Hearts: //xat.com/game?ss=60225
+
+  Slide 6: "xavi animated character"
+    - Image: tourxavi.png
+    - Link: //xat.com/chat?new&open=20047
+    - Requires Xavi power
+
+  Slide 7: "stickers"
+    - Image: tourstickers.png
+    - Link: //xat.com/chat?new&open=selector.Stickers
+    - Requires Sticker powers
+
+GROUPS SECTION:
+  - Search form: action=https://xat.com/tools
+    - Input#searchBox (name=search)
+  - Filter tabs: featured, popular, supported, games
+    - IDs: #xfeatured, #xpopular, #xsupported, #xgames
+  - Thumbnails container: #thumbs (dynamically loaded)
+  - Pagination: 5 pages with prev/next
+
+FOOTER:
+  - Social: Twitter, Facebook, Instagram
+  - Links: privacy/cookies, terms of service, safety
+  - Copyright: "xat"
+
+COOKIE CONSENT:
+  - Agree button, Settings button
+  - Privacy modal with toggles:
+    - Necessary cookies (always checked)
+    - Performance cookies (default checked)
+    - Group tabs / third party (default unchecked)
+
+DIALOGS (empty divs populated dynamically):
+  - #embedDialog
+  - #sendMessageDialog
+  - #inappDialog
+  - #termsDialog
+  - #privacyDialog (privacy modal)
+  - #languageDialog
+
+IMAGES (all under /content/web/R00242/img/):
+  Navbar: xatplanet.svg, help.svg, x_b.svg, facebook.svg, instagram.svg,
+          community.svg, powers.svg, trade.svg, games.svg, xavi.svg,
+          stickersf.svg, search.svg, featured.svg, popular.svg, supported.svg,
+          x.svg, facebook_white.svg, instagram_white.svg, terms.svg
+  Home: tourgroup.png, tourpowers.png, tourtrade.png, tourgames.png,
+        tourxavi.png, tourstickers.png
+  Nav: leftarrow.svg, rightarrow.svg
+
+
+========================================================================
+2. STORE PAGE - https://xat.com/store
+========================================================================
+
+METADATA:
+  - Title: "xat store."
+  - Description: "Buy xats & days, powers and more."
+  - Body class: "invisible" (JS removes this)
+  - xjson: {"type":"home","dir":"/content/web/R00242/"}
+
+ADDITIONAL CSP (store-specific):
+  - img-src adds: pay.openbucks.com/paybutton_v2.php, www.paypalobjects.com
+  - form-action adds: www.paypal.com/cgi-bin/webscr, pay.skrill.com
+
+JAVASCRIPT FILES (store-specific):
+  - /content/web/R00242/box/www/Smilies.js
+  - /content/web/R00242/store.js?z5
+
+STORE BANNER:
+  - iframe#promoframe: src=/content/web/R00242/apps/abx/abx.html
+    sandbox='allow-scripts allow-same-origin allow-top-navigation'
+
+STORE NAVIGATION (10 tabs):
+  1. #tabbuyxats - "xats & days" (icon: buyxats.svg)
+  2. #tabpowers - "powers" (icon: powers.svg)
+  3. #tabaces - "aces" (icon: aces.svg, width=19)
+  4. #tabshortname - "short name" (icon: shortname.svg)
+  5. #tabauction - "auctions" (icon: auctions.svg)
+  6. #tabpromotion - "promotion" (icon: promotion.svg)
+  7. #tabads - "ads" (icon: ads.svg)
+  8. #tabgroup - "groups" (icon: buygroup.svg)
+  9. #tabdays2xats - "dx" (icon: dx.svg, width=23)
+  10. #tabxats2days - "x2d" (icon: x2d.svg, width=19)
+
+COMMON LOGIN SECTION (#CommonDiv):
+  - Input#username (label: "xat username:")
+  - Input#password (type=password, label: "password:")
+  - Checkbox#agreeterms ("I have read and agree to the rules and terms")
+  - Hidden: #checkedAces ("I have understood that the subscribed aces will expire")
+
+--- TAB 1: BUY XATS (#buyxats) ---
+  - h1: "buy xats and days"
+  - Black Friday promo: #xbBuyInfo
+    - 20% back as xatsback on non-reserve payments
+    - Countdown: #xatsBackBuyCountdown
+  - Success message: #buythanks (includes link to //xat.com/login)
+  - Purchase form: #buyform (dynamically populated)
+
+--- TAB 2: POWERS (#powers) ---
+  - h1: "buy powers"
+  - Power categories navbar:
+    - #bpLatest (latest), #bpAll (all), #bpStandard (standard)
+    - #bpRare (rare), #bpEpic (epic), #bpGroup (group)
+    - #bpGames (games), #bpCollection (collection, hidden)
+    - #bpAllpowers (allpowers, hidden)
+  - Search with sort options:
+    - Clear, A-Z, Z-A, 1-9, 9-1, $->$$, $$->$
+    - Save filter checkbox
+  - Powers list table columns:
+    - power | [new] | smiley | cost | quantity | or check | description
+  - Shopping cart (#totalAlert):
+    - Cart table: power, quantity, unit price, total, remove
+  - Xatsback check: #xatsbackbut
+  - Buy button: #buypowersbut
+
+--- TAB 3: ACES (#aces) ---
+  - h1: "subscribe to aces" (with NEW badge)
+  - Rules include:
+    - Expire after given duration
+    - Require days (subscription)
+    - Cannot be traded
+    - Not included in Everypower
+    - Auto-renew system
+    - Level-up discount system at milestones
+    - Canceling auto-renew keeps level
+    - Gifted aces no discount, transferring resets level
+  - Dynamic card container: #flex-container
+  - Subscribe button: #acesbut
+
+--- TAB 4: SHORT NAME (#shortname) ---
+  - h1: "buy a short user name"
+  - Rules: 4-9 letters, costs vary, unused 90 days may be resold
+  - Only one short name per person
+  - Input#wantedname (desired name)
+  - Note: 'i' always lowercase, 'L' always uppercase
+  - "get cost" button -> reveals cost + buy button
+  - Cost display: #shortxats (in xats)
+  - Buy button: #buyshortname
+
+--- TAB 5: AUCTIONS (#auction) ---
+  - h1: "bid on auctions"
+  - Phase display: #Phaseerr
+  - Rules:
+    - Public auction (username/ID shown)
+    - Bids are binding
+    - Must claim within 12 hours of ending
+    - Failure: fined or deleted
+    - Mistake: lose 20% bid (notify immediately)
+    - Moving xats away: lose 100%
+    - Name auctions: old name lost
+  - Input#DesiredID (desired id)
+  - Input#StartingBid (bid in xats)
+  - Button: #auctionbut "enter bid"
+  - Previous results link: ?old=1#!auction
+
+--- TAB 6: PROMOTION (#promotion) ---
+  - h1: "promote a chat group"
+  - Rules:
+    - Age 14+ suitable content
+    - Must be moderated
+    - No rank sales, no religious/political
+    - Radio warning required for 18+ content
+    - Correct language required
+    - Don't use /pr excessively (use /p instead)
+    - No selling items/services in ads
+  - Input#promoname (group name)
+  - #promolang (language, from group settings)
+  - Input#promohours (type=number, min=0, minimum 0.5 hours)
+  - Cost display with radio: Xats or Days
+  - #adcostbut "get cost"
+  - #promobut "promote now!"
+
+--- TAB 7: ADS (#promotion shared, class AdDiv) ---
+  - h1: "advertise your chat with banner ads on xat"
+  - Input#adimage (728x90 ad image URL)
+    - Accepted hosts: imgur, postimg, xatimg
+  - Authorization required: 50 xats
+  - #authbut "authorize"
+  - #adbut "advertise"
+
+--- TAB 8: GROUPS (#group) ---
+  - h1: "buy a chat group"
+  - Transfer unused groups
+  - Rules: ownerless 3+ months, email set to buyer's
+  - Input#wantedgroup (group name)
+  - #getcost "get cost"
+  - Cost display: #groupxats (in xats)
+  - #butbuygroup "buy [groupname]"
+
+--- TAB 9: DX - Days to Xats (#days2xats) ---
+  - h1: "convert days to xats"
+  - Rules:
+    - Requires 1 DX power per conversion (consumed)
+    - Up to 180 days per DX power
+    - Rate: 13.5 xats per day
+  - Input#NoOfDays (type=number, days to convert)
+  - #days2xatsbut "convert"
+
+--- TAB 10: X2D - Xats to Days (#xats2days) ---
+  - h1: "convert xats to days"
+  - Rules:
+    - Requires 1 X2D power per conversion (consumed)
+    - Up to 2500 xats per X2D power
+    - Rate: 1 day per 13.5 xats
+  - Input#NoOfXats (type=number, xats to convert)
+  - #xats2daysbut "convert"
+
+PAYMENT METHODS (from CSP):
+  - PayPal (www.paypal.com/cgi-bin/webscr)
+  - Skrill (pay.skrill.com)
+  - OpenBucks (pay.openbucks.com)
+
+
+========================================================================
+3. POW2.PHP API - https://xat.com/web_gear/chat/pow2.php
+========================================================================
+
+Returns JSON array of arrays. Each entry is [key, value].
+Total file size: 82,846 bytes.
+
+STRUCTURE:
+[0] "last" = {"id": 741, "text": "[LIMITED]"}
+    - Latest power ID and its availability tag
+
+[1] "backs" = 363 entries (b87 through b452)
+    - Background cosmetics mapped to smiley names
+    - Format: "b{id}": "smileyname"
+    - Examples: b87=kmback, b89=zombieback, b90=kheartb
+
+[2] "actions" = 2 entries
+    - "22": "tipsy,merry,drunk"
+    - "23": "party,2013,year,newyear"
+
+[3] "hugs" = 54 entries
+    - Hug type to power ID mapping
+    - Examples: purp=35, love=375, classic=410, battle=420
+    - Special multi-hugs: jumble=100387, hang=100394, egg=100400,
+      space=100407, middle=110387, rspace=110407, reverse=120387,
+      mix=130387, ends=140387
+
+[4] "topsh" = 3,869 entries
+    - Top-layer items (hats/accessories) mapped to power IDs
+    - Format: "smileyname": powerID
+    - Examples: putears=35, vbat=202, vfangs=202
+
+[5] "isgrp" = 12 entries (group powers)
+    - Power IDs that are group-type: 252, 278, 310, 318, 472, 478, 488, 598, 634, 652, 682, 720
+
+[6] "pssa" = 505 entries
+    - Power name to power ID mapping
+    - Format: "powername": powerID
+    - Covers all purchasable powers (vampyre=202 through latest)
+
+[7] "pawns" = 51 entries
+    - Custom pawn (avatar) definitions
+    - Format: "char": [powerID, "pawnAssetName"]
+    - time: 1799450369
+    - Examples: N=[390,"p1namewave1"], C=[410,"p1classic"], d=[726,"p1driver1"]
+    - Special: !=[999,""] (placeholder)
+
+[8] "nonmob" = 17 entries
+    - Bitmask flags for non-mobile powers
+    - Format: "bitPosition": bitmaskValue
+    - Used to determine which powers work on mobile
+
+[9] "pawns2" = 1 entry
+    - "999": [31, "p1123"]
+
+[10] "SuperP" = 17 entries (Super Power collections)
+    - Each super power collection contains:
+      - "n": comma-separated power IDs in collection
+      - "p": comma-separated smiley names
+      - "s": comma-separated super smiley names
+    Collections:
+      500 = superanime (10 powers)
+      505 = supersummer (9 powers)
+      519 = superhalloween (17 powers)
+      526 = superxmas (15 powers)
+      533 = superheart (8 powers)
+      541 = superhobby (5 powers)
+      566 = superscary (18 powers)
+      574 = supersanta (14 powers)
+      584 = superlove (13 powers)
+      588 = superegg (8 powers)
+      600 = superkao (22 powers)
+      642 = superfx (24 powers)
+      647 = superbunny (7 powers)
+      660 = superbf (6 powers)
+      663 = superzoo (20 powers)
+      668 = superfarm (24 powers)
+      695 = superhistory (13 powers)
+
+[11] "EmoteP" = 1 entry
+    - Power 502: massive list of emote/prop smileys
+    - Includes: prop, cb, tort, haira6, dance, nerd, bowtie, etc.
+
+[12] "Sticker" = comma-separated power IDs
+    - 548,553,556,558,561,564,570,571,573,576,578,581,582,594,599,605,
+      614,616,622,624,629,633,680,683,687,690,691,692,725,730,731
+
+[13] "Free" = comma-separated free smiley names
+    - drooling,phew,o:tp,o:seeall,ohsure,o:done,o:err,nc,agitated,
+      dab,bowing,kissing,steaming,flushed
+
+[14] "Types" = 38 power categories
+    Format: "category": "flag1,flag2,type,powerID1,powerID2,..."
+    Categories:
+      function (81 powers) - type "function"
+      colors (6 powers) - type "function"
+      superheart (8 powers) - type "collection"
+      back (4 powers) - type "other"
+      epic (13 powers) - type "epic"
+      yellow (many powers) - type "smiley"
+      smiley (many powers) - type "smiley"
+      superhalloween - type "collection"
+      superanime - type "collection"
+      holiday - type "other"
+      superxmas - type "collection"
+      superlove - type "collection"
+      superbunny - type "collection"
+      superkao - type "collection"
+      animal (12 powers) - type "smiley"
+      blasts (6 powers) - type "function"
+      supersummer - type "collection"
+      kao (15 powers) - type "smiley"
+      superhistory - type "collection"
+      gamebans (6 powers) - type "function"
+      superfarm - type "collection"
+      superscary - type "collection"
+      supersanta - type "collection"
+      superfx - type "collection"
+      other (25 powers) - type "other"
+      games (8 powers) - type "function"
+      superzoo - type "collection"
+      superegg - type "collection"
+      superbf - type "collection"
+      event (9 powers) - type "other"
+      fx (5 powers) - type "smiley"
+      hugs (4 powers) - type "function"
+      jinx (4 powers) - type "function"
+      santa (1 power) - type "smiley"
+      superhobby - type "collection"
+      stickers (25 powers) - type "function"
+      ace (5 powers) - type "function"
+      supers - type "collection" (master collection of all supers)
+
+[15] "Aces" = 5 entries
+    - yellow: 700 (Ace Yellow power ID)
+    - iconcolor: 702
+    - pawnhue: 728
+    - xaf: 736
+    - vaf: 738
+
+[16] "Effects" = 9 entries
+    - Background effects: snowy3, snowy4, fireworks, glitter, snowy2,
+      fireworks2, heartrain, confetti, balloon
+
+[17] "Frames" = 17 entries
+    - Frame overlays: snowy1-5, golden, silverframe, snowyframe,
+      heartframe, starframe, pinkframe, flashy, flashy2, flashy3,
+      orangeframe, bframe, xframe
+
+[18] "Flixes" = 9 entries (list)
+    - Animation effects: g92, g96, g98, g99, g120, g164, g167, g205, g282
+
+
+========================================================================
+4. ALL DISCOVERED API ENDPOINTS (from common.js)
+========================================================================
+
+STORE/TRANSACTION APIs:
+  /web_gear/chat/buy2.php              - Buy xats/days
+  /web_gear/chat/powers.php            - Powers purchasing
+  /web_gear/chat/GetPowers5.php        - Powers with pricing (blocked by CF)
+  /web_gear/chat/GetAces.php           - Aces data
+  /web_gear/chat/pow2.php              - Powers metadata (accessible!)
+  /web_gear/chat/promotion2.php        - Promotion purchasing
+  /web_gear/chat/TransferGroup2.php    - Group transfer
+  /web_gear/chat/BuyShortName2.php     - Short name purchase
+  /web_gear/chat/Auction2.php          - Auction bidding
+  /web_gear/chat/DaysToXats2.php       - Days->Xats conversion
+  /web_gear/chat/XatsToDays2.php       - Xats->Days conversion
+
+USER/AUTH APIs:
+  /web_gear/chat/register5.php         - Registration
+  /web_gear/chat/auser3.php            - User authentication/data
+  /web_gear/chat/Announce.php          - Announcements
+
+CONTENT APIs:
+  /json/lang/languages.php             - Language list (blocked by CF)
+  /json/promo.php?c=                   - Promotions data (blocked by CF)
+  /web_gear/chat/chats.php?v=yHv2&type=trade - Trade chat listing
+  /web_gear/chat/chats.php?v=yHv2&type=help  - Help chat listing
+  https://i0.xat.com/web_gear/chat/GetImage7.php - Avatar/image service
+
+CHAT EMBED:
+  /embed/chat.php#id=%CHAT_ID%&gn=%CHAT_NAME%
+  /web_gear/chat/embed.php?id=%CHAT_ID%&GroupName=%CHAT_NAME%
+
+OTHER DISCOVERED URLs:
+  //xat.com/json/translate             - Translation API
+  //xat.com/login?mode=1&              - Login with mode param
+  https://xat.com/_help                - Help redirect
+  https://xat.com/_trade               - Trade redirect
+  https://xat.com/chats#!creategroup   - Create group
+  https://xat.com/chats#!editgroup&roomid= - Edit group
+  https://xat.com/chats#!events&roomid=    - Group events
+  https://xat.com/editme#              - Edit profile
+  https://xat.com/report#!group&GroupName= - Report group
+  https://xat.com/maintenance          - Maintenance page
+  https://xat.com/logout               - Logout
+
+
+========================================================================
+5. BLOCKED PAGES (Cloudflare challenge - 403)
+========================================================================
+
+The following pages returned Cloudflare "Just a moment..." challenge pages,
+requiring JavaScript execution and cookie solving to access:
+
+  - https://xat.com/login
+  - https://xat.com/register
+  - https://xat.com/buy
+  - https://xat.com/powers
+  - https://xat.com/trade
+  - https://xat.com/auction
+  - https://xat.com/editme
+  - https://xat.com/shortname
+  - https://xat.com/promotion
+  - https://xat.com/chats
+  - https://xat.com/search
+  - https://xat.com/aces
+  - https://xat.com/privacy
+  - https://xat.com/terms
+  - https://xat.com/safety
+  - https://xat.com/Chat
+  - https://xat.com/web_gear/chat/GetPowers5.php
+  - https://xat.com/json/lang/languages.php
+  - https://xat.com/json/promo.php
+
+The Cloudflare challenge uses:
+  - cZone: 'xat.com'
+  - cType: 'managed'
+  - Challenge platform: /cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1
+
+
+========================================================================
+6. TECHNICAL ARCHITECTURE
+========================================================================
+
+WEB FRAMEWORK:
+  - Bootstrap 4.5.3 (CSS + JS bundle)
+  - jQuery 3.5.1
+  - Handlebars 4.7.6 (runtime only - precompiled templates)
+  - jquery-csv 1.0.11
+  - Custom CSS: /content/web/R00242/direct.css (40KB)
+  - animate.css for animations
+
+JAVASCRIPT (all obfuscated):
+  - common.js (105KB) - Core functionality, endpoints, navigation
+  - direct.js (52KB) - Homepage-specific logic
+  - store.js (977KB!) - Store functionality (massive)
+  - Smilies.js - Smiley/emote rendering
+  - jquery.localize.js - i18n/l10n system
+
+LOCALIZATION:
+  - data-localize attributes throughout (e.g., "buy.xatsdays", "web.store")
+  - Translation endpoint: //xat.com/json/translate
+  - Language list: /json/lang/languages.php
+
+ASSET DIRECTORY:
+  /content/web/R00242/ - Current release directory
+    /img/ - Images and icons
+    /img/navbar/ - Navigation SVG icons
+    /img/home/ - Homepage tour images
+    /apps/abx/ - Banner/ad system
+    /box/www/ - Chat box assets
+
+DOMAINS:
+  - xat.com - Main site
+  - xat.me - Alias (redirects to xat.com in JS)
+  - xatech.com / *.xatech.com - Technical infrastructure
+  - i0.xat.com - Image/avatar CDN
+  - xat.wiki - Documentation wiki
+
+IMAGE PROXIES:
+  - images.weserv.nl
+  - wsrv.nl
+
+HOSTING PROVIDERS:
+  - Cloudflare (CDN, WAF, challenge)
+  - Google Analytics / Tag Manager
+
+STORE ICONS (all SVG, under /content/web/R00242/img/navbar/):
+  buyxats.svg, powers.svg, aces.svg, shortname.svg, auctions.svg,
+  promotion.svg, ads.svg, buygroup.svg, dx.svg, x2d.svg, store.svg,
+  arrow.svg, community.svg, trade.svg, games.svg, xavi.svg,
+  stickersf.svg, search.svg, featured.svg, popular.svg, supported.svg,
+  help.svg, terms.svg, x.svg, x_b.svg, facebook.svg, facebook_white.svg,
+  instagram.svg, instagram_white.svg
+
+
+========================================================================
+7. CONVERSION RATES
+========================================================================
+
+  Days to Xats (DX): 13.5 xats per day (max 180 days per DX power)
+  Xats to Days (X2D): 1 day per 13.5 xats (max 2500 xats per X2D power)
+  Both require consuming a DX or X2D power respectively.
+
+
+========================================================================
+8. KEY BUSINESS RULES
+========================================================================
+
+POWERS:
+  - Require active subscription (days) to function
+  - Prices fluctuate based on demand
+  - Tradable between users
+  - Can be turned on/off individually
+  - Each has an associated smiley
+  - Non-refundable
+  - Latest power: ID 741 (LIMITED)
+
+ACES (subscription-based):
+  - Require days to function
+  - Time-limited subscriptions
+  - Auto-renew option
+  - Level-up discount system
+  - Cannot be traded
+  - Not included in Everypower
+  - 5 ace types: yellow(700), iconcolor(702), pawnhue(728), xaf(736), vaf(738)
+
+SHORT NAMES:
+  - 4-9 characters
+  - Only one per person
+  - Unused 90 days may be resold
+  - Costs vary
+  - Replaces current name
+
+AUCTIONS:
+  - Must claim within 12 hours of winning
+  - Bids are binding
+  - Mistake: lose 20% (must notify immediately)
+  - Moving xats away after winning: lose 100%
+  - Name auctions: old name is lost
+
+GROUPS:
+  - Must be ownerless 3+ months to transfer
+  - Email set to buyer's
+  - Inappropriate names may be deleted without refund
+
+PROMOTIONS:
+  - Age 14+ content only
+  - Must be moderated
+  - No rank sales
+  - No religious/political content
+  - Minimum 0.5 hours
+  - Can pay with xats or days
+  - Banner ads: 728x90 pixels, image authorization costs 50 xats

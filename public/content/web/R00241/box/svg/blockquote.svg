@@ -1,0 +1,22 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="23px" height="23px" viewBox="0 0 23 23">
+<defs>
+<g id="quote_0_Layer0_0_MEMBER_0_FILL">
+<path fill="#000000" stroke="none" d="
+M 10.7 10.15
+Q 11.25 7.65 10.8 5.25 10.3 2.6 8.45 1.1 8.2 0.95 7.95 0.8 7.15 0.35 6.4 0.25 3.35 -0.6 1.25 1.9 -0.3958984375 3.8458984375 -0.3 6.35 -0.1623046875 8.8623046875 1.65 10.15 3.46640625 11.48359375 6.15 10.3 5.35 13.8 4.1 15.7 2.75 17.55 1.7 18.2 3.3 18.55 5 17.8 6.65 17 8.4 14.95 10.1 12.85 10.7 10.15 Z"/>
+</g>
+</defs>
+
+<g transform="matrix( 0.8826751708984375, 0, 0, 0.7664642333984375, 0.25,4.45) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#quote_0_Layer0_0_MEMBER_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.8826751708984375, 0, 0, 0.7664642333984375, 13.3,4.45) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#quote_0_Layer0_0_MEMBER_0_FILL"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,128 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat wiki</div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/login'">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="location.href='/register'">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <h1>xat Wiki</h1>
+
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <img src="/content/web/R00241/img/navbar/help.svg" width="48" class="mb-3" alt="getting started">
+          <h4>Getting Started</h4>
+          <p>New to xat? Learn the basics of chatting, making friends, and customizing your experience.</p>
+          <a href="/Help" class="btn btn-primary">visit Help chat</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <img src="/content/web/R00241/img/navbar/powers.svg" width="48" class="mb-3" alt="powers">
+          <h4>Powers Guide</h4>
+          <p>Learn about xat powers — special abilities that enhance your chat experience with effects and smilies.</p>
+          <a href="/powers" class="btn btn-primary">browse powers</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <img src="/content/web/R00241/img/navbar/community.svg" width="48" class="mb-3" alt="groups">
+          <h4>Group Management</h4>
+          <p>Learn how to create, customize, and moderate your own xat chat group.</p>
+          <a href="/chats" class="btn btn-primary">manage groups</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <img src="/content/web/R00241/img/navbar/trade.svg" width="48" class="mb-3" alt="trading">
+          <h4>Trading</h4>
+          <p>Learn how to safely trade xats, days, and powers with other users.</p>
+          <a href="/Trade" class="btn btn-primary">visit Trade chat</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <img src="/content/web/R00241/img/navbar/account.svg" width="48" class="mb-3" alt="account">
+          <h4>Account Help</h4>
+          <p>Manage your account settings, recover lost passwords, and update your profile.</p>
+          <a href="/login" class="btn btn-primary">account panel</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <img src="/content/web/R00241/img/navbar/terms.svg" width="48" class="mb-3" alt="safety">
+          <h4>Safety</h4>
+          <p>Stay safe on xat. Learn about protecting your account and personal information.</p>
+          <a href="/safety" class="btn btn-primary">safety center</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h3>Chat Commands</h3>
+      <table class="table table-sm">
+        <thead><tr><th>Command</th><th>Description</th><th>Requires</th></tr></thead>
+        <tbody>
+          <tr><td><code>/help</code></td><td>Show available commands</td><td>Anyone</td></tr>
+          <tr><td><code>/kick username</code></td><td>Kick a user from the chat</td><td>Moderator</td></tr>
+          <tr><td><code>/ban username</code></td><td>Ban a user from the chat</td><td>Moderator</td></tr>
+          <tr><td><code>/unban username</code></td><td>Unban a user</td><td>Moderator</td></tr>
+          <tr><td><code>/gag username</code></td><td>Mute a user</td><td>Moderator</td></tr>
+          <tr><td><code>/ungag username</code></td><td>Unmute a user</td><td>Moderator</td></tr>
+          <tr><td><code>/mod username</code></td><td>Give moderator rank</td><td>Owner</td></tr>
+          <tr><td><code>/member username</code></td><td>Give member rank</td><td>Moderator</td></tr>
+          <tr><td><code>/guest username</code></td><td>Reset to guest rank</td><td>Moderator</td></tr>
+          <tr><td><code>/owner username</code></td><td>Transfer ownership</td><td>Main Owner</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>

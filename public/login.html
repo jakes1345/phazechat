@@ -1,0 +1,278 @@
+<nav id="navTop" class="navbar navbar-expand-md navbar-dark fixed-top gradback p-0">
+  <div class="header-flex">
+    <div>
+      <a class="navbar-brand p-0 m-0 ml-2" href="/">
+        <img id="navLogo" src="/content/web/R00241/img/xatplanet.svg" height="50" alt="logo" style="padding-right: 10px;">
+      </a>
+    </div>
+    <div class="logoname-flex">
+      <div id="groupName">xat <span data-localize="login.login">login</span></div>
+      <div id="groupDescription"></div>
+    </div>
+  </div>
+  <span id="statnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mobpad">
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-1" src="/content/web/R00241/img/navbar/groups.svg" width="19"><span data-localize="web.groups">groups</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/store"><img class="mr-1" src="/content/web/R00241/img/navbar/store.svg" width="19"><span data-localize="web.store">store</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/"><img class="mr-0" src="/content/web/R00241/img/xatplanet.svg" width="19"><span data-localize="web.xat">xat</span></a></li>
+        <li class="nav-item showxs">
+          <button id="navLogin" class="btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="document.getElementById('tablogin').click()">login</button>
+          <button id="navRegister" class="btn btn-primary btn-sm my-2 my-sm-0 mr-1" type="button" onclick="document.getElementById('tabregister').click()">register</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</nav>
+
+<div class="container" style="padding-top: 70px;">
+  <!-- Promo banner -->
+  <div class="text-center mb-3 xbanner">
+    <iframe title="xat banner" id="promoframe" src="/content/web/R00241/apps/abx/abx.html" scrolling="no" sandbox="allow-scripts allow-same-origin allow-top-navigation" style="border:none; width:728px; height:90px;"></iframe>
+  </div>
+
+  <h1 data-localize="web.loginpanel" id="panel">xat account panel</h1>
+
+  <!-- Tab navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light newnav">
+    <a class="navbar-brand newbartitle" href="#">menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavLogin">
+      <span class="navbar-toggler-icon darktoggle"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavLogin">
+      <div class="navbar-nav">
+        <li class="nav-item"><a id="tablogin" class="NavTabs nav-link active" href="#">login</a></li>
+        <li class="nav-item"><a id="tablost" class="NavTabs nav-link" href="#">lost password/username</a></li>
+        <li class="nav-item"><a id="tabregister" class="NavTabs nav-link" href="#">register for a xat id</a></li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login panel -->
+  <div id="login" class="HideDiv Dialog">
+    <h2 id="loginHead"><span data-localize="login.loginid">log in with a xat id</span></h2>
+    <div id="loginerr" class="alert alert-danger d-none" role="alert"></div>
+    <form id="loginForm" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" data-localize="buy.xatname">xat username:</label>
+        <input type="text" class="form-control" id="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password"><span data-localize="buy.password">password</span>:</label>
+        <div class="input-group">
+          <input type="password" class="form-control passInput" id="password" required>
+          <div class="input-group-append">
+            <button id="passviewbut" class="btn btn-outline-secondary" type="button" onclick="var p=document.getElementById('password');p.type=p.type==='password'?'text':'password'">show</button>
+          </div>
+        </div>
+      </div>
+      <div class="pb-3">
+        <font color="#FF0000">Please ensure your browser is on this server.<br>
+        <b>IMPORTANT: We will NEVER ask for your email password.</b></font><br>
+        Only use your email password to log in to your email. Please read the security info.
+      </div>
+      <a id="butlogin" href="#" class="btn btn-primary btn-large">
+        <img class="mr-2 pb-1" src="/content/web/R00241/img/navbar/account.svg" width="19" alt="account">
+        <span data-localize="login.login">login</span>
+      </a>
+    </form>
+  </div>
+
+  <!-- Register panel (initially hidden) -->
+  <div id="register" class="HideDiv Dialog d-none">
+    <h2><span data-localize="login.registerid">register for a xat id</span></h2>
+    <div id="registererr" class="alert alert-danger d-none" role="alert"></div>
+    <form id="registerForm" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="regusername">username:</label>
+        <input type="text" class="form-control" id="regusername" required minlength="2" maxlength="20" pattern="[a-zA-Z0-9_]+">
+        <small class="form-text text-muted">2-20 characters, letters, numbers, and underscores only.</small>
+      </div>
+      <div class="mb-3">
+        <label for="regpassword">password:</label>
+        <input type="password" class="form-control" id="regpassword" required minlength="4">
+      </div>
+      <div class="mb-3">
+        <label for="regpassword2">confirm password:</label>
+        <input type="password" class="form-control" id="regpassword2" required>
+      </div>
+      <a id="butregister" href="#" class="btn btn-primary btn-large">
+        <img class="mr-2 pb-1" src="/content/web/R00241/img/navbar/account.svg" width="19">
+        register
+      </a>
+    </form>
+  </div>
+
+  <!-- Lost password panel (initially hidden) -->
+  <div id="lost" class="HideDiv Dialog d-none">
+    <h2>lost password/username</h2>
+    <div id="resetStep1">
+      <div class="form-group">
+        <label for="resetUsername">Username</label>
+        <input type="text" class="form-control" id="resetUsername" required>
+      </div>
+      <button id="butReset" class="btn btn-primary">Request Reset Token</button>
+      <div id="resetMsg" class="mt-2"></div>
+    </div>
+    <div id="resetStep2" class="d-none">
+      <p class="text-muted">Enter the reset token provided by the server administrator, then set your new password.</p>
+      <div class="form-group">
+        <label for="resetToken">Reset Token</label>
+        <input type="text" class="form-control" id="resetToken" required>
+      </div>
+      <div class="form-group">
+        <label for="resetNewPass">New Password</label>
+        <input type="password" class="form-control" id="resetNewPass" required minlength="4">
+      </div>
+      <button id="butConfirmReset" class="btn btn-primary">Reset Password</button>
+      <div id="resetConfirmMsg" class="mt-2"></div>
+    </div>
+    <script>
+    document.getElementById('butReset').onclick = function() {
+      var username = document.getElementById('resetUsername').value.trim();
+      if (!username) return;
+      fetch('/auth/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        document.getElementById('resetMsg').innerHTML = '<div class="alert alert-info">' + data.message + '</div>';
+        document.getElementById('resetStep2').classList.remove('d-none');
+      });
+    };
+    document.getElementById('butConfirmReset').onclick = function() {
+      var token = document.getElementById('resetToken').value.trim();
+      var newPass = document.getElementById('resetNewPass').value;
+      if (!token || !newPass) return;
+      fetch('/auth/reset-password/confirm', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: token, newPassword: newPass })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.message && !data.error) {
+          document.getElementById('resetConfirmMsg').innerHTML = '<div class="alert alert-success">' + data.message + '</div>';
+        } else {
+          document.getElementById('resetConfirmMsg').innerHTML = '<div class="alert alert-danger">' + (data.error || 'Reset failed') + '</div>';
+        }
+      });
+    };
+    </script>
+  </div>
+</div>
+
+<div id="cookiePopup" class="alert alert-dismissible text-center cookiePopup" role="alert">
+  <div>
+    <span>xat uses <a href="/privacy">cookies</a> and your use is subject to <a href="/terms">terms</a></span>
+    <button id="cookieAgree" type="button" class="btn btn-primary btn-sm cookieButton" onclick="this.closest('.cookiePopup').style.display='none'">agree</button>
+    <button id="cookieSettings" type="button" class="btn btn-outline-secondary btn-sm cookieButton">settings</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Tab switching
+  var tabs = document.querySelectorAll('.NavTabs');
+  var panels = { tablogin: 'login', tablost: 'lost', tabregister: 'register' };
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      Object.values(panels).forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('d-none');
+      });
+      var target = panels[tab.id];
+      if (target) document.getElementById(target).classList.remove('d-none');
+    });
+  });
+
+  // Login
+  document.getElementById('butlogin').addEventListener('click', function(e) {
+    e.preventDefault();
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    if (!username || !password) {
+      showError('loginerr', 'Username and password required');
+      return;
+    }
+    fetch('/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username, password: password })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.error) {
+        showError('loginerr', data.error);
+      } else {
+        localStorage.setItem('xat_token', data.token);
+        localStorage.setItem('xat_user', JSON.stringify(data.user));
+        window.location.href = '/';
+      }
+    }).catch(function(err) { showError('loginerr', 'Login failed: ' + err.message); });
+  });
+
+  // Register
+  document.getElementById('butregister').addEventListener('click', function(e) {
+    e.preventDefault();
+    var username = document.getElementById('regusername').value;
+    var password = document.getElementById('regpassword').value;
+    var password2 = document.getElementById('regpassword2').value;
+    if (!username || !password) {
+      showError('registererr', 'All fields required');
+      return;
+    }
+    if (password !== password2) {
+      showError('registererr', 'Passwords do not match');
+      return;
+    }
+    fetch('/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username, password: password })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+      if (data.error) {
+        showError('registererr', data.error);
+      } else {
+        localStorage.setItem('xat_token', data.token);
+        localStorage.setItem('xat_user', JSON.stringify(data.user));
+        window.location.href = '/';
+      }
+    }).catch(function(err) { showError('registererr', 'Registration failed: ' + err.message); });
+  });
+
+  // Enter key support
+  document.getElementById('password').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') document.getElementById('butlogin').click();
+  });
+
+  function showError(id, msg) {
+    var el = document.getElementById(id);
+    el.textContent = msg;
+    el.classList.remove('d-none');
+  }
+
+  // Check if already logged in
+  var token = localStorage.getItem('xat_token');
+  if (token) {
+    fetch('/auth/me', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.user) {
+        document.getElementById('login').innerHTML = '<div class="alert alert-success">Logged in as <strong>' + data.user.username + '</strong> (ID: ' + data.user.id + ')</div><a href="/" class="btn btn-primary">go to homepage</a> <a href="#" class="btn btn-outline-danger ml-2" onclick="localStorage.removeItem(\'xat_token\');localStorage.removeItem(\'xat_user\');location.reload()">logout</a>';
+      }
+    });
+  }
+
+  // If URL is /register, show register tab
+  if (window.location.pathname === '/register') {
+    document.getElementById('tabregister').click();
+  }
+})();
+</script>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 320" width="284" height="320">
+  <!-- Ears -->
+  <circle cx="92" cy="92" r="36" fill="#c8843a"/>
+  <circle cx="192" cy="92" r="36" fill="#c8843a"/>
+  <circle cx="92" cy="92" r="22" fill="#e0a060"/>
+  <circle cx="192" cy="92" r="22" fill="#e0a060"/>
+  <!-- Head -->
+  <circle cx="142" cy="170" r="90" fill="#c8843a"/>
+  <!-- Face area -->
+  <ellipse cx="142" cy="190" rx="52" ry="40" fill="#e0a060"/>
+  <!-- Eyes -->
+  <circle cx="114" cy="154" r="14" fill="white"/>
+  <circle cx="170" cy="154" r="14" fill="white"/>
+  <circle cx="118" cy="154" r="9" fill="#2a1a0a"/>
+  <circle cx="174" cy="154" r="9" fill="#2a1a0a"/>
+  <circle cx="120" cy="151" r="3" fill="white"/>
+  <circle cx="176" cy="151" r="3" fill="white"/>
+  <!-- Nose -->
+  <ellipse cx="142" cy="188" rx="16" ry="11" fill="#4a2a10"/>
+  <!-- Nostrils -->
+  <circle cx="136" cy="190" r="4" fill="#2a1000"/>
+  <circle cx="148" cy="190" r="4" fill="#2a1000"/>
+  <!-- Mouth -->
+  <path d="M126,202 Q142,218 158,202" stroke="#4a2a10" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="98" cy="192" r="18" fill="#e07070" opacity="0.4"/>
+  <circle cx="186" cy="192" r="18" fill="#e07070" opacity="0.4"/>
+  <!-- Bow tie -->
+  <polygon points="142,248 118,262 142,270" fill="#e83060"/>
+  <polygon points="142,248 166,262 142,270" fill="#c02050"/>
+  <circle cx="142" cy="259" r="8" fill="#e83060"/>
+</svg>
