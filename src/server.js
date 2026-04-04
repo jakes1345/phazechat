@@ -452,7 +452,13 @@ const POWER_DEFS = POWER_DEFS_JSON.map(p => [p.id, p.name, p.section, 0, 0, p.is
   console.log(`Powers seeded: ${POWER_DEFS.length}`);
 }
 
-app.use(cors());
+// Restrict CORS to same origin. Set ALLOWED_ORIGIN env var to permit a specific
+// external frontend (e.g. https://yourchat.example.com). Wildcard is intentionally avoided.
+const corsOrigin = process.env.ALLOWED_ORIGIN || false;
+app.use(cors({
+  origin: corsOrigin,
+  credentials: true,
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -497,11 +503,24 @@ function hashPassword(password) {
 }
 
 function verifyPassword(password, hash) {
+  // Reject non-scrypt hashes (guest:no-password, bot:..., __seed__) immediately
+  if (!hash || hash.startsWith('guest:') || hash.startsWith('bot:') || hash === '__seed__') {
+    return Promise.resolve(false);
+  }
   return new Promise((resolve, reject) => {
-    const [salt, key] = hash.split(':');
+    const colonIdx = hash.indexOf(':');
+    if (colonIdx === -1) return resolve(false);
+    const salt = hash.slice(0, colonIdx);
+    const key = hash.slice(colonIdx + 1);
+    // Validate key is valid hex before attempting Buffer conversion
+    if (!/^[0-9a-f]+$/i.test(key) || key.length !== 128) return resolve(false);
     crypto.scrypt(password, salt, 64, (err, derived) => {
-      if (err) reject(err);
-      resolve(crypto.timingSafeEqual(Buffer.from(key, 'hex'), derived));
+      if (err) return reject(err);
+      try {
+        resolve(crypto.timingSafeEqual(Buffer.from(key, 'hex'), derived));
+      } catch(e) {
+        resolve(false);
+      }
     });
   });
 }
@@ -757,6 +776,10 @@ app.post('/auth/login', async (req, res) => {
 // Generates a one-time reset token valid for 15 minutes. The user gets the token
 // from the admin panel or server logs, then uses it to set a new password.
 app.post('/auth/reset-password', (req, res) => {
+  const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+  if (!rateLimit('reset:' + clientIp, 3, 300000)) {
+    return res.status(429).json({ error: 'Too many reset attempts. Try again later.' });
+  }
   const { username } = req.body;
   if (!username) {
     return res.status(400).json({ error: 'Username required' });
@@ -777,12 +800,17 @@ app.post('/auth/reset-password', (req, res) => {
   // Clear any existing reset tokens for this user
   db.prepare('DELETE FROM password_resets WHERE user_id = ?').run(user.id);
   db.prepare('INSERT INTO password_resets (token, user_id, expires_at) VALUES (?, ?, ?)').run(resetToken, user.id, expiresAt);
-  console.log(`[Auth] Password reset token for ${user.username}: ${resetToken}`);
+  // NOTE: Token is intentionally NOT logged. Retrieve it via the admin DB or a secure admin endpoint.
+  console.log(`[Auth] Password reset token generated for ${user.username} (expires in 15 min) — retrieve from DB: SELECT token FROM password_resets WHERE user_id = ${user.id};`);
   res.json({ message: 'If the account exists, a reset token has been generated. Ask the server admin for it.' });
 });
 
 // Complete password reset with token
 app.post('/auth/reset-password/confirm', async (req, res) => {
+  const clientIp = req.ip || req.connection.remoteAddress || 'unknown';
+  if (!rateLimit('reset-confirm:' + clientIp, 5, 300000)) {
+    return res.status(429).json({ error: 'Too many attempts. Try again later.' });
+  }
   const { token, newPassword } = req.body;
   if (!token || !newPassword) {
     return res.status(400).json({ error: 'Token and new password required' });
@@ -795,8 +823,7 @@ app.post('/auth/reset-password/confirm', async (req, res) => {
   if (!reset) {
     return res.status(400).json({ error: 'Invalid or expired reset token' });
   }
-  const bcrypt = require('bcryptjs');
-  const hash = await bcrypt.hash(newPassword, 10);
+  const hash = await hashPassword(newPassword);
   db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(hash, reset.user_id);
   db.prepare('UPDATE password_resets SET used = 1 WHERE token = ?').run(token);
   // Invalidate all existing sessions for this user
@@ -2698,12 +2725,12 @@ function handleXatConnection(ws) {
                 dbUser = db.prepare('SELECT * FROM users WHERE id = ?').get(tokenRow.user_id);
                 db.prepare('DELETE FROM k1_tokens WHERE token = ?').run(k);
                 if (dbUser) console.log(`[Auth] WASM k1 auth: ${dbUser.username} (ID: ${dbUser.id})`);
+              } else {
+                // k1 token was provided but is invalid/expired — reject, do not fall back
+                sendTo(ws, xmlTag('e', { t: 'Authentication failed: invalid or expired token.' }));
+                ws.close();
+                return;
               }
-            }
-
-            // Fallback: find user by ID
-            if (!dbUser && userId) {
-              dbUser = db.prepare('SELECT * FROM users WHERE id = ?').get(userId);
             }
 
             // If still no user, auto-create a guest account for WASM clients
@@ -7371,9 +7398,14 @@ app.get('/api/friends', (req, res) => {
 });
 
 // Transfer xats/days between users
-app.post('/api/transfer', (req, res) => {
+app.post('/api/transfer', async (req, res) => {
   const authUser = getAuthUser(req);
   if (!authUser) return res.status(401).json({ error: 'Authentication required' });
+
+  // Rate limit: 10 transfers per minute per user
+  if (!rateLimit('transfer:' + authUser.id, 10, 60000)) {
+    return res.status(429).json({ error: 'Too many transfer attempts. Try again later.' });
+  }
 
   const { targetId, xats, days, password } = req.body;
   const xatsAmount = parseInt(xats) || 0;
@@ -7382,17 +7414,13 @@ app.post('/api/transfer', (req, res) => {
   if (xatsAmount <= 0 && daysAmount <= 0) return res.status(400).json({ error: 'Must transfer at least some xats or days' });
   if (xatsAmount < 0 || daysAmount < 0) return res.status(400).json({ error: 'Amounts must be positive' });
 
-  // Verify password for security
-  if (password) {
-    const userAuth = db.prepare('SELECT password_hash FROM users WHERE id = ?').get(authUser.id);
-    if (userAuth && userAuth.password_hash) {
-      const crypto = require('crypto');
-      const hash = crypto.createHash('sha256').update(password).digest('hex');
-      if (userAuth.password_hash !== hash && !userAuth.password_hash.startsWith('guest:')) {
-        // Also try bcrypt-style comparison if the hash doesn't match sha256
-        // For now just log - the password field is optional for private server use
-      }
-    }
+  // Password is required for transfers — must match the sender's stored hash
+  if (!password) return res.status(400).json({ error: 'Password is required to transfer' });
+  const userAuth = db.prepare('SELECT password_hash FROM users WHERE id = ?').get(authUser.id);
+  if (!userAuth) return res.status(404).json({ error: 'Sender not found' });
+  const validPassword = await verifyPassword(password, userAuth.password_hash);
+  if (!validPassword) {
+    return res.status(401).json({ error: 'Invalid password' });
   }
 
   const sender = db.prepare('SELECT id, username, xats, days FROM users WHERE id = ?').get(authUser.id);
@@ -7455,11 +7483,11 @@ app.post('/api/bots/create', (req, res) => {
   });
 });
 
-// List bots (only bots with valid sessions)
+// List bots (only bots with valid sessions) — tokens are NOT returned here
 app.get('/api/bots', (req, res) => {
   const authUser = getAuthUser(req);
   if (!authUser) return res.status(401).json({ error: 'Not authenticated' });
-  const bots = db.prepare('SELECT u.id, u.username, s.token FROM users u JOIN sessions s ON s.user_id = u.id WHERE u.is_bot = 1 AND s.expires_at > ?')
+  const bots = db.prepare('SELECT u.id, u.username FROM users u JOIN sessions s ON s.user_id = u.id WHERE u.is_bot = 1 AND s.expires_at > ?')
     .all(Math.floor(Date.now() / 1000));
   res.json(bots);
 });
