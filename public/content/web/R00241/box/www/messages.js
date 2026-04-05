@@ -1265,7 +1265,7 @@ var messages = new function () {
         var _0x11582e = makeElement(_0x4fad4e, "iframe", "stickerFrame");
         _0x11582e.style.float = "left";
         var _0x461d17 = _0x1a02ed[0].replace(/[^0-9a-zA-Z]/g, "_").toLowerCase();
-        _0x11582e.src = "http://localhost:6969/web_gear/chat/sticker.php?Ju77&s=" + _0x461d17 + (_0x1a02ed[1] ? "#" + encodeURIComponent(_0x1a02ed[1]) : "");
+        _0x11582e.src = "/web_gear/chat/sticker.php?Ju77&s=" + _0x461d17 + (_0x1a02ed[1] ? "#" + encodeURIComponent(_0x1a02ed[1]) : "");
         let _0x1307e8 = _0x1a02ed[0];
         if (_0x1a02ed[1]) {
           _0x1307e8 += "#" + _0x1a02ed[1];
@@ -1763,12 +1763,12 @@ var messages = new function () {
       return;
     }
     if (parseInt(_0x64f967) > 0) {
-      _0x64f967 = "http://localhost:6969/web_gear/chat/av/" + parseInt(_0x64f967) + ".png";
+      _0x64f967 = "/web_gear/chat/av/" + parseInt(_0x64f967) + ".png";
     }
     if (parseInt(_0x133aa3) > 0) {
-      _0x133aa3 = "http://localhost:6969/web_gear/chat/av/" + parseInt(_0x133aa3) + ".png";
+      _0x133aa3 = "/web_gear/chat/av/" + parseInt(_0x133aa3) + ".png";
     }
-    let _0x36edd2 = "http://localhost:6969/web_gear/chat/hugs.php";
+    let _0x36edd2 = "/web_gear/chat/hugs.php";
     const _0x2f023b = {
       h: _0x3b48c4,
       n: this.cleanHugNames(_0x3cffaa),
@@ -1853,7 +1853,7 @@ var messages = new function () {
       if (!_0x2d3c83.includes(" ")) {
         if (_0x2d3c83.charAt(0) == "%") {
           const _0x2ef41c = _0x2d3c83.substr(1);
-          _0x2d3c83 = "http://localhost:6969/" + _0x2ef41c;
+          _0x2d3c83 = "/" + _0x2ef41c;
         }
         if (_0x2d3c83 != ">") {
           _0x146026.isLink = true;

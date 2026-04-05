@@ -16,7 +16,7 @@ class Quickbar {
     this.gifOffset = 0;
     this.gifLimit = 14;
     this.gifValue = null;
-    this.giphyDomain = "http://localhost:6969/web_gear/chat/Giphy.php";
+    this.giphyDomain = "/web_gear/chat/Giphy.php";
     this.giphyTypingTimer = null;
     this.giphyTypingInterval = 500;
     this.giphyType = null;
@@ -329,7 +329,7 @@ class Quickbar {
     }
     let _0x23a673 = parent?.parent?.document?.location?.href;
     let _0x392526 = config?.background?.split(";=");
-    if (["http://localhost:6969/", "http://localhost:6969/#featured", "http://localhost:6969/#popular", "http://localhost:6969/#supported", "http://localhost:6969/#games"].indexOf(_0x23a673) >= 0 && !_0x392526[0].length && this.sideBarClass) {
+    if (["/", "/#featured", "/#popular", "/#supported", "/#games"].indexOf(_0x23a673) >= 0 && !_0x392526[0].length && this.sideBarClass) {
       this.sideBarClass.style.backgroundColor = "#efefef!important";
     }
   }
@@ -1639,7 +1639,7 @@ class GifUtility {
       return !1;
     }
     const _0x2daf39 = _0xa92c1.hash;
-    return _0x2daf39 in this.gifs && _0xa92c1.id.toLowerCase() == this.gifs[_0x2daf39].id.toLowerCase() && this.gifs[_0x2daf39].loaded && this.gifs[_0x2daf39].width_ == _0xa92c1.width && this.gifs[_0x2daf39].height_ == _0xa92c1.height;
+    return _0x2daf39 in this.gifs && _0xa92c1.id.toLowerCase() == this.gifs[_0x2daf39].id.toLowerCase() && this.gifs[_0x2daf39].loaded && (this.gifs[_0x2daf39].width_ || this.gifs[_0x2daf39].width) == _0xa92c1.width && (this.gifs[_0x2daf39].height_ || this.gifs[_0x2daf39].height) == _0xa92c1.height;
   }
   optimize(_0x50b22b) {
     const _0x4d8c13 = Object.fromEntries(Object.entries(this.gifs).filter(_0x837beb => {

@@ -3,15 +3,15 @@
 let ReleaseMode = 0;
 let listenersList = [];
 let locationOrigin = window.location.origin;
-if (locationOrigin !== "http://localhost:6969") {
-  locationOrigin = "http://localhost:6969";
+if (locationOrigin !== "") {
+  locationOrigin = "";
 }
 let Direct;
 let Home;
 let soltodo;
 let mDirect;
 let n;
-let origin = locationOrigin !== "http://localhost:6969" ? "http://localhost:6969" : locationOrigin;
+let origin = locationOrigin !== "" ? "" : locationOrigin;
 let endPoints = {
   register: origin + "/web_gear/chat/register5.php",
   powers: origin + "/web_gear/chat/powers.php",
@@ -19,7 +19,7 @@ let endPoints = {
   smw: origin + "/images/smw/",
   wiki: "https://xat.wiki/",
   pow2: origin + "/web_gear/chat/pow2.php",
-  getImage7: "http://localhost:6969/web_gear/chat/GetImage7.php",
+  getImage7: "/web_gear/chat/GetImage7.php",
   avatarDirectory: origin + "/web_gear/chat/av/",
   store: {
     promotion: origin + "/web_gear/chat/promotion2.php",
@@ -97,11 +97,12 @@ function initConfig() {
   xConfig = {
     lang: "en",
     name: "direct",
-    origin: "http://localhost:6969"
+    origin: location.origin
   };
   xConfig.dir = dir;
   if (!(xConfig.cookies & 2)) {
     xConfig.lang = GetWeb().lang;
+    xConfig.lang ||= localStorage.getItem("xat_lang");
     xConfig.lang ||= getCookie("lang");
   }
   if (!xConfig.lang || xConfig.lang == "default") {
@@ -232,7 +233,7 @@ function setLoggedin() {
     _navLogin.removeAttribute("data-toggle");
     _navLogin.removeAttribute("data-target");
     _navLogin.addEventListener("click", function () {
-      window.location.href = "http://localhost:6969/login";
+      window.location.href = "/login";
     });
   }
 }
@@ -268,7 +269,7 @@ function fetchPromo(_0x56d81e) {
     _0x3200f9.cb60 = parseInt((_0x3200f9.date.getTime() + 30000) / 60000);
     _0x3200f9.lang = xConfig.lang;
     _0x3200f9.xcb_l = "996Vc";
-    fetch("http://localhost:6969/json/promo.php?c=" + _0x3200f9.cb60).then(function (_0x49eb71) {
+    fetch("/json/promo.php?c=" + _0x3200f9.cb60).then(function (_0x49eb71) {
       return _0x49eb71.json();
     }).then(function (_0x1e494f) {
       let _0x2d12cd = _0x3200f9.lang.substr(0, 2);
@@ -286,7 +287,7 @@ function fetchPromo(_0x56d81e) {
       xConfig.xpromo = _0x2d12cd = Array.from(new Set(_0x2d12cd.map(_0x9db8ec => _0x9db8ec.n))).map(_0x89e5dd => _0x2d12cd.find(_0x5d7e17 => _0x5d7e17.n === _0x89e5dd));
       let _0x128c37 = "";
       for (let _0x4bd766 in _0x2d12cd) {
-        _0x128c37 += "<a class=\"dropdown-item\" href=\"http://localhost:6969/" + _0x2d12cd[_0x4bd766].n + "\"><img class=\"mr-2\" src=\"" + xConfig.dir + "img/navbar/promoted.svg\" alt=\"promoted\">" + _0x2d12cd[_0x4bd766].n + "</a>";
+        _0x128c37 += "<a class=\"dropdown-item\" href=\"/" + _0x2d12cd[_0x4bd766].n + "\"><img class=\"mr-2\" src=\"" + xConfig.dir + "img/navbar/promoted.svg\" alt=\"promoted\">" + _0x2d12cd[_0x4bd766].n + "</a>";
       }
       if (_0x128c37 !== "") {
         _0x128c37 += "<div class=\"dropdown-divider\"></div>";
@@ -304,7 +305,7 @@ function fetchPromo(_0x56d81e) {
 }
 function Sanitize(_0x2a6219, _0x4a8930) {
   _0x4a8930 ||= /[^0-9a-zA-Z_\-]/g;
-  return _0x2a6219.replace(_0x4a8930);
+  return _0x2a6219.replace(_0x4a8930, '');
 }
 function getFirstBrowserLanguage() {
   let _0x22bdc6;
@@ -554,7 +555,7 @@ function localize(_0xe3db2b) {
     }
     xConfig.localizeDue = lf.length;
     for (let _0x3fce4c in lf) {
-      const _0x3edff3 = "//localhost:6969/json/translate";
+      const _0x3edff3 = "/json/translate";
       const _0x3e081a = "php";
       $("[data-localize]").localize(lf[_0x3fce4c], {
         language: _0x4e140c,
@@ -692,36 +693,36 @@ function _setLink(id, href, target) {
 }
 function legacyLinks() {
   if (document.querySelector("#navTop")) {
-    _setLink("navCreate", "http://localhost:6969/chats#!creategroup", "_blank");
-    _setLink("navGroupsFeatured", "http://localhost:6969/#featured");
-    _setLink("navGroupsPopular", "http://localhost:6969/#popular");
-    _setLink("navGroupsSupported", "http://localhost:6969/#supported");
-    _setLink("navGroupsGames", "http://localhost:6969/#games");
-    _setLink("navGroupsSearch", "http://localhost:6969/search");
-    _setLink("navGroupsHelp", "http://localhost:6969/_help");
-    _setLink("navGroupsTrade", "http://localhost:6969/_trade");
-    _setLink("navStoreBuyXats", "http://localhost:6969/buy");
-    _setLink("navStorePowers", "http://localhost:6969/powers");
-    _setLink("navStoreAces", "http://localhost:6969/aces");
-    _setLink("navStoreShortName", "http://localhost:6969/shortname");
-    _setLink("navStoreAuctions", "http://localhost:6969/auction");
-    _setLink("navStorePromotion", "http://localhost:6969/promotion");
-    _setLink("navStoreAds", "http://localhost:6969/ad");
-    _setLink("navStoreBuyGroup", "http://localhost:6969/buygroup");
-    _setLink("navxatTerms", "http://localhost:6969/terms");
+    _setLink("navCreate", "/chats#!creategroup", "_blank");
+    _setLink("navGroupsFeatured", "/#featured");
+    _setLink("navGroupsPopular", "/#popular");
+    _setLink("navGroupsSupported", "/#supported");
+    _setLink("navGroupsGames", "/#games");
+    _setLink("navGroupsSearch", "/search");
+    _setLink("navGroupsHelp", "/_help");
+    _setLink("navGroupsTrade", "/_trade");
+    _setLink("navStoreBuyXats", "/buy");
+    _setLink("navStorePowers", "/powers");
+    _setLink("navStoreAces", "/aces");
+    _setLink("navStoreShortName", "/shortname");
+    _setLink("navStoreAuctions", "/auction");
+    _setLink("navStorePromotion", "/promotion");
+    _setLink("navStoreAds", "/ad");
+    _setLink("navStoreBuyGroup", "/buygroup");
+    _setLink("navxatTerms", "/terms");
     if (xConfig.gid && xConfig.gn) {
-      _setLink("navGroupEvents", "http://localhost:6969/chats#!events&roomid=" + xConfig.gid + "&GroupName=" + xConfig.gn, "_blank");
-      _setLink("navCustomize", "http://localhost:6969/chats#!editgroup&roomid=" + xConfig.gid + "&GroupName=" + xConfig.gn, "_blank");
+      _setLink("navGroupEvents", "/chats#!events&roomid=" + xConfig.gid + "&GroupName=" + xConfig.gn, "_blank");
+      _setLink("navCustomize", "/chats#!editgroup&roomid=" + xConfig.gid + "&GroupName=" + xConfig.gn, "_blank");
     }
     if (xConfig.gn) {
-      _setLink("navInapp", "http://localhost:6969/report#!group&GroupName=" + xConfig.gn, "_blank");
+      _setLink("navInapp", "/report#!group&GroupName=" + xConfig.gn, "_blank");
     }
-    _setLink("navAccountedit", "http://localhost:6969/editme#" + xConfig.username);
+    _setLink("navAccountedit", "/editme#" + xConfig.username);
     _setLink("navAccountxatme", "https://xat.me/" + xConfig.username);
     var _navLogout = document.getElementById("navLogout");
-    if (_navLogout) _navLogout.href = "http://localhost:6969/logout";
+    if (_navLogout) _navLogout.href = "/logout";
     var _navSettings = document.getElementById("navSettings");
-    if (_navSettings) _navSettings.href = "http://localhost:6969/login";
+    if (_navSettings) _navSettings.href = "/login";
   }
 }
 function navClickHandlers() {
@@ -732,7 +733,7 @@ function navClickHandlers() {
   });
   el = document.getElementById("openPolicy");
   if (el) el.addEventListener("click", function () {
-    window.open("http://localhost:6969/privacy", "_blank");
+    window.open("/privacy", "_blank");
   });
   el = document.getElementById("privacyGroupButton");
   if (el) el.addEventListener("click", function () {
@@ -802,7 +803,7 @@ function shuffleArray(_0x7140a0) {
   return _0x7140a0;
 }
 function initAuser3() {
-  let _0x3c828b = "//localhost:6969/login?mode=1&";
+  let _0x3c828b = "/login?mode=1&";
   let _0x4e51e3 = localStorage.getItem("todo");
   let _0x3b1c33 = document.getElementById("navRegister");
   _0x4e51e3 &&= JSON.parse(_0x4e51e3);
@@ -906,7 +907,7 @@ function onLang(_0x1eb360) {
       SetWeb("lang", _0xaba813);
     }
     if (_0xaba813 == "en") {
-      window.location.href = "//localhost:6969";
+      window.location.href = "//" + location.host;
       return true;
     }
     let _0x3bd57c = document.querySelector("[data-lang=\"" + _0xaba813 + "\"]");
@@ -929,7 +930,7 @@ function setCookie(_0x4b6252, _0x4de9eb, _0x365c42, _0x4c7e52) {
     _0xde5705.setTime(_0xde5705.getTime() + _0x365c42 * 24 * 60 * 60 * 1000);
     _0x61b49e = "; expires=" + _0xde5705.toUTCString();
   }
-  let _0x2db0de = _0x4b6252 + "=" + (_0x4de9eb || "") + _0x61b49e + "; path=/";
+  let _0x2db0de = _0x4b6252 + "=" + encodeURIComponent(_0x4de9eb || "") + _0x61b49e + "; path=/";
   if (_0x4c7e52) {
     _0x2db0de += " ;SameSite=None; Secure";
   }
@@ -944,7 +945,7 @@ function getCookie(_0x3e1a1a) {
       _0x5a1b84 = _0x5a1b84.substring(1, _0x5a1b84.length);
     }
     if (_0x5a1b84.indexOf(_0x431c3a) == 0) {
-      return _0x5a1b84.substring(_0x431c3a.length, _0x5a1b84.length);
+      try { return decodeURIComponent(_0x5a1b84.substring(_0x431c3a.length, _0x5a1b84.length)); } catch(e) { return _0x5a1b84.substring(_0x431c3a.length, _0x5a1b84.length); }
     }
   }
   return null;
@@ -1006,7 +1007,7 @@ function setLogo() {
       _0x3c0979 = _0x468dd0.date == _0x2713b1 ? _0x468dd0.logos : [];
     }
     if (_0x3c0979.length) {
-      const _0x174810 = "http://localhost:6969/images/logo/" + _0x3c0979[Math.floor(Math.random() * _0x3c0979.length)] + ".png";
+      const _0x174810 = "/images/logo/" + _0x3c0979[Math.floor(Math.random() * _0x3c0979.length)] + ".png";
       let _0x4e37c3 = document.getElementById("navLogo");
       if (_0x4e37c3) {
         _0x4e37c3.src = _0x174810;
@@ -1149,9 +1150,9 @@ function calculateProp(_0x4f8394, _0x5a6d91) {
   return _0x8382b5;
 }
 function getEmbed(_0x21538c, _0x98c72e, _0x4090d1, _0xa570ba, _0x2d5daa, _0x27b10f) {
-  let _0x33fc01 = "<iframe src=\"http://localhost:6969/embed/chat.php#id=%CHAT_ID%&gn=%CHAT_NAME%\" allow=\"clipboard-write\" width=\"%CHAT_WIDTH%\" height=\"%CHAT_HEIGHT%\" frameborder=\"0\" scrolling=\"no\"></iframe>";
-  _0x33fc01 += "<br><small><a target=\"_BLANK\" href=\"http://localhost:6969/web_gear/chat/embed.php?id=%CHAT_ID%&GroupName=%CHAT_NAME%\">Get %CHAT_NAME% chat group</a> | ";
-  _0x33fc01 += "<a target=\"_BLANK\" href=\"http://localhost:6969/%CHAT_NAME%\"> Go to %CHAT_NAME% website</a></small><br>";
+  let _0x33fc01 = "<iframe src=\"/embed/chat.php#id=%CHAT_ID%&gn=%CHAT_NAME%\" allow=\"clipboard-write\" width=\"%CHAT_WIDTH%\" height=\"%CHAT_HEIGHT%\" frameborder=\"0\" scrolling=\"no\"></iframe>";
+  _0x33fc01 += "<br><small><a target=\"_BLANK\" href=\"/web_gear/chat/embed.php?id=%CHAT_ID%&GroupName=%CHAT_NAME%\">Get %CHAT_NAME% chat group</a> | ";
+  _0x33fc01 += "<a target=\"_BLANK\" href=\"/%CHAT_NAME%\"> Go to %CHAT_NAME% website</a></small><br>";
   _0x33fc01 = _0x33fc01.replace(/%CHAT_NAME%/gi, _0x21538c).replace(/%CHAT_ID%/gi, _0x98c72e).replace(/%CHAT_WIDTH%/gi, _0x4090d1).replace(/%CHAT_HEIGHT%/gi, _0xa570ba);
   if (_0x2d5daa) {
     document.getElementById("embedpreview").innerHTML = _0x33fc01;
@@ -1196,7 +1197,7 @@ function doRealHash(_0x27127a, _0x8da382) {
 function decodeEntities(_0x20c940) {
   return _0x20c940.replace(/&amp;/g, "&").replace(/&apos;/g, "'").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 }
-let staticnav = "<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button><div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\"><ul class=\"navbar-nav ml-auto mobpad\"><li class=\"nav-item\"><a id=\"newStf\" target=\"_blank\" class=\"nav-link d-none\" href=\"https://xat.wiki/news\"><img class=\"newstfic\" src=\"" + dir + "/img/navbar/pointing.svg\" alt=\"pointing\" width=\"35\"><button type=\"button\" class=\"btn btn-primary btn-sm newstfbut\"><span data-localize=\"web.newstf\">new stuff!</span><span id=\"newV\"></span></button></a></li><li class=\"nav-item meLink\"><a id=\"meView\" class=\"nav-link d-none\" target=\"_blank\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/xatme.svg\" alt=\"edit\" width=\"16\"><span>xat.me</span></a></li><li class=\"nav-item meLink\"><a id=\"meEdit\" class=\"nav-link d-none\" target=\"_blank\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/pencil.svg\" alt=\"edit\" width=\"16\"><span data-localize=\"chats.edit\">edit</span></a></li><li class=\"nav-item meLink\"><a id=\"meInapp\" class=\"nav-link d-none\" target=\"_blank\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/inappropriate.svg\" alt=\"inappropriate\" width=\"17\"><span data-localize=\"web.inappropriate\">inappropriate</span></a></li><li class=\"nav-item dropdown\"><a id=\"navGroups\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/groups.svg\" alt=\"groups\"><span data-localize=\"web.groups\">groups</span></a><div id=\"navGroupsItems\" class=\"dropdown-menu\" aria-labelledby=\"navGroups\"><!--<a id=\"navGroupsFavorites\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/favorites.svg\" alt=\"favorites\"><span data-localize=\"web.favorites\">favorites</span></a>--><a id=\"navCreate\" class=\"dropdown-item\" href=\"//localhost:6969/create\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/community.svg\" alt=\"creategroup\"><span data-localize=\"web.create\">create</span></a><div class=\"dropdown-divider\"></div><a id=\"navGroupsFeatured\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/featured.svg\" alt=\"featured\"><span data-localize=\"web.featured\">featured</span></a><a id=\"navGroupsPopular\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/popular.svg\" alt=\"popular\"><span data-localize=\"web.popular\">popular</span></a><!--<a id=\"navGroupsSites\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/sites.svg\" alt=\"sites\"><span data-localize=\"web.sites\">sites</span></a>--><a id=\"navGroupsSupported\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/supported.svg\" alt=\"supported\"><span data-localize=\"web.supported\">supported</span></a><a id=\"navGroupsGames\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/games.svg\" alt=\"groups\"><span data-localize=\"web.games\">games</span></a><div class=\"dropdown-divider\"></div><a id=\"navGroupsSearch\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/search.svg\" alt=\"search\"><span data-localize=\"web.search\">search</span></a><div class=\"dropdown-divider\"></div><a id=\"navGroupsHelp\" class=\"dropdown-item\" href=\"http://localhost:6969/web_gear/chat/chats.php?v=yHv2&type=help\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/help.svg\" alt=\"help\" width=\"19\"><span data-localize=\"web.help\">help</span></a><a id=\"navGroupsTrade\" class=\"dropdown-item\" href=\"http://localhost:6969/web_gear/chat/chats.php?v=yHv2&type=trade\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/trade.svg\" alt=\"trade\" width=\"19\"><span data-localize=\"web.trade\">trade</span></a></div></li><li class=\"nav-item dropdown\"><a id=\"navStore\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/store.svg\" alt=\"store\"><span data-localize=\"web.store\">store</span></a><div class=\"dropdown-menu showxsbef\" aria-labelledby=\"navStore\"><a id=\"navStoreBuyXats\" class=\"dropdown-item\" href=\"../src/store.html#buy\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/buyxats.svg\" alt=\"buyxats\"><span data-localize=\"web.buyxats\">buy xats &amp; days</span></a><div class=\"dropdown-divider\"></div><a id=\"navStorePowers\" class=\"dropdown-item\" href=\"../src/store.html#powers\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/powers.svg\" alt=\"powers\"><span data-localize=\"web.powers\">powers</span></a><a id=\"navStoreAces\" class=\"dropdown-item\" href=\"../src/store.html#aces\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/aces.svg\" alt=\"powers\" width=\"19\"><span data-localize=\"web.aces\">aces</span></a><a id=\"navStoreShortName\" class=\"dropdown-item\" href=\"../src/store.html#shortname\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/shortname.svg\" alt=\"shortname\"><span data-localize=\"web.shortname\">short name</span></a><a id=\"navStoreAuctions\" class=\"dropdown-item\" href=\"../src/store.html#auctions\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/auctions.svg\" alt=\"auctions\"><span data-localize=\"web.auctions\">auctions</span></a><a id=\"navStorePromotion\" class=\"dropdown-item\" href=\"../src/store.html#promotion\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/promotion.svg\" alt=\"promotion\"><span data-localize=\"web.promotion\">promotion</span></a><a id=\"navStoreAds\" class=\"dropdown-item\" href=\"../src/store.html#ads\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/ads.svg\" alt=\"ads\"><span data-localize=\"web.ads\">ads</span></a><a id=\"navStoreBuyGroup\" class=\"dropdown-item\" href=\"../src/store.html#groups\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/buygroup.svg\" alt=\"group\"><span data-localize=\"web.buygroup\">groups</span></a></div></li><li class=\"nav-item dropdown\"><a id=\"navxat\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-0\" src=\"" + dir + "/img/xatplanet.svg\" alt=\"xat\"><span data-localize=\"web.xat\">xat</span></a><div class=\"dropdown-menu showxslast\" aria-labelledby=\"navxat\"><a id=\"navxatApps\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/apps.svg\" alt=\"apps\" width=\"20\"><span data-localize=\"web.apps\">apps</span></a><a id=\"navxatWiki\" class=\"dropdown-item\" href=\"//localhost:6969/wiki\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/wiki.svg\" alt=\"wiki\"><span data-localize=\"web.wiki\">wiki</span></a><a id=\"navxatForum\" class=\"dropdown-item\" href=\"//localhost:6969/forum\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/popular.svg\" alt=\"forum &amp; forum\"><span data-localize=\"web.forum\">forum</span></a><a id=\"navxatSupport\" class=\"dropdown-item\" href=\"//localhost:6969/support\"><img class=\"mr-2 grlsupport\" src=\"" + dir + "/img/navbar/support.svg\" alt=\"support\"><span data-localize=\"web.support\">support</span></a><a id=\"navxatTicket\" class=\"dropdown-item\" href=\"//localhost:6969/ticket\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/ticket.svg\" alt=\"open ticket\"><span data-localize=\"web.ticket\">ticket</span></a><a id=\"navxatTwitter\" class=\"dropdown-item\" href=\"//localhost:6969/twitter\" rel=\"noopener\" target=\"_blank\"><img class=\"mr-2 xTLogo\" src=\"" + dir + "/img/navbar/x_b.svg\" alt=\"xat x\"><span data-localize=\"web.x\">x</span></a><a id=\"navxatFacebook\" class=\"dropdown-item\" href=\"//localhost:6969/facebook\"  rel=\"noopener\" target=\"_blank\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/facebook.svg\" alt=\"xat facebook\" width=\"20\"><span data-localize=\"web.facebook\">facebook</span></a><a id=\"navxatInstagram\" class=\"dropdown-item\" href=\"//localhost:6969/instagram\" rel=\"noopener\" target=\"_blank\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/instagram.svg\" alt=\"xat instagram\" width=\"19\"><span>instagram</span></a><a id=\"navxatHtml5\" class=\"dropdown-item h5logs\" href=\"https://xat.wiki/HTML5\"><img class=\"mr-2\" width=\"25\" src=\"" + dir + "/img/navbar/html5.svg\" alt=\"changelogs\"><span data-localize=\"web.changelogs\" class=\"h5logsicon\">changelogs</span></a><div class=\"dropdown-divider\"></div><a id=\"navxatPrivacy\" class=\"dropdown-item showxs\" href=\"#\" data-toggle=\"modal\" data-target=\"#privacyModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/privacy.svg\" alt=\"privacy\"><span data-localize=\"web.privacy\">privacy/cookies</span></a><a id=\"navxatTerms\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#termsModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/terms.svg\" alt=\"terms\"><span data-localize=\"web.terms\">terms of service</span></a><a id=\"navxatSafety\" class=\"dropdown-item\" href=\"//localhost:6969/safety\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/safety.svg\" alt=\"safety\"><span data-localize=\"web.safety\">safety</span></a><span class=\"d-none\" id=\"date\"></span><!--<div class=\"dropdown-divider\"></div><a id=\"navGroupFlashback\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/flashback.svg\" alt=\"flashback\"><span data-localize=\"web.flashback\">flashback</span></a>--></div></li><li id=\"rankdrop\" class=\"nav-item dropdown\"><a id=\"navGroup\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/group.svg\" alt=\"group\"><span data-localize=\"web.group\">group</span></a><div class=\"dropdown-menu\" aria-labelledby=\"navGroup\"><!--<a id=\"navGroupTimeline\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/timeline.svg\" alt=\"timeline\"><span data-localize=\"web.timeline\">timeline</span></a>--><!--<div class=\"dropdown-divider\"></div>--><a id=\"navEmbedGrp\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#embedmodal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/embed2.svg\" alt=\"embed\" width=\"19\"><span data-localize=\"web.embed\">embed</span></a><a id=\"navGroupEvents\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/events.svg\" alt=\"events\"><span data-localize=\"web.events\">events</span></a><a id=\"navCustomize\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/customize.svg\" alt=\"customize\"><span data-localize=\"web.customize\">customize</span></a><a id=\"navSendMessage\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#msgModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/message.svg\" alt=\"message\"><span data-localize=\"web.message\">send message</span></a><a id=\"navInapp\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#inappModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/inappropriate.svg\" alt=\"inappropriate\"><span data-localize=\"web.inappropriate\">inappropriate</span></a><a id=\"navIframe\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#iframeModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/xatframe.svg\" alt=\"xatframe\" width=\"21\"><span class=\"h5logs\">xatframe</span></a></div></li><li id=\"admindrop\" class=\"nav-item dropdown d-none\"><a id=\"navGroup2\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/group.svg\" alt=\"group\"><span data-localize=\"web.group\">group</span></a><div class=\"dropdown-menu\" aria-labelledby=\"navGroup2\"><h6 class=\"dropdown-header text-center p-0\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\">Main Owner</h6><div class=\"dropdown-divider\"></div><!--<a id=\"navGroupTimeline2\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/timeline.svg\" alt=\"timeline\"><span data-localize=\"web.timeline\">timeline</span></a>--><!--<div class=\"dropdown-divider\"></div> +--><!-- <a class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/customize.svg\" alt=\"customize\"><span data-localize=\"web.customize\">customize</span></a><a id=\"navGroupEvents\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/events.svg\" alt=\"events\"><span data-localize=\"web.events\">events</span></a> (MOVED UNDER \"GROUP\" for now)--><!--<a id=\"navGroupAffiliate\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/affiliate.svg\" alt=\"affiliate\"><span data-localize=\"web.affiliate\">affiliate</span></a>--><div class=\"dropdown-divider\"></div><a id=\"navGroupEmbed\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#embedModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/embed.svg\" alt=\"embed\"><span data-localize=\"web.embed\">embed</span></a><!--<a id=\"navGroupMessage\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#sendModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/message.svg\" alt=\"message\"><span data-localize=\"web.message\">send message</span></a>--><a id=\"navGroupInappropriate\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#inappModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/inappropriate.svg\" alt=\"inappropriate\"><span data-localize=\"web.inappropriate\">inappropriate</span></a></div></li><li id=\"accountdrop\" class=\"nav-item dropdown d-none\"><a id=\"navAccount\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\"><span data-localize=\"web.account\">account</span><span id=\"navAccountBadge\" class=\"badge badge-pill badge-primary align-text-top ml-1 mr-1\"></span></a><div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navAccount\"><h6 id=\"navUsernameId\" class=\"dropdown-header text-center p-0\"></h6><div class=\"dropdown-divider\"></div><!--<a id=\"navAccountStream\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/stream.svg\" alt=\"stream\"><span data-localize=\"web.stream\">stream</span><span id=\"navStreamBadge\" class=\"badge badge-pill badge-primary align-text-top ml-1\">0</span></a>--><a id=\"navAccountxatme\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/xatme.svg\" alt=\"xatme\">xat.me</a><a id=\"navAccountedit\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2 xsme\" src=\"" + dir + "/img/navbar/pencil2.svg\" alt=\"edit\"><span data-localize=\"web.edit\">edit</span></a><a id=\"navSettings\" class=\"dropdown-item\" href=\"../src/login.html#settings\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/settings.svg\" alt=\"settings\"><span data-localize=\"web.settings\">settings</span></a><div class=\"dropdown-divider\"></div><a id=\"navLogout\" class=\"dropdown-item\" href=\"../src/login.html#logout\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/logout.svg\" alt=\"logout\"><span data-localize=\"web.logout\">logout</span></a></div></li><li class=\"nav-item showxs\"><button id=\"navLogin\" class=\"btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1\" type=\"button\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\"><span data-localize=\"web.login\" class=\"text-light\">login</span></button><button id=\"navRegister\" class=\"btn btn-primary btn-sm my-2 my-sm-0 mr-1\" type=\"button\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\"><span data-localize=\"web.register\">register</span></button></li><li class=\"nav-item dropdown\"><a id=\"navMobile\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/mobile.svg\" width=\"18\" alt=\"mobile\"></a><div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navMobile\"><a class=\"dropdown-item\" href=\"https://apps.apple.com/us/app/xat/id1003294391\" target=\"_blank\"><img src=\"" + dir + "/img/navbar/Apple-en.svg\" alt=\"apple\" width=\"150\"></a><a class=\"dropdown-item\" href=\"https://play.google.com/store/apps/details?id=com.xat.app\" target=\"_blank\"><img src=\"" + dir + "/img/navbar/Google-en.png\" alt=\"google\" width=\"150\"></a></div></li><li class=\"nav-item dropdown showxs\"><a id=\"navLang\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-0 globe\" src=\"" + dir + "/img/navbar/globe.svg\" width=\"18\" alt=\"globe\"></a><div id=\"langdropdownitems\" class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navLang\"><!--<a class=\"dropdown-item\" href=\"#\">English <small>(English)</small></a>--></div></li></ul></div>";
+let staticnav = "<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button><div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\"><ul class=\"navbar-nav ml-auto mobpad\"><li class=\"nav-item\"><a id=\"newStf\" target=\"_blank\" class=\"nav-link d-none\" href=\"https://xat.wiki/news\"><img class=\"newstfic\" src=\"" + dir + "/img/navbar/pointing.svg\" alt=\"pointing\" width=\"35\"><button type=\"button\" class=\"btn btn-primary btn-sm newstfbut\"><span data-localize=\"web.newstf\">new stuff!</span><span id=\"newV\"></span></button></a></li><li class=\"nav-item meLink\"><a id=\"meView\" class=\"nav-link d-none\" target=\"_blank\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/xatme.svg\" alt=\"edit\" width=\"16\"><span>xat.me</span></a></li><li class=\"nav-item meLink\"><a id=\"meEdit\" class=\"nav-link d-none\" target=\"_blank\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/pencil.svg\" alt=\"edit\" width=\"16\"><span data-localize=\"chats.edit\">edit</span></a></li><li class=\"nav-item meLink\"><a id=\"meInapp\" class=\"nav-link d-none\" target=\"_blank\" href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/inappropriate.svg\" alt=\"inappropriate\" width=\"17\"><span data-localize=\"web.inappropriate\">inappropriate</span></a></li><li class=\"nav-item dropdown\"><a id=\"navGroups\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/groups.svg\" alt=\"groups\"><span data-localize=\"web.groups\">groups</span></a><div id=\"navGroupsItems\" class=\"dropdown-menu\" aria-labelledby=\"navGroups\"><!--<a id=\"navGroupsFavorites\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/favorites.svg\" alt=\"favorites\"><span data-localize=\"web.favorites\">favorites</span></a>--><a id=\"navCreate\" class=\"dropdown-item\" href=\"/create\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/community.svg\" alt=\"creategroup\"><span data-localize=\"web.create\">create</span></a><div class=\"dropdown-divider\"></div><a id=\"navGroupsFeatured\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/featured.svg\" alt=\"featured\"><span data-localize=\"web.featured\">featured</span></a><a id=\"navGroupsPopular\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/popular.svg\" alt=\"popular\"><span data-localize=\"web.popular\">popular</span></a><!--<a id=\"navGroupsSites\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/sites.svg\" alt=\"sites\"><span data-localize=\"web.sites\">sites</span></a>--><a id=\"navGroupsSupported\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/supported.svg\" alt=\"supported\"><span data-localize=\"web.supported\">supported</span></a><a id=\"navGroupsGames\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/games.svg\" alt=\"groups\"><span data-localize=\"web.games\">games</span></a><div class=\"dropdown-divider\"></div><a id=\"navGroupsSearch\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/search.svg\" alt=\"search\"><span data-localize=\"web.search\">search</span></a><div class=\"dropdown-divider\"></div><a id=\"navGroupsHelp\" class=\"dropdown-item\" href=\"/web_gear/chat/chats.php?v=yHv2&type=help\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/help.svg\" alt=\"help\" width=\"19\"><span data-localize=\"web.help\">help</span></a><a id=\"navGroupsTrade\" class=\"dropdown-item\" href=\"/web_gear/chat/chats.php?v=yHv2&type=trade\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/trade.svg\" alt=\"trade\" width=\"19\"><span data-localize=\"web.trade\">trade</span></a></div></li><li class=\"nav-item dropdown\"><a id=\"navStore\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/store.svg\" alt=\"store\"><span data-localize=\"web.store\">store</span></a><div class=\"dropdown-menu showxsbef\" aria-labelledby=\"navStore\"><a id=\"navStoreBuyXats\" class=\"dropdown-item\" href=\"../src/store.html#buy\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/buyxats.svg\" alt=\"buyxats\"><span data-localize=\"web.buyxats\">buy xats &amp; days</span></a><div class=\"dropdown-divider\"></div><a id=\"navStorePowers\" class=\"dropdown-item\" href=\"../src/store.html#powers\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/powers.svg\" alt=\"powers\"><span data-localize=\"web.powers\">powers</span></a><a id=\"navStoreAces\" class=\"dropdown-item\" href=\"../src/store.html#aces\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/aces.svg\" alt=\"powers\" width=\"19\"><span data-localize=\"web.aces\">aces</span></a><a id=\"navStoreShortName\" class=\"dropdown-item\" href=\"../src/store.html#shortname\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/shortname.svg\" alt=\"shortname\"><span data-localize=\"web.shortname\">short name</span></a><a id=\"navStoreAuctions\" class=\"dropdown-item\" href=\"../src/store.html#auctions\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/auctions.svg\" alt=\"auctions\"><span data-localize=\"web.auctions\">auctions</span></a><a id=\"navStorePromotion\" class=\"dropdown-item\" href=\"../src/store.html#promotion\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/promotion.svg\" alt=\"promotion\"><span data-localize=\"web.promotion\">promotion</span></a><a id=\"navStoreAds\" class=\"dropdown-item\" href=\"../src/store.html#ads\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/ads.svg\" alt=\"ads\"><span data-localize=\"web.ads\">ads</span></a><a id=\"navStoreBuyGroup\" class=\"dropdown-item\" href=\"../src/store.html#groups\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/buygroup.svg\" alt=\"group\"><span data-localize=\"web.buygroup\">groups</span></a></div></li><li class=\"nav-item dropdown\"><a id=\"navxat\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-0\" src=\"" + dir + "/img/xatplanet.svg\" alt=\"xat\"><span data-localize=\"web.xat\">xat</span></a><div class=\"dropdown-menu showxslast\" aria-labelledby=\"navxat\"><a id=\"navxatApps\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/apps.svg\" alt=\"apps\" width=\"20\"><span data-localize=\"web.apps\">apps</span></a><a id=\"navxatWiki\" class=\"dropdown-item\" href=\"/wiki\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/wiki.svg\" alt=\"wiki\"><span data-localize=\"web.wiki\">wiki</span></a><a id=\"navxatForum\" class=\"dropdown-item\" href=\"/forum\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/popular.svg\" alt=\"forum &amp; forum\"><span data-localize=\"web.forum\">forum</span></a><a id=\"navxatSupport\" class=\"dropdown-item\" href=\"/support\"><img class=\"mr-2 grlsupport\" src=\"" + dir + "/img/navbar/support.svg\" alt=\"support\"><span data-localize=\"web.support\">support</span></a><a id=\"navxatTicket\" class=\"dropdown-item\" href=\"/ticket\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/ticket.svg\" alt=\"open ticket\"><span data-localize=\"web.ticket\">ticket</span></a><a id=\"navxatTwitter\" class=\"dropdown-item\" href=\"/twitter\" rel=\"noopener\" target=\"_blank\"><img class=\"mr-2 xTLogo\" src=\"" + dir + "/img/navbar/x_b.svg\" alt=\"xat x\"><span data-localize=\"web.x\">x</span></a><a id=\"navxatFacebook\" class=\"dropdown-item\" href=\"/facebook\"  rel=\"noopener\" target=\"_blank\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/facebook.svg\" alt=\"xat facebook\" width=\"20\"><span data-localize=\"web.facebook\">facebook</span></a><a id=\"navxatInstagram\" class=\"dropdown-item\" href=\"/instagram\" rel=\"noopener\" target=\"_blank\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/instagram.svg\" alt=\"xat instagram\" width=\"19\"><span>instagram</span></a><a id=\"navxatHtml5\" class=\"dropdown-item h5logs\" href=\"https://xat.wiki/HTML5\"><img class=\"mr-2\" width=\"25\" src=\"" + dir + "/img/navbar/html5.svg\" alt=\"changelogs\"><span data-localize=\"web.changelogs\" class=\"h5logsicon\">changelogs</span></a><div class=\"dropdown-divider\"></div><a id=\"navxatPrivacy\" class=\"dropdown-item showxs\" href=\"#\" data-toggle=\"modal\" data-target=\"#privacyModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/privacy.svg\" alt=\"privacy\"><span data-localize=\"web.privacy\">privacy/cookies</span></a><a id=\"navxatTerms\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#termsModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/terms.svg\" alt=\"terms\"><span data-localize=\"web.terms\">terms of service</span></a><a id=\"navxatSafety\" class=\"dropdown-item\" href=\"/safety\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/safety.svg\" alt=\"safety\"><span data-localize=\"web.safety\">safety</span></a><span class=\"d-none\" id=\"date\"></span><!--<div class=\"dropdown-divider\"></div><a id=\"navGroupFlashback\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/flashback.svg\" alt=\"flashback\"><span data-localize=\"web.flashback\">flashback</span></a>--></div></li><li id=\"rankdrop\" class=\"nav-item dropdown\"><a id=\"navGroup\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/group.svg\" alt=\"group\"><span data-localize=\"web.group\">group</span></a><div class=\"dropdown-menu\" aria-labelledby=\"navGroup\"><!--<a id=\"navGroupTimeline\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/timeline.svg\" alt=\"timeline\"><span data-localize=\"web.timeline\">timeline</span></a>--><!--<div class=\"dropdown-divider\"></div>--><a id=\"navEmbedGrp\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#embedmodal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/embed2.svg\" alt=\"embed\" width=\"19\"><span data-localize=\"web.embed\">embed</span></a><a id=\"navGroupEvents\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/events.svg\" alt=\"events\"><span data-localize=\"web.events\">events</span></a><a id=\"navCustomize\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/customize.svg\" alt=\"customize\"><span data-localize=\"web.customize\">customize</span></a><a id=\"navSendMessage\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#msgModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/message.svg\" alt=\"message\"><span data-localize=\"web.message\">send message</span></a><a id=\"navInapp\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#inappModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/inappropriate.svg\" alt=\"inappropriate\"><span data-localize=\"web.inappropriate\">inappropriate</span></a><a id=\"navIframe\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#iframeModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/xatframe.svg\" alt=\"xatframe\" width=\"21\"><span class=\"h5logs\">xatframe</span></a></div></li><li id=\"admindrop\" class=\"nav-item dropdown d-none\"><a id=\"navGroup2\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/group.svg\" alt=\"group\"><span data-localize=\"web.group\">group</span></a><div class=\"dropdown-menu\" aria-labelledby=\"navGroup2\"><h6 class=\"dropdown-header text-center p-0\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\">Main Owner</h6><div class=\"dropdown-divider\"></div><!--<a id=\"navGroupTimeline2\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/timeline.svg\" alt=\"timeline\"><span data-localize=\"web.timeline\">timeline</span></a>--><!--<div class=\"dropdown-divider\"></div> +--><!-- <a class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/customize.svg\" alt=\"customize\"><span data-localize=\"web.customize\">customize</span></a><a id=\"navGroupEvents\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/events.svg\" alt=\"events\"><span data-localize=\"web.events\">events</span></a> (MOVED UNDER \"GROUP\" for now)--><!--<a id=\"navGroupAffiliate\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/affiliate.svg\" alt=\"affiliate\"><span data-localize=\"web.affiliate\">affiliate</span></a>--><div class=\"dropdown-divider\"></div><a id=\"navGroupEmbed\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#embedModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/embed.svg\" alt=\"embed\"><span data-localize=\"web.embed\">embed</span></a><!--<a id=\"navGroupMessage\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#sendModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/message.svg\" alt=\"message\"><span data-localize=\"web.message\">send message</span></a>--><a id=\"navGroupInappropriate\" class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#inappModal\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/inappropriate.svg\" alt=\"inappropriate\"><span data-localize=\"web.inappropriate\">inappropriate</span></a></div></li><li id=\"accountdrop\" class=\"nav-item dropdown d-none\"><a id=\"navAccount\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\"><span data-localize=\"web.account\">account</span><span id=\"navAccountBadge\" class=\"badge badge-pill badge-primary align-text-top ml-1 mr-1\"></span></a><div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navAccount\"><h6 id=\"navUsernameId\" class=\"dropdown-header text-center p-0\"></h6><div class=\"dropdown-divider\"></div><!--<a id=\"navAccountStream\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/stream.svg\" alt=\"stream\"><span data-localize=\"web.stream\">stream</span><span id=\"navStreamBadge\" class=\"badge badge-pill badge-primary align-text-top ml-1\">0</span></a>--><a id=\"navAccountxatme\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/xatme.svg\" alt=\"xatme\">xat.me</a><a id=\"navAccountedit\" class=\"dropdown-item\" href=\"#\"><img class=\"mr-2 xsme\" src=\"" + dir + "/img/navbar/pencil2.svg\" alt=\"edit\"><span data-localize=\"web.edit\">edit</span></a><a id=\"navSettings\" class=\"dropdown-item\" href=\"../src/login.html#settings\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/settings.svg\" alt=\"settings\"><span data-localize=\"web.settings\">settings</span></a><div class=\"dropdown-divider\"></div><a id=\"navLogout\" class=\"dropdown-item\" href=\"../src/login.html#logout\"><img class=\"mr-2\" src=\"" + dir + "/img/navbar/logout.svg\" alt=\"logout\"><span data-localize=\"web.logout\">logout</span></a></div></li><li class=\"nav-item showxs\"><button id=\"navLogin\" class=\"btn btn-outline-primary btn-sm my-2 my-sm-0 mr-1\" type=\"button\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\"><span data-localize=\"web.login\" class=\"text-light\">login</span></button><button id=\"navRegister\" class=\"btn btn-primary btn-sm my-2 my-sm-0 mr-1\" type=\"button\"><img class=\"mr-0\" src=\"" + dir + "/img/navbar/account.svg\" alt=\"account\"><span data-localize=\"web.register\">register</span></button></li><li class=\"nav-item dropdown\"><a id=\"navMobile\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-1\" src=\"" + dir + "/img/navbar/mobile.svg\" width=\"18\" alt=\"mobile\"></a><div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navMobile\"><a class=\"dropdown-item\" href=\"https://apps.apple.com/us/app/xat/id1003294391\" target=\"_blank\"><img src=\"" + dir + "/img/navbar/Apple-en.svg\" alt=\"apple\" width=\"150\"></a><a class=\"dropdown-item\" href=\"https://play.google.com/store/apps/details?id=com.xat.app\" target=\"_blank\"><img src=\"" + dir + "/img/navbar/Google-en.png\" alt=\"google\" width=\"150\"></a></div></li><li class=\"nav-item dropdown showxs\"><a id=\"navLang\" class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><img class=\"mr-0 globe\" src=\"" + dir + "/img/navbar/globe.svg\" width=\"18\" alt=\"globe\"></a><div id=\"langdropdownitems\" class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navLang\"><!--<a class=\"dropdown-item\" href=\"#\">English <small>(English)</small></a>--></div></li></ul></div>";
 let statnav = document.getElementById("statnav");
 function addRemoveClass(_0x25cc58, _0x4ea45c, _0x27227b) {
   if (!_0x25cc58) {
@@ -1309,7 +1310,7 @@ function SafeImage(_0xd62a74, _0x306e51, _0x5a4984, _0x453b50) {
   if (!_0x25170c.host) {
     return "";
   }
-  if (_0x25170c.host.indexOf("localhost:6969") >= 0 && (_0x25170c.path.indexOf("GetImage") > 0 || _0x25170c.path.indexOf("/chat/av/") >= 0)) {
+  if (_0x25170c.host.indexOf(location.host) >= 0 && (_0x25170c.path.indexOf("GetImage") > 0 || _0x25170c.path.indexOf("/chat/av/") >= 0)) {
     return _0xd62a74;
   }
   if (_0x306e51 > 0 && _0x5a4984 > 0 && _0x306e51 == _0x5a4984 && !_0x453b50) {
@@ -1325,7 +1326,7 @@ function SafeImage(_0xd62a74, _0x306e51, _0x5a4984, _0x453b50) {
   if (_0x453b50) {
     _0x164a4e += "&g";
   }
-  return "http://localhost:6969/web_gear/chat/GetImage7.php?" + _0x164a4e;
+  return "/web_gear/chat/GetImage7.php?" + _0x164a4e;
 }
 function parse_url(_0x514c2a, _0x5573f4) {
   let _0x12106d;
@@ -1525,7 +1526,7 @@ function ucfirst(_0x47aee9) {
 }
 function Maintenance(_0x2e43db) {
   if (_0x2e43db.Err && _0x2e43db.Err.Maintenance) {
-    window.location.href = "http://localhost:6969/maintenance";
+    window.location.href = "/maintenance";
   }
 }
 function isUserRegistered() {
@@ -1808,7 +1809,7 @@ function xatsbackAd() {
         localStorage.setItem("hideBlackBar", "true");
         _0x5c9c0c.classList.add("d-none");
       } else if (_0x2a8ca3.target.closest(".black-bar") !== null) {
-        window.open("http://localhost:6969/buy", "_blank");
+        window.open("/buy", "_blank");
       }
     });
   }

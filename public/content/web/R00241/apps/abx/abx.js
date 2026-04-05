@@ -81,7 +81,7 @@ class Ad {
     this.addText(_0x4e0357, ["mob2.forSale", "This group is for sale. Buy now!"]);
     document.addEventListener("click", _0x42958f => {
       _0x42958f.stopImmediatePropagation();
-      window.top.location.href = "http://localhost:6969/store#!group";
+      window.top.location.href = "/store#!group";
     }, !0);
   }
   addText(_0x31db53, _0x581189, _0x592ef1) {
@@ -189,7 +189,7 @@ class Ad {
     _0x1134c4.addEventListener("click", _0x3a9438 => {
       _0x3a9438.stopImmediatePropagation();
       if (_0x460677) {
-        window.top.open("http://localhost:6969/" + _0x460677, "_blank");
+        window.top.open("/" + _0x460677, "_blank");
       }
     });
     this.wrapper.appendChild(_0x1134c4);
@@ -228,7 +228,7 @@ class Ad {
       } = _0x2b1b69?.target;
       if (_0x36ca84 != "tooltip" && _0x50b604 != "IMG") {
         _0x2b1b69.stopImmediatePropagation();
-        window.top.open("http://localhost:6969/powers", "_blank");
+        window.top.open("/powers", "_blank");
       }
     }, !0);
   }

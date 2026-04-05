@@ -61,59 +61,12 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><a href="/RetroGaming" class="font-weight-bold">RetroGaming</a></td>
-              <td>Gaming</td>
-              <td>1,204</td>
-              <td><span class="badge badge-warning">Featured</span></td>
-              <td>85,000 xats</td>
-              <td><button class="btn btn-sm btn-success" onclick="openPurchase('RetroGaming', 85000)">Buy</button></td>
-            </tr>
-            <tr>
-              <td><a href="/MusicLounge" class="font-weight-bold">MusicLounge</a></td>
-              <td>Music</td>
-              <td>743</td>
-              <td><span class="badge badge-secondary">Standard</span></td>
-              <td>32,000 xats</td>
-              <td><button class="btn btn-sm btn-success" onclick="openPurchase('MusicLounge', 32000)">Buy</button></td>
-            </tr>
-            <tr>
-              <td><a href="/ArtCorner" class="font-weight-bold">ArtCorner</a></td>
-              <td>Art &amp; Design</td>
-              <td>510</td>
-              <td><span class="badge badge-secondary">Standard</span></td>
-              <td>20,000 xats</td>
-              <td><button class="btn btn-sm btn-success" onclick="openPurchase('ArtCorner', 20000)">Buy</button></td>
-            </tr>
-            <tr>
-              <td><a href="/LanguageExchange" class="font-weight-bold">LanguageExchange</a></td>
-              <td>Education</td>
-              <td>2,891</td>
-              <td><span class="badge badge-primary">Top 100</span></td>
-              <td>200,000 xats</td>
-              <td><button class="btn btn-sm btn-success" onclick="openPurchase('LanguageExchange', 200000)">Buy</button></td>
-            </tr>
-            <tr>
-              <td><a href="/NightOwls" class="font-weight-bold">NightOwls</a></td>
-              <td>Social</td>
-              <td>389</td>
-              <td><span class="badge badge-secondary">Standard</span></td>
-              <td>12,500 xats</td>
-              <td><button class="btn btn-sm btn-success" onclick="openPurchase('NightOwls', 12500)">Buy</button></td>
-            </tr>
-            <tr>
-              <td><a href="/TechTalk" class="font-weight-bold">TechTalk</a></td>
-              <td>Technology</td>
-              <td>1,057</td>
-              <td><span class="badge badge-warning">Featured</span></td>
-              <td>60,000 xats</td>
-              <td><button class="btn btn-sm btn-success" onclick="openPurchase('TechTalk', 60000)">Buy</button></td>
-            </tr>
+          <tbody id="groupsBody">
+            <tr><td colspan="6" class="text-center text-muted py-4">Loading groups for sale...</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="text-muted small">Showing 6 of 48 groups for sale. Use the search above to find specific groups.</p>
+      <p id="groupsCount" class="text-muted small"></p>
     </div>
   </div>
 
@@ -174,9 +127,57 @@
 </div>
 
 <script>
+var token = localStorage.getItem('xat_token') || '';
+
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
 function openPurchase(name, price) {
   document.getElementById('buyGroupName').value = name;
   document.getElementById('buyGroupPrice').value = price.toLocaleString();
   document.getElementById('purchaseSection').scrollIntoView({ behavior: 'smooth' });
 }
+
+function loadGroups(query) {
+  var url = '/api/groups/forsale';
+  if (query) url += '?q=' + encodeURIComponent(query);
+  fetch(url).then(function(r) { return r.json(); }).then(function(groups) {
+    var tbody = document.getElementById('groupsBody');
+    if (!Array.isArray(groups) || !groups.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted py-4">No groups currently listed for sale.</td></tr>';
+      document.getElementById('groupsCount').textContent = '';
+      return;
+    }
+    tbody.innerHTML = '';
+    groups.forEach(function(g) {
+      var rankBadge = g.featured ? '<span class="badge badge-warning">Featured</span>' : '<span class="badge badge-secondary">Standard</span>';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td><a href="/' + escapeHtml(g.name) + '" class="font-weight-bold">' + escapeHtml(g.name) + '</a></td>' +
+        '<td>' + escapeHtml(g.topic || '') + '</td>' +
+        '<td>' + (g.members || 0).toLocaleString() + '</td>' +
+        '<td>' + rankBadge + '</td>' +
+        '<td>' + (g.price || 0).toLocaleString() + ' xats</td>' +
+        '<td><button class="btn btn-sm btn-success" onclick="openPurchase(\'' + escapeHtml(g.name) + '\',' + (g.price || 0) + ')">Buy</button></td>';
+      tbody.appendChild(tr);
+    });
+    document.getElementById('groupsCount').textContent = 'Showing ' + groups.length + ' group' + (groups.length !== 1 ? 's' : '') + ' for sale.';
+  }).catch(function() {
+    document.getElementById('groupsBody').innerHTML = '<tr><td colspan="6" class="text-center text-muted py-4">No groups currently listed for sale.</td></tr>';
+  });
+}
+
+document.querySelector('#groupSearch').closest('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  loadGroups(document.getElementById('groupSearch').value.trim());
+});
+
+if (token) {
+  var loginBtn = document.querySelector('a[href="/login"].btn');
+  if (loginBtn) loginBtn.style.display = 'none';
+}
+
+loadGroups();
 </script>

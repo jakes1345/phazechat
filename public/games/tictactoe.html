@@ -24,7 +24,7 @@ const params = new URLSearchParams(location.search);
 const gameId = params.get('id');
 const playerId = params.get('player');
 const board = Array(9).fill('');
-let mySymbol = 'X';
+let mySymbol = playerId === '2' ? 'O' : 'X';
 let currentTurn = 'X';
 let gameOver = false;
 
@@ -45,9 +45,10 @@ function makeMove(index) {
   renderBoard();
   currentTurn = mySymbol === 'X' ? 'O' : 'X';
 
-  // Send move to server via parent
-  if (window.parent && window.parent.sendGameMove) {
-    window.parent.sendGameMove(gameId, JSON.stringify({ index, symbol: mySymbol }));
+  // Send move to server via opener (popup) or parent (iframe)
+  var target = window.opener || window.parent;
+  if (target && target.sendGameMove) {
+    target.sendGameMove(gameId, JSON.stringify({ index, symbol: mySymbol }));
   }
 
   checkWin();

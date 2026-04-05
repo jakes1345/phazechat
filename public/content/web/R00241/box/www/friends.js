@@ -53,7 +53,6 @@ var friends = new function () {
     _0x16e26d = config.Flags & 1;
     _0xa355de(1);
     document.body.style.display = "block";
-    debug("fake");
     if (!_0x16e26d) {
       this.ScrollContainer.style.top = document.getElementById("titleBar").clientHeight + document.getElementById("topSelector").clientHeight + "px";
     }

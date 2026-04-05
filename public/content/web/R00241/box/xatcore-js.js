@@ -109,7 +109,7 @@
     const attrRegex = /(\w+)="([^"]*)"/g;
     let m;
     while ((m = attrRegex.exec(str)) !== null) {
-      attrs[m[1]] = m[2].replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      attrs[m[1]] = m[2].replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
     }
     return { tag, attrs };
   }
@@ -366,7 +366,8 @@
   }
 
   function handleUserPacket(attrs) {
-    const userId = attrs.u;
+    // Strip pool suffix (e.g. "12345_2" -> "12345") for consistent lookup
+    const userId = (attrs.u || '').replace(/_\d+$/, '');
     const rawName = attrs.n || 'User_' + userId;
     // Parse name##status format: "DisplayName ##StatusText" or "DisplayName ## "
     let username = rawName;
@@ -488,22 +489,13 @@
     if (u.namecolor) pFlags |= 8;       // col
     if (u.nameglow) pFlags |= 4;        // glow
     if (u.namegrad) pFlags |= 32768;    // grad
-    if (u.namefont) pFlags |= 64;       // namefont
+    // namefont is conveyed via nameFont property, not pFlags (64 = red color flag)
     if (u.hat) pFlags |= 1;             // hat
     if (status) pFlags |= 2;            // status
     if (u.statusfx) pFlags |= 16 | 32;  // statusglow + statuscol
 
     // Determine image format
-    let image = '(smile#)';
-    if (avatar) {
-      if (avatar.startsWith('(') || avatar.startsWith('<')) {
-        image = avatar;
-      } else if (/^\d+$/.test(avatar)) {
-        image = avatar;
-      } else {
-        image = avatar;
-      }
-    }
+    let image = avatar || '(smile#)';
 
     // Pawn: use custom pawn if set, else default rank-based pawn
     let pawn = '';
@@ -671,8 +663,6 @@
     // Trigger layout recalc so messagesOverlay gets proper dimensions
     enqueueFifo("if(typeof bodyResize==='function')bodyResize(null)");
 
-    state.mainInitDone = true;
-
     // Emit rank section headers and visitors in rank order
     // IDs 300-399 are section headers: 300=group name, 301=rank section
     // Set background from i packet or gp packet if available
@@ -739,6 +729,9 @@
       enqueueFifo('setSignInButton("' + escapeJs(state.username) + '")');
     }
 
+    // Mark init as done AFTER all visitors have been emitted
+    state.mainInitDone = true;
+
     // Add a welcome system message
     addSystemMessage('Welcome to ' + (state.groupName || 'Lobby') + '!');
   }
@@ -784,9 +777,9 @@
     enqueueFifo("messages.addMessage('" + escapeJson(JSON.stringify(msgObj)) + "')");
     // Play message sound (skip for own messages and system messages)
     if (userId !== '0' && String(userId) !== String(state.userId)) {
-      // Check for audie sound in message: #sname format
-      var audieMatch = text.match(/#([a-z]+)\b/i);
-      if (audieMatch && ['boing','burp','buzzer','doorbell','explosion','fart','kiss','punch','scream','slap','snore','trumpet','yawn'].indexOf(audieMatch[1].toLowerCase()) !== -1) {
+      // Check for audie sound in message: #sname format — pass all through, doSound handles availability
+      var audieMatch = text.match(/#([a-z0-9]+)\b/i);
+      if (audieMatch) {
         enqueueFifo("if(typeof doSound==='function')doSound('" + escapeJs(audieMatch[1].toLowerCase()) + "',true)");
       }
     }
@@ -950,8 +943,12 @@
   }
 
   function handleInteraction(attrs) {
-    // <a> packets are kiss/hug/gift animations
-    console.log('[xatcore-js] Interaction:', attrs);
+    // <a> packets are kiss/hug/gift interactions — forward to hug/kiss handler
+    if (attrs.w || attrs.k) {
+      handleHugKiss(attrs);
+    } else {
+      console.log('[xatcore-js] Unhandled interaction:', attrs);
+    }
   }
 
   function handleRedirect(attrs) {
@@ -1081,6 +1078,11 @@
       enqueueFifo("if(typeof handleGameMove==='function')handleGameMove('" + escapeJs(attrs.id || '') + "'," + escapeJs(moveData) + ")");
     }
   }
+
+  // Expose sendGameMove globally so game iframes can relay moves
+  window.sendGameMove = function(gameId, moveData) {
+    sendPacket('game', { a: 'move', id: String(gameId), d: moveData });
+  };
 
   function handleTrade(attrs) {
     var action = attrs.a || '';
@@ -1213,21 +1215,20 @@
   }
 
   function updateFriendsPanel() {
-    if (typeof ToC === 'function') {
-      var friendArr = [];
-      if (state.friends) {
-        state.friends.forEach(function(f, id) {
-          friendArr.push({ id: id, name: f.name, avatar: f.avatar || '', online: f.online });
-        });
-      }
-      var requestArr = [];
-      if (state.friendRequests) {
-        state.friendRequests.forEach(function(r, id) {
-          requestArr.push({ id: id, name: r.name });
-        });
-      }
-      try { ToC({ Type: 'FriendsList', friends: friendArr, requests: requestArr }); } catch(e) {}
+    var friendArr = [];
+    if (state.friends) {
+      state.friends.forEach(function(f, id) {
+        friendArr.push({ id: id, name: f.name, avatar: f.avatar || '', online: f.online });
+      });
     }
+    var requestArr = [];
+    if (state.friendRequests) {
+      state.friendRequests.forEach(function(r, id) {
+        requestArr.push({ id: id, name: r.name });
+      });
+    }
+    // Use FIFO to call ToC inside the appframe where it's defined
+    enqueueFifo("if(typeof ToC==='function')ToC(" + JSON.stringify({ Type: 'FriendsList', friends: friendArr, requests: requestArr }) + ")");
   }
 
   function handleBlockPacket(attrs) {
@@ -1296,8 +1297,8 @@
   }
 
   function escapeJson(str) {
-    // Escape single quotes and backslashes for embedding in eval('...') strings
-    return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    // Escape for embedding in eval('...') strings
+    return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t');
   }
 
   // ===== ACTIONS HELPERS =====

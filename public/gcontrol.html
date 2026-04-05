@@ -254,7 +254,7 @@
 
           <!-- ===== MODERATION TAB ===== -->
           <div class="tab-section" id="tab-moderation">
-            <p class="text-muted" style="font-size:13px;">configure the gcontrol moderation settings for this room. rank levels: 0=guest, 1=member, 2=mod, 3=owner.</p>
+            <p class="text-muted" style="font-size:13px;">configure the gcontrol moderation settings for this room. rank levels: 2=guest, 5=member, 8=moderator, 11=owner, 14=main owner.</p>
 
             <div id="gcToggles">
 
@@ -264,9 +264,10 @@
                   <small>minimum rank required to gag (mute) users</small>
                 </div>
                 <select id="gc-mg" class="form-control form-control-sm rank-select">
-                  <option value="2">mod (2)</option>
-                  <option value="3">owner (3)</option>
-                  <option value="1">member (1)</option>
+                  <option value="8">moderator</option>
+                  <option value="11">owner</option>
+                  <option value="5">member</option>
+                  <option value="2">guest</option>
                 </select>
               </div>
 
@@ -276,9 +277,10 @@
                   <small>minimum rank required to ban users from the room</small>
                 </div>
                 <select id="gc-mb" class="form-control form-control-sm rank-select">
-                  <option value="2">mod (2)</option>
-                  <option value="3">owner (3)</option>
-                  <option value="1">member (1)</option>
+                  <option value="8">moderator</option>
+                  <option value="11">owner</option>
+                  <option value="5">member</option>
+                  <option value="2">guest</option>
                 </select>
               </div>
 
@@ -288,9 +290,10 @@
                   <small>minimum rank required to promote to member</small>
                 </div>
                 <select id="gc-mm" class="form-control form-control-sm rank-select">
-                  <option value="2">mod (2)</option>
-                  <option value="3">owner (3)</option>
-                  <option value="1">member (1)</option>
+                  <option value="8">moderator</option>
+                  <option value="11">owner</option>
+                  <option value="5">member</option>
+                  <option value="2">guest</option>
                 </select>
               </div>
 
@@ -300,9 +303,10 @@
                   <small>minimum rank required to kick users</small>
                 </div>
                 <select id="gc-kk" class="form-control form-control-sm rank-select">
-                  <option value="2">mod (2)</option>
-                  <option value="3">owner (3)</option>
-                  <option value="1">member (1)</option>
+                  <option value="8">moderator</option>
+                  <option value="11">owner</option>
+                  <option value="5">member</option>
+                  <option value="2">guest</option>
                 </select>
               </div>
 
@@ -312,10 +316,10 @@
                   <small>minimum rank required to send messages (for locked rooms)</small>
                 </div>
                 <select id="gc-mmt" class="form-control form-control-sm rank-select">
-                  <option value="0">guest (0)</option>
-                  <option value="1">member (1)</option>
-                  <option value="2">mod (2)</option>
-                  <option value="3">owner (3)</option>
+                  <option value="2">guest</option>
+                  <option value="5">member</option>
+                  <option value="8">moderator</option>
+                  <option value="11">owner</option>
                 </select>
               </div>
 

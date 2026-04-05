@@ -105,9 +105,9 @@ function checkName() {
   }
 
   fetch('/web_gear/chat/roomid.php?d=' + encodeURIComponent(name))
-  .then(function(r) { return r.text(); })
-  .then(function(id) {
-    if (id && parseInt(id) > 0) {
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data && data.id && parseInt(data.id) > 0) {
       document.getElementById('nameResult').innerHTML =
         '<div class="alert alert-success">"' + escapeHtml(name) + '" is available! <a href="/' + escapeHtml(name) + '" class="alert-link">Go to /' + escapeHtml(name) + '</a></div>';
     }

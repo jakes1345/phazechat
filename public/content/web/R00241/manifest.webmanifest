@@ -2,7 +2,7 @@
 	"background_color": "#15156b",
 	"theme_color": "#15156b",
 	"categories": ["entertainment", "games", "social", "tech"],
-	"description": "http://localhost:6969 is a fun social networking site with the coolest online chat box. Make friends, join a group, run your own chat - 10,000s online now.",
+	"description": "xat is a fun social networking site with the coolest online chat box. Make friends, join a group, run your own chat.",
 	"display": "standalone",
 	"orientation": "natural",
 	"icons": [
@@ -79,5 +79,5 @@
 	"name": "xat",
 	"short_name": "xat",
 	"start_url": "/chat?PWA=1",
-	"scope": "http://localhost:6969/"
+	"scope": "/"
 }

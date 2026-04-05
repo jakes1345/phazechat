@@ -184,8 +184,33 @@ descArea.addEventListener('input', function() {
 
 function submitReport(e) {
   e.preventDefault();
-  document.querySelector('button[type="submit"]').disabled = true;
-  document.getElementById('reportSuccess').style.display = 'block';
-  document.getElementById('reportSuccess').scrollIntoView({ behavior: 'smooth' });
+  var token = localStorage.getItem('xat_token');
+  if (!token) { alert('You must be logged in to submit a report.'); return; }
+  var btn = document.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  var type = document.querySelector('input[name="reportType"]:checked').value;
+  var target = document.getElementById('reportedName').value.trim();
+  var reason = document.getElementById('reportReason').value;
+  var details = document.getElementById('reportDescription').value.trim();
+  var group = document.getElementById('reportGroup').value.trim();
+  fetch('/api/reports', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+    body: JSON.stringify({ type: type, target_id: target, reason: reason, details: (group ? '[Group: ' + group + '] ' : '') + details })
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    if (data.ok) {
+      document.getElementById('reportSuccess').style.display = 'block';
+      document.getElementById('reportSuccess').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      alert('Error: ' + (data.error || 'Failed to submit report'));
+      btn.disabled = false;
+      btn.textContent = 'Submit Report';
+    }
+  }).catch(function() {
+    alert('Failed to submit report. Please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Submit Report';
+  });
 }
 </script>

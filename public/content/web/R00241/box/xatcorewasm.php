@@ -1,7 +1,7 @@
 
 // === IXAT PRIVATE SERVER PATCH ===
 // Configurable host - change this if running on a different host/port
-var IXAT_HOST = location.host || "localhost:6969";
+var IXAT_HOST = location.host || "" + location.host + "";
 var IXAT_PROTO = location.protocol || "http:";
 var IXAT_URL = IXAT_PROTO + "//" + IXAT_HOST;
 

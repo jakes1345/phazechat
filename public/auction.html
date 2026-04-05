@@ -53,48 +53,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><a href="/chat" class="font-weight-bold">chat</a></td>
-              <td>42,500 xats</td>
-              <td><span class="text-danger">1h 23m</span></td>
-              <td>xXChatKingXx</td>
-              <td><button class="btn btn-sm btn-primary" onclick="openBid('chat', 42500)">Bid</button></td>
-            </tr>
-            <tr>
-              <td><a href="/music" class="font-weight-bold">music</a></td>
-              <td>18,000 xats</td>
-              <td>6h 45m</td>
-              <td>MelodyQueen</td>
-              <td><button class="btn btn-sm btn-primary" onclick="openBid('music', 18000)">Bid</button></td>
-            </tr>
-            <tr>
-              <td><a href="/games" class="font-weight-bold">games</a></td>
-              <td>31,200 xats</td>
-              <td>12h 08m</td>
-              <td>GamerZone99</td>
-              <td><button class="btn btn-sm btn-primary" onclick="openBid('games', 31200)">Bid</button></td>
-            </tr>
-            <tr>
-              <td><a href="/help" class="font-weight-bold">help</a></td>
-              <td>9,750 xats</td>
-              <td>1d 4h</td>
-              <td>SupportPro</td>
-              <td><button class="btn btn-sm btn-primary" onclick="openBid('help', 9750)">Bid</button></td>
-            </tr>
-            <tr>
-              <td><a href="/trade" class="font-weight-bold">trade</a></td>
-              <td>55,000 xats</td>
-              <td>2d 17h</td>
-              <td>xTrader</td>
-              <td><button class="btn btn-sm btn-primary" onclick="openBid('trade', 55000)">Bid</button></td>
-            </tr>
-            <tr>
-              <td><a href="/anime" class="font-weight-bold">anime</a></td>
-              <td>7,100 xats</td>
-              <td>3d 2h</td>
-              <td>OtakuWorld</td>
-              <td><button class="btn btn-sm btn-primary" onclick="openBid('anime', 7100)">Bid</button></td>
-            </tr>
+            <tr><td colspan="5" class="text-center text-muted py-4">Loading auctions...</td></tr>
           </tbody>
         </table>
       </div>
@@ -160,8 +119,11 @@ function openBid(name, currentBid) {
 // Load active auctions from server
 function loadAuctions() {
   fetch('/api/auctions').then(r => r.json()).then(auctions => {
-    if (!Array.isArray(auctions) || !auctions.length) return;
     const tbody = document.querySelector('table tbody');
+    if (!Array.isArray(auctions) || !auctions.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">No active auctions at this time.</td></tr>';
+      return;
+    }
     tbody.innerHTML = '';
     auctions.forEach(a => {
       const timeLeft = a.ends_at ? formatTimeLeft(a.ends_at) : 'N/A';
@@ -173,7 +135,9 @@ function loadAuctions() {
         '<td><button class="btn btn-sm btn-primary" onclick="openBid(\'' + a.name + '\',' + (a.current_bid || a.starting_bid || 0) + ')">Bid</button></td>';
       tbody.appendChild(tr);
     });
-  }).catch(() => {});
+  }).catch(() => {
+    document.querySelector('table tbody').innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">No active auctions at this time.</td></tr>';
+  });
 }
 
 function formatTimeLeft(endsAt) {

@@ -169,7 +169,7 @@ class SettingsPage {
       }
       _0x320238++;
     }, 83);
-    let _0x1a2f3f = "http://localhost:6969/web_gear/chat/av/" + Math.floor(Math.random() * 1758 + 1) + ".png";
+    let _0x1a2f3f = "/web_gear/chat/av/" + Math.floor(Math.random() * 1758 + 1) + ".png";
     try {
       const _0x54f62f = JSON.parse(localStorage.getItem("todo"))?.w_avatar?.replace(/﻿/g, "");
       if (_0x54f62f) {
@@ -1511,7 +1511,7 @@ class SettingsPage {
         this.categoryNameInput.style.color = "";
       });
       this.categoryColor.on("save", () => {
-        this.keywordColor.hide();
+        this.categoryColor.hide();
       });
       this.addCategoryBtn.addEventListener("click", this.addCategoryEvent.bind(this));
       if (!parent?.categorySortable) {
@@ -1695,7 +1695,7 @@ class SettingsPage {
         _0x49f737.append("UserId", _0x2175da.w_userno);
         _0x49f737.append("DeviceId", _0x2175da.DeviceId);
         _0x49f737.append("PassHash", _0x2175da.PassHash);
-        urlPost("http://localhost:6969/web_gear/chat/register5.php", _0x49f737).then(function (_0xd42324) {
+        urlPost("/web_gear/chat/register5.php", _0x49f737).then(function (_0xd42324) {
           _0x4ea74a.classList.remove("d-none");
           document.querySelector("#accDesc").scrollIntoView({
             behavior: "smooth",

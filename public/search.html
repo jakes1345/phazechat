@@ -76,15 +76,10 @@ function doSearch() {
 
   document.getElementById('searchResults').innerHTML = '<div class="text-center p-3"><div class="spinner-border text-primary" role="status"></div></div>';
 
-  fetch('/json/lists/1_en_featured.php')
+  fetch('/api/groups/search?q=' + encodeURIComponent(q))
   .then(function(r) { return r.json(); })
-  .then(function(data) {
-    var groups = data.filter(function(g) {
-      return g.g && g.g.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-    });
-
-    if (groups.length === 0) {
-      // Try direct navigation - if the name is valid, offer to go there
+  .then(function(groups) {
+    if (!Array.isArray(groups) || groups.length === 0) {
       if (/^[a-zA-Z0-9_]{1,20}$/.test(q)) {
         document.getElementById('searchResults').innerHTML =
           '<div class="alert alert-info">No groups found matching "' + escapeHtml(q) + '". ' +
@@ -96,14 +91,16 @@ function doSearch() {
       return;
     }
 
-    var html = '<h3>Search Results</h3><div class="row">';
+    var html = '<h3>Search Results (' + groups.length + ')</h3><div class="row">';
     groups.forEach(function(g) {
+      var name = g.name || g.room_id;
       html += '<div class="col-md-4 col-lg-3 mb-3">' +
         '<div class="card h-100">' +
         '<div class="card-body text-center">' +
-        '<h5><a href="/' + escapeHtml(g.g) + '">' + escapeHtml(g.g) + '</a></h5>' +
-        (g.d ? '<p class="text-muted small">' + escapeHtml(g.d) + '</p>' : '') +
-        '<a href="/' + escapeHtml(g.g) + '" class="btn btn-sm btn-primary">Join</a>' +
+        '<h5><a href="/' + escapeHtml(name) + '">' + escapeHtml(name) + '</a></h5>' +
+        (g.topic ? '<p class="text-muted small">' + escapeHtml(g.topic) + '</p>' : '') +
+        '<span class="badge badge-secondary mb-2">' + (g.userCount || 0) + ' online</span><br>' +
+        '<a href="/' + escapeHtml(name) + '" class="btn btn-sm btn-primary">Join</a>' +
         '</div></div></div>';
     });
     html += '</div>';
@@ -117,21 +114,24 @@ function doSearch() {
   });
 }
 
-// Load popular groups
-fetch('/json/promo.php')
+// Load popular groups from active groups API
+fetch('/api/groups/active')
 .then(function(r) { return r.json(); })
 .then(function(data) {
+  var groups = (data.groups || []).slice(0, 12);
   var html = '';
-  data.forEach(function(g) {
+  groups.forEach(function(g) {
+    var name = g.name || g.id;
     html += '<div class="col-md-4 col-lg-3 mb-3">' +
       '<div class="card h-100">' +
       '<div class="card-body text-center">' +
-      '<h5><a href="/' + escapeHtml(g.g) + '">' + escapeHtml(g.g) + '</a></h5>' +
-      (g.d ? '<p class="text-muted small">' + escapeHtml(g.d) + '</p>' : '') +
-      '<a href="/' + escapeHtml(g.g) + '" class="btn btn-sm btn-primary">Join</a>' +
+      '<h5><a href="/' + escapeHtml(name) + '">' + escapeHtml(name) + '</a></h5>' +
+      (g.title ? '<p class="text-muted small">' + escapeHtml(g.title) + '</p>' : '') +
+      '<span class="badge badge-secondary mb-2">' + (g.userCount || 0) + ' online</span><br>' +
+      '<a href="/' + escapeHtml(name) + '" class="btn btn-sm btn-primary">Join</a>' +
       '</div></div></div>';
   });
-  document.getElementById('popularGroups').innerHTML = html || '<div class="col-12"><p>No groups available.</p></div>';
+  document.getElementById('popularGroups').innerHTML = html || '<div class="col-12"><p>No groups available yet. <a href="/Chat">Create one!</a></p></div>';
 })
 .catch(function() {
   document.getElementById('popularGroups').innerHTML = '<div class="col-12"><p>Could not load groups.</p></div>';

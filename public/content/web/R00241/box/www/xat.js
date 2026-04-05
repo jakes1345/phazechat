@@ -61,7 +61,7 @@ var PhoneTypes = {
   WINPHONE: 4
 };
 var CurrentPhoneType = null;
-var xatdomain = "http://localhost:6969";
+var xatdomain = "";
 var chatUrl = xatdomain + "/web_gear/chat/";
 var IDLE_ROOM = 3;
 let audiesList = ["howl", "44", "44inside", "accessdeniedfemale", "accessdeniedmale", "accessgranted", "airbrake", "airbrake2", "airhorn", "alarmbeep", "alarmclockbeep", "allclear", "ambulance", "and", "angrywoman", "aoogahorn", "aoogahorn2", "applausesmall", "arrowhit", "babyrattle", "balloonblowout", "balloonblowup", "balloonstretchsnap", "bangecho", "banneropen", "basketballbounce", "bass", "bathtubsplash", "bbboard", "bbswish", "bee", "beeswarm", "birdfly", "biteonice", "blink", "blip", "bloop", "blowraspberry", "boatairhorn", "boatcreak", "boathorn", "boing", "boing2", "bookpages", "bottlerocket", "boxingbellmulti", "breakplate", "breakwindow", "bricksfall", "bubbling2", "bulletbody", "bulletricochet", "burp", "busdoorslide", "bushorn", "button", "buttonbeep", "buttondroop", "buttonflutter", "buttonzip", "buzzer", "buzzer2", "buzzer3", "buzzer4", "buzzer5", "buzzerheavy", "buzzthroughloud", "buzzthru", "buzzthruloud", "camel", "cameraclick", "cameraclick2", "camerashutter", "camerazoomout", "cannedlaugh2", "cannon", "caralarm", "carcrash", "cardoording", "cardooropen", "cardoorshut", "carhornold2", "carhornshort", "carhorntwice", "carscreech", "carscreech2", "carscreech3", "carscreechstop", "carstart", "cartooncharge", "cartoonfall", "cartoonhammer", "cartoonphone", "cartoonrise", "cartoonrun", "cartoonspinstop", "cartoonsplit", "cartoonsqueak", "cartoonyahoo", "cashregister", "catmeow", "catmeow2", "catscream", "catscreech", "catyell", "cellphone", "censoredbeep", "chaching", "chain", "chainrattle", "chainsaw", "chalkboard", "chimp", "choke", "chop", "chop2", "cicadachirp2", "clickfast", "clickon", "clockchime1", "clocktick", "clocktickfast", "closewindow", "clownbugle", "cockatiel", "cockatiel2", "cockgun", "cockgun2", "cockgun3", "codered", "coinstable", "cointable", "colt45", "computerbeep", "computerbeep2", "computerbeep3", "computerbeep4", "computerprocess", "computerprocess2", "computerspring", "coocoo3", "cough", "cowboy", "creakslam", "cricket", "crow", "crow2", "crowdohh", "crunch", "cupsaucer", "dice", "dissolve", "dissolve2", "dogbark", "dogbark2", "doggrowl", "dolphin", "donkey", "donyahoo", "doorbell", "doorbell2", "doorbell3", "doorcreak", "doorcreak2", "doorcreak3", "dooropen", "doorslam", "dotmatrix3", "doubleclick", "dovefly", "drain", "dream", "drillshort", "dropinwater", "duckquack", "dullthump", "eagle", "eatcookie", "eatlikeapig", "electricalcurrent2", "electricarc", "electricdrill", "electricshock", "electronicheart", "electronicping", "eleoogahorn", "elephant", "elephant2", "elevator", "elevatording", "elevatordoor", "error", "explode", "explosion", "explosion2", "fall", "fall2", "fanfare", "fanfare2", "fart", "fart2", "fart3", "fart4", "fasttalk", "faucet", "fight", "fightmotion", "fill", "firetrucksiren2", "fireworkfire", "fireworks", "fireworksparklepop", "fishingreel", "flagpole", "flashbulb", "flashbulbs", "flashbulbs2", "flatline2", "flicklighter", "flushtoilet", "fly", "flyacross", "flymetal", "foghorn", "foghorn2", "freezerdoor", "frog2", "funnycarburnout", "fuse", "futurebeep", "futurebeep2", "futurebeep3", "gavel", "giantalienlaugh", "giddy", "giddylaugh", "glassbreak", "glassbreaking", "goaway", "golfball", "goodbyefemale", "goodbyemale", "goodmorningfemale", "goopy", "gotaproblem", "gotgas", "gotmailrap", "gotmailrap2", "gotmega", "gravelwalk", "groan", "groan2", "grow", "grow2", "gunfight2", "gunshots3", "hallelujah", "hammer", "handbellchristmas", "happynewyear", "happythanksgiving", "hardknock", "harp", "heartbeat3", "heartmonitorbeep", "hellobaby", "highpitchsqueal", "hisexy", "hiss", "hithard", "hockeystick", "hohoho", "hornwarning", "horsegallop2", "horseneigh", "horseneigh2", "horserun", "horsesrun", "howl2", "huh", "hurryup", "hurtdog", "iceglass", "iloveyoufemale", "iloveyoumale", "implosion", "implosion2", "indiancall", "indiancall2", "indiandrums", "inhale", "insidejet", "interference", "intruderalert", "invaliduser", "jaildoorclose", "jaildoorclose2", "jarlidtwist", "jelly", "jetpass", "jetstart2", "jetstart3", "jokedrum", "keylock", "keys", "kick", "kickass", "kickdoor", "kickdoordown", "kidscheer", "kidsscream", "kiss", "kiss2", "knockdoor", "knockhard", "ladder", "laserfire", "laserfire2", "laserfire3", "lasersword", "lasersword2", "laughcartoon", "laughingman", "laughingman2", "laughingman3", "laughingman4", "laughingman6", "laughingman7", "laughslow", "launchexplode", "lick", "lick2", "lion", "lion2", "lionscream", "liquidblast", "loadclip", "luger", "lumbercrash", "m16", "m16singleshot", "m80", "machinegun", "machineshutdown", "magic", "manwah", "match", "meatsizzle", "merrychristmaself", "metal", "metal2", "metalclang", "metaldooropen", "metalspecial", "metronome", "mice", "missilebeep", "missilebeep2", "missilebeep3", "modem", "monitorflatline", "morsecode", "motorcycle", "mouse", "mousesqueak", "movieend", "musicalhorn", "muzzleloadshot", "navywhistle", "niceday", "nightingale", "officephone", "ohhh", "oldcarhorn", "oldphone", "oldphonering2", "outboard", "ovendoor", "ow", "owl", "pageturn", "paintcanclickfast", "pan", "pant", "panther", "paperturnquick", "parrott", "partyhorn", "pasqueal", "peellongrubber", "peelshortrubber", "penclick", "phonebusy", "phonepickup", "phonering", "pianosmash", "pig", "pigeon", "pinball", "ping", "pipebang", "pissmiss", "pistolshot", "planeidle", "planelow", "platebreak", "platesilverware", "ploop", "policebullhorn", "poolballhit", "poolbreak", "poolpocket", "poolsplash", "pop2", "pop3", "poptop", "potsandpans", "pourbeer", "poursoda", "poweroff", "poweron", "puke", "pukewet", "punch", "punch123", "punch5", "punchhard", "pushpin", "racecar", "radarping", "radioadjustecho", "radiobeep", "raspberryfart", "rattlespray", "reversecymbal", "rifleshotecho", "ringbellmedium", "ringbellsmall", "ringbellsmall2", "robotarm", "rockdoor", "rooster", "ropestretch", "rundoorslam", "runtowards", "safeclose", "saxophone", "scarycartoon", "scarynote", "schoolbellshort", "scratchneedle", "scratchneedlelong", "scream", "screamman", "screamshort", "screamshutup", "screamwhat", "screendoor", "screendoorclose", "shakerolldice", "sheep", "shockperson", "shootglass", "shortbeeptone", "shotclockhorn", "shotgun", "shotgun2", "showercurtain", "shrink", "shutdowninprocess", "shutupmexican", "silvercoin", "singlegunshot", "sirenhorn", "slambigdoor", "slap", "slash", "slice", "sliderock", "slowlaugh", "slurp", "slurpfast", "slurping", "smallbell", "smallchimes", "smallgiggle", "smallwaterfall", "smash", "snakehiss", "snaredrumroll", "sneeze", "sneezewoman", "snore", "snore2", "sodatwistoff", "spaceball", "spacebeep", "sparkle", "sparrow", "specialgift", "spin", "splat", "spookylaugh", "spraybottle", "spraypaint", "spurssteps4", "squeaky", "squeaky2", "stapler", "startinggate", "static", "staticlong", "stumblebreak", "success", "suck", "suck2", "swing", "sword", "takeone", "tapetearoff", "tearcloth", "telegraph", "tennis", "thankyoufemale", "thankyoumale", "thunderrumble2", "tincan", "tireblowout", "tiresquealcorner", "tminus", "toasterpopup", "toytrainhorn", "traffichorns", "trafficjam", "trainhorn", "trainpassfast", "trashcan", "trashcan2", "triangle", "triangle2", "truckairhorn", "truckbrake", "truckhorn", "trumpet", "tugboathorn", "turkey", "turnofftv", "turnontv", "typewriter", "typewriterding", "typewritershift", "ugh", "uhohcomputer", "uhohcomputer2", "uhohcomputer3", "uncork", "underwater", "urconnected", "voicesample", "vwhorn", "walkhall", "warning", "warningbass", "waterballoon", "waterflow", "waterflow2", "wawaahorn", "weatherwarning", "welcomefemale", "welcomewindows2k", "welder2", "whip", "whip2", "whipcrack", "whiskaway", "whistleblow", "whistleblowhere", "whistledown", "whistlehere", "whistleshort", "whistlesparkle", "whistleup", "whistlewolf", "wildcat", "wildcat2", "windchandelier", "windowclose", "windows2kgoodbye", "windowslide", "windup", "witchlaugh", "womancry", "womanlaugh", "womanscream", "womansneeze", "woodplaner", "woodsplinter", "write", "wronganswer", "wronganswer2", "wrongnumbertone", "xpgoodbye", "xylophone", "yawn", "yougotcheesypoofs", "yougotmailscary", "yougotmailwhispered", "zipper", "zoom", "zoomaway"];
@@ -540,7 +540,7 @@ function HitWeb(_0x3994c7, _0x5d48f3) {
   }
 }
 function HitWiki(_0x9dd69f, _0x329177) {
-  HitWeb("https://util.localhost:6969/wiki/index.php?title=" + _0x9dd69f, _0x329177);
+  HitWeb("https://util.wiki/index.php?title=" + _0x9dd69f, _0x329177);
 }
 function LinkValidator(_0x122335, _0x406d72, _0x41111a) {
   if ((_0x406d72 = _0x406d72.replace(/＆/g, "&")).includes("linkvalidator.net/")) {
@@ -602,7 +602,7 @@ function LinkValidator(_0x122335, _0x406d72, _0x41111a) {
   } catch (_0x39e68e) {
     _0x145115 = {};
   }
-  if (_Activity.instance.UserSettings?.linkvalidator == "disable" && ["^", "@", "%"].indexOf(_0x406d72.charAt(0)) == -1 || ["localhost:6969", "xat.wiki", "forum.xat.com"].includes(_0x145115.host)) {
+  if (_Activity.instance.UserSettings?.linkvalidator == "disable" && ["^", "@", "%"].indexOf(_0x406d72.charAt(0)) == -1 || [location.host, "xat.wiki", "forum.xat.com"].includes(_0x145115.host)) {
     if (_0x41111a) {
       return _0x406d72;
     } else {
@@ -696,7 +696,7 @@ function setAppIcon(_0x321aec) {
     msg: "",
     tobox: 1
   };
-  parent.parent.parent.postMessage(JSON.stringify(_0x430979), "http://localhost:6969");
+  parent.parent.parent.postMessage(JSON.stringify(_0x430979), "");
 }
 let prevSmilies = null;
 let smTimeoutId = null;
@@ -896,7 +896,7 @@ function openApp(_0x381566) {
     };
   }
   if (parent) {
-    parent.postMessage(JSON.stringify(_0x4bc45d), "http://localhost:6969");
+    parent.postMessage(JSON.stringify(_0x4bc45d), "");
   }
 }
 function WordIsLink(_0x541243, _0x123ea9, _0x375a13, _0x2d67e0) {
@@ -937,11 +937,11 @@ function WordIsLink(_0x541243, _0x123ea9, _0x375a13, _0x2d67e0) {
             };
           case 5:
             if (isWEB) {
-              return "http://localhost:6969/login?mode=1";
+              return "/login?mode=1";
             }
           case 6:
             if (isWEB) {
-              return "http://localhost:6969/login";
+              return "/login";
             }
           case 7:
             if (isWEB) {
@@ -952,7 +952,7 @@ function WordIsLink(_0x541243, _0x123ea9, _0x375a13, _0x2d67e0) {
               return "vote";
             }
             if (_0x85fe65 < 1) {
-              return "http://localhost:6969/" + _0x2d0ea7;
+              return "/" + _0x2d0ea7;
             }
         }
       }
@@ -2843,7 +2843,7 @@ function powerAd(_0x269a2e, _0x1951f7) {
       addText(document.querySelector("#actionButton"), ["mob1.storebuynow", "Buy Now"]);
       document.querySelector("#actionButton").parentNode.addEventListener("click", () => {
         if (Classic) {
-          window.open("http://localhost:6969/store", "_blank");
+          window.open("/store", "_blank");
         } else {
           ToC({
             Command: "StartStore",
@@ -2884,7 +2884,7 @@ function powerAd(_0x269a2e, _0x1951f7) {
     });
     document.querySelector("#actionButton").parentNode.addEventListener("click", () => {
       if (Classic) {
-        window.open("http://localhost:6969/" + (_0x1951f7 == 700 ? "aces" : "store"), "_blank");
+        window.open("/" + (_0x1951f7 == 700 ? "aces" : "store"), "_blank");
       } else {
         ToC({
           Command: "StartStore",
@@ -2907,7 +2907,7 @@ function powerAd(_0x269a2e, _0x1951f7) {
   });
 }
 function doSound(_0x29689c, _0x15f2ce) {
-  let _0x1c344a = _0x15f2ce && !_Activity?.instance?.IsIOSApp && Browser != "SF" ? "http://localhost:6969/content/sounds/audies/" + _0x29689c + ".webm" : "http://localhost:6969/web_gear/chat/snd/" + _0x29689c + ".mp3";
+  let _0x1c344a = _0x15f2ce && !_Activity?.instance?.IsIOSApp && Browser != "SF" ? "/content/sounds/audies/" + _0x29689c + ".webm" : "/web_gear/chat/snd/" + _0x29689c + ".mp3";
   new _Activity.instance.Window.Howl({
     src: [_0x1c344a],
     volume: _0x29689c == "laserfire3" ? 1 : _Activity.instance.Volume[1] / 100
@@ -3896,7 +3896,7 @@ function reportsDrop(_0xa9c6a0 = null) {
   _0x23648e.style.display = _0x785cd6 === "block" ? "none" : "block";
   if (_0x160771) {
     _0x2fde9a.classList.remove("d-none");
-    _0x2fde9a.setAttribute("href", "http://localhost:6969/report#!user&UserName=" + _0xa9c6a0.split(" ")[0].toLowerCase());
+    _0x2fde9a.setAttribute("href", "/report#!user&UserName=" + _0xa9c6a0.split(" ")[0].toLowerCase());
   } else {
     _0x2fde9a.classList.add("d-none");
   }
@@ -4064,7 +4064,7 @@ function DoBanDialog(_0x4a86d8, _0x3a3e3e, _0x1b2959) {
   _0x1b2959 = _0x1b2959.substr(0, 500);
   const _0x4a28e8 = "svg/remove" + (toHex6(config.ButColW)[0] == "0" ? "b" : "w") + ".svg";
   const _0x498799 = "BanDialog";
-  HiddenDivs[_0x498799] = "<div class=\"modalDialogContentClassic\" data-w=\"0.65\"><div class=\"dialogTitleBar\"><span class=\"dialogTitle\"><img src=\"svg/actBan.svg\" alt=\"completed\" class=\"transcomp\"><span data-localize=\"mob2.banned\">Banned!</span></span><span class=\"dialogTitleAction\" id=\"id_ModalClose\"><img src=\"" + _0x4a28e8 + "\" width=\"16\" alt=\"close\"></span></div><div class=\"dialogBody\"><div class=\"dialogPadding\"><div id=\"newAlert\"><div class=\"table\" style=\"display: flex;\"><div class=\"column transdesc\"><div data-localize=\"mob2.time\">Time</div><div data-localize=\"mob2.by\">By</div><div data-localize=\"mob2.duration\">Duration</div><div data-localize=\"mob2.reason\">Reason</div></div><div class=\"column\"><div>" + _0x24bd94 + "</div><div>" + _0x4a86d8 + "</div><div>" + (_0x3bd55e == 0 ? "<span data-localize='mob2.forever'>Forever</span>" : _0x3bd55e + " <span data-localize=\"mob2.hours\">Hours</span> ") + "</div>" + (_0x1b2959.trim().length == 0 ? "<div style=\"overflow-y: auto; max-height: 70px;\" data-localize=\"mob2.noreason\">No reason given</div>" : "<div style=\"overflow-y: auto; max-height: 70px; word-break: break-word;\">" + _0x1b2959 + "</div>") + "</div></div><div class=\"banbuttons\" style=\"margin-top: 1rem;\"><a href=\"http://localhost:6969/report#!group&GroupName=" + config.GroupName + "\" target=\"_blank\"><button class=\"bButton\"><img src=\"svg/inappropriate.svg\" alt=\"report\" style=\"width: 12px\" class=\"inappIc\"><span data-localize=\"mob2.unfair\">Report unfair ban</span></button></a><a id=\"modalClose\"><button class=\"bButton\"><img src=\"svg/return2.svg\" alt=\"return\" class=\"inappIc\"><span data-localize=\"mob2.return\">Return to chat</span></button></a><a href=\"http://localhost:6969/groups\" target=\"_blank\"><button class=\"bButton\"><img src=\"svg/groups.svg\" alt=\"groups\" class=\"inappIc\"><span data-localize=\"mob2.findgroups\">Find other groups</span></button></a></div></div></div></div></div>";
+  HiddenDivs[_0x498799] = "<div class=\"modalDialogContentClassic\" data-w=\"0.65\"><div class=\"dialogTitleBar\"><span class=\"dialogTitle\"><img src=\"svg/actBan.svg\" alt=\"completed\" class=\"transcomp\"><span data-localize=\"mob2.banned\">Banned!</span></span><span class=\"dialogTitleAction\" id=\"id_ModalClose\"><img src=\"" + _0x4a28e8 + "\" width=\"16\" alt=\"close\"></span></div><div class=\"dialogBody\"><div class=\"dialogPadding\"><div id=\"newAlert\"><div class=\"table\" style=\"display: flex;\"><div class=\"column transdesc\"><div data-localize=\"mob2.time\">Time</div><div data-localize=\"mob2.by\">By</div><div data-localize=\"mob2.duration\">Duration</div><div data-localize=\"mob2.reason\">Reason</div></div><div class=\"column\"><div>" + _0x24bd94 + "</div><div>" + _0x4a86d8 + "</div><div>" + (_0x3bd55e == 0 ? "<span data-localize='mob2.forever'>Forever</span>" : _0x3bd55e + " <span data-localize=\"mob2.hours\">Hours</span> ") + "</div>" + (_0x1b2959.trim().length == 0 ? "<div style=\"overflow-y: auto; max-height: 70px;\" data-localize=\"mob2.noreason\">No reason given</div>" : "<div style=\"overflow-y: auto; max-height: 70px; word-break: break-word;\">" + _0x1b2959 + "</div>") + "</div></div><div class=\"banbuttons\" style=\"margin-top: 1rem;\"><a href=\"/report#!group&GroupName=" + config.GroupName + "\" target=\"_blank\"><button class=\"bButton\"><img src=\"svg/inappropriate.svg\" alt=\"report\" style=\"width: 12px\" class=\"inappIc\"><span data-localize=\"mob2.unfair\">Report unfair ban</span></button></a><a id=\"modalClose\"><button class=\"bButton\"><img src=\"svg/return2.svg\" alt=\"return\" class=\"inappIc\"><span data-localize=\"mob2.return\">Return to chat</span></button></a><a href=\"/groups\" target=\"_blank\"><button class=\"bButton\"><img src=\"svg/groups.svg\" alt=\"groups\" class=\"inappIc\"><span data-localize=\"mob2.findgroups\">Find other groups</span></button></a></div></div></div></div></div>";
   doModal(_0x498799);
   ColorTitle();
   setCstyle();
@@ -4774,7 +4774,7 @@ function iosAllowCookies() {
 }
 function openBuyPage(_0x20279f, _0x53b907) {
   let _0x3fffae = "_blank";
-  let _0x524142 = "http://localhost:6969/buy";
+  let _0x524142 = "/buy";
   let _0x2be5c7 = {};
   try {
     _0x2be5c7 = JSON.parse(localStorage.getItem("todo"));
@@ -5208,7 +5208,7 @@ function iMux(_0x462708, _0x33429b) {
   for (var _0x1098b1 = 0; _0x1098b1 < 10; _0x1098b1++) {
     _0x41ab02 += _0x2c70da.charCodeAt(_0x1098b1);
   }
-  return "https://" + _0x33429b + (_0x41ab02 & 1) + ".localhost:6969/web_gear/chat/" + _0x462708;
+  return "https://" + _0x33429b + (_0x41ab02 & 1) + ".web_gear/chat/" + _0x462708;
 }
 var Trusted;
 var syel;
@@ -5236,7 +5236,7 @@ function SafeImage(_0x4b3d64, _0x2f158c, _0x4c189f, _0x174d34) {
   if (!_0x1aec41.host) {
     return "";
   }
-  if (_0x1aec41.host.indexOf("localhost:6969") >= 0 && (_0x1aec41.path.indexOf("GetImage") > 0 || _0x1aec41.path.indexOf("/chat/av/") >= 0)) {
+  if (_0x1aec41.host.indexOf(location.host) >= 0 && (_0x1aec41.path.indexOf("GetImage") > 0 || _0x1aec41.path.indexOf("/chat/av/") >= 0)) {
     return _0x4b3d64;
   }
   if (_0x2f158c == _0x4c189f && !_0x174d34) {
@@ -5250,7 +5250,7 @@ function SafeImage(_0x4b3d64, _0x2f158c, _0x4c189f, _0x174d34) {
   if (_0x174d34) {
     _0x23e11b += "&g&otp";
   }
-  return "http://localhost:6969/web_gear/chat/GetImage7.php?" + _0x23e11b;
+  return "/web_gear/chat/GetImage7.php?" + _0x23e11b;
 }
 function parse_url(_0x18df4f, _0x114ef9) {
   var _0x10485d = ["source", "scheme", "authority", "userInfo", "user", "pass", "host", "port", "relative", "path", "directory", "file", "query", "fragment"];
@@ -6315,7 +6315,7 @@ function handleLiveApp(_0x3a912f = false, _0x418bf2 = false) {
       _0x2f0356 = JSON.parse(_0x2f0356.innerHTML);
       _0x48960a = _0x2f0356.dir;
     }
-    const _0xa9e26 = "http://localhost:6969" + _0x48960a;
+    const _0xa9e26 = "" + _0x48960a;
     const _0x1dd5a4 = _0x50d164.createElement("iframe");
     _0x1dd5a4.style.cssText = "border:none; width:100%; height:100%; border-radius:8px; overflow:hidden;";
     _0x1dd5a4.src = _0xa9e26 + "/apps/live/live.html#!standalone";
@@ -6366,7 +6366,7 @@ function livePlayAudio(_0x187a76) {
     _0x29f12c = JSON.parse(_0x29f12c.innerHTML);
     _0x56c40b = _0x29f12c.dir;
   }
-  const _0x2704cc = "http://localhost:6969" + _0x56c40b;
+  const _0x2704cc = "" + _0x56c40b;
   try {
     callingSound = new _Activity.instance.Window.Howl({
       src: [_0x2704cc + "/apps/live/snd/" + _0x187a76 + ".mp3"],
@@ -6505,7 +6505,7 @@ function liveAppRequestConsent(_0x5ae6bc, _0x5a5b53) {
   };
   createCallModal(getLiveHostDocument().doc, {
     title: "<img class=\"call-title\" src=\"img/xatlive.png\">",
-    content: "\n        <div class=\"call-wrapper\" style=\"margin-top: -20px;\">\n            <p class=\"call-status\">\n                <h4>Privacy Consent</h4>\n            </p>\n            <p class=\"call-consent-text\">\n                By starting a voice or video call, our Live app will access your microphone and camera. \n                All calls are end-to-end encrypted, and we do not record or store any audio or video. \n                For additional information, please see our <a href=\"http://localhost:6969/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Privacy Policy</a>.\n            </p>\n            <div class=\"call-buttons\">\n                <button class=\"call-btn call-consent-accept\">Accept</button>\n                <button class=\"call-btn call-consent-decline\">Decline</button>\n            </div>\n            <p class=\"call-consent-note\">You can withdraw your consent at any time in the Live app settings.</p>\n        </div>\n    ",
+    content: "\n        <div class=\"call-wrapper\" style=\"margin-top: -20px;\">\n            <p class=\"call-status\">\n                <h4>Privacy Consent</h4>\n            </p>\n            <p class=\"call-consent-text\">\n                By starting a voice or video call, our Live app will access your microphone and camera. \n                All calls are end-to-end encrypted, and we do not record or store any audio or video. \n                For additional information, please see our <a href=\"/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Privacy Policy</a>.\n            </p>\n            <div class=\"call-buttons\">\n                <button class=\"call-btn call-consent-accept\">Accept</button>\n                <button class=\"call-btn call-consent-decline\">Decline</button>\n            </div>\n            <p class=\"call-consent-note\">You can withdraw your consent at any time in the Live app settings.</p>\n        </div>\n    ",
     isClassic: liveIsClassic,
     buttons: [{
       selector: ".call-consent-accept",
@@ -6875,7 +6875,7 @@ function initFools() {
         }).addEventListener("finish", () => {
           xrRoot.document.body.style.filter = "grayscale(1)";
           localStorage.setItem("wasFooledList", JSON.stringify(_0x530884));
-          customModalWithMsg(null, btoa("<div style=\"font-weight: 600; text-align: center;\"><img style=\"display:block; margin: 0 auto\" src=\"../gameban/codeban/assets/smilies/72.png\" /><br /><br />Oops! Lights are off. This chatroom does not have sufficient energy to power up. Please check <a target=\"_blank\" href=\"http://localhost:6969/store\">localhost:6969/store</a> for energy supply powers.</div>"), true, true);
+          customModalWithMsg(null, btoa("<div style=\"font-weight: 600; text-align: center;\"><img style=\"display:block; margin: 0 auto\" src=\"../gameban/codeban/assets/smilies/72.png\" /><br /><br />Oops! Lights are off. This chatroom does not have sufficient energy to power up. Please check <a target=\"_blank\" href=\"/store\">store</a> for energy supply powers.</div>"), true, true);
         });
       }, 10000);
     } else {
@@ -7035,10 +7035,10 @@ function insertTextAtCaret(_0x323d75, _0x4a299c, _0x44a173 = false) {
   }
 }
 function getAvatarFrameUrl(_0x4b45c4) {
-  return "http://localhost:6969/images/avframes/" + _0x4b45c4 + ".webp";
+  return "/images/avframes/" + _0x4b45c4 + ".webp";
 }
 function getAvatarEffectUrl(_0x56a42e, _0x18b537, _0x65d8ef) {
-  return "http://localhost:6969/web_gear/chat/avatareffects.php?e=" + _0x56a42e + "&f=" + (_0x65d8ef !== undefined ? _0x65d8ef : 15) + "&c=" + (_0x18b537 || "").replace("#", "");
+  return "/web_gear/chat/avatareffects.php?e=" + _0x56a42e + "&f=" + (_0x65d8ef !== undefined ? _0x65d8ef : 15) + "&c=" + (_0x18b537 || "").replace("#", "");
 }
 function initAvatarEffect(_0x3dfa71, _0x189f10, _0xd118e6) {
   const _0x4841a5 = _0xd118e6 !== undefined && _0xd118e6 != null && typeof _0xd118e6 == "object" ? _0xd118e6 : _0x3dfa71.avatarEffect || {};
@@ -7403,7 +7403,7 @@ function handleAgeVerification() {
   doModal("AgeVerifyDialog");
   document.querySelector(".ageProceed").onclick = function () {
     modalClose();
-    window.open("http://localhost:6969/web_gear/chat/ageverify.php", "_blank");
+    window.open("/web_gear/chat/ageverify.php", "_blank");
   };
   document.querySelector(".ageClose").onclick = modalClose;
 }

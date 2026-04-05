@@ -117,7 +117,7 @@ class Smilies {
     const _0x131749 = this.MakeElement(_0x5c9967, "span", _0x108a5e);
     const _0x14244b = _0x116566 ? this.IconToLib(_0x144018, _0x2ed5d3) : this.EncodeGetStrip(_0x4c8979 + "_(" + _0x144018 + _0x580c1a + ")_" + _0x2ed5d3);
     const _0x487604 = _0x116566 ? this.IconToLib(_0x144018, _0x2ed5d3) : _0x4c8979 + "_(" + _0x20874e + _0x580c1a + ")_" + _0x2ed5d3 + this.GenerateAvatarEffectHash(_0x54fc24.avatarEffect);
-    const _0xa3191c = "http://localhost:6969/" + _0x14244b;
+    const _0xa3191c = "/" + _0x14244b;
     _0x131749.code = _0x20874e;
     _0x131749.dataset.sm = _0x144018;
     _0x131749.dataset.smHash = _0x487604;
@@ -760,7 +760,7 @@ class Smilies {
     } else if (_0x2e8467.indexOf("lights") != -1) {
       _0x3e8a89.addEventListener(_Activity.instance.IsClassic ? "mouseenter" : "mousedown", () => {
         if (_0xf2e141?.playState != "running") {
-          _0xf2e141 = _Activity.Window.document.body.animate([{
+          _0xf2e141 = (_Activity.instance?.Window || window).document.body.animate([{
             opacity: 0.4,
             offset: 0
           }, {

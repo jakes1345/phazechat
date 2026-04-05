@@ -1,5 +1,37 @@
 'use strict';
 
+// Game window: opens the game in a popup/iframe
+function openGameWindow(gameName, gameId, playersJson) {
+  var url = '/games/' + encodeURIComponent(gameName) + '.html?id=' + encodeURIComponent(gameId);
+  try { var players = JSON.parse(playersJson); if (Array.isArray(players)) url += '&players=' + players.length; } catch(e) {}
+  window.open(url, 'xat_game_' + gameId, 'width=640,height=480,resizable=yes');
+}
+
+// Game move: forward move data to the game window
+function handleGameMove(gameId, moveData) {
+  var win = window.open('', 'xat_game_' + gameId);
+  if (win && win.receiveMove) {
+    try { win.receiveMove(moveData); } catch(e) {}
+  }
+}
+
+// Send game move back to server via xatcore
+function sendGameMove(gameId, moveJson) {
+  if (parent && parent.sendGameMove) parent.sendGameMove(gameId, moveJson);
+}
+
+// Show browser notification
+function showNotification(message) {
+  if (!('Notification' in window)) return;
+  if (Notification.permission === 'granted') {
+    new Notification('xat', { body: message, icon: '/content/web/R00241/img/xatplanet.svg' });
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then(function(p) {
+      if (p === 'granted') new Notification('xat', { body: message, icon: '/content/web/R00241/img/xatplanet.svg' });
+    });
+  }
+}
+
 let menuState = 0;
 let textRange = null;
 let textSelection = null;
@@ -381,10 +413,10 @@ var chats = new function () {
     }
     const _0x135d29 = _0x2dc939.name || _0x2dc939.CurrentChat.split("_")[1];
     let _0xb86a85 = ProcessName(_0x135d29, "", ~NamePowers.nospace & 65535).name;
-    if (_0xb86a85.indexOf("localhost:6969/") == -1) {
+    if (_0xb86a85.indexOf("") == -1) {
       _0xb86a85 = _0xb86a85.replace(/_/gi, " ");
     }
-    _0xb86a85 = _0xb86a85.replace("localhost:6969/", "");
+    _0xb86a85 = _0xb86a85.replace("", "");
     _0xb86a85 = _0xb86a85.replace(/\s*\(.*?\)\s*/g, " ");
     _0xb86a85 = _0xb86a85.trim();
     if (!_0xb86a85 || _0xb86a85 == "﻿") {
@@ -503,7 +535,7 @@ let textEntryCaretPos = 0;
 function getAChatBoxPressed() {
   var _0x2a9c80 = config.roomid;
   var _0x1ed6fd = MainOwner ? "#!editgroup&roomid=" + _0x2a9c80 + "&GroupName=" + MainOwner : "#!creategroup";
-  window.open("//localhost:6969/chats" + _0x1ed6fd, "_blank");
+  window.open("/chats" + _0x1ed6fd, "_blank");
 }
 function smiliePressed(_0x163147) {
   if (typeof messages != "undefined" && messages.activeEditMessageNode) {
@@ -540,7 +572,7 @@ function getCaretWithin(_0x8fd2b2) {
   return _0x438040;
 }
 function buyPressed() {
-  window.open("//localhost:6969/buy", "_blank");
+  window.open("/buy", "_blank");
 }
 function getStuffPressed() {
   const _0x300a29 = document.querySelector(".dialogBody");
@@ -556,7 +588,7 @@ function appPressed() {
     parent.postMessage(JSON.stringify({
       action: "sideload",
       n: "apps"
-    }), "http://localhost:6969");
+    }), "");
   }
 }
 function spkPressed() {
@@ -789,21 +821,7 @@ function pasteHtmlAtCaret(_0x29bfe9) {
   }
 }
 function newstuff(_0x5812d7) {
-  var _0x47c4ea = new Date(2021, 2, 17, 0, 0, 0, 0);
-  var _0x4708d8 = new Date(2021, 3, 4, 0, 0, 0, 0);
-  let _0x5195d1 = document.getElementById("swPromo");
-  let _0x41b595 = document.getElementById("sideBar");
-  let _0xbdc55e = localStorage.getItem("swpromo");
-  if (_0x47c4ea <= _0x5812d7 && _0x5812d7 <= _0x4708d8) {
-    _0x5195d1.style.cssText = "display: inline-flex !important";
-    _0x41b595.addEventListener("click", () => {
-      _0x5195d1.style.cssText = "display: none !important";
-      localStorage.setItem("swpromo", "1");
-    });
-    if (_0xbdc55e && _0xbdc55e == "1") {
-      _0x5195d1.style.cssText = "display: none !important";
-    }
-  }
+  // Expired promo (2021) — no-op
 }
 function setStuffAndListener() {
   let _0x1e4983 = document.getElementById("returnBut");
@@ -818,14 +836,14 @@ function setStuffAndListener() {
   });
   let _0x5a02ed = document.getElementById("groupBut");
   _0x5a02ed.addEventListener("click", function () {
-    window.open("//localhost:6969/#featured", "_blank");
+    window.open("/#featured", "_blank");
   });
   addToolTip(_0x5a02ed, ["box.6", "Chat Groups"], {
     position: "low"
   });
   let _0x257017 = document.getElementById("helpBut");
   _0x257017.addEventListener("click", function () {
-    window.open("//localhost:6969/help_", "_blank");
+    window.open("/help_", "_blank");
   });
   addToolTip(_0x257017, ["box.7", "View help"], {
     position: "low"
@@ -911,11 +929,11 @@ function setStuffAndListener() {
 function setXatLogo() {
   let _0x68fa3f = document.getElementById("xatBut");
   _0x68fa3f.addEventListener("click", () => {
-    window.open("//localhost:6969", "_blank");
+    window.open("//" + location.host, "_blank");
   });
   if (isXatBirthday()) {
     const _0x1ac791 = ["anni1", "anni2", "anni3", "anni4", "anni5", "anni6", "anni7", "anni8", "anni9", "anni10", "anni11", "anni12"];
-    const _0x42271d = "http://localhost:6969/images/logo/" + _0x1ac791[Math.floor(Math.random() * _0x1ac791.length)] + ".png";
+    const _0x42271d = "/images/logo/" + _0x1ac791[Math.floor(Math.random() * _0x1ac791.length)] + ".png";
     if (_0x68fa3f) {
       _0x68fa3f.style.backgroundImage = "url('" + _0x42271d + "')";
     }

@@ -116,8 +116,8 @@ class Avatars {
       }
     }
     _0x2e1c5d = _0x9f2f14.split(".").pop().toLowerCase() == "gif";
-    if (!_0x39bbfd && (!!_0x3333ad || _0x42ccf5?.origin != "http://localhost:6969")) {
-      _0x9f2f14 = _0x3333ad ? "http://localhost:6969/web_gear/chat/av/" + parseInt(_0x9f2f14) + ".png" : _0x2f5c70 && this.Animation && !_0x2e1c5d || _0x28cfd6 ? "http://localhost:6969/web_gear/chat/GetImage9.php?s&W=80&H=80&U=" + _0x9f2f14 : _0x2f5c70 && this.Animation && _0x2e1c5d ? "http://localhost:6969/web_gear/chat/GetImage7.php?W=80&H=80&U=" + _0x9f2f14 + "&g" : "http://localhost:6969/web_gear/chat/GetImage7.php?s&W=80&H=80&U=" + _0x9f2f14 + "&we";
+    if (!_0x39bbfd && (!!_0x3333ad || _0x42ccf5?.origin != "")) {
+      _0x9f2f14 = _0x3333ad ? "/web_gear/chat/av/" + parseInt(_0x9f2f14) + ".png" : _0x2f5c70 && this.Animation && !_0x2e1c5d || _0x28cfd6 ? "/web_gear/chat/GetImage9.php?s&W=80&H=80&U=" + _0x9f2f14 : _0x2f5c70 && this.Animation && _0x2e1c5d ? "/web_gear/chat/GetImage7.php?W=80&H=80&U=" + _0x9f2f14 + "&g" : "/web_gear/chat/GetImage7.php?s&W=80&H=80&U=" + _0x9f2f14 + "&we";
     }
     const _0x22a8a4 = _0x9f2f14;
     const _0x58ae49 = _0x28cfd6 ? _0x3aa911 : this.MakeElement(_0x3aa911, "span", _0x5e7289);

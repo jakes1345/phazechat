@@ -108,7 +108,9 @@ var selector = new function () {
     }
   };
   this.Logout = function () {
-    localStorage.clear();
+    localStorage.removeItem('xat_token');
+    localStorage.removeItem('xat_user');
+    localStorage.removeItem('xat_userid');
     let _0x45909 = parent;
     if (_0x45909.parent) {
       _0x45909 = _0x45909.parent;
@@ -302,12 +304,8 @@ var selector = new function () {
     }
   };
   this.getCaptchaResponse = function () {
-    let _0x4df89f = document.querySelector("#g-recaptcha-response");
-    if (_0x4df89f) {
-      return _0x4df89f.value;
-    } else {
-      return "";
-    }
+    // Private server: skip CAPTCHA verification, return bypass token
+    return "private-server-bypass";
   };
   this.sendCaptcha = function (_0x510541 = null) {
     let _0xdd11e6 = {
@@ -634,7 +632,7 @@ var selector = new function () {
   };
   this.gotGifts1 = function () {
     let _0x4a6b09;
-    let _0x45ec81 = "http://localhost:6969/web_gear/chat/gifts22.php";
+    let _0x45ec81 = "/web_gear/chat/gifts22.php";
     if (selector.MyObj && selector.UserNo == selector.MyObj.MyId) {
       selector.Name = selector.Auth.RegName;
     }
@@ -841,7 +839,7 @@ var selector = new function () {
     if (_0x214804.f & 2) {
       _0x55012a = _0x214804.f & 4 ? "unopenedgift" : "unreadcard";
     }
-    let _0x10dfc4 = _0x50e951.image("http://localhost:6969/images/js/gift/" + _0x55012a + ".svg?z1");
+    let _0x10dfc4 = _0x50e951.image("/images/js/gift/" + _0x55012a + ".svg?z1");
     if (_0x214804.f & 2) {
       if (_0x40976d) {
         _0x235e12.Time = _0x214804.Time;
@@ -1109,7 +1107,7 @@ var selector = new function () {
     _0x51378e.height = 100;
     _0x51378e.draggable = !1;
     let _0xeacc23 = _0x53d5d6[0].replace(/[^0-9a-zA-Z]/g, "_").toLowerCase();
-    _0x51378e.src = "http://localhost:6969/h_s_" + _0xeacc23 + "_" + (_0x53d5d6[1] ? encodeURIComponent(_0x53d5d6[1]) : "") + ".png";
+    _0x51378e.src = "/h_s_" + _0xeacc23 + "_" + (_0x53d5d6[1] ? encodeURIComponent(_0x53d5d6[1]) : "") + ".png";
     new Image().src = _0x51378e.src;
     _0x15aa0a.addEventListener("click", _0x28a867);
     return _0x15aa0a;
@@ -1466,7 +1464,7 @@ var selector = new function () {
       _0x4a639e.border = 0;
       _0x4a639e.width = 83;
       _0x4a639e.height = 60;
-      _0x4a639e.src = "http://localhost:6969/f_ks-t" + _0x254f2c + "_166_120_2_.png";
+      _0x4a639e.src = "/f_ks-t" + _0x254f2c + "_166_120_2_.png";
       new Image().src = _0x4a639e.src;
       _0x4a639e.Cost = _0x363053;
       _0x4a639e.Type = _0x576d64;
@@ -1515,7 +1513,7 @@ var selector = new function () {
       }
       setLoader(!1);
     } else {
-      loadJSON("http://localhost:6969/web_gear/chat/kiss.php", function (_0x27d33b) {
+      loadJSON("/web_gear/chat/kiss.php", function (_0x27d33b) {
         for (let _0xd59bd1 in _0x27d33b) {
           _0x314161(_0x27d33b[_0xd59bd1][1]);
           _0x314161(_0x27d33b[_0xd59bd1][2]);
@@ -1851,7 +1849,7 @@ var selector = new function () {
               if (_0x400a9b[_0x12a54f]) {
                 _0x25463a[_0x4c56ff].style.background = "url(" + _0x6834fc.src + ") -" + _0x400a9b[_0x12a54f][0] + "px -" + _0x400a9b[_0x12a54f][1] + "px";
               } else {
-                _0x12a54f = "url('http://localhost:6969/images/smw/" + _0x12a54f + ".png')";
+                _0x12a54f = "url('/images/smw/" + _0x12a54f + ".png')";
                 _0x25463a[_0x4c56ff].style.background = _0x12a54f;
               }
             }
@@ -2336,7 +2334,7 @@ var selector = new function () {
           }
           break;
         case "BuyGifts":
-          loadJSON("http://localhost:6969/web_gear/chat/gift2.php?v2=1", _0x51ff75);
+          loadJSON("/web_gear/chat/gift2.php?v2=1", _0x51ff75);
           if (navigator.userAgent.indexOf("Firefox") > 0) {
             document.querySelector(".powersScroll").style.height = "88%";
           }

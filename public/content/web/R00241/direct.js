@@ -69,7 +69,7 @@ function DoSendMessage(_0x5c2e74) {
     _0x1186eb.ts = 1;
   }
   bodyCursor("wait");
-  urlPost("http://localhost:6969/web_gear/chat/ownerfeedback2.php", filter(_0x1186eb)).then(function (_0x428ab5) {
+  urlPost("/web_gear/chat/ownerfeedback2.php", filter(_0x1186eb)).then(function (_0x428ab5) {
     bodyCursor("default");
     allErrsOff();
     _0x128099?.classList?.remove("d-none");
@@ -234,7 +234,7 @@ function main() {
     _0x34ad39.removeAttribute("data-toggle");
     _0x34ad39.removeAttribute("data-target");
     _0x34ad39.addEventListener("click", function () {
-      window.location.href = "http://localhost:6969/login";
+      window.location.href = "/login";
     });
   }
   if (xConfig.debugMainOwner) {
@@ -347,7 +347,7 @@ function fetchGroupData() {
     } else {
       if (xConfig.debugFetchGroup) {
         let _0x1a70af;
-        let _0x3d7526 = "http://localhost:6969/web_gear/chat/roomid.php?d=" + xConfig.gn;
+        let _0x3d7526 = "/web_gear/chat/roomid.php?d=" + xConfig.gn;
         if (_0x1a70af = GET.params.cb) {
           _0x3d7526 += "&cb=" + _0x1a70af;
         }
@@ -401,13 +401,13 @@ function fetchGroupData() {
                 if (_0x3481e6 && _0xd16b0c) {
                   _0xd16b0c.classList.remove("d-none");
                   _0x3481e6 = _0x3481e6.replace(new RegExp("[/.]", "gi"), "");
-                  _0xd16b0c.src = _0x3481e6 == "xat" ? "http://localhost:6969/images/smw/flag.png" : "http://localhost:6969/images/smw/flag/" + filter(_0x3481e6) + ".png";
+                  _0xd16b0c.src = _0x3481e6 == "xat" ? "/images/smw/flag.png" : "/images/smw/flag/" + filter(_0x3481e6) + ".png";
                   _0xd16b0c.onerror = () => {
                     _0xd16b0c.removeAttribute("src");
                     _0xd16b0c.classList.add("d-none");
                   };
                   _0xd16b0c.onload = () => {
-                    if (_0x3481e6 !== "xat" && _0xd16b0c.src.substr(0, 32) != "http://localhost:6969/images/smw/flag/") {
+                    if (_0x3481e6 !== "xat" && _0xd16b0c.src.substr(0, 32) != "/images/smw/flag/") {
                       _0xd16b0c.removeAttribute("src");
                       _0xd16b0c.classList.add("d-none");
                     }
@@ -502,7 +502,7 @@ function updatePage() {
     }
   }
   if (Home) {
-    document.querySelector("meta[name=\"description\"]").setAttribute("content", "localhost:6969 is a fun social networking site, join a group, make friends, create your own xat group");
+    document.querySelector("meta[name=\"description\"]").setAttribute("content", location.host + " - a fun social networking site, join a group, make friends, create your own xat group");
     document.title = "xat";
   }
   let _0x13ec0c = document.getElementById("embedframe");
@@ -847,15 +847,15 @@ function xInt(_0x253b8e) {
   }
 }
 function xpromo(_0x696b02, _0x5b3fe3) {
-  let _0x25b34b = "\n        <a href=\"//localhost:6969/" + _0x696b02 + "\">" + _0x696b02 + "</a> \n        <small>(<span data-localize=\"index.notrun\">Note: this chat is not run by xat</span>)</small><br>\n        <span data-localize=\"index.promotedgroups\">Promoted groups</span>: \n    ";
+  let _0x25b34b = "\n        <a href=\"/" + _0x696b02 + "\">" + _0x696b02 + "</a> \n        <small>(<span data-localize=\"index.notrun\">Note: this chat is not run by xat</span>)</small><br>\n        <span data-localize=\"index.promotedgroups\">Promoted groups</span>: \n    ";
   for (let _0x1ab835 in xConfig.xpromo) {
-    _0x25b34b += "<a href=\"//localhost:6969/" + xConfig.xpromo[_0x1ab835].n + "\">" + xConfig.xpromo[_0x1ab835].n + "</a> | ";
+    _0x25b34b += "<a href=\"/" + xConfig.xpromo[_0x1ab835].n + "\">" + xConfig.xpromo[_0x1ab835].n + "</a> | ";
   }
-  let _0xeeaacf = "\n\t\t<div class=\"col-12 mb-2\" id=\"mobpromo\">\n\t\t\t<div class=\"card h-100 border mb-2\">\n\t\t\t\t<a class=\"overlayLink\" href=\"http://localhost:6969/" + _0x696b02 + "\"></a>\n\t\t\t\t<div class=\"card-body p-2\">\n\t\t\t\t\t<img class=\"card-img-top img-fluid promoImg\" loading=\"lazy\" src=\"" + GetImageToNl(_0x5b3fe3) + "\" alt=\"" + _0x696b02 + "\">\n\t\t\t\t\t<div class=\"centered\"><img class=\"mb-1 mr-1 promostar\" width=\"19\" src=\"" + xConfig.dir + "img/navbar/star.svg\" alt=\"star\">" + _0x696b02 + "</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t";
+  let _0xeeaacf = "\n\t\t<div class=\"col-12 mb-2\" id=\"mobpromo\">\n\t\t\t<div class=\"card h-100 border mb-2\">\n\t\t\t\t<a class=\"overlayLink\" href=\"/" + _0x696b02 + "\"></a>\n\t\t\t\t<div class=\"card-body p-2\">\n\t\t\t\t\t<img class=\"card-img-top img-fluid promoImg\" loading=\"lazy\" src=\"" + GetImageToNl(_0x5b3fe3) + "\" alt=\"" + _0x696b02 + "\">\n\t\t\t\t\t<div class=\"centered\"><img class=\"mb-1 mr-1 promostar\" width=\"19\" src=\"" + xConfig.dir + "img/navbar/star.svg\" alt=\"star\">" + _0x696b02 + "</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t";
   if (window.matchMedia("(max-width: 540px)").matches && isMobile) {
     document.querySelector(".hmemb").remove();
   }
-  _0x25b34b += "<a href=\"//localhost:6969/promotion\"><span data-localize=\"index.promomine\">Promote my group</span></a>";
+  _0x25b34b += "<a href=\"/promotion\"><span data-localize=\"index.promomine\">Promote my group</span></a>";
   document.querySelector("#promo").innerHTML = _0xeeaacf + _0x25b34b;
 }
 function pmain() {
@@ -902,7 +902,7 @@ function prender() {
 }
 function pupdate() {
   if (xConfig.lang && xConfig.loadlist) {
-    let _0xc3dc5e = "http://localhost:6969/json/lists/";
+    let _0xc3dc5e = "/json/lists/";
     if (xConfig.list == "games") {
       _0xc3dc5e += xConfig.list;
     } else {

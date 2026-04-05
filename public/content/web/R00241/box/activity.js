@@ -27,7 +27,7 @@ class Activity {
     }
     const _0x3db854 = {
       name: "box",
-      origin: "http://localhost:6969",
+      origin: location.origin,
       debugLogIgnore: [],
       debugNoLogs: !0
     };
@@ -124,11 +124,8 @@ class Activity {
       get: null,
       post: null
     };
-    console.log = function (_0x4605b4, _0x482c4c, _0x309f8c) {
-      return function () {
-        this.xConfig.debugNoLogs;
-      }.bind(this);
-    }.bind(this)(console.log.bind(console), this.xConfig.name, this.xConfig.debugLogIgnore);
+    // Keep console.log working for development — original xat suppresses it
+    // console.log override removed for private server debugging
     this.returnPermissionForStorageAccess().then(_0x155c9a => {
       if (_0x155c9a === this.PERMISSIONS.granted) {
         return this.requestStorageAccessApi();
@@ -630,7 +627,7 @@ class Activity {
             if (_0x68d46e.isGoodfriend < 1 && (this.Volume[0] == 0 || (this.Sound & 1) == 0)) {
               break;
             }
-            const _0x35f2d5 = "http://localhost:6969/content/sounds/" + _0x68d46e.Sound;
+            const _0x35f2d5 = "/content/sounds/" + _0x68d46e.Sound;
             try {
               new Howl({
                 src: [_0x35f2d5 + ".webm", _0x35f2d5 + ".mp3"],
@@ -738,8 +735,9 @@ class Activity {
           break;
         }
         if (this.IsClassic || !this.IsClassic && localStorage.getItem("mobCcookies") == 1) {
-          localStorage.getItem(_0x525c97);
-          localStorage.setItem(_0x525c97, _0x23cd7f);
+          if (_0x23cd7f !== undefined && _0x23cd7f !== null && _0x23cd7f !== '') {
+            localStorage.setItem(_0x525c97, _0x23cd7f);
+          }
         }
         break;
       case this.LOG:
@@ -777,7 +775,7 @@ class Activity {
         this.CloseSock();
         break;
       case this.CONNECT:
-        _0x525c97 = "wss://wss.localhost:6969";
+        _0x525c97 = "wss://wss." + location.host;
         _0x23cd7f = 443;
         this.ConnectPort = this.xInt(_0x23cd7f) + "/v2";
         this.CloseSock();
@@ -805,6 +803,7 @@ class Activity {
         break;
       case this.NOTIFY:
         this.DoNotify(_0x525c97, _0x23cd7f);
+        break;
       case this.ALERT:
       case this.HTTP:
       case this.LANGS:
@@ -990,7 +989,7 @@ class Activity {
         this.list[_0x257857] = new Notification(_0x37ad6d, {
           body: _0x44c16a,
           tag: _0x257857,
-          icon: "http://localhost:6969/images/planet.svg",
+          icon: "/images/planet.svg",
           lang: "",
           dir: "auto"
         });

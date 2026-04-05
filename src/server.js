@@ -436,7 +436,17 @@ db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(Math.floor(Date.now(
 // Seed powers table from complete pow2-derived power definitions (705 powers)
 // Generated from pow2_real.json + Flash xconst.as pss string
 const POWER_DEFS_JSON = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'powers_complete.json'), 'utf8'));
-const POWER_DEFS = POWER_DEFS_JSON.map(p => [p.id, p.name, p.section, 0, 0, p.is_epic, p.is_allpower, 0, p.subid]);
+// Assign tiered pricing based on power ID (mirrors real xat where newer powers cost more)
+function powerCost(p) {
+  if (p.is_allpower) return [0, 0]; // allpowers: free (bundled)
+  if (p.id < 50) return [200, 1];
+  if (p.id < 100) return [250, 2];
+  if (p.id < 200) return [300, 3];
+  if (p.id < 350) return [350, 5];
+  if (p.id < 500) return [500, 5];
+  return [1000, 10]; // newer/rarer powers
+}
+const POWER_DEFS = POWER_DEFS_JSON.map(p => { const [xats, days] = powerCost(p); return [p.id, p.name, p.section, xats, days, p.is_epic, p.is_allpower, 0, p.subid]; });
 // Legacy reference (keeping for search):
 // Seed powers (upsert to fix old wrong IDs and add subid)
 {
@@ -2198,9 +2208,14 @@ function handleCommand(userData, currentRoom, text) {
 
     // === /mainowner ===
     case '/mainowner': {
-      // Set current user as main owner (only if they're already owner and this is the first)
       if (userData.rank < RANK.OWNER) {
         sendSystemMsg(userData.ws, 'You must be owner first.');
+        return true;
+      }
+      // Check if there's already a main owner in this room
+      const existingMainOwner = db.prepare('SELECT user_id FROM room_ranks WHERE room_id = ? AND rank >= ?').get(currentRoom, RANK.MAIN_OWNER);
+      if (existingMainOwner && existingMainOwner.user_id !== userData.dbId) {
+        sendSystemMsg(userData.ws, 'This room already has a main owner.');
         return true;
       }
       userData.rank = RANK.MAIN_OWNER;
@@ -4335,28 +4350,43 @@ function handleXatConnection(ws) {
               if (!owned) { sendSystemMsg(ws, 'You do not own required power.'); break; }
             }
 
-            if (trade.offer_xats > 0) db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.offer_xats, userData.dbId);
-            if (trade.offer_days > 0) db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.offer_days, userData.dbId);
-            let offerPowersList = [];
-            try { offerPowersList = JSON.parse(trade.offer_powers); } catch(e) {}
-            for (const pid of offerPowersList) {
-              try { db.prepare('INSERT INTO user_powers (user_id, power_id) VALUES (?, ?)').run(userData.dbId, pid); } catch(e) {}
-            }
+            // Wrap entire trade in a transaction for atomicity
+            const executeTrade = db.transaction(() => {
+              if (trade.offer_xats > 0) db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.offer_xats, userData.dbId);
+              if (trade.offer_days > 0) db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.offer_days, userData.dbId);
+              let offerPowersList = [];
+              try { offerPowersList = JSON.parse(trade.offer_powers); } catch(e) {}
+              for (const pid of offerPowersList) {
+                db.prepare('INSERT INTO user_powers (user_id, power_id, count) VALUES (?, ?, 1) ON CONFLICT(user_id, power_id) DO UPDATE SET count = count + 1').run(userData.dbId, pid);
+              }
 
-            if (trade.request_xats > 0) {
-              db.prepare('UPDATE users SET xats = xats - ? WHERE id = ?').run(trade.request_xats, userData.dbId);
-              db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.request_xats, trade.sender_id);
-            }
-            if (trade.request_days > 0) {
-              db.prepare('UPDATE users SET days = days - ? WHERE id = ?').run(trade.request_days, userData.dbId);
-              db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.request_days, trade.sender_id);
-            }
-            for (const pid of requestPowersList) {
-              db.prepare('DELETE FROM user_powers WHERE user_id = ? AND power_id = ?').run(userData.dbId, pid);
-              try { db.prepare('INSERT INTO user_powers (user_id, power_id) VALUES (?, ?)').run(trade.sender_id, pid); } catch(e) {}
-            }
+              if (trade.request_xats > 0) {
+                db.prepare('UPDATE users SET xats = xats - ? WHERE id = ?').run(trade.request_xats, userData.dbId);
+                db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.request_xats, trade.sender_id);
+              }
+              if (trade.request_days > 0) {
+                db.prepare('UPDATE users SET days = days - ? WHERE id = ?').run(trade.request_days, userData.dbId);
+                db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.request_days, trade.sender_id);
+              }
+              for (const pid of requestPowersList) {
+                const powerRow = db.prepare('SELECT count FROM user_powers WHERE user_id = ? AND power_id = ?').get(userData.dbId, pid);
+                if (powerRow && powerRow.count > 1) {
+                  db.prepare('UPDATE user_powers SET count = count - 1 WHERE user_id = ? AND power_id = ?').run(userData.dbId, pid);
+                } else {
+                  db.prepare('DELETE FROM user_powers WHERE user_id = ? AND power_id = ?').run(userData.dbId, pid);
+                }
+                db.prepare('INSERT INTO user_powers (user_id, power_id, count) VALUES (?, ?, 1) ON CONFLICT(user_id, power_id) DO UPDATE SET count = count + 1').run(trade.sender_id, pid);
+              }
 
-            db.prepare("UPDATE tr_trades SET status = 'completed' WHERE id = ?").run(tradeId);
+              db.prepare("UPDATE tr_trades SET status = 'completed' WHERE id = ?").run(tradeId);
+            });
+
+            try {
+              executeTrade();
+            } catch (tradeErr) {
+              sendSystemMsg(ws, 'Trade failed: ' + tradeErr.message);
+              break;
+            }
 
             const senderWs = findOnlineUserWs(trade.sender_id);
             if (senderWs) sendTo(senderWs, xmlTag('tr', { a: 'accepted', id: String(tradeId) }));
@@ -4369,15 +4399,17 @@ function handleXatConnection(ws) {
             const trade = db.prepare("SELECT * FROM tr_trades WHERE id = ? AND receiver_id = ? AND status = 'pending'").get(tradeId, userData.dbId);
             if (!trade) break;
 
-            if (trade.offer_xats > 0) db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.offer_xats, trade.sender_id);
-            if (trade.offer_days > 0) db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.offer_days, trade.sender_id);
-            let offerPowersList = [];
-            try { offerPowersList = JSON.parse(trade.offer_powers); } catch(e) {}
-            for (const pid of offerPowersList) {
-              try { db.prepare('INSERT INTO user_powers (user_id, power_id) VALUES (?, ?)').run(trade.sender_id, pid); } catch(e) {}
-            }
-
-            db.prepare("UPDATE tr_trades SET status = 'declined' WHERE id = ?").run(tradeId);
+            const executeDecline = db.transaction(() => {
+              if (trade.offer_xats > 0) db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.offer_xats, trade.sender_id);
+              if (trade.offer_days > 0) db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.offer_days, trade.sender_id);
+              let offerPowersList = [];
+              try { offerPowersList = JSON.parse(trade.offer_powers); } catch(e) {}
+              for (const pid of offerPowersList) {
+                db.prepare('INSERT INTO user_powers (user_id, power_id, count) VALUES (?, ?, 1) ON CONFLICT(user_id, power_id) DO UPDATE SET count = count + 1').run(trade.sender_id, pid);
+              }
+              db.prepare("UPDATE tr_trades SET status = 'declined' WHERE id = ?").run(tradeId);
+            });
+            executeDecline();
 
             const senderWs = findOnlineUserWs(trade.sender_id);
             if (senderWs) sendTo(senderWs, xmlTag('tr', { a: 'declined', id: String(tradeId) }));
@@ -4389,15 +4421,17 @@ function handleXatConnection(ws) {
             const trade = db.prepare("SELECT * FROM tr_trades WHERE id = ? AND sender_id = ? AND status = 'pending'").get(tradeId, userData.dbId);
             if (!trade) break;
 
-            if (trade.offer_xats > 0) db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.offer_xats, userData.dbId);
-            if (trade.offer_days > 0) db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.offer_days, userData.dbId);
-            let offerPowersList = [];
-            try { offerPowersList = JSON.parse(trade.offer_powers); } catch(e) {}
-            for (const pid of offerPowersList) {
-              try { db.prepare('INSERT INTO user_powers (user_id, power_id) VALUES (?, ?)').run(userData.dbId, pid); } catch(e) {}
-            }
-
-            db.prepare("UPDATE tr_trades SET status = 'cancelled' WHERE id = ?").run(tradeId);
+            const executeCancel = db.transaction(() => {
+              if (trade.offer_xats > 0) db.prepare('UPDATE users SET xats = xats + ? WHERE id = ?').run(trade.offer_xats, userData.dbId);
+              if (trade.offer_days > 0) db.prepare('UPDATE users SET days = days + ? WHERE id = ?').run(trade.offer_days, userData.dbId);
+              let offerPowersList = [];
+              try { offerPowersList = JSON.parse(trade.offer_powers); } catch(e) {}
+              for (const pid of offerPowersList) {
+                db.prepare('INSERT INTO user_powers (user_id, power_id, count) VALUES (?, ?, 1) ON CONFLICT(user_id, power_id) DO UPDATE SET count = count + 1').run(userData.dbId, pid);
+              }
+              db.prepare("UPDATE tr_trades SET status = 'cancelled' WHERE id = ?").run(tradeId);
+            });
+            executeCancel();
             break;
           }
           break;
@@ -4415,6 +4449,12 @@ function handleXatConnection(ws) {
           const xsUpdates = [];
           const xsParams = [];
           if (newName !== undefined && newName !== '') {
+            // Check username uniqueness
+            const existingUser = db.prepare('SELECT id FROM users WHERE LOWER(username) = LOWER(?) AND id != ?').get(newName, userData.dbId);
+            if (existingUser) {
+              sendSystemMsg(ws, 'Username "' + newName + '" is already taken.');
+              break;
+            }
             xsUpdates.push('username = ?');
             xsParams.push(newName);
             userData.username = newName;
@@ -4959,7 +4999,12 @@ app.get('/web_gear/chat/Giphy.php', async (req, res) => {
 // Client requests /web_gear/chat/snd/<name>.mp3 as fallback for older browsers
 app.get('/web_gear/chat/snd/:filename', async (req, res) => {
   const filename = req.params.filename;
-  // Try local audies directory first
+  // Try local snd directory first
+  const sndPath = path.resolve(__dirname, '..', 'public', 'web_gear', 'chat', 'snd', filename);
+  if (fs.existsSync(sndPath)) {
+    return res.sendFile(sndPath);
+  }
+  // Also check audies directory (webm versions)
   const audiesPath = path.resolve(__dirname, '..', 'public', 'content', 'sounds', 'audies', filename);
   if (fs.existsSync(audiesPath)) {
     return res.sendFile(audiesPath);
@@ -4975,8 +5020,8 @@ app.get('/web_gear/chat/snd/:filename', async (req, res) => {
     }
     const buf = Buffer.from(await response.arrayBuffer());
     // Cache locally for future requests
-    try { fs.mkdirSync(path.dirname(audiesPath), { recursive: true }); } catch (_) {}
-    try { fs.writeFileSync(audiesPath, buf); } catch (_) {}
+    try { fs.mkdirSync(path.dirname(sndPath), { recursive: true }); } catch (_) {}
+    try { fs.writeFileSync(sndPath, buf); } catch (_) {}
     res.set('Content-Type', response.headers.get('Content-Type') || 'audio/mpeg');
     res.send(buf);
   } catch (err) {
@@ -7161,13 +7206,25 @@ app.get('/json/user.php', (req, res) => {
 });
 
 // Store claim endpoint — private server gives free xats/days to any logged-in user
+const storeClaimCooldowns = new Map(); // userId -> lastClaimTimestamp
 app.post('/api/store/claim', (req, res) => {
   const authUser = getAuthUser(req);
   if (!authUser) return res.status(401).json({ error: 'Login required' });
+
+  // Rate limit: 1 claim per 30 seconds per user
+  const now = Date.now();
+  const lastClaim = storeClaimCooldowns.get(authUser.id) || 0;
+  if (now - lastClaim < 30000) {
+    const waitSec = Math.ceil((30000 - (now - lastClaim)) / 1000);
+    return res.status(429).json({ error: `Please wait ${waitSec}s before claiming again` });
+  }
+
   const { xats, days } = req.body;
   const addXats = Math.min(parseInt(xats) || 0, 100000); // cap per claim
   const addDays = Math.min(parseInt(days) || 0, 730);
   if (addXats <= 0 && addDays <= 0) return res.json({ error: 'Nothing to claim' });
+
+  storeClaimCooldowns.set(authUser.id, now);
   db.prepare('UPDATE users SET xats = xats + ?, days = days + ? WHERE id = ?').run(addXats, addDays, authUser.id);
   const updated = db.prepare('SELECT xats, days FROM users WHERE id = ?').get(authUser.id);
   console.log(`[Store] ${authUser.username} claimed ${addXats} xats, ${addDays} days`);
@@ -7210,6 +7267,66 @@ app.get('/api/groups/active', (req, res) => {
   }
   groups.sort((a, b) => b.userCount - a.userCount);
   res.json({ groups });
+});
+
+// Search groups by name/topic
+app.get('/api/groups/search', (req, res) => {
+  const q = (req.query.q || '').trim();
+  if (!q) return res.json([]);
+  const groups = db.prepare(
+    "SELECT room_id AS id, name, topic, background FROM room_settings WHERE name LIKE ? OR topic LIKE ? LIMIT 50"
+  ).all('%' + q + '%', '%' + q + '%');
+  // Add live user count
+  groups.forEach(g => {
+    const room = rooms.get(String(g.id));
+    g.userCount = room && room.users ? room.users.size : 0;
+  });
+  res.json(groups);
+});
+
+// Groups listed for sale (marketplace)
+app.get('/api/groups/forsale', (req, res) => {
+  const q = (req.query.q || '').trim();
+  let query = "SELECT rs.room_id AS id, rs.name, rs.topic, rs.background, g.for_sale_price AS price, g.featured FROM room_settings rs LEFT JOIN groups g ON rs.room_id = g.id WHERE g.for_sale_price > 0";
+  const params = [];
+  if (q) {
+    query += " AND (rs.name LIKE ? OR rs.topic LIKE ?)";
+    params.push('%' + q + '%', '%' + q + '%');
+  }
+  query += " ORDER BY g.featured DESC, g.for_sale_price ASC LIMIT 50";
+  try {
+    const groups = db.prepare(query).all(...params);
+    groups.forEach(g => {
+      const room = rooms.get(String(g.id));
+      g.members = room && room.users ? room.users.size : 0;
+    });
+    res.json(groups);
+  } catch(e) {
+    // Table may not have for_sale_price column yet
+    res.json([]);
+  }
+});
+
+// Get smiley info by power ID (used by trade.html)
+app.get('/api/smiley/:id', (req, res) => {
+  const power = db.prepare('SELECT id, name, section, cost_xats, cost_days, is_epic, is_allpower FROM powers WHERE id = ?').get(req.params.id);
+  if (!power) return res.status(404).json({ error: 'Power not found' });
+  res.json(power);
+});
+
+// Submit a report
+app.post('/api/reports', (req, res) => {
+  const authUser = getAuthUser(req);
+  if (!authUser) return res.status(401).json({ error: 'Login required' });
+  const { type, target_id, reason, details } = req.body;
+  if (!type || !reason) return res.status(400).json({ error: 'Type and reason are required' });
+  try {
+    db.prepare('CREATE TABLE IF NOT EXISTS reports (id INTEGER PRIMARY KEY AUTOINCREMENT, reporter_id INTEGER, type TEXT, target_id TEXT, reason TEXT, details TEXT, status TEXT DEFAULT "open", created_at INTEGER)').run();
+    db.prepare('INSERT INTO reports (reporter_id, type, target_id, reason, details, created_at) VALUES (?, ?, ?, ?, ?, ?)').run(authUser.id, type, target_id || '', reason, details || '', Math.floor(Date.now() / 1000));
+    res.json({ ok: true });
+  } catch(e) {
+    res.status(500).json({ error: 'Failed to submit report' });
+  }
 });
 
 // List groups the authenticated user owns/manages
@@ -7493,7 +7610,20 @@ app.get('/api/bots', (req, res) => {
 });
 
 // ===== START SERVER =====
-const server = http.createServer(app);
+// HTTPS: set SSL_CERT and SSL_KEY env vars, or place cert.pem/key.pem in project root
+const sslCertPath = process.env.SSL_CERT || path.resolve(__dirname, '..', 'cert.pem');
+const sslKeyPath = process.env.SSL_KEY || path.resolve(__dirname, '..', 'key.pem');
+let server;
+if (fs.existsSync(sslCertPath) && fs.existsSync(sslKeyPath)) {
+  const https = require('https');
+  server = https.createServer({
+    cert: fs.readFileSync(sslCertPath),
+    key: fs.readFileSync(sslKeyPath),
+  }, app);
+  console.log('[TLS] HTTPS enabled with', sslCertPath);
+} else {
+  server = http.createServer(app);
+}
 // Accept WebSocket on both /ws (custom client) and /v2 (real xat WASM client)
 const wss = new WebSocketServer({ noServer: true });
 
@@ -7514,8 +7644,11 @@ wss.on('connection', (ws) => {
 });
 
 server.listen(port, () => {
-  console.log(`xat Private Server running at http://localhost:${port}`);
-  console.log(`WebSocket: ws://localhost:${port}/ws`);
+  const isHttps = server.cert !== undefined || (server._sharedCreds !== undefined);
+  const proto = fs.existsSync(sslCertPath) && fs.existsSync(sslKeyPath) ? 'https' : 'http';
+  const wsProto = proto === 'https' ? 'wss' : 'ws';
+  console.log(`xat Private Server running at ${proto}://localhost:${port}`);
+  console.log(`WebSocket: ${wsProto}://localhost:${port}/ws`);
   const userCount = db.prepare('SELECT COUNT(*) as c FROM users').get().c;
   console.log(`Users registered: ${userCount}`);
 });
